@@ -7,7 +7,8 @@ function Inicio() {
     return(
         <>
         
-
+        <Registro/>
+       
 
 
 

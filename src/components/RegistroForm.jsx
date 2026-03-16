@@ -1,6 +1,13 @@
+
+
+
+
 function RegistroForm() {
+
+
     return(
         <>
+        
         
         </>
     )

@@ -1,12 +1,21 @@
 {
-    "usuarios":[
-        {
-            "id":1,
-            "nombre":"Adrian",
-            "apellido":"Mora",
-            "email":"adrianmora@gmail.com",
-            "password":"123456",
-            "rol":"admin"
-        }
-    ]
+  "usuarios": [
+    {
+      "id": "1",
+      "nombre": "Adrian",
+      "apellido": "Mora",
+      "email": "adrianmora@gmail.com",
+      "password": "123456",
+      "rol": "admin"
+    },
+    {
+      "id": "eeda",
+      "Nombre": "Mantequilla",
+      "Correo": "numar@gmail.cr",
+      "Provincias": "Limón",
+      "Canton": "Matina",
+      "Distrito": "Batan",
+      "Roles": "Usuario"
+    }
+  ]
 }

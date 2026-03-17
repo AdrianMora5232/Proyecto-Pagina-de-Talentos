@@ -251,16 +251,6 @@ function CompPrincipal() {
                             </div>
                         </div>
 
-
-
-
-
-
-
-
-
-
-
                         {/*Este div es para finalizar las cartas  */}
                     </div>
 

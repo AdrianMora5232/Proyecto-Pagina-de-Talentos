@@ -1,0 +1,64 @@
+/* Fondo ocupa TODO el ancho */
+.perfil-bg{
+  width:100%;
+
+  background: linear-gradient(
+    to bottom,
+    #e9edf2 0%,
+    #eef2f5 40%,
+    #ffffff 100%
+  );
+
+  padding:50px 0;
+}
+
+/* Contenido centrado */
+.perfil-container{
+  max-width:1100px;
+  margin:0 auto;
+
+  display:flex;
+  align-items:center; /* 🔥 centra verticalmente */
+  gap:40px;
+
+  padding:40px 20px;
+}
+
+/* página */
+.perfil-page{
+  width:100%;
+  min-height:100vh;
+  background:#f7f9fb;
+}
+
+/* contenedor de InfoUsuario */
+.perfil-content{
+  width:100%;
+}
+
+/* contenedor de tabs */
+.secciones-perfil{
+  width:100%;
+}
+
+.perfil-container{
+  max-width:1100px;
+  margin:0 auto;
+}
+
+/* línea completa */
+.tabs-wrapper{
+  width:100%;
+  border-bottom:1px solid #e0e6ed;
+}
+
+/* 🔥 MISMO ancho que perfil */
+.tabs{
+  max-width:1100px;
+  margin:0 auto;
+  padding:0 20px;
+
+  display:flex;
+  gap:30px;
+}
+

@@ -1,0 +1,145 @@
+.perfil-container {
+  max-width: 1000px;
+  margin: 40px auto;
+  /* centra y separa */
+
+  display: flex;
+  align-items: center;
+  gap: 40px;
+
+  padding: 40px;
+
+  background: #f7f9fb;
+  /* ahora el fondo está aquí */
+  border-radius: 12px;
+  /* opcional pero se ve mejor */
+}
+
+/* imagen */
+.perfil-img img {
+  width: 140px;
+  height: 140px;
+
+  border-radius: 50%;
+  /* mejor práctica */
+  object-fit: cover;
+
+  border: 6px solid white;
+}
+
+.perfil-img {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+
+/* info */
+.perfil-info{
+  display:flex;
+  flex-direction:column;
+  justify-content:center;
+  gap:10px; /* 🔥 separaciones limpias */
+}
+
+/* nombre */
+.perfil-nombre {
+  font-size: 36px;
+  font-weight: 700;
+  margin: 0;
+  color: #1e2a38;
+}
+
+/* ubicación */
+.perfil-ubicacion {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+
+  font-size: 13px;
+  color: #7b8a9a;
+}
+
+.perfil-ubicacion p {
+  margin: 0;
+}
+
+.perfil-ubicacion span {
+  font-size: 12px;
+  display: flex;
+  /* 🔥 mejora alineación */
+  align-items: center;
+}
+
+/* profesión */
+.perfil-profesion {
+  margin-top: 12px;
+
+  font-size: 22px;
+  font-weight: 600;
+
+  color: #1e2a38;
+}
+
+/* descripción */
+.perfil-descripcion {
+  margin-top: 10px;
+
+  font-size: 17px;
+  line-height: 1.7;
+
+  max-width: 650px;
+  color: #5b6b7c;
+}
+
+/* botones */
+.perfil-botones {
+  display: flex;
+  gap: 15px;
+  margin-top: 20px;
+}
+
+/* botón principal */
+.btn-contact {
+  background: #2ca6d3;
+  color: white;
+
+  border: none;
+  border-radius: 10px;
+
+  padding: 12px 22px;
+
+  display: flex;
+  align-items: center;
+  gap: 10px;
+
+  font-weight: 600;
+  font-size: 16px;
+
+  cursor: pointer;
+  transition: 0.2s ease;
+}
+
+.btn-contact:hover {
+  background: #2396c0;
+}
+
+/* botón secundario */
+.btn-follow {
+  background: #e3e7ec;
+
+  border: none;
+  border-radius: 10px;
+
+  padding: 12px 22px;
+
+  font-weight: 600;
+  font-size: 16px;
+
+  cursor: pointer;
+  transition: 0.2s ease;
+}
+
+.btn-follow:hover {
+  background: #d6dbe1;
+}

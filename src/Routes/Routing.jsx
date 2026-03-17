@@ -3,9 +3,6 @@ import Inicio from "../pages/Inicio"
 import Principal from "../pages/Principal"
 import PerfilUsuario from "../pages/PerfilUsuario"
 
-
-import PaginadeAdmin from "../pages/PaginadeAdmin"
-
 function Routing() {
     return (
         <Router>

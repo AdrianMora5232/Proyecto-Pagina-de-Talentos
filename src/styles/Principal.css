@@ -1,0 +1,109 @@
+.DivImagenFondo {
+    margin: 0;
+    height: 500px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-image: url(https://cdn.al-ain.com/lg/images/2021/7/08/78-101837-palestinian-artist-turns-letters-murals-2.jpeg);
+    background-repeat: no-repeat;
+    background-position: center;
+    background-size: 90%;
+    width: 100%;
+    cursor: pointer;
+    transition: all 0.3s ease;
+
+}
+
+.SubTituloImagen {
+    color: azure;
+    text-align: center;
+
+}
+
+.ParrafoImagen {
+    color: #ffff
+}
+
+.cont-textos {
+    position: absolute;
+    color: #ffff;
+    width: 50%;
+    bottom: 10px;
+    border-radius: 13px;
+}
+
+.ButtonCrearCuenta {
+    display: block;
+    margin: 0 auto;
+}
+
+.ApartadoCartas {
+    display: flex;
+    gap: 20px;
+    overflow-x: auto;
+    scroll-behavior: smooth;
+    scrollbar-width: none;
+    /* Firefox */
+    -ms-overflow-style: none;
+    /* Internet Explorer 10+ */
+    padding: 10px;
+}
+
+.ApartadoCartas::-webkit-scrollbar {
+    display: none;
+    /* Safari and Chrome */
+}
+
+.ApartadoCartas .card {
+    flex: 0 0 auto;
+    /* Ensure cards don't shrink */
+}
+
+.btn-carousel {
+    background-color: rgba(59, 48, 210, 0.934);
+    color: white;
+    border: none;
+    border-radius: 50%;
+    width: 40px;
+    height: 40px;
+    font-size: 20px;
+    cursor: pointer;
+    z-index: 10;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.3);
+    transition: background-color 0.3s ease;
+}
+
+.btn-carousel:hover {
+    background-color: rgba(0, 0, 0, 0.8);
+}
+
+.btn-carousel.left {
+    left: -15px;
+}
+
+.btn-carousel.right {
+    right: -15px;
+}
+
+.NavTalentos {
+    display: flex;
+    gap: 20px;
+    justify-content: center;
+}
+
+.DivTalentoDestacado {
+    border-radius: 20px;
+    background-color: hsla(180, 47%, 93%, 0.905);
+    background-position: center;
+    margin: 5%;
+    border-color: aqua;
+    box-shadow: 2px 3px 2px rgba(90, 225, 235, 0.996);
+    margin: 0;
+    height: 400px;
+}

@@ -52,4 +52,4 @@ async function deleteData(endpoint, id) {
     }
 }
 
-export { postData, getData, patchData, deleteData }
+export default{ postData, getData, patchData, deleteData }

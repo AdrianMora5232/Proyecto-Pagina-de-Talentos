@@ -1,5 +1,6 @@
 import React from 'react'
-import CompPrincipal from '../components/CompPrincipal'
+import CompPrincipal from '../components/ApartadoPaginaPrincipal/CompPrincipal'
+
 
 function Principal() {
   return (

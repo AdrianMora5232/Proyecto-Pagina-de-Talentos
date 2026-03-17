@@ -10,8 +10,9 @@ const [Provincias , setProvincia] =useState("")
 const [Canton,setCanton] = useState("")
 const [Distrito,setDistrito] = useState("")
 const [Roles , setRol] = useState("")
+const [Contrasena , setContraseña] = useState("")
 async function RegistroUsuarios () { 
-    if ( Nombre === "" || Correo === "" || Provincias === "" || Canton === "" || Distrito === "" || Roles =="" ){
+    if ( Nombre === "" || Correo === "" || Provincias === "" || Canton === "" || Distrito === "" || Roles =="" || Contrasena ==="" ){
 
 
      alert("Debe de llenar todo los campos");
@@ -28,7 +29,8 @@ async function RegistroUsuarios () {
     Provincias : Provincias,
     Canton : Canton,
     Distrito : Distrito,
-    Roles : Roles
+    Roles : Roles,
+    Contrasena : Contrasena
   }
   const UsuarioAlmacenado = await Fetch.postData(objUsuarios,"usuarios")
   console.log(UsuarioAlmacenado)
@@ -68,6 +70,8 @@ async function RegistroUsuarios () {
                 <option value="Admin">Admin</option>
                 <option value="Usuario">Usuario</option>
             </select>
+            <h4>Contraseña</h4>
+            <input type="password" value={Contrasena} onChange={(evento)=> setContraseña(evento.target.value)} />
             <br />
             <br />
             <button onClick={RegistroUsuarios} >Crear Cuenta</button>

@@ -9,46 +9,54 @@
     background-position: center;
     background-size: 90%;
     width: 100%;
-     cursor: pointer;
-      transition: all 0.3s ease;
-     
+    cursor: pointer;
+    transition: all 0.3s ease;
+
 }
-.SubTituloImagen{
+
+.SubTituloImagen {
     color: azure;
     text-align: center;
-  
+
 }
-.ParrafoImagen{
+
+.ParrafoImagen {
     color: #ffff
-   
 }
-.cont-textos{
+
+.cont-textos {
     position: absolute;
     color: #ffff;
     width: 50%;
     bottom: 10px;
     border-radius: 13px;
 }
-.ButtonCrearCuenta{
- display: block;
+
+.ButtonCrearCuenta {
+    display: block;
     margin: 0 auto;
 }
+
 .ApartadoCartas {
     display: flex;
     gap: 20px;
     overflow-x: auto;
     scroll-behavior: smooth;
-    scrollbar-width: none; /* Firefox */
-    -ms-overflow-style: none; /* Internet Explorer 10+ */
+    scrollbar-width: none;
+    /* Firefox */
+    -ms-overflow-style: none;
+    /* Internet Explorer 10+ */
     padding: 10px;
 }
 
 .ApartadoCartas::-webkit-scrollbar {
-    display: none; /* Safari and Chrome */
+    display: none;
+    /* Safari and Chrome */
 }
 
 .ApartadoCartas .card {
-    flex: 0 0 auto; /* Ensure cards don't shrink */
+    flex: 0 0 auto;
+    /* Ensure cards don't shrink */
 }
 
 .btn-carousel {
@@ -82,8 +90,20 @@
 .btn-carousel.right {
     right: -15px;
 }
-.NavTalentos{
-  display: flex;
-  gap: 20px;
-  justify-content: center;
+
+.NavTalentos {
+    display: flex;
+    gap: 20px;
+    justify-content: center;
+}
+
+.DivTalentoDestacado {
+    border-radius: 20px;
+    background-color: hsla(180, 47%, 93%, 0.905);
+    background-position: center;
+    margin: 5%;
+    border-color: aqua;
+    box-shadow: 2px 3px 2px rgba(90, 225, 235, 0.996);
+    margin: 0;
+    height: 400px;
 }

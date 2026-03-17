@@ -243,7 +243,7 @@ function CompPrincipal() {
                                 <h5 className="card-title">Animador de Fiestas</h5>
                                 <p className="card-text">
                                     Soy animador de fiestas, apasionado por crear momentos de alegría, diversión y experiencias inolvidables.
-                                     Mi objetivo es contagiar energía positiva, conectar con el público y transformar cada evento en una celebración única, llena de risas y participación.
+                                    Mi objetivo es contagiar energía positiva, conectar con el público y transformar cada evento en una celebración única, llena de risas y participación.
                                 </p>
                                 <a href="#" className="btn btn-primary">
                                     Go somewhere
@@ -260,6 +260,15 @@ function CompPrincipal() {
                 </div>
             </div>
 
+            {/* div que va a contener El talento destacado  */}
+            <div className='DivTalentoDestacado'>
+
+             <img src="https://www.arteescuela.com/wp-content/uploads/2022/05/cuadros-famosos-de-paisajes-1200x720.jpg" alt="" height={200} width={800} />
+             
+
+
+        
+            </div>
 
 
         </div>

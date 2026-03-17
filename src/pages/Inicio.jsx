@@ -7,8 +7,8 @@ function Inicio() {
     return(
         <>
         
-   
-     <Registro/>
+   <IniciarSesion/>
+ 
 
 
         </>

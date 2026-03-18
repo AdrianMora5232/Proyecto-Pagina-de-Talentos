@@ -1,5 +1,7 @@
 import React from 'react'
+import Navbar from '../components/navbar/Navbar'
 import MainSobreNosotros from '../components/SobreNosotros/MainSobreNosotros'
+import Footer from '../components/Footer/Footer'
 
 function SobreNosotros() {
     return (
@@ -9,6 +11,9 @@ function SobreNosotros() {
             </div>
             <div>
                 <MainSobreNosotros />
+            </div>
+            <div>
+                <Footer />
             </div>
         </div>
     )

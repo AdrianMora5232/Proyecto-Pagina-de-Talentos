@@ -2,6 +2,7 @@ import 'bootstrap/dist/css/bootstrap.min.css';
 import React, { useRef } from 'react'
 import 'bootstrap/dist/js/bootstrap.bundle.min';
 import "../../styles/Principal.css"
+import { Link } from 'react-router-dom';
 
 function CompPrincipal() {
     const carouselRef = useRef(null);
@@ -57,37 +58,17 @@ function CompPrincipal() {
                                         Proyectos
                                     </a>
                                 </li>
-                                <li className="nav-item dropdown">
-                                    <a
-                                        className="nav-link dropdown-toggle"
-                                        href="#"
-                                        role="button"
-                                        data-bs-toggle="dropdown"
-                                        aria-expanded="false"
-                                    >
-                                        Contactos
+                                <li className="nav-item">
+                                    <a className="nav-link" href="/pagina-contacto">
+                                        Contacto
                                     </a>
-                                    <ul className="dropdown-menu">
-                                        <li>
-                                            <a className="dropdown-item" href="#">
-                                                Action
-                                            </a>
-                                        </li>
-                                        <li>
-                                            <a className="dropdown-item" href="#">
-                                                Another action
-                                            </a>
-                                        </li>
-                                        <li>
-                                            <hr className="dropdown-divider" />
-                                        </li>
-                                        <li>
-                                            <a className="dropdown-item" href="#">
-                                                Something else here
-                                            </a>
-                                        </li>
-                                    </ul>
                                 </li>
+                                <li className="nav-item">
+                                    <a className="nav-link" href="#">
+                                       Sobre Nosotros
+                                    </a>
+                                </li>
+                                
                                 <li className="nav-item">
                                     <a className="nav-link disabled" aria-disabled="true">
                                         {/* Espacio de busqueda por ahora vacio */}

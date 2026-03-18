@@ -62,8 +62,8 @@ function MainSobreNosotros() {
                     <p className="stat-label">PROYECTOS PUBLICADOS</p>
                 </div>
                 <div className="stat-item">
-                    <h3 className="stat-number">+20</h3>
-                    <p className="stat-label">PAÍSES CONECTADOS</p>
+                    <h3 className="stat-number">7</h3>
+                    <p className="stat-label">PROVINCIAS</p>
                 </div>
             </section>
 

@@ -287,6 +287,10 @@ function CompPrincipal() {
                 </div>
             </div>
 
+            {/* Div para el pie de pagina */}
+            <div className='DivPiePagina'>
+             
+            </div>
 
         </div >
     )

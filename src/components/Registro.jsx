@@ -21,6 +21,8 @@ async function RegistroUsuarios () {
 
     }else{
 
+
+        
         alert("Registro exitoso")
     }
   const objUsuarios = {

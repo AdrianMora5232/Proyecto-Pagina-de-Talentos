@@ -98,12 +98,40 @@
 }
 
 .DivTalentoDestacado {
-    border-radius: 20px;
-    background-color: hsla(180, 47%, 93%, 0.905);
+    display: grid;
+    grid-template-columns: repeat(2 , 1fr);
+    border-radius: 60px;
+    background-color: hsl(180, 41%, 95%);
     background-position: center;
-    margin: 5%;
-    border-color: aqua;
-    box-shadow: 2px 3px 2px rgba(90, 225, 235, 0.996);
-    margin: 0;
+    margin: 30%;
+    width: 90%;
+    position: absolute;
+    left: 50px;
+    border-color:6px 6px 6px rgb(126, 161, 244);
+    box-shadow: 6px 6px 6px rgba(149, 166, 243, 0.996);
+    margin: 3%;
     height: 400px;
+   
+;
+}
+.ImagenTalentoDestacado{
+  margin: 5%;
+    height: 300px;
+    display: flex;
+    justify-content: end;
+    align-items: center;
+    border-radius: 16px;
+
+}
+
+.imgCont{
+    position: relative;
+    top: 35px;
+}
+.BotonVerPerfil{
+background-color: rgb(65, 94, 255);
+color: aliceblue;
+border-radius: 5px;
+border: #ffff;
+
 }

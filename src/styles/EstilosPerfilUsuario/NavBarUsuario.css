@@ -4,7 +4,7 @@
     justify-content:space-between;
 
     padding:12px 40px;
-    background:#f8f9fb;
+    background:#ffffff;
 
     border-bottom:1px solid #e2e6ea;
 }
@@ -43,4 +43,9 @@
 
 .icon-btn:hover{
     background:#e3e7ec;
+}
+
+.proyectos-container button:hover span{
+  transform:translateX(3px);
+  transition:0.2s;
 }

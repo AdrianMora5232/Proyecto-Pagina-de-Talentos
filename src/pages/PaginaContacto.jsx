@@ -1,6 +1,6 @@
 import React from 'react'
-import CompContactos from '../components/Contactos/CompContactos'
 import Navbar from '../components/Navbar/Navbar'
+import FormularioQuejas from '../components/Contactos/CompContactos'
 
 
 
@@ -8,7 +8,7 @@ function PaginaContacto() {
   return (
     <div>
       <Navbar/>
-      <CompContactos/>
+      <FormularioQuejas/>
 
     </div>
   )

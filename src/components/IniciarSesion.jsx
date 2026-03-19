@@ -20,17 +20,11 @@ function IniciarSesion() {
         traerUsuarios()
     }, [])
     function validarInicio() {
-        const usuarioValido = usuarios.find((usuario) => usuario.Correo == Correo && usuario.Contrasena == contrasena && usuario.Roles == Rol)
+        const usuarioValido = usuarios.find((usuario) => usuario.Correo == Correo && usuario.Contrasena == contrasena)
         if (usuarioValido) {
             alert("Ingreso Exitoso")
             localStorage.setItem("UsuarioActivo", JSON.stringify(usuarioValido));
-
-            if (usuarioValido.Roles === "Admin") {
-               navigate("/Admin")
-
-            } else {
-                if (usuarioValido.Roles === "Usuario") { }
-            }
+            navigate("/principal")
         } else {
             alert("El usuario no existe")
         }
@@ -46,6 +40,7 @@ function IniciarSesion() {
             <input type="password" value={contrasena} onChange={(evento) => setContrasena(evento.target.value)} />
             <h4>Tipo de rol</h4>
             <select onChange={(evento) => setRol(evento.target.value)}>
+                <option value="" selected disabled>Seleccione el tipo de rol</option>
                 <option value="Usuario">Usuario</option>
                 <option value="Admin">Admin</option>
             </select>

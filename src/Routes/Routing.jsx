@@ -7,6 +7,7 @@ import SobreNosotros from "../pages/SobreNosotros"
 import PaguinaIniciar from "../pages/PaguinaIniciar"
 import PaginadeAdmin from "../pages/PaginadeAdmin"
 import PaginaRegistro from "../pages/PaginaRegistro"
+import Portafolio from "../pages/Portafolio"
 
 function Routing() {
     return (
@@ -20,6 +21,7 @@ function Routing() {
                  <Route path = "Admin" element = {<PaginadeAdmin/>} />
                  <Route path="Iniciar" element={<PaguinaIniciar/>}/>
                  <Route path="Registro" element={<PaginaRegistro/>}/>
+                <Route path="/portafolio" element={<Portafolio />} />
             </Routes>
         </Router>
     )

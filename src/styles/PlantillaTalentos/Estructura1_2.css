@@ -1,0 +1,20 @@
+.contenedor-est-1-2 {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 10px;
+    padding: 10px;
+    border: 1px solid lightblue;
+}
+
+.header {
+    width: auto;
+    height: 90px;
+    grid-column: 1 / -1;  /* empieza en la columna 1, termina en la última columna*/
+    background: lightblue;
+}
+
+.col {
+    width: auto;
+    height: 400px;
+    background: lightgray;
+}

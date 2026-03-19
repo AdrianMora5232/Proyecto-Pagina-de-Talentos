@@ -1,4 +1,5 @@
 import React from 'react'
+import '../../styles/NavBar.css'
 
 function Navbar() {
 
@@ -7,11 +8,11 @@ function Navbar() {
   return (
     <div>
       
-{/* Navbar de las paginas y apartado para bsuquedas */}
+ {/* Navbar de las paginas y apartado para bsuquedas */}
                 <nav className="navbar navbar-expand-lg bg-body-tertiary">
                     <div className="container-fluid">
                         <a className="navbar-brand" href="#">
-                            Navbar
+                            Krea
                         </a>
                         <button
                             className="navbar-toggler"
@@ -57,7 +58,7 @@ function Navbar() {
                                 <input
                                     className="form-control me-2"
                                     type="search"
-                                    placeholder="Search"
+                                    placeholder="Buscar proyectos..."
                                     aria-label="Search"
                                 />
                                 <button className="btn btn-outline-success" type="submit">

@@ -1,7 +1,7 @@
 import React from 'react'
 import Navbar from '../components/Navbar/Navbar'
 import FormularioQuejas from '../components/Contactos/CompContactos'
-
+import Footer from '../components/Footer/Footer'
 
 
 function PaginaContacto() {
@@ -9,7 +9,7 @@ function PaginaContacto() {
     <div>
       <Navbar/>
       <FormularioQuejas/>
-
+      <Footer/>
     </div>
   )
 }

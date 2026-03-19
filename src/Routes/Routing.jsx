@@ -3,7 +3,7 @@ import Inicio from "../pages/Inicio"
 import Principal from "../pages/Principal"
 import PerfilUsuario from "../pages/PerfilUsuario"
 import PaginaContacto from "../pages/PaginaContacto"
-
+import SobreNosotros from "../pages/SobreNosotros"
 
 function Routing() {
     return (
@@ -13,6 +13,7 @@ function Routing() {
                 <Route path="/principal" element={<Principal />} />
                 <Route path="/perfil-usuario" element={<PerfilUsuario />} />
                 <Route path="/pagina-contacto" element={<PaginaContacto />} />
+                <Route path="/sobre-nosotros" element={<SobreNosotros />} />
             </Routes>
         </Router>
     )

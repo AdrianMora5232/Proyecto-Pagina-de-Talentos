@@ -46,6 +46,8 @@ color: rgb(251, 255, 255);
 }
 .DivPresentacion{
   background-color: rgb(247, 243, 236);
+  padding: 4%;
+
 }
 
 .Descripcion{
@@ -54,7 +56,7 @@ color: rgb(251, 255, 255);
 }
 .DivImagen{
  position: absolute;
- top:   35%;
+ top:   45%;
  margin-left: 720px;
  z-index: 1;
  cursor: pointer;
@@ -65,5 +67,16 @@ color: rgb(251, 255, 255);
   box-shadow: 5px 6px 15px rgba(130, 207, 237, 0.971);
   cursor: pointer;
   transition: all 0.3s ease;;
-
+}
+.SubTituloDescrip{
+ font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+justify-self: center;
+}
+.ParrafoDescrip{
+  font-size: 100%;
+  color: rgb(143, 138, 138);
+}
+.DivDescrip{
+  width: 80%;
+margin-left: 10%;
 }

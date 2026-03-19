@@ -1,0 +1,34 @@
+.navbar {
+display: flex;
+justify-content: space-between;
+align-items: center;
+padding: 10px;
+  color: rgb(9, 46, 211);
+font-family: 'Poppins', Arial, sans-serif;
+background-color: blue;
+} 
+
+.nav-links{
+ list-style: none; 
+  margin: 0;
+  padding: 0;
+    display: flex;
+  gap: 15px;
+  list-style: none;
+ 
+  
+   
+
+ 
+}
+.nav-links li{
+cursor: pointer;
+border: 12px  ;
+border-radius: 35px;
+color: rgb(218, 224, 224);
+ transition: all 0.3s ease;
+}
+.nav-links li:hover{
+  background-color: #96a0a1;
+  transform: translateY(-3px);
+}

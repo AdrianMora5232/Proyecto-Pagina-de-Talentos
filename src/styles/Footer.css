@@ -59,6 +59,12 @@
   }
 }
 
+.footer-socials {
+  display: flex;
+  gap: 15px;
+  align-items: center;
+}
+
 
 .pie-pagina{
   position: relative;

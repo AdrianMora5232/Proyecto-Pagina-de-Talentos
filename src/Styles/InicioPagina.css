@@ -45,7 +45,7 @@ color: rgb(251, 255, 255);
   color: rgb(0, 166, 255);
 }
 .DivPresentacion{
-  background-color: rgb(247, 243, 236);
+  background-color: rgb(243, 241, 237);
   padding: 4%;
 
 }
@@ -79,4 +79,59 @@ justify-self: center;
 .DivDescrip{
   width: 80%;
 margin-left: 10%;
+}
+
+.FeaturesContainer {
+  display: flex;
+  justify-content: center;
+  gap: 30px;
+  margin: 40px auto;
+  padding: 0 5%;
+  max-width: 1200px;
+}
+
+.FeatureCard {
+  background-color: #f8fbfc;
+  border-radius: 12px;
+  padding: 30px;
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  transition: transform 0.3s ease;
+}
+
+.FeatureCard:hover {
+  transform: translateY(-5px);
+}
+
+.FeatureIcon {
+  background-color: #e0f4ff;
+  border-radius: 10px;
+  width: 45px;
+  height: 45px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-bottom: 20px;
+}
+
+.FeatureIcon svg {
+  width: 24px;
+  height: 24px;
+  color: #00aced;
+}
+
+.FeatureTitle {
+  font-family: 'Poppins', Arial, sans-serif;
+  color: #172433;
+  font-size: 1.15rem;
+  font-weight: 700;
+  margin-bottom: 12px;
+}
+
+.FeatureText {
+  color: #637381;
+  font-size: 0.95rem;
+  line-height: 1.6;
+  margin: 0;
 }

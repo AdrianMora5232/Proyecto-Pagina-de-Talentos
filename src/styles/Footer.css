@@ -6,6 +6,7 @@
   padding: 30px 0;
   font-family: 'Inter', sans-serif;
   width: 100%;
+  margin-top: auto;
 }
 
 .footer-content {
@@ -56,4 +57,11 @@
     justify-content: center;
     gap: 15px;
   }
+}
+
+
+.pie-pagina{
+  position: relative;
+  top: 500px;
+  
 }

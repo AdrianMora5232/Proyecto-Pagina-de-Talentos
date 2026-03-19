@@ -4,6 +4,9 @@ import Principal from "../pages/Principal"
 import PerfilUsuario from "../pages/PerfilUsuario"
 import PaginaContacto from "../pages/PaginaContacto"
 import SobreNosotros from "../pages/SobreNosotros"
+import PaguinaIniciar from "../pages/PaguinaIniciar"
+import PaginadeAdmin from "../pages/PaginadeAdmin"
+import PaginaRegistro from "../pages/PaginaRegistro"
 
 function Routing() {
     return (
@@ -14,6 +17,9 @@ function Routing() {
                 <Route path="/perfil-usuario" element={<PerfilUsuario />} />
                 <Route path="/pagina-contacto" element={<PaginaContacto />} />
                 <Route path="/sobre-nosotros" element={<SobreNosotros />} />
+                 <Route path = "Admin" element = {<PaginadeAdmin/>} />
+                 <Route path="Iniciar" element={<PaguinaIniciar/>}/>
+                 <Route path="Registro" element={<PaginaRegistro/>}/>
             </Routes>
         </Router>
     )

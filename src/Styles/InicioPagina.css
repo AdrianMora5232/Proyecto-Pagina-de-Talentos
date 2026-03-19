@@ -1,0 +1,69 @@
+.navbar {
+display: flex;
+justify-content: space-between;
+align-items: center;
+padding: 10px;
+  color: rgb(0, 0, 0);
+font-family: 'Poppins', Arial, sans-serif;
+} 
+.nav-links{
+ list-style: none; 
+  margin: 0;
+  padding: 0;
+    display: flex;
+  gap: 15px;
+  list-style: none;
+}
+.nav-links li{
+cursor: pointer;
+border: 12px  ;
+border-radius: 35px;
+color: rgb(251, 255, 255);
+ transition: all 0.3s ease;
+}
+.nav-links li:hover{
+  background-color: #4ec0fd;
+  transform: translateY(-3px);
+}
+.BotonIniciar{
+  background-color: rgb(61, 149, 243);
+  border-radius: 1%;
+}
+.BotonCrear{
+  background-color: rgb(61, 149, 243);
+  border-radius: 1%;
+}
+.BotonPerfil{
+  background-color: rgb(61, 149, 243);
+  border-radius:7%;
+   margin-left: 50px;
+  width: 15%;
+  color: rgb(255, 255, 255);
+  border-color: #4ec0fd;
+}
+.Subtitulo{
+  color: rgb(0, 166, 255);
+}
+.DivPresentacion{
+  background-color: rgb(247, 243, 236);
+}
+
+.Descripcion{
+  width: 40%;
+  margin-left: 3%;
+}
+.DivImagen{
+ position: absolute;
+ top:   35%;
+ margin-left: 720px;
+ z-index: 1;
+ cursor: pointer;
+ transition: all 0.3s ease;;
+}
+.ImagenPrincipal{
+  border-radius: 3%;
+  box-shadow: 5px 6px 15px rgba(130, 207, 237, 0.971);
+  cursor: pointer;
+  transition: all 0.3s ease;;
+
+}

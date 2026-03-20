@@ -1,0 +1,35 @@
+.headerLogo{
+background-color: rgb(52, 121, 250);
+}
+.TituloLogo{
+margin-left: 20%;
+}
+.DivForm{
+    display: grid;
+    align-items: center;
+    justify-content: center;
+    grid-template-columns: 1fr;
+    width: 30%;
+    background-color: aliceblue;
+    padding: 50px 300px;
+    
+}
+.TituloPrincipal{
+    justify-self: center;
+}
+/*  */
+.ParrafoForm{
+    display: grid;
+    grid-template-columns: 1fr;
+    justify-content: center;
+    align-items: center;
+    text-align: center
+
+}
+.BotonEntrar{
+    background-color: rgb(61, 149, 243);
+    border-radius: 6%;
+    margin-left: 10%;
+
+}
+

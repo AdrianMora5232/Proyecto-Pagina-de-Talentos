@@ -1,31 +1,24 @@
 {
   "usuarios": [
     {
-      "id": "1",
-      "nombre": "Adrian",
-      "apellido": "Mora",
-      "email": "adrianmora@gmail.com",
-      "password": "123456",
-      "rol": "admin"
-    },
-    {
-      "id": "eeda",
-      "Nombre": "Mantequilla",
-      "Correo": "numar@gmail.cr",
-      "Provincias": "Limón",
-      "Canton": "Matina",
-      "Distrito": "Batan",
-      "Roles": "Usuario"
-    },
-    {
-      "id": "c6b0",
-      "Nombre": "Alejandro",
+      "id": "1980",
+      "Nombre": "Ale",
       "Correo": "alejandronicmen@gmail.com",
       "Provincias": "San José",
       "Canton": "Alajuelita",
-      "Distrito": "ianiw",
+      "Distrito": "Calle cochea",
       "Roles": "Usuario",
       "Contrasena": "1234"
+    },
+    {
+      "id": "4a5c",
+      "Nombre": "Luna",
+      "Correo": "Lunaanhdaixj@gmail",
+      "Provincias": "Alajuela",
+      "Canton": "iojiojax",
+      "Distrito": "papayas",
+      "Roles": "Usuario",
+      "Contrasena": "123"
     }
   ]
 }

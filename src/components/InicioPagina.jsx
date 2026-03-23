@@ -10,6 +10,8 @@ function InicioPagina() {
   const ircuenta = () => {
     navigate("Registro")
   }
+
+
   return (
     <div>
       {/* Div de navegacion de la pagina principal */}
@@ -26,7 +28,7 @@ function InicioPagina() {
       <br />
       <br />
       <br />
-      <button className='BotonPerfil'> <strong>Crea tu perfil profecional</strong></button>
+      <button className='BotonPerfil' onClick={ircuenta}><strong>Crea tu perfil profecional</strong></button>
       <br />
       {/* Div de presentacion de la pagina */}
       <div className='DivPresentacion'>

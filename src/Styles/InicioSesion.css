@@ -1,35 +1,153 @@
-.headerLogo{
-background-color: rgb(52, 121, 250);
-}
-.TituloLogo{
-margin-left: 20%;
-}
-.DivForm{
-    display: grid;
+.MainLoginContainer {
+    display: flex;
+    flex-direction: column;
     align-items: center;
     justify-content: center;
-    grid-template-columns: 1fr;
-    width: 30%;
-    background-color: aliceblue;
-    padding: 50px 300px;
-    
+    min-height: 100vh;
+    background: linear-gradient(135deg, #e0f2fe 0%, #bae6fd 100%);
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    position: relative;
 }
-.TituloPrincipal{
-    justify-self: center;
+
+.HeaderActions {
+    position: absolute;
+    top: 20px;
+    left: 20px;
 }
-/*  */
-.ParrafoForm{
-    display: grid;
-    grid-template-columns: 1fr;
-    justify-content: center;
+
+.BotonVolver {
+    background: none;
+    border: 1px solid #0284c7;
+    color: #0284c7;
+    padding: 8px 16px;
+    border-radius: 20px;
+    font-weight: 600;
+    cursor: pointer;
+    transition: all 0.2s;
+    background-color: rgba(255, 255, 255, 0.5);
+}
+
+.BotonVolver:hover {
+    background-color: #0284c7;
+    color: white;
+}
+
+.headerLogo {
+    display: flex;
     align-items: center;
-    text-align: center
-
+    gap: 10px;
+    margin-bottom: 2rem;
 }
-.BotonEntrar{
-    background-color: rgb(61, 149, 243);
-    border-radius: 6%;
-    margin-left: 10%;
 
+.TituloLogo {
+    font-size: 2rem;
+    color: #0369a1;
+    margin: 0;
+}
+
+.DivForm {
+    background-color: #ffffff;
+    padding: 2.5rem;
+    border-radius: 12px;
+    box-shadow: 0 10px 25px -5px rgba(0, 0, 0, 0.1), 0 8px 10px -6px rgba(0, 0, 0, 0.1);
+    width: 100%;
+    max-width: 400px;
+    display: flex;
+    flex-direction: column;
+    gap: 1.5rem;
+}
+
+.TituloPrincipal {
+    text-align: center;
+    color: #0c4a6e;
+    font-size: 1.75rem;
+    margin: 0;
+}
+
+.SubtituloForm {
+    text-align: center;
+    color: #64748b;
+    margin-top: -0.5rem;
+    margin-bottom: 1rem;
+}
+
+.ParrafoForm {
+    display: flex;
+    flex-direction: column;
+    gap: 1.25rem;
+}
+
+.InputGroup {
+    display: flex;
+    flex-direction: column;
+    gap: 0.5rem;
+}
+
+.InputGroup label {
+    font-weight: 600;
+    color: #334155;
+    font-size: 0.9rem;
+}
+
+.InputGroup input, 
+.InputGroup select {
+    padding: 0.75rem;
+    border: 1px solid #cbd5e1;
+    border-radius: 6px;
+    font-size: 1rem;
+    color: #1e293b;
+    transition: border-color 0.2s, box-shadow 0.2s;
+    background-color: #f8fafc;
+}
+
+.InputGroup input:focus, 
+.InputGroup select:focus {
+    outline: none;
+    border-color: #38bdf8;
+    box-shadow: 0 0 0 3px rgba(56, 189, 248, 0.2);
+    background-color: #ffffff;
+}
+
+.BotonEntrar {
+    background-color: #0284c7;
+    color: white;
+    padding: 0.75rem;
+    border: none;
+    border-radius: 6px;
+    font-size: 1rem;
+    font-weight: 600;
+    cursor: pointer;
+    transition: background-color 0.2s;
+    margin-top: 1rem;
+}
+
+.BotonEntrar:hover {
+    background-color: #0369a1;
+}
+
+.BotonEntrar:active {
+    background-color: #0c4a6e;
+}
+
+.RegistroPrompt {
+    text-align: center;
+    margin-top: 1rem;
+}
+
+.RegistroPrompt h6 {
+    color: #64748b;
+    font-size: 0.9rem;
+    margin: 0;
+}
+
+.link_registro {
+    color: #0284c7;
+    text-decoration: none;
+    font-weight: 600;
+    margin-left: 5px;
+}
+
+.link_registro:hover {
+    text-decoration: underline;
 }
 

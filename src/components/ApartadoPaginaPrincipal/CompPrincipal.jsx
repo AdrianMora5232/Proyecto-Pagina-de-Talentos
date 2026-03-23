@@ -187,27 +187,27 @@ function CompPrincipal() {
                     <img className='ImagenTalentoDestacado' src="https://www.arteescuela.com/wp-content/uploads/2022/05/cuadros-famosos-de-paisajes-1200x720.jpg" alt="" height={200} width={600} />
                 </div>
                 <div className='DivInfoPintura'>
-                <h2>“Paisaje con figuras bajo un árbol”</h2>
-                <h4>Autor:Thomas Gainsborough</h4>
-                <h6>Técnica: Óleo sobre lienzo
-                    Dimensiones: 22,2 × 17,1 cm
-                    Ubicación actual: National Gallery, Londres
-                </h6>
-                <h6>Elementos visuales:</h6>
-                <ul>
-                    <li> Árbol central dominante: Sus ramas frondosas crean un espacio de sombra que acoge a las figuras.</li>
+                    <h2>“Paisaje con figuras bajo un árbol”</h2>
+                    <h4>Autor:Thomas Gainsborough</h4>
+                    <h6>Técnica: Óleo sobre lienzo
+                        Dimensiones: 22,2 × 17,1 cm
+                        Ubicación actual: National Gallery, Londres
+                    </h6>
+                    <h6>Elementos visuales:</h6>
+                    <ul>
+                        <li> Árbol central dominante: Sus ramas frondosas crean un espacio de sombra que acoge a las figuras.</li>
 
-                    <li> Tres figuras humanas: Dos sentadas o arrodilladas y una de pie, en actitud tranquila, posiblemente conversando o descansando.</li>
+                        <li> Tres figuras humanas: Dos sentadas o arrodilladas y una de pie, en actitud tranquila, posiblemente conversando o descansando.</li>
 
-                    <li>  Atmósfera: Fondo brumoso con tonos suaves de azul y gris, que aporta calma y profundidad.</li>
+                        <li>  Atmósfera: Fondo brumoso con tonos suaves de azul y gris, que aporta calma y profundidad.</li>
 
-                    <li> Composición: Equilibrio entre la monumentalidad del árbol y la pequeñez de las figuras, resaltando la relación íntima entre el ser humano y la naturaleza.</li>
-                </ul>
-                <button className='BotonVerPerfil'>Ver perfil</button>
+                        <li> Composición: Equilibrio entre la monumentalidad del árbol y la pequeñez de las figuras, resaltando la relación íntima entre el ser humano y la naturaleza.</li>
+                    </ul>
+                    <button className='BotonVerPerfil'>Ver perfil</button>
                 </div>
             </div>
 
-            
+
 
         </div >
     )

@@ -13,7 +13,7 @@ function Principal() {
       <div>
       <CompPrincipal/>
       </div>
-      <div className='pie-pagina'>
+      <div >
       <Footer/>
       </div>
     </div>

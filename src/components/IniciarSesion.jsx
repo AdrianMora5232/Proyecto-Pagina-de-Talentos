@@ -72,7 +72,7 @@ function IniciarSesion() {
                     
                     <div className='RegistroPrompt'>
                         <h6>¿No tienes cuenta?
-                            <a className='link_registro' href="http://localhost:5174/Registro">Regístrate Aquí</a>
+                            <a className='link_registro' href="/Registro">Regístrate Aquí</a>
                         </h6>
                     </div>
                 </div>

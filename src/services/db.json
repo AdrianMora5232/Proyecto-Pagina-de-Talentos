@@ -28,10 +28,8 @@
       "Distrito": "San Jocesito",
       "Roles": "Usuario",
       "Contrasena": "123"
-    },
-   {
-    
-   }
+    }
+
   ],
   "$schema": "./node_modules/json-server/schema.json"
 }

@@ -22,7 +22,7 @@
 }
 
 .BrandName {
-    color: #38bdf8;
+    color: #31c5ff;
     font-weight: 800;
 }
 
@@ -152,4 +152,7 @@
     .InputRow {
         flex-direction: column;
     }
+}
+.TituloBienvenido{
+    color: #f1f5f9;
 }

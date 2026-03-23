@@ -19,7 +19,7 @@ function Routing() {
                 <Route path="/pagina-contacto" element={<PaginaContacto />} />
                 <Route path="/sobre-nosotros" element={<SobreNosotros />} />
                 <Route path="Iniciar" element={<PaguinaIniciar />} />
-                <Route path="Registro" element={<PaginaRegistro />} />
+                <Route path="/Registro" element={<PaginaRegistro />} />
                 <Route path="/portafolio" element={<Portafolio />} />
                 <Route path="/Admin" element={<Admin />} />
             </Routes>

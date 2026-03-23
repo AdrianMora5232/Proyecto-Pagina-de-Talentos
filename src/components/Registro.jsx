@@ -45,7 +45,7 @@ function Registro() {
         <div className='MainRegistroContainer'>
             <div className='BackgroundDecoration'>
                 {/* Aquí podría ir una imagen o gradiente al lado izquierdo */}
-                <h1>Bienvenido a <span className='BrandName'>Krea</span></h1>
+                <h1 className='TituloBienvenido'>Bienvenido a <span className='BrandName'>Krea</span></h1>
                 <p>Únete a nuestra comunidad de talentos y muestra al mundo lo que puedes hacer.</p>
             </div>
             

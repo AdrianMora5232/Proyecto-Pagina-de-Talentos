@@ -1,18 +1,14 @@
+import "../../styles/PlantillaTalentos/Grilla1_2Derecha.css";
+
+
 function Grilla1_2_Derecha() {
     return (
         <>
-            <div className="fila1">
-
-            </div>
-            
-            <div className="columna1">
-
-            </div>
-
-
-            <div className="columna2">
-
-            </div>
+          <div class="grid">
+            <div class="top-left">Cuadrote</div>
+            <div class="bottom-left">Fila 1</div>
+            <div class="right">Fila 2</div>
+        </div>
 
         </>
     )

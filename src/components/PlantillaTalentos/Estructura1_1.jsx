@@ -3,12 +3,14 @@ import "../../styles/PlantillaTalentos/Estructura1_1.css"
 function Estructura1_1() {
     return (
         <>
-            <div className="fila1">
+            <div className="contenedor-est-1-1">
+                <div className="header-est-1-1">
 
-            </div>
+                </div>
 
-            <div className="columna1">
+                <div className="col-est-1-1">
 
+                </div>
             </div>
 
         </>

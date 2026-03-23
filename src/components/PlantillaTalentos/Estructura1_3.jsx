@@ -5,19 +5,19 @@ function Estructura1_3() {
         <>
             <div className="contenedor-est-1-3">
 
-                <div className="header">
+                <div className="header-est-1-3">
 
                 </div>
 
-                <div className="col">
+                <div className="col-est-1-3">
 
                 </div>
 
-                <div className="col">
+                <div className="col-est-1-3">
 
                 </div>
 
-                <div className="col">
+                <div className="col-est-1-3">
 
                 </div>
             </div>

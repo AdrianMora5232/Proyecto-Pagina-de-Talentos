@@ -1,12 +1,16 @@
+import "../../styles/PlantillaTalentos/GrillaDoble.css";
+
 function GrillaDoble() {
     return (
         <>
-            <div className="columna1">
+            <div className="contenedor-grilla-doble">
+                <div className="col-grilla-doble">
 
-            </div>
+                </div>
 
-            <div className="columna2">
+                <div className="col-grilla-doble">
 
+                </div>
             </div>
 
         </>

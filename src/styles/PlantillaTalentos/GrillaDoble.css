@@ -1,0 +1,14 @@
+.contenedor-grilla-doble {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 10px;
+    padding: 10px;
+    border: 1px solid lightblue;
+}
+
+.col-grilla-doble {
+    width: auto;
+    height: 400px;
+    background-color: lightgray;
+    border: 1px solid lightblue;
+}

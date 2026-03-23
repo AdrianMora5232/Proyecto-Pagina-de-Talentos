@@ -5,15 +5,15 @@ function GrillaTriple() {
         <>
             <div className="contenedor-grilla-triple">
 
-                <div className="col">
+                <div className="col-grilla-triple">
 
                 </div>
 
-                <div className="col">
+                <div className="col-grilla-triple">
 
                 </div>
 
-                <div className="col">
+                <div className="col-grilla-triple">
 
                 </div>
             </div>

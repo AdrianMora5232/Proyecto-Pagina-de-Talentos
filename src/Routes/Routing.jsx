@@ -5,15 +5,20 @@ import PerfilUsuario from "../pages/PerfilUsuario"
 import PaginaContacto from "../pages/PaginaContacto"
 import SobreNosotros from "../pages/SobreNosotros"
 import PaguinaIniciar from "../pages/PaguinaIniciar"
-import PaginadeAdmin from "../pages/PaginadeAdmin"
+
 import PaginaRegistro from "../pages/PaginaRegistro"
+<<<<<<< HEAD
 import Portafolio from "../pages/Portafolio"
+=======
+import Admin from "../pages/Admin"
+>>>>>>> bc20d98108cd0063f42bfe9b74878bd61c81a56e
 
 function Routing() {
     return (
         <Router>
             <Routes>
                 <Route path="/" element={<Inicio />} />
+<<<<<<< HEAD
                 <Route path="/principal" element={<Principal />} />
                 <Route path="/perfil-usuario" element={<PerfilUsuario />} />
                 <Route path="/pagina-contacto" element={<PaginaContacto />} />
@@ -22,6 +27,11 @@ function Routing() {
                  <Route path="Iniciar" element={<PaguinaIniciar/>}/>
                  <Route path="Registro" element={<PaginaRegistro/>}/>
                 <Route path="/portafolio" element={<Portafolio />} />
+=======
+                 <Route path = "/Admin" element = {<Admin/>} />
+                 <Route path="/Iniciar" element={<PaguinaIniciar/>}/>
+                 <Route path="/Registro" element={<PaginaRegistro/>}/>
+>>>>>>> bc20d98108cd0063f42bfe9b74878bd61c81a56e
             </Routes>
         </Router>
     )

@@ -1,0 +1,26 @@
+.menu{
+    display: flex;
+  padding: 15px;
+  background-color: #7cadf1;
+  width: 25%;
+  height: 100%;
+}
+.cont-pagina-admin{
+    display: grid;
+    grid-template-columns: repeat(2,1fr);
+}
+.main{
+    flex: 1;
+    padding: 20px;
+    min-height: 100vh;
+}
+.menu li{
+     padding: 12px;
+  border-radius: 8px;
+  margin: 6px 0;
+  cursor: pointer;
+  transition: 0.3s;
+}
+.menu li:hover{
+     background: #334155;
+}

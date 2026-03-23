@@ -1,47 +1,45 @@
 import Lienzo from "../components/PlantillaTalentos/Lienzo"
-import Estructura1_2 from "../components/PlantillaTalentos/Estructura1_2"
-import GrillaTriple from "../components/PlantillaTalentos/GrillaTriple"
 import Estructura1 from "../components/PlantillaTalentos/Estructura1"
+import Estructura1_1 from "../components/PlantillaTalentos/Estructura1_1"
+import Estructura1_2 from "../components/PlantillaTalentos/Estructura1_2"
 import Estructura1_3 from "../components/PlantillaTalentos/Estructura1_3"
+import GrillaDoble from "../components/PlantillaTalentos/GrillaDoble"
+import GrillaTriple from "../components/PlantillaTalentos/GrillaTriple"
+import Grilla1_2_Izda from "../components/PlantillaTalentos/Grilla1_2_Izda"
+import Grilla1_2_Derecha from "../components/PlantillaTalentos/Grilla1_2_Derecha"
+import SidebarTalentos from "../components/PlantillaTalentos/SidebarTalentos"
+import "../styles/PlantillaTalentos/Portafolio.css"
+import { useState } from "react"
+import { ImageProvider } from "../components/PlantillaTalentos/HookImagenCloudinary"
 
 const Portafolio = () => {
+    const [activarEst1, setActivarEst1] = useState(false);
+
     return (
-        <div>
-            <h2>hola</h2>
+        <ImageProvider> {/* 👈 AQUI ESTÁ LA SOLUCIÓN */}
+            <div className="portafolio-container">
 
-            <Lienzo tituloProyecto={"Portafolio"} subtituloProyecto={"Portafolio"} childrenEstructura={
-
-                <div>
-                    <p>holaa</p>
+                <div className="lienzo-container">
+                    <Lienzo
+                        tituloProyecto={"Portafolio"}
+                        subtituloProyecto={"Portafolio"}
+                        childrenEstructura={
+                            activarEst1 && (
+                                <Estructura1 />
+                            )
+                        }
+                    />
                 </div>
-            }>
 
-            </Lienzo>
+                <div className="sidebar-container">
+                    <SidebarTalentos actEst1={()=>{
+                        setActivarEst1(!activarEst1)
+                    }}/>
+                </div>
 
-            <div>
-                <Estructura1 />
             </div>
+        </ImageProvider>
+    );
+};
 
-            <div>
-                <Estructura1_2 />
-            </div>
-
-            <div>
-                <Estructura1_3 />
-            </div>
-
-            <div>
-                <GrillaTriple />
-            </div>
-
-
-
-
-
-
-
-        </div>
-    )
-}
-
-export default Portafolio
+export default Portafolio;

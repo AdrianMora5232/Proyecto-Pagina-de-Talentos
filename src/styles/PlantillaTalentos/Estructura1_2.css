@@ -6,14 +6,14 @@
     border: 1px solid lightblue;
 }
 
-.header {
+.header-est-1-2 {
     width: auto;
     height: 90px;
     grid-column: 1 / -1;  /* empieza en la columna 1, termina en la última columna*/
     background: lightblue;
 }
 
-.col {
+.col-est-1-2 {
     width: auto;
     height: 400px;
     background: lightgray;

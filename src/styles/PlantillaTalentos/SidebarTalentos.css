@@ -1,0 +1,58 @@
+.sidebar {
+  width: 260px;
+  background: #f7f9fb;
+  height: 100vh;
+  border-right: 1px solid #e0e0e0;
+}
+
+.section-title {
+  font-size: 11px;
+  font-weight: 600;
+  color: #9aa0a6;
+  margin-bottom: 8px;
+}
+
+
+.box {
+  background: #e9eef3;
+  border-radius: 8px;
+  cursor: pointer;
+  text-align: center;
+  
+}
+
+.box.small {
+  width: 60px;
+  height: 40px;
+}
+
+.box.long {
+  height: 20px;
+  border-radius: 10px;
+}
+
+.box.image {
+  height: 80px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+
+.text-line {
+  height: 10px;
+  background: #dfe5eb;
+  border-radius: 10px;
+}
+
+.text-line.short {
+  width: 60%;
+}
+
+
+.btn-placeholder {
+  height: 30px;
+  width: 70%;
+  background: #cfe8ff;
+  border-radius: 20px;
+}

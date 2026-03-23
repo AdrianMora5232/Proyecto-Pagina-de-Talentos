@@ -1,15 +1,113 @@
 .contenedor-estructura-1 {
-    height: 500px;
-    display: grid;
-    grid-template-columns: repeat(1, 1fr);
-    gap: 10px;
-    padding: 10px;
+    height: 400px;
+    position: relative; 
+    display: flex;
     align-items: center;
-    border: 1px solid lightblue;
+    justify-content: center;
 }
 
-.header {
-    width: auto;
-    height: 90px;
+.color-wrapper {
+    position: absolute;
+    top: 10px;
+    left: 10px;
+    width: 40px;
+    height: 40px;
+}
+
+.btnColor {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    opacity: 0;
+    cursor: pointer;
+}
+
+.icono {
+    width: 100%;
+    height: 100%;
+    border-radius: 5px;
+    display: flex;
+    align-items: center;
     background: lightblue;
+
+    justify-content: center;
+    pointer-events: none;
+    font-size: 18px;
+}
+
+.input-titulo {
+    background-color: transparent;
+    border: none;
+    text-align: center;
+    font-size: 24px;
+    outline: none;
+}
+
+.image-wrapper {
+    position: absolute;
+    top: 10px;
+    left: 60px;
+    width: 40px;
+    height: 40px;
+}
+
+.image-wrapper input {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    opacity: 0;
+    cursor: pointer;
+}
+
+.icono-img {
+    width: 100%;
+    height: 100%;
+    background: lightblue;
+    border-radius: 5px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    pointer-events: none;
+}
+
+.remove-img {
+    position: absolute;
+    top: 10px;
+    left: 110px;
+    width: 40px;
+    height: 40px;
+    background: #ff4d4d;
+    border-radius: 5px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+}
+
+.text-color-wrapper {
+    position: absolute;
+    top: 10px;
+    left: 160px;
+    width: 40px;
+    height: 40px;
+}
+
+.btnTextColor {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    opacity: 0;
+    cursor: pointer;
+}
+
+.icono-texto {
+    width: 100%;
+    height: 100%;
+    background: lightblue;
+    border-radius: 5px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    pointer-events: none;
+    font-weight: bold;
 }

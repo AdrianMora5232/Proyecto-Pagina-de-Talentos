@@ -7,14 +7,14 @@
     
 }
 
-.header {
+.header-est-1-3 {
     width: auto;
     height: 90px;
     grid-column: 1 / -1;
     background-color: lightblue;
 }
 
-.col {
+.col-est-1-3 {
     width: auto;
     height: 400px;
     background-color: lightgray;

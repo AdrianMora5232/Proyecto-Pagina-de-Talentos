@@ -1,16 +1,27 @@
-function Lienzo({tituloProyecto,subtituloProyecto,childrenEstructura}) {
+import "../../styles/PlantillaTalentos/Lienzo.css";
+
+
+function Lienzo({childrenEstructura}) {
     return (
-        <>
-            <h1>{tituloProyecto}</h1>
+        <div className="contenedor_lienzo">
+            <div className="contenedor_titulos">
+            <input 
+                type="text" 
+                placeholder="TITULO"
+                className="titulos_subs"
+                />
 
-
-            <p>{subtituloProyecto}</p>
-
+                <input 
+                type="text" 
+                placeholder="TITULO"
+                className="titulos_subs text-muted"
+                />
+             </div>
 
             <div>
                 {childrenEstructura}
             </div>
-        </>
+        </div>
     )
 }
 

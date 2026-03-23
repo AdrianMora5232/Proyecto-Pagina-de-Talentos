@@ -1,0 +1,21 @@
+.grid {
+  display: grid;
+  grid-template-columns: 1fr 2fr; 
+  grid-template-rows: 2fr 1fr;    
+  gap: 10px;
+  height: 400px;
+}
+
+.right {
+  grid-column: 2 / 3;
+  grid-row: 1 / 3; 
+  background: #4CAF50;
+}
+
+.top-left {
+  background: #2196F3;
+}
+
+.bottom-left {
+  background: #FFC107;
+}

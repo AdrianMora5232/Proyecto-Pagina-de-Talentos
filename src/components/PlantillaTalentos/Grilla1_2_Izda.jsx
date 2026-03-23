@@ -1,17 +1,13 @@
+import "../../styles/PlantillaTalentos/Grilla1_2_Izda.css";
+
 function Grilla1_2_Izda() {
     return (
         <>
-            <div className="columna1">
-
-            </div>
-
-            <div className="fila1">
-
-            </div>
-
-            <div className="columna2">
-
-            </div>
+        <div class="grid">
+            <div class="left">cuadrote</div>
+            <div class="top-right">filita 1</div>
+            <div class="bottom-right">filita 2</div>
+        </div>
 
         </>
     )

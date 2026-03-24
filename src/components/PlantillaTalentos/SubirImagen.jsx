@@ -1,7 +1,7 @@
-import { useImage } from "./HookImagenCloudinary";
+//import { useImage } from "./HookImagenCloudinary";
 
-function UploadImage() {
-  const { setImageUrl } = useImage();
+function UploadImage({ setImageUrl }) {
+  //const { setImageUrl } = useImage();
 
   const handleUpload = async (e) => {
     const file = e.target.files[0];

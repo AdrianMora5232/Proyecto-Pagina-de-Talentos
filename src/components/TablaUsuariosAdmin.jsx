@@ -5,60 +5,114 @@ import Fetch from '../services/Fetch'
 
 const TablaUsuariosAdmin = () => {
 
-const [usuarios,setUsuarios] = useState([])
- 
-useEffect(() => {
+  const [usuarios, setUsuarios] = useState([])
+  const [editar, setEditar] = useState(null)
+  const [datosEditar, setDatosEditar] = useState({
+    Nombre: "",
+    Correo: "",
+    Roles: "",
+    Provincias: "",
+    Canton: "",
+    Distrito: ""
+  })
+
+
+
+  useEffect(() => {
 
     async function traerUsuarios() {
-        const lista = await Fetch.getData("usuarios")
-        setUsuarios(lista)
+      const lista = await Fetch.getData("usuarios")
+      setUsuarios(lista)
 
-}
-traerUsuarios()
-}, [])
+    }
+    traerUsuarios()
+  }, [])
 
-const eliminarUsuario = async (id) => {
-  await Fetch.deleteData("usuarios", id)
+  const eliminarUsuario = async (id) => {
+    await Fetch.deleteData("usuarios", id)
 
-  const lista = await Fetch.getData("usuarios")
-  setUsuarios(lista)
-}
-const editarUsuario = async (id) => {
- await Fetch.putData("usuarios", id,)  
- const lista = await Fetch.getData("usuarios")
-  setUsuarios(lista)
-}
+    const lista = await Fetch.getData("usuarios")
+    setUsuarios(lista)
+  }
+
+  const UsuarioEditado = (usuario) => {
+    setEditar(usuario.id)
+    setDatosEditar(usuario)
+  }
 
 
+
+
+
+  const editarUsuario = async (id) => {
+    try {
+      await Fetch.patchData("usuarios", datosEditar, id)
+      const lista = await Fetch.getData("usuarios")
+      setUsuarios(lista)
+      setEditar(null)
+    } catch (error) {
+
+    }
+  }
+
+  const cancelarEdicion = () => {
+    setEditar(null)
+  }
   return (
     <div className='TablaUsuariosAdmin'>
-        <h2>Gestión de usuarios</h2>
-<div className='tabla'>
+      <h2>Gestión de usuarios</h2>
+      <div className='tabla'>
 
-<div className='headerTabla'>
-         <p>Usuario</p>
+        <div className='headerTabla'>
+          <p>Usuario</p>
           <p>Email</p>
           <p>Rol</p>
           <p>Ubicación</p>
-</div>
-{usuarios.map((usuario) => (
-  <div className='filaTabla' key={usuario.id}>
-    <p>{usuario.Nombre}</p>
-    <p>{usuario.Correo}</p>
-    <p>{usuario.Roles}</p>
-    <p>{usuario.Provincias},{usuario.Canton},{usuario.Distrito}</p>
+        </div>
+        {usuarios.map((usuario) => (
+          <div className='filaTabla' key={usuario.id}>
+            {editar === usuario.id ? (
+              <>
+                <input value={datosEditar.Nombre} onChange={(evento) => setDatosEditar({ datosEditar, Nombre: evento.target.value })} />
+                <input value={datosEditar.Correo} onChange={(evento) => setDatosEditar({ datosEditar, Correo: evento.target.value })} />
+                <input value={datosEditar.Roles} onChange={(evento) => setDatosEditar({ datosEditar, Roles: evento.target.value })} />
+                <input value={datosEditar.Provincias} onChange={(evento) => setDatosEditar({ datosEditar, Provincias: evento.target.value })} />
+                <input value={datosEditar.Canton} onChange={(evento) => setDatosEditar({ datosEditar, Canton: evento.target.value })} />
+                <input value={datosEditar.Distrito} onChange={(evento) => setDatosEditar({ datosEditar, Distrito: evento.target.value })} />
 
-   <div>
-<button onClick={() => eliminarUsuario(usuario.id)}>Eliminar</button>
-   </div>
-   <div>
-<button onClick={() => editarUsuario(usuario.id)}>Editar</button>
-   </div>
-  </div>
+                <div>
+                  <button onClick={() => editarUsuario(usuario.id)}>
+                    Guardar
+                  </button>
+                  <button onClick={cancelarEdicion}>
+                    Cancelar
+                  </button>
+                </div>
+              </>
 
-))}
 
-</div>
+
+            ) : (
+            <>
+              <p>{usuario.Nombre}</p>
+              <p>{usuario.Correo}</p>
+              <p>{usuario.Roles}</p>
+              <p>{usuario.Provincias},{usuario.Canton},{usuario.Distrito}</p>
+
+              <div>
+
+                <button onClick={() => eliminarUsuario(usuario.id)}>Eliminar</button>
+              </div>
+              <div>
+                <button onClick={() => UsuarioEditado(usuario)}>Editar</button>
+              </div>
+            </>
+            )}
+          </div>
+
+        ))}
+
+      </div>
 
     </div>
   )

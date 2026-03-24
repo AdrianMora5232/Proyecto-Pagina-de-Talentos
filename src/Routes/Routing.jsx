@@ -9,21 +9,22 @@ import PaginaRegistro from "../pages/PaginaRegistro"
 import Portafolio from "../pages/Portafolio"
 import Admin from "../pages/Admin"
 import Funcionalidad from "../pages/Funcionalidad"
+import RutaPrivada from "./RutaPrivada"
 
 function Routing() {
     return (
         <Router>
             <Routes>
                 <Route path="/" element={<Inicio />} />
-                <Route path="/principal" element={<Principal />} />
-                <Route path="/perfil-usuario" element={<PerfilUsuario />} />
+                <Route path="/principal" element={<RutaPrivada children={<Principal />} />} />
+                <Route path="/perfil-usuario" element={<RutaPrivada children={<PerfilUsuario />} />} />
                 <Route path="/pagina-contacto" element={<PaginaContacto />} />
                 <Route path="/sobre-nosotros" element={<SobreNosotros />} />
                 <Route path="Iniciar" element={<PaguinaIniciar />} />
                 <Route path="/Registro" element={<PaginaRegistro />} />
-                <Route path="/portafolio" element={<Portafolio />} />
-                <Route path="/Admin" element={<Admin />} />
-                <Route path="/Funcionalidad" element={<Funcionalidad />} />
+                <Route path="/portafolio" element={<RutaPrivada children={<Portafolio />} />} />
+                <Route path="/Admin" element={<RutaPrivada children={<Admin />} />} />
+                <Route path="/Funcionalidad" element={<RutaPrivada children={<Funcionalidad />} />} />
             </Routes>
         </Router>
     )

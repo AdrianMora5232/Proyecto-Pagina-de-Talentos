@@ -119,7 +119,6 @@ function CompExplicacion() {
             <h3>Únete a la Plataforma</h3>
             <div className="join-buttons">
               <button className="btn-blue-dark">Registro Talentos &rsaquo;</button>
-              <button className="btn-orange">Registro Empresas &rsaquo;</button>
             </div>
           </section>
 

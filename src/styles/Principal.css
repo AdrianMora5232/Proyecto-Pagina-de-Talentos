@@ -246,6 +246,11 @@ div > div > img[alt="Logo de la pagina"] {
     border-radius: 16px;
     background-color: rgba(255, 255, 255, 0.5); /* Fondo suave para cuando la imagen no llena el contenedor */
     box-shadow: var(--shadow-md);
+    transition: all 0.3s ease;
+}
+
+.ImagenTalentoDestacado:hover {
+    transform: scale(1.05);
 }
 
 .DivInfoPintura h2 {

@@ -27,6 +27,7 @@ function IniciarSesion() {
         if (usuarioValido) {
             alert("Ingreso Exitoso")
             localStorage.setItem("UsuarioActivo", JSON.stringify(usuarioValido));
+            localStorage.setItem("idUsuario", usuarioValido.id);
             navigate("/principal")
         } else {
             alert("El usuario no existe")
@@ -36,7 +37,7 @@ function IniciarSesion() {
         <div className='MainLoginContainer'>
             <div className='BackgroundDecoration'>
                 <button className='BotonVolver' onClick={() => navigate("/")}>
-                   ← Volver al Inicio
+                    ← Volver al Inicio
                 </button>
                 <div className='DecorationContent'>
                     <h1 className='TituloBienvenido'>Hola de nuevo en <span className='BrandName'>Krea</span></h1>
@@ -54,7 +55,7 @@ function IniciarSesion() {
                     <h2 className='TituloPrincipal'> <strong>Iniciar sesión</strong> </h2>
                     <div className='ParrafoForm'>
                         <h6 className='SubtituloForm'>Inicia sesión para mostrar tu talento</h6>
-                        
+
                         <div className='InputGroup'>
                             <label>Correo electrónico</label>
                             <input type="email" value={Correo} onChange={(evento) => setCorreo(evento.target.value)} placeholder="tu@correo.com" />
@@ -66,7 +67,7 @@ function IniciarSesion() {
                         </div>
 
                         <button className='BotonEntrar' onClick={validarInicio}>Entrar ahora </button>
-                        
+
                         <div className='RegistroPrompt'>
                             <h6>¿No tienes cuenta?
                                 <a className='link_registro' href="/Registro">Regístrate Aquí</a>

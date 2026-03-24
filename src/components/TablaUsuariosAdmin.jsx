@@ -10,10 +10,10 @@ const TablaUsuariosAdmin = () => {
   const [datosEditar, setDatosEditar] = useState({
     Nombre: "",
     Correo: "",
-    Roles: "",
     Provincias: "",
     Canton: "",
-    Distrito: ""
+    Distrito: "", 
+    Roles: "",
   })
 
 
@@ -46,10 +46,19 @@ const TablaUsuariosAdmin = () => {
 
   const editarUsuario = async (id) => {
     try {
-      await Fetch.patchData("usuarios", datosEditar, id)
+      await Fetch.patchData("usuarios",{
+        Nombre: datosEditar.Nombre,
+        Correo: datosEditar.Correo,
+        Provincias: datosEditar.Provincias,
+        Canton: datosEditar.Canton,
+        Distrito: datosEditar.Distrito,
+        Roles: datosEditar.Roles,
+      } , id)
       const lista = await Fetch.getData("usuarios")
       setUsuarios(lista)
       setEditar(null)
+      console.log(datosEditar);
+      
     } catch (error) {
 
     }

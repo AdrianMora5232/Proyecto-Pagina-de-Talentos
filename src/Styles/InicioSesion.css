@@ -1,57 +1,95 @@
 .MainLoginContainer {
     display: flex;
-    flex-direction: column;
-    align-items: center;
-    justify-content: center;
     min-height: 100vh;
-    background: linear-gradient(135deg, #e0f2fe 0%, #d6e1e7 100%);
+    background-color: #f0f9ff;
     font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-    position: relative;
 }
 
-.HeaderActions {
-    position: absolute;
-    top: 20px;
-    left: 20px;
+.BackgroundDecoration {
+    flex: 1;
+    background: linear-gradient(135deg, #0284c7 0%, #0369a1 100%);
+    color: white;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    padding: 3rem;
+    clip-path: polygon(0 0, 100% 0, 85% 100%, 0 100%);
+    position: relative;
+    z-index: 1;
 }
 
 .BotonVolver {
-    background: none;
-    border: 1px solid #0284c7;
-    color: #0284c7;
-    padding: 8px 16px;
-    border-radius: 20px;
+    background: rgba(255, 255, 255, 0.1);
+    backdrop-filter: blur(4px);
+    border: 1px solid rgba(255, 255, 255, 0.3);
+    color: white;
+    padding: 10px 20px;
+    border-radius: 30px;
     font-weight: 600;
     cursor: pointer;
-    transition: all 0.2s;
-    background-color: rgba(255, 255, 255, 0.5);
+    transition: all 0.3s ease;
+    width: fit-content;
 }
 
 .BotonVolver:hover {
-    background-color: #0284c7;
+    background: white;
+    color: #0284c7;
+    transform: translateX(-5px);
+}
+
+.DecorationContent {
+    margin-bottom: 20%;
+}
+
+.TituloBienvenido {
+    font-size: 3.5rem;
+    margin-bottom: 1rem;
     color: white;
+    line-height: 1.1;
+}
+
+.BrandName {
+    color: #31c5ff;
+    font-weight: 800;
+}
+
+.BackgroundDecoration p {
+    font-size: 1.25rem;
+    opacity: 0.9;
+    max-width: 500px;
+    line-height: 1.6;
+}
+
+.CardLogin {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    padding: 2rem;
+    background-color: white;
+    position: relative;
 }
 
 .headerLogo {
+    position: absolute;
+    top: 30px;
+    right: 30px;
     display: flex;
     align-items: center;
     gap: 10px;
-    margin-bottom: 2rem;
 }
 
 .TituloLogo {
-    font-size: 2rem;
+    font-size: 1.5rem;
     color: #0369a1;
+    font-weight: 800;
     margin: 0;
 }
 
 .DivForm {
-    background-color: #ffffff;
-    padding: 2.5rem;
-    border-radius: 12px;
-    box-shadow: 0 10px 25px -5px rgba(0, 0, 0, 0.1), 0 8px 10px -6px rgba(0, 0, 0, 0.1);
     width: 100%;
-    max-width: 400px;
+    max-width: 440px;
     display: flex;
     flex-direction: column;
     gap: 1.5rem;
@@ -60,7 +98,7 @@
 .TituloPrincipal {
     text-align: center;
     color: #0c4a6e;
-    font-size: 1.75rem;
+    font-size: 2.25rem;
     margin: 0;
 }
 
@@ -69,6 +107,7 @@
     color: #64748b;
     margin-top: -0.5rem;
     margin-bottom: 1rem;
+    font-size: 1rem;
 }
 
 .ParrafoForm {
@@ -89,65 +128,85 @@
     font-size: 0.9rem;
 }
 
-.InputGroup input, 
-.InputGroup select {
-    padding: 0.75rem;
+.InputGroup input {
+    padding: 0.8rem 1rem;
     border: 1px solid #cbd5e1;
-    border-radius: 6px;
+    border-radius: 8px;
     font-size: 1rem;
     color: #1e293b;
-    transition: border-color 0.2s, box-shadow 0.2s;
+    transition: all 0.2s;
     background-color: #f8fafc;
 }
 
-.InputGroup input:focus, 
-.InputGroup select:focus {
+.InputGroup input:focus {
     outline: none;
-    border-color: #38bdf8;
-    box-shadow: 0 0 0 3px rgba(56, 189, 248, 0.2);
-    background-color: #ffffff;
+    border-color: #0284c7;
+    box-shadow: 0 0 0 3px rgba(2, 132, 199, 0.15);
+    background-color: white;
 }
 
 .BotonEntrar {
     background-color: #0284c7;
     color: white;
-    padding: 0.75rem;
+    padding: 0.9rem;
     border: none;
-    border-radius: 6px;
-    font-size: 1rem;
-    font-weight: 600;
+    border-radius: 8px;
+    font-size: 1.1rem;
+    font-weight: 700;
     cursor: pointer;
-    transition: background-color 0.2s;
+    transition: all 0.2s;
     margin-top: 1rem;
+    box-shadow: 0 4px 6px -1px rgba(2, 132, 199, 0.2);
 }
 
 .BotonEntrar:hover {
     background-color: #0369a1;
+    transform: translateY(-2px);
+    box-shadow: 0 10px 15px -3px rgba(2, 132, 199, 0.3);
 }
 
 .BotonEntrar:active {
-    background-color: #0c4a6e;
+    transform: translateY(0);
 }
 
 .RegistroPrompt {
     text-align: center;
-    margin-top: 1rem;
+    margin-top: 1.5rem;
 }
 
 .RegistroPrompt h6 {
     color: #64748b;
-    font-size: 0.9rem;
+    font-size: 0.95rem;
     margin: 0;
+    font-weight: 500;
 }
 
 .link_registro {
     color: #0284c7;
     text-decoration: none;
-    font-weight: 600;
-    margin-left: 5px;
+    font-weight: 700;
+    margin-left: 8px;
 }
 
 .link_registro:hover {
     text-decoration: underline;
+    color: #0369a1;
+}
+
+/* Responsividad */
+@media (max-width: 900px) {
+    .BackgroundDecoration {
+        display: none;
+    }
+    
+    .MainLoginContainer {
+        justify-content: center;
+        background-color: white;
+    }
+    
+    .headerLogo {
+        position: static;
+        margin-bottom: 2rem;
+    }
 }
 

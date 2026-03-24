@@ -5,8 +5,8 @@ import { useNavigate } from 'react-router-dom'
 import '../styles/EstilosRegistros/Registro.css'
 
 function Registro() {
-     const navigate = useNavigate()
-     const volver = () => {
+    const navigate = useNavigate()
+    const volver = () => {
         navigate("/")
     }
     const [Nombre, setNombre] = useState("")
@@ -16,16 +16,11 @@ function Registro() {
     const [Distrito, setDistrito] = useState("")
     const [Roles, setRol] = useState("")
     const [Contrasena, setContraseña] = useState("")
+    const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
     async function RegistroUsuarios() {
         if (Nombre === "" || Correo === "" || Provincias === "" || Canton === "" || Distrito === "" || Roles == "" || Contrasena === "") {
-
-
             alert("Debe de llenar todo los campos");
             return;
-
-        } else {
-
-            alert("Registro exitoso")
         }
         const objUsuarios = {
             Nombre: Nombre,
@@ -36,11 +31,25 @@ function Registro() {
             Roles: Roles,
             Contrasena: Contrasena
         }
+        if (Contrasena.length < 8) {
+            alert("La contraseña debe tener al menos 8 caracteres")
+            return;
+        }
+        if (!emailRegex.test(Correo)) {
+            alert("Correo inválido");
+            return;
+        }
         const UsuarioAlmacenado = await Fetch.postData(objUsuarios, "usuarios")
+        alert("Registro exitoso")
+
         console.log(UsuarioAlmacenado)
 
     }
-   
+    const validacionContraseña = () => {
+
+    }
+
+
     return (
         <div className='MainRegistroContainer'>
             <div className='BackgroundDecoration'>
@@ -48,7 +57,7 @@ function Registro() {
                 <h1 className='TituloBienvenido'>Bienvenido a <span className='BrandName'>Krea</span></h1>
                 <p>Únete a nuestra comunidad de talentos y muestra al mundo lo que puedes hacer.</p>
             </div>
-            
+
             <div className='CardRegistro'>
                 <h2 className='TituloRegistro'>Crear cuenta</h2>
                 <div className='FormRegistro'>
@@ -92,7 +101,6 @@ function Registro() {
                             <select onChange={(evento) => setRol(evento.target.value)} defaultValue="">
                                 <option value="" disabled>Seleccione</option>
                                 <option value="Usuario">Usuario</option>
-                                <option value="Admin">Admin</option>
                             </select>
                         </div>
                     </div>

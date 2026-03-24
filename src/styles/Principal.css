@@ -302,3 +302,37 @@ div > div > img[alt="Logo de la pagina"] {
     padding: 4rem 2rem;
     text-align: center;
 }
+.TituloTalentDestacado {
+    font-size: 2.75rem;
+    font-weight: 800;
+    text-align: center;
+    margin: 4rem 0 2rem;
+    background: linear-gradient(135deg, #2563eb 0%, #38bdf8 100%);
+    -webkit-background-clip: text;
+    background-clip: text;
+    -webkit-text-fill-color: transparent;
+    font-family: 'Inter', system-ui, -apple-system, sans-serif;
+    letter-spacing: -0.025em;
+    position: relative;
+    padding-bottom: 15px;
+}
+
+.TituloTalentDestacado::after {
+    content: '';
+    position: absolute;
+    bottom: 0;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 60px;
+    height: 5px;
+    background: linear-gradient(90deg, #2563eb, #38bdf8);
+    border-radius: 10px;
+}
+
+@media (max-width: 768px) {
+    .TituloTalentDestacado {
+        font-size: 2rem;
+        margin: 3rem 0 1.5rem;
+    }
+}
+

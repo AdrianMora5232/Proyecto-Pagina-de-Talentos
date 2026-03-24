@@ -179,7 +179,7 @@ function CompPrincipal() {
                     </button>
                 </div>
             </div>
-
+            <h4 className='TituloTalentDestacado'>Talento Destacado del mes</h4>
             {/* div que va a contener El talento destacado  */}
             <div className='DivTalentoDestacado'>
 

@@ -28,8 +28,27 @@
       "Distrito": "San Jocesito",
       "Roles": "Usuario",
       "Contrasena": "123"
+    },
+    {
+      "id": "dd28",
+      "Nombre": "m",
+      "Correo": "m",
+      "Provincias": "San José",
+      "Canton": "m",
+      "Distrito": "m",
+      "Roles": "Usuario",
+      "Contrasena": "m"
+    },
+    {
+      "id": "c098",
+      "Nombre": "Adrian Mora Castillo",
+      "Correo": "miniaseapa@gmail.com",
+      "Provincias": "Limón",
+      "Canton": "Pococi",
+      "Distrito": "si",
+      "Roles": "Usuario",
+      "Contrasena": "Admc5232"
     }
-
   ],
   "$schema": "./node_modules/json-server/schema.json"
 }

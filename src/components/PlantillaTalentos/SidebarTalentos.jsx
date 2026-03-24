@@ -1,6 +1,6 @@
 import "../../styles/PlantillaTalentos/SidebarTalentos.css";
 
-function SidebarTalentos({actEst1}) {
+function SidebarTalentos({actEst1, actEst1_1, actGrilla1_2_Izda}) {
     return (
     <div className="sidebar p-3">
       {/* Header */}
@@ -19,8 +19,8 @@ function SidebarTalentos({actEst1}) {
       <p className="section-title">ESTRUCTURAS Y GRILLAS</p>
       <div className="d-flex gap-2 mb-3">
         <div className="box small  cajita" onClick={actEst1}>est1</div>
-        <div className="box small cajita"></div>
-        <div className="box small cajita"></div>
+        <div className="box small cajita" onClick={actEst1_1}>est1_1</div>
+        <div className="box small cajita" onClick={actGrilla1_2_Izda}>grilla1_2_izda</div>
       </div>
 
       {/* Imagen */}

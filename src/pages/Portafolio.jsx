@@ -14,6 +14,8 @@ import { ImageProvider } from "../components/PlantillaTalentos/HookImagenCloudin
 
 const Portafolio = () => {
     const [activarEst1, setActivarEst1] = useState(false);
+    const [activarEst1_1, setActivarEst1_1] = useState(false);
+    const [activarGrilla1_2_Izda, setActivarGrilla1_2_Izda] = useState(false);
 
     return (
         <ImageProvider> {/* 👈 AQUI ESTÁ LA SOLUCIÓN */}
@@ -24,17 +26,25 @@ const Portafolio = () => {
                         tituloProyecto={"Portafolio"}
                         subtituloProyecto={"Portafolio"}
                         childrenEstructura={
-                            activarEst1 && (
-                                <Estructura1 />
-                            )
+                            <>
+                                {activarEst1 && <Estructura1 />}
+                                {activarEst1_1 && <Estructura1_1 />}
+                                {activarGrilla1_2_Izda && <Grilla1_2_Izda />}
+
+                            </>
+
                         }
                     />
                 </div>
 
                 <div className="sidebar-container">
-                    <SidebarTalentos actEst1={()=>{
+                    <SidebarTalentos actEst1={() => {
                         setActivarEst1(!activarEst1)
-                    }}/>
+                    }} actEst1_1={() => {
+                        setActivarEst1_1(!activarEst1_1)
+                    }} actGrilla1_2_Izda={() => {
+                        setActivarGrilla1_2_Izda(!activarGrilla1_2_Izda)
+                    }} />
                 </div>
 
             </div>

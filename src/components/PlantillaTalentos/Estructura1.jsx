@@ -1,13 +1,14 @@
 import "../../styles/PlantillaTalentos/Estructura1.css";
 import { useState } from "react";
-import { useImage } from "./HookImagenCloudinary";
+//import { useImage } from "./HookImagenCloudinary";
 import UploadImage from "./SubirImagen";
 
 function Estructura1() {
   const [colorFondo, setColorFondo] = useState("white");
   const [colorTexto, setColorTexto] = useState("black");
 
-  const { imageUrl, setImageUrl } = useImage();
+  //const { imageUrl, setImageUrl } = useImage();
+  const [imageUrl, setImageUrl] = useState("");
 
   return (
     <div
@@ -30,8 +31,9 @@ function Estructura1() {
         </span>
       </span>
 
+
       <span className="image-wrapper">
-        <UploadImage />
+        <UploadImage setImageUrl={setImageUrl} />
         <span className="icono-img"><i className="fa-regular fa-file-image"></i></span>
       </span>
 

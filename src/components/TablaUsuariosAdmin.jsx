@@ -1,10 +1,13 @@
 import React from 'react'
 import { useState, useEffect } from 'react'
 import Fetch from '../services/Fetch'
-
+import {  useNavigate } from 'react-router-dom'
 
 const TablaUsuariosAdmin = () => {
-
+ const navigate = useNavigate()
+ const AgregarUsuario = () => {
+  navigate("/AgregarUsuario")
+ }
   const [usuarios, setUsuarios] = useState([])
   const [editar, setEditar] = useState(null)
   const [datosEditar, setDatosEditar] = useState({
@@ -115,12 +118,18 @@ const TablaUsuariosAdmin = () => {
               <div>
                 <button onClick={() => UsuarioEditado(usuario)}>Editar</button>
               </div>
+              <div>
+              
+              </div>
             </>
             )}
+            
           </div>
 
         ))}
-
+<div>
+  <button onClick={AgregarUsuario}>Agregar Usuario</button>
+</div>
       </div>
 
     </div>

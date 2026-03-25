@@ -12,7 +12,7 @@ function Estructura1() {
 
   return (
     <div
-      className="contenedor-estructura-1"
+      className="est1"
       style={{
         backgroundColor: colorFondo,
         backgroundImage: imageUrl ? `url(${imageUrl})` : "none",
@@ -52,11 +52,12 @@ function Estructura1() {
           className="btnTextColor"
           onChange={(e) => setColorTexto(e.target.value)}
         />
-        <span className="icono-texto"><i className="fa-solid fa-brush"></i>  <i className="fa-solid fa-font"></i></span>
+        <span className="icono-texto">
+          <i className="fa-solid fa-brush"></i>  <i className="fa-solid fa-font"></i></span>
       </span>
 
       <input
-        className="header-est-1 input-titulo"
+        className="est1__title input-titulo"
         placeholder="Escribe un titulo"
         style={{ color: colorTexto }}
       />

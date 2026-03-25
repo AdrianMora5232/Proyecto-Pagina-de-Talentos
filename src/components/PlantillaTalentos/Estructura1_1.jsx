@@ -13,7 +13,7 @@ function Estructura1_1() {
     return (
         <>
             <div
-                className="contenedor-estructura-1-1"
+                className="est1_1"
                 style={{
                     backgroundColor: colorFondo,
                     backgroundImage: imageUrl ? `url(${imageUrl})` : "none",
@@ -55,15 +55,15 @@ function Estructura1_1() {
                     <span className="icono-texto"><i className="fa-solid fa-brush"></i>  <i className="fa-solid fa-font"></i></span>
                 </span>
 
-                <div className="contenedor-titulo-textbox-1-1">
+                <div className="est1_1__content">
                     <input
-                        className="header-estructura-1-1 input-titulo"
+                        className="est1_1__title input-titulo"
                         placeholder="Escribe un titulo"
                         style={{ color: colorTexto }}
                     />
 
                     <textarea
-                        className="textbox-estructura-1-1 input-textbox"
+                        className="est1_1__description input-textbox"
                         placeholder="Escribe un texto"
                         style={{ color: colorTexto }}
                     />

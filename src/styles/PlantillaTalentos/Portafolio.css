@@ -1,15 +1,42 @@
+/* NAVBAR */
+.navbar-editor {
+  width: 100%;
+  height: 60px;
+  position: fixed;
+  top: 0;
+  left: 0;
+  background: white;
+  z-index: 1000;
+}
+
+/* CONTENEDOR GENERAL */
+.portafolio-container {
+  margin-top: 60px; /* espacio para navbar */
+}
+
+/* LAYOUT */
+.layout {
+  display: flex;
+}
+
+/* LIENZO */
+.lienzo-container {
+  flex: 1;
+  padding: 20px;
+}
+
+/* SIDEBAR */
 .sidebar-container {
   width: 260px;
-  position: fixed;
-  right: 0;
-  top: 0;
-  height: 100vh;
+  height: calc(100vh - 60px);
+  position: sticky;
+  top: 60px;
+  padding: 10px;
+  background: #f8f8f8;
 }
 
-.lienzo-container {
-  margin-right: 260px;
-}
-
-.box-small{
-    cursor: pointer;
+/* BOTÓN */
+.btn-pdf {
+  width: 100%;
+  margin-bottom: 10px;
 }

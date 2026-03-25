@@ -12,9 +12,9 @@ function Grilla1_2_Izda() {
 
     return (
         <>
-            <div class="grid">
-                <div class="left"
-                    className="ImageBlock-grilla1_2_izda"
+            <div className="grilla1_2_izda__grid">
+                <div
+                    className="grilla1_2_izda__image"
                     style={{
                         backgroundColor: colorFondo,
                         backgroundImage: imageUrl ? `url(${imageUrl})` : "none",
@@ -44,19 +44,19 @@ function Grilla1_2_Izda() {
                             className="remove-img"
                             onClick={() => setImageUrl("")}
                         >
-                            ❌
+                            <i className="fa-solid fa-xmark"></i>
                         </span>
                     )}
                 </div>
-                <div className="contenedor-titulo-textbox-grilla1_2_izda">
+                <div className="grilla1_2_izda__content">
                     <input
-                        className="header-grilla1_2_izda input-titulo"
+                        className="grilla1_2_izda__title input-titulo"
                         placeholder="Escribe un titulo"
                         style={{ color: colorTexto }}
                     />
 
                     <textarea
-                        className="textbox-grilla1_2_izda input-textbox"
+                        className="grilla1_2_izda__description input-textbox"
                         placeholder="Escribe un texto"
                         style={{ color: colorTexto }}
                     />

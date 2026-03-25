@@ -1,58 +1,243 @@
-.sidebar {
-  width: 260px;
-  background: #f7f9fb;
+.sidebartalentos {
+  width: 280px;
   height: 100vh;
-  border-right: 1px solid #e0e0e0;
+  background: #f8fafc;
+  border-left: 1px solid #e5e7eb;
+  padding: 16px;
+  display: flex;
+  flex-direction: column;
+  gap: 18px;
 }
 
-.section-title {
-  font-size: 11px;
-  font-weight: 600;
-  color: #9aa0a6;
-  margin-bottom: 8px;
+/* HEADER */
+.sidebartalentos__header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
 }
 
-
-.box {
-  background: #e9eef3;
-  border-radius: 8px;
-  cursor: pointer;
-  text-align: center;
-  
-}
-
-.box.small {
-  width: 60px;
-  height: 40px;
-}
-
-.box.long {
-  height: 20px;
-  border-radius: 10px;
-}
-
-.box.image {
-  height: 80px;
+.sidebartalentos__title {
   display: flex;
   align-items: center;
-  justify-content: center;
+  gap: 8px;
+}
+
+.sidebartalentos__icon {
+  font-size: 18px;
+  color: #0ea5e9;
+}
+
+.sidebartalentos__header h6 {
+  font-size: 15px;
+  font-weight: 600;
+  margin: 0;
+}
+
+.sidebartalentos__badge {
+  background: #e0f2fe;
+  color: #0284c7;
+  font-size: 10px;
+  padding: 3px 8px;
+  border-radius: 6px;
+}
+
+/* SEARCH */
+.sidebartalentos__search {
+  width: 100%;
+  padding: 10px;
+  border-radius: 10px;
+  border: 1px solid #e5e7eb;
+  font-size: 13px;
+  outline: none;
+  background: #fff;
+}
+
+/* TITULOS */
+.sidebartalentos__section-title {
+  font-size: 11px;
+  font-weight: 600;
+  color: #94a3b8;
+  margin-top: 10px;
+}
+
+/* GRID */
+.sidebartalentos__grid {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 12px;
+}
+
+/* CARD */
+.sidebartalentos__layout {
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+  cursor: pointer;
+  text-align: center;
+}
+
+.sidebartalentos__layout span {
+  font-size: 11px;
+  color: #64748b;
+}
+
+/* PREVIEW */
+.sidebartalentos__layout-preview {
+  height: 70px;
+  background: #e2e8f0;
+  border-radius: 10px;
+  padding: 6px;
+  display: grid;
+  gap: 4px;
 }
 
 
-.text-line {
-  height: 10px;
-  background: #dfe5eb;
+
+/* 🔥 LAYOUT CENTRADO */
+.layout-centered {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+/* CUADRO INTERNO */
+.layout-centered__box {
+  width: 50%;
+  height: 50%;
+  background: #cbd5e1;
+  border-radius: 6px;
+}
+
+
+
+/* 🔥 LAYOUT HEADER + COLUMNA */
+.layout-header-column {
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+}
+
+/* fila arriba (más pequeña) */
+.layout-header-column__top {
+  height: 30%;
+  background: #cbd5e1;
+  border-radius: 4px;
+}
+
+/* bloque abajo */
+.layout-header-column__bottom {
+  height: 70%;
+  background: #cbd5e1;
+  border-radius: 4px;
+}
+
+
+
+/* 🔥 LAYOUT 1:2 PERSONALIZADO */
+.layout-1-2 {
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+}
+
+/* fila de arriba */
+.layout-1-2__top {
+  height: 30%;
+  background: #cbd5e1;
+  border-radius: 4px;
+}
+
+/* fila de abajo */
+.layout-1-2__bottom {
+  height: 70%;
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 4px;
+}
+
+.layout-1-2__bottom div {
+  background: #cbd5e1;
+  border-radius: 4px;
+}
+
+.layout-2 {
+  grid-template-columns: 1fr 1fr;
+}
+
+.layout-3 {
+  grid-template-columns: repeat(3, 1fr);
+}
+
+.layout-4 {
+  grid-template-columns: repeat(2, 1fr);
+  grid-template-rows: repeat(2, 1fr);
+}
+
+
+
+/* IMAGEN */
+.sidebartalentos__image-card {
+  height: 60px;
+  background: #e2e8f0;
   border-radius: 10px;
 }
 
-.text-line.short {
-  width: 60%;
+.sidebartalentos__hero-card {
+  height: 90px;
+  background: #cbd5e1;
+  border-radius: 10px;
 }
 
+/* TEXTO */
+.sidebartalentos__text-block {
+  background: #e2e8f0;
+  padding: 10px;
+  border-radius: 10px;
+}
 
-.btn-placeholder {
-  height: 30px;
+.sidebartalentos__line {
+  height: 8px;
+  background: #cbd5e1;
+  border-radius: 10px;
+  margin-bottom: 6px;
+}
+
+.sidebartalentos__line.long {
+  width: 90%;
+}
+
+.sidebartalentos__line.short {
+  width: 50%;
+}
+
+/* LABEL */
+.sidebartalentos__label {
+  font-size: 11px;
+  color: #6b7280;
+}
+
+/* BOTON FAKE */
+.sidebartalentos__button {
+  height: 35px;
   width: 70%;
-  background: #cfe8ff;
+  background: #7dd3fc;
   border-radius: 20px;
 }
+
+/* BOTON FINAL */
+.sidebartalentos__add-btn {
+  margin-top: auto;
+  padding: 12px;
+  border: none;
+  background: #0ea5e9;
+  color: white;
+  border-radius: 12px;
+  font-weight: 600;
+  cursor: pointer;
+  transition: 0.2s;
+}
+
+.sidebartalentos__add-btn:hover {
+  background: #0284c7;
+}
+

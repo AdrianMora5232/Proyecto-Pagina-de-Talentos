@@ -1,9 +1,17 @@
-.contenedor-estructura-1 {
+.est1 {
     height: 400px;
     position: relative; 
     display: flex;
     align-items: center;
     justify-content: center;
+}
+
+.est1__title {
+    background-color: transparent;
+    border: none;
+    text-align: center;
+    font-size: 24px;
+    outline: none;
 }
 
 .color-wrapper {

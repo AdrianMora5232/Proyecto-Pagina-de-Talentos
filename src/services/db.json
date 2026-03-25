@@ -1,24 +1,3 @@
 {
-  "usuarios": [
-    {
-      "id": "1980",
-      "Nombre": "Alejandro",
-      "Correo": "alejandronicmen@gmail.com",
-      "Provincias": "abc",
-      "Canton": "Alajuelit",
-      "Distrito": "Calle cocheas",
-      "Roles": "Usuario",
-      "Contrasena": "1234"
-    },
-    {
-      "id": "4a5c",
-      "Nombre": "Luna",
-      "Correo": "Lunaanhdaixj@gmail",
-      "Provincias": "Alajuela",
-      "Canton": "iojiojax",
-      "Distrito": "papayas",
-      "Roles": "Usuario",
-      "Contrasena": "123"
-    }
-  ]
+  "usuarios": []
 }

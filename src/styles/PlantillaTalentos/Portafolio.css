@@ -1,0 +1,15 @@
+.sidebar-container {
+  width: 260px;
+  position: fixed;
+  right: 0;
+  top: 0;
+  height: 100vh;
+}
+
+.lienzo-container {
+  margin-right: 260px;
+}
+
+.box-small{
+    cursor: pointer;
+}

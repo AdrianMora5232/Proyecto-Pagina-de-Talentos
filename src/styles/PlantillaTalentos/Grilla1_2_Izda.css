@@ -1,0 +1,61 @@
+.ImageBlock-grilla1_2_izda {
+    height: 400px;
+    position: relative; 
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 10px;
+}
+
+.contenedor-titulo-textbox-grilla1_2_izda {
+    display: grid;
+    grid-template-rows: 90px 1fr; /* 🔥 header fijo + resto flexible */
+    width: 100%;
+    height: 100%;
+}
+
+
+
+.grid {
+  display: grid;
+  grid-template-columns: 2fr 1fr; 
+  grid-template-rows: 2fr 1fr;    
+  gap: 10px;
+  height: 400px;
+}
+
+/* TEXTBOX (DESCRIPCIÓN) */
+.textbox-grilla1_2_izda input-textbox {
+    width: 100%;
+    height: 100%;
+    border: none;
+    background: transparent;
+    font-size: 16px;
+    text-align: center;
+    outline: none;
+    resize: none;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.input-titulo,
+.input-textbox {
+    border: 1px dashed rgba(0, 0, 0, 0.2); /* 🔥 línea discontinua suave */
+    background: transparent;
+    outline: none;
+    transition: border 0.2s ease;
+}
+
+/* 👉 Cuando el usuario escribe */
+.input-titulo:not(:placeholder-shown),
+.input-textbox:not(:placeholder-shown) {
+    border: none;
+}
+
+/* 👉 Opcional: al enfocar */
+.input-titulo:focus,
+.input-textbox:focus {
+    border: 1px dashed rgba(0, 0, 0, 0.4);
+}

@@ -1,0 +1,73 @@
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap');
+
+.footer-container {
+  background-color: #f8fafc;
+  border-top: 1px solid #e1e7ec;
+  padding: 30px 0;
+  font-family: 'Inter', sans-serif;
+  width: 100%;
+  margin-top: auto;
+}
+
+.footer-content {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 0 5%;
+  flex-wrap: wrap; /* allow wrapping on small screens */
+  gap: 20px;
+}
+
+.footer-brand {
+  font-weight: 700;
+  color: #111827; /* Dark slate */
+  font-size: 1.15rem;
+}
+
+.footer-links {
+  display: flex;
+  gap: 25px;
+}
+
+.footer-link {
+  color: #64748b; /* Slate */
+  text-decoration: none;
+  font-size: 0.95rem;
+  font-weight: 500;
+  transition: color 0.2s ease;
+}
+
+.footer-link:hover {
+  color: #00b4d8; /* Cyan accent for hover */
+}
+
+.footer-copy {
+  color: #64748b;
+  font-size: 0.9rem;
+  letter-spacing: 0.3px;
+}
+
+/* Responsive adjustments */
+@media (max-width: 768px) {
+  .footer-content {
+    flex-direction: column;
+    text-align: center;
+    justify-content: center;
+    gap: 15px;
+  }
+}
+
+.footer-socials {
+  display: flex;
+  gap: 15px;
+  align-items: center;
+}
+
+
+.pie-pagina{
+  position: relative;
+  top: 500px;
+  
+}

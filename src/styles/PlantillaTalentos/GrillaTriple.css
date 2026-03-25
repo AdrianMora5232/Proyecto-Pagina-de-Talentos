@@ -1,0 +1,13 @@
+.contenedor-grilla-triple {
+    display: grid;
+   grid-template-columns: repeat(3, 1fr); 
+  gap: 10px;
+  padding: 10px;
+  border: 1px solid lightblue;
+}
+
+.col-grilla-triple {
+    width: auto;
+    height: 500px;
+  background: lightgray;
+}

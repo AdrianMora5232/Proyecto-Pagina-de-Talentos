@@ -6,7 +6,9 @@ function EditorContenedores({ setColorFondo, setImageUrl, imageUrl, setColorText
     return (
         <>
             {visible && (
-                <div className="editor-toolbar">
+                <div className="editor-toolbar"
+                onClick={(e) => e.stopPropagation()}>
+                    
                     <span className="color-wrapper">
                         <input
                             className="btnColor"

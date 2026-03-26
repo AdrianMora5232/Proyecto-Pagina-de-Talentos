@@ -1,6 +1,6 @@
 import "../../styles/PlantillaTalentos/SidebarTalentos.css";
 
-function SidebarTalentos({ actEst1, actEst1_1, actEst1_2, actGrilla1_2_Izda, actGrilla1_2_Derecha }) {
+function SidebarTalentos({ actEst1, actEst1_1, actEst1_2, actEst1_3, actEst1_4, actGrillaDoble, actGrillaTriple, actGrilla1_2_Izda, actGrilla1_2_Derecha }) {
   return (
     <div className="sidebartalentos">
 
@@ -55,15 +55,59 @@ function SidebarTalentos({ actEst1, actEst1_1, actEst1_2, actGrilla1_2_Izda, act
           <span>Layout 1:2</span>
         </div>
 
-        <div className="sidebartalentos__layout" onClick={actEst1_1}>
-          <div className="sidebartalentos__layout-preview layout-3"></div>
+        <div className="sidebartalentos__layout" onClick={actEst1_3}>
+          <div className="sidebartalentos__layout-preview layout-1-3">
+
+            <div className="layout-1-3__top"></div>
+
+            <div className="layout-1-3__bottom">
+              <div></div>
+              <div></div>
+              <div></div>
+            </div>
+
+          </div>
+          <span>1:3</span>
+        </div>
+
+        <div className="sidebartalentos__layout" onClick={actEst1_4}>
+          <div className="sidebartalentos__layout-preview layout-1-4">
+
+            <div className="layout-1-4__top"></div>
+
+            <div className="layout-1-4__bottom">
+              <div></div>
+              <div></div>
+              <div></div>
+              <div></div>
+            </div>
+
+          </div>
+          <span>1:4</span>
+        </div>
+
+        <div className="sidebartalentos__layout" onClick={actGrillaDoble}>
+          <div className="sidebartalentos__layout-preview layout-2-cols">
+
+            <div></div>
+            <div></div>
+
+          </div>
+          <span>Grilla Doble</span>
+        </div>
+
+        
+        <div className="sidebartalentos__layout" onClick={actGrillaTriple}>
+          <div className="sidebartalentos__layout-preview layout-3-cols">
+
+            <div></div>
+            <div></div>
+            <div></div>
+
+          </div>
           <span>Grilla Triple</span>
         </div>
 
-        <div className="sidebartalentos__layout" onClick={actGrilla1_2_Izda}>
-          <div className="sidebartalentos__layout-preview layout-2"></div>
-          <span>Grilla Doble</span>
-        </div>
 
         <div className="sidebartalentos__layout" onClick={actGrilla1_2_Derecha}>
           <div className="sidebartalentos__layout-preview layout-4"></div>

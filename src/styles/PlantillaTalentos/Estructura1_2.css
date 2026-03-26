@@ -1,20 +1,74 @@
-.contenedor-est-1-2 {
-    display: grid;
-    grid-template-columns: repeat(2, 1fr);
-    gap: 10px;
-    padding: 10px;
-    border: 1px solid lightblue;
-}
-
-.header-est-1-2 {
-    width: auto;
-    height: 90px;
-    grid-column: 1 / -1;  /* empieza en la columna 1, termina en la última columna*/
-    background: lightblue;
-}
-
-.col-est-1-2 {
-    width: auto;
+/* CONTENEDOR PRINCIPAL */
+.est1_2 {
     height: 400px;
-    background: lightgray;
+    position: relative;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+/* GRID DEL CONTENIDO */
+.est1_2__content {
+    display: grid;
+    grid-template-rows: 90px 1fr;
+    grid-template-columns: 1fr 1fr; /* 👈 columnas iguales */
+    width: 100%;
+    height: 100%;
+    gap: 20px;
+}
+
+/* 🔥 CLAVE: el título ocupa todo el ancho */
+.est1_2__title {
+    grid-column: 1 / 3; /* 👈 ocupa las 2 columnas */
+
+    width: 100%;
+    height: 100%;
+    border: none;
+    background: transparent;
+    font-size: 28px;
+    text-align: center;
+    outline: none;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+/* TEXTBOX (DESCRIPCIÓN) */
+.est1_2__description {
+    width: 100%;
+    height: 100%;
+    border: none;
+    background: transparent;
+    font-size: 16px;
+    text-align: center;
+    outline: none;
+    resize: none;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+
+
+/* INPUTS GENERALES */
+.input-titulo,
+.input-textbox {
+    border: 1px dashed rgba(0, 0, 0, 0.2);
+    background: transparent;
+    outline: none;
+    transition: border 0.2s ease;
+}
+
+/* Cuando el usuario escribe */
+.input-titulo:not(:placeholder-shown),
+.input-textbox:not(:placeholder-shown) {
+    border: none;
+}
+
+/* Al enfocar */
+.input-titulo:focus,
+.input-textbox:focus {
+    border: 1px dashed rgba(0, 0, 0, 0.4);
 }

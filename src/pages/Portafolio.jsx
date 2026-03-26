@@ -3,6 +3,10 @@ import Lienzo from "../components/PlantillaTalentos/Lienzo";
 import Estructura1 from "../components/PlantillaTalentos/Estructura1";
 import Estructura1_1 from "../components/PlantillaTalentos/Estructura1_1";
 import Estructura1_2 from "../components/PlantillaTalentos/Estructura1_2";
+import Estructura1_3 from "../components/PlantillaTalentos/Estructura1_3";
+import Estructura1_4 from "../components/PlantillaTalentos/Estructura1_4";
+import GrillaDoble from "../components/PlantillaTalentos/GrillaDoble";
+import GrillaTriple from "../components/PlantillaTalentos/GrillaTriple";
 import Grilla1_2_Izda from "../components/PlantillaTalentos/Grilla1_2_Izda";
 import Grilla1_2_Derecha from "../components/PlantillaTalentos/Grilla1_2_Derecha";
 import SidebarTalentos from "../components/PlantillaTalentos/SidebarTalentos";
@@ -60,6 +64,14 @@ const Portafolio = () => {
                 return <Estructura1_1 key={comp + index} />;
             case "Estructura1_2":
                 return <Estructura1_2 key={comp + index} />;
+            case "Estructura1_3":
+                return <Estructura1_3 key={comp + index} />;
+            case "Estructura1_4":
+                return <Estructura1_4 key={comp + index} />;
+            case "GrillaDoble":
+                return <GrillaDoble key={comp + index} />;
+            case "GrillaTriple":
+                return <GrillaTriple key={comp + index} />;
             case "Grilla1_2_Izda":
                 return <Grilla1_2_Izda key={comp + index} />;
             case "Grilla1_2_Derecha":
@@ -170,6 +182,10 @@ const Portafolio = () => {
                                 actEst1={() => toggleComponente("Estructura1")}
                                 actEst1_1={() => toggleComponente("Estructura1_1")}
                                 actEst1_2={() => toggleComponente("Estructura1_2")}
+                                actEst1_3={() => toggleComponente("Estructura1_3")}
+                                actEst1_4={() => toggleComponente("Estructura1_4")}
+                                actGrillaDoble={() => toggleComponente("GrillaDoble")}
+                                actGrillaTriple={() => toggleComponente("GrillaTriple")}
                                 actGrilla1_2_Izda={() => toggleComponente("Grilla1_2_Izda")}
                                 actGrilla1_2_Derecha={() => toggleComponente("Grilla1_2_Derecha")}
                             />

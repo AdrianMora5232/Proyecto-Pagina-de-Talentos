@@ -1,5 +1,5 @@
 /* CONTENEDOR PRINCIPAL */
-.est1_3 {
+.est1_4 {
     height: 400px;
     position: relative;
     display: flex;
@@ -8,17 +8,17 @@
 }
 
 /* GRID DEL CONTENIDO */
-.est1_3__content {
+.est1_4__content {
     display: grid;
     grid-template-rows: 90px 1fr;
-    grid-template-columns: 1fr 1fr 1fr; /* 👈 columnas iguales */
+    grid-template-columns: 1fr 1fr 1fr 1fr; /* 👈 columnas iguales */
     width: 100%;
     height: 100%;
     gap: 20px;
 }
 
-.est1_3__title {
-    grid-column: 1 / 4; /* 🔥 ocupa las 3 columnas */
+.est1_4__title {
+    grid-column: 1 / 5; /* 🔥 ocupa las 4 columnas */
 
     width: 100%;
     height: 100%;
@@ -34,7 +34,7 @@
 }
 
 /* TEXTBOX (DESCRIPCIÓN) */
-.est1_3__description {
+.est1_4__description {
     width: 100%;
     height: 100%;
     border: none;

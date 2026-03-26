@@ -1,14 +1,50 @@
-.contenedor-grilla-doble {
+/* 🔥 GRID PRINCIPAL */
+.grillaDoble__grid {
     display: grid;
-    grid-template-columns: repeat(2, 1fr);
-    gap: 10px;
-    padding: 10px;
-    border: 1px solid lightblue;
+    grid-template-columns: repeat(2, 1fr); /* 👈 2 columnas iguales */
+    gap: 20px;
+    height: 400px;
+    width: 100%;
 }
 
-.col-grilla-doble {
-    width: auto;
-    height: 400px;
-    background-color: lightgray;
-    border: 1px solid lightblue;
+/* 🔥 BLOQUES (COLUMNAS) */
+.grillaDoble__image {
+    position: relative;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+/* 🔥 (opcional) para que no se deforme imagen */
+/* 🔥 BLOQUES (COLUMNAS) */
+.grillaDoble__image {
+    position: relative;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    /* 👇 AQUÍ está la clave */
+    border: 1px dashed rgba(0, 0, 0, 0.2);
+    transition: border 0.2s ease;
+}
+
+/* 🔥 INPUTS GENERALES (puedes moverlos a global.css luego) */
+.input-titulo,
+.input-textbox {
+    border: 1px dashed rgba(0, 0, 0, 0.2);
+    background: transparent;
+    outline: none;
+    transition: border 0.2s ease;
+}
+
+/* cuando hay texto */
+.input-titulo:not(:placeholder-shown),
+.input-textbox:not(:placeholder-shown) {
+    border: none;
+}
+
+/* focus */
+.input-titulo:focus,
+.input-textbox:focus {
+    border: 1px dashed rgba(0, 0, 0, 0.4);
 }

@@ -1,5 +1,7 @@
 import React from 'react'
 import '../../styles/NavBar.css'
+import 'bootstrap/dist/css/bootstrap.min.css';
+import 'bootstrap/dist/js/bootstrap.bundle.min.js';
 
 function Navbar() {
 
@@ -14,6 +16,9 @@ function Navbar() {
                     <a className="navbar-brand" href="#">
                         Krea
                     </a>
+
+                   
+                        
                     <button
                         className="navbar-toggler"
                         type="button"

@@ -41,6 +41,13 @@
 .navbar-nav {
     margin-left: 20px;
     gap: 15px;
+    display: flex !important;
+    list-style: none !important;
+    padding-left: 0 !important;
+}
+
+.navbar-nav .nav-item {
+    display: list-item !important;
 }
 
 .nav-link {
@@ -48,11 +55,35 @@
     font-weight: 600 !important;
     font-size: 0.95rem;
     transition: color 0.2s ease;
+    text-decoration: none !important;
+    display: block !important;
 }
 
 .nav-link.active,
 .nav-link:hover {
     color: #00b4d8 !important;
+}
+
+/* Ensure Bootstrap collapse works with Tailwind */
+@media (min-width: 992px) {
+  .navbar-collapse {
+    display: flex ;
+    flex-basis: auto ;
+  }
+}
+
+@media (max-width: 991px) {
+  .navbar-collapse.collapse:not(.show) {
+    display: none ;
+  }
+
+  .navbar-collapse.collapse.show {
+    display: block ;
+  }
+
+  .navbar-collapse.collapsing {
+    display: block ;
+  }
 }
 
 /* Search bar */

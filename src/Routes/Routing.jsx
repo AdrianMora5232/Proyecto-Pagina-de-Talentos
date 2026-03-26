@@ -5,6 +5,7 @@ import PerfilUsuario from "../pages/PerfilUsuario"
 import PaginaContacto from "../pages/PaginaContacto"
 import SobreNosotros from "../pages/SobreNosotros"
 import PaguinaIniciar from "../pages/PaguinaIniciar"
+import AgregarUsuario from "../components/AgregarUsuario"
 import PaginaRegistro from "../pages/PaginaRegistro"
 import Portafolio from "../pages/Portafolio"
 import Admin from "../pages/Admin"
@@ -16,6 +17,9 @@ function Routing() {
         <Router>
             <Routes>
                 <Route path="/" element={<Inicio />} />
+                 <Route path="/Iniciar" element={<PaguinaIniciar/>}/>
+                 <Route path="/Registro" element={<PaginaRegistro/>}/>
+                 <Route path="/AgregarUsuario" element={<AgregarUsuario/>}/>
                 <Route path="/principal" element={<RutaPrivada children={<Principal />} />} />
                 <Route path="/perfil-usuario" element={<RutaPrivada children={<PerfilUsuario />} />} />
                 <Route path="/pagina-contacto" element={<PaginaContacto />} />

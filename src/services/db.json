@@ -27,5 +27,29 @@
       "Roles": "Usuario",
       "Contrasena": "1234"
     }
-  ]
+  ],
+  "portafolios": [
+    {
+      "id": "649b",
+      "usuarioId": "1",
+      "componentes": [
+        "Estructura1",
+        "Estructura1_1"
+      ],
+      "titulo": "hhrh",
+      "descripcion": "fghnfg"
+    },
+    {
+      "id": "336e",
+      "usuarioId": "1",
+      "componentes": [
+        "Estructura1",
+        "Estructura1_1"
+      ],
+      "titulo": "grgs",
+      "descripcion": "sgsg",
+      "pdf": "https://res.cloudinary.com/dyy1yqvbv/raw/upload/v1774508475/v1xcx5qk7gksc4o06e2c"
+    }
+  ],
+  "$schema": "./node_modules/json-server/schema.json"
 }

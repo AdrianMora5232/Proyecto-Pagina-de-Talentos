@@ -1,7 +1,20 @@
-import React from 'react'
 import "../../styles/EstilosPerfilUsuario/ProyectosRecientes.css"
+import { useState,useEffect } from 'react'
+import CardProyecto from './CardProyecto';
 
 function ProyectosRecientes() {
+    const [proyectos,setProyectos] = useState([])
+
+
+    useEffect(()=>{
+        async function traerCursos() {
+            const peticion = await fetch("http://localhost:3001/portafolios")
+            const peticionJson = await peticion.json()
+            setProyectos(peticionJson)
+        }
+        traerCursos()
+    },[])
+
     return (
         <div className='proyectos-container'>
 
@@ -11,33 +24,12 @@ function ProyectosRecientes() {
             </div>
 
             <div className="proyectos-grid">
-                <div className="proyecto-card">
-                    <img src="https://images.squarespace-cdn.com/content/v1/5eb395e1fd1b486592f0948c/1750174947481-5208D20SEQ7LULNHGTIN/image-asset.jpeg?format=750w" alt="" />
-                    <h4>Nombre del proyecto</h4>
-                    <p>Descripción del proyecto</p>
-                    <button>
-                        Ver proyecto <span className="fa-solid fa-arrow-right"></span>
-                    </button>
-                </div>
-
-                <div className="proyecto-card">
-                    <img src="https://images.squarespace-cdn.com/content/v1/5eb395e1fd1b486592f0948c/1750174947481-5208D20SEQ7LULNHGTIN/image-asset.jpeg?format=750w" alt="" />
-                    <h4>Nombre del proyecto</h4>
-                    <p>Descripción del proyecto</p>
-                    <button>
-                        Ver proyecto <span className="fa-solid fa-arrow-right"></span>
-                    </button>
-                </div>
-                
-                <div className="proyecto-card">
-                    <img src="https://images.squarespace-cdn.com/content/v1/5eb395e1fd1b486592f0948c/1750174947481-5208D20SEQ7LULNHGTIN/image-asset.jpeg?format=750w" alt="" />
-                    <h4>Nombre del proyecto</h4>
-                    <p>Descripción del proyecto</p>
-                    <button>
-                        Ver proyecto <span className="fa-solid fa-arrow-right"></span>
-                    </button>
-                </div>
-
+                {proyectos.map((proyecto)=>(
+                    <CardProyecto
+                        nombreProyecto={proyecto.titulo}
+                        descripcionProyecto={proyecto.descripcion}
+                    />
+                ))}
             </div>
 
         </div>

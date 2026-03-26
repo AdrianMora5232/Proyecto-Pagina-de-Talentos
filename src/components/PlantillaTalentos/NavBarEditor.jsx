@@ -1,7 +1,7 @@
 import React from 'react'
 import "../../styles/PlantillaTalentos/NavBarEditor.css"
 
-function NavBarEditor() {
+function NavBarEditor({guardar}) {
     return (
         <nav className="navbar-editor">
 
@@ -25,7 +25,7 @@ function NavBarEditor() {
                     <i className="fa-solid fa-eye"></i> Vista previa
                 </button>
 
-                <button className="btn-save">
+                <button className="btn-save" onClick={guardar}>
                     <i className="fa-solid fa-floppy-disk"></i> Guardar
                 </button>
 

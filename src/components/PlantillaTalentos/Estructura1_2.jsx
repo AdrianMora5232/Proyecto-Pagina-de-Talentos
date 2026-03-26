@@ -1,6 +1,10 @@
 import "../../styles/PlantillaTalentos/Estructura1_2.css"
+import EditorContenedores from "./EditorContenedores";
+import { useEstilos } from "./useEstilos";
 
 function Estructura1_2() {
+    const { colorFondo, setColorFondo, colorTexto, setColorTexto, imageUrl, setImageUrl } = useEstilos();
+
     return (
         <div
             className="est1_2"
@@ -10,6 +14,12 @@ function Estructura1_2() {
                 backgroundSize: "cover",
                 backgroundPosition: "center",
             }}>
+            <EditorContenedores
+                setColorFondo={setColorFondo}
+                setImageUrl={setImageUrl}
+                imageUrl={imageUrl}
+                setColorTexto={setColorTexto}
+            />
 
             <div className="est1_2__content">
                 <input

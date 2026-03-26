@@ -1,14 +1,9 @@
 import "../../styles/PlantillaTalentos/Grilla1_2Derecha.css";
-import { useState } from "react";
-//import { useImage } from "./HookImagenCloudinary";
-import UploadImage from "./SubirImagen";
+import EditorContenedores from "./EditorContenedores";
+import { useEstilos } from "./useEstilos";
 
 function Grilla1_2_Derecha() {
-    const [colorFondo, setColorFondo] = useState("white");
-    const [colorTexto, setColorTexto] = useState("black");
-
-    //const { imageUrl, setImageUrl } = useImage();
-    const [imageUrl, setImageUrl] = useState("");
+    const { colorFondo, setColorFondo, colorTexto, setColorTexto, imageUrl, setImageUrl } = useEstilos();
 
     return (
         <>
@@ -35,32 +30,12 @@ function Grilla1_2_Derecha() {
                         backgroundPosition: "center",
                     }}
                 >
-                    <span className="color-wrapper">
-                        <input
-                            className="btnColor"
-                            type="color"
-                            onChange={(e) => setColorFondo(e.target.value)}
-                        />
-                        <span className="icono">
-                            <i className="fa-solid fa-palette"></i>
-                        </span>
-                    </span>
-
-
-                    <span className="image-wrapper">
-                        <UploadImage setImageUrl={setImageUrl} />
-                        <span className="icono-img"><i className="fa-regular fa-file-image"></i></span>
-                    </span>
-
-                    {imageUrl && (
-                        <span
-                            className="remove-img"
-                            onClick={() => setImageUrl("")}
-                        >
-                            <i className="fa-solid fa-xmark"></i>
-                        </span>
-                    )}
-
+                    <EditorContenedores
+                        setColorFondo={setColorFondo}
+                        setImageUrl={setImageUrl}
+                        imageUrl={imageUrl}
+                        setColorTexto={setColorTexto}
+                    />
                 </div>
             </div>
 

@@ -1,98 +1,108 @@
-.color-wrapper {
+/* ===== TOOLBAR ===== */
+.editor-toolbar {
     position: absolute;
-    
     top: 10px;
     left: 10px;
-    width: 40px;
-    height: 40px;
-}
+    z-index: 1000;
+    width: 210px;
+    height: 55px;
 
-.btnColor {
-    position: absolute;
-    width: 100%;
-    height: 100%;
-    opacity: 0;
-    cursor: pointer;
-}
-
-.icono {
-    width: 100%;
-    height: 100%;
-    border-radius: 5px;
     display: flex;
     align-items: center;
-    background: lightblue;
+    gap: 4px;
 
+    background: #eef2f6;
+    padding: 6px 8px;
+    border-radius: 999px;
+
+    box-shadow: 0 2px 6px rgba(0, 0, 0, 0.08);
+}
+
+
+/* ===== ITEMS ===== */
+.color-wrapper,
+.image-wrapper,
+.text-color-wrapper,
+.remove-img {
+    width: 34px;
+    height: 34px;
+
+    display: flex;
+    align-items: center;
     justify-content: center;
-    pointer-events: none;
-    font-size: 18px;
+
+    position: relative;
 }
 
-.image-wrapper {
-    position: absolute;
-    top: 10px;
-    left: 60px;
-    width: 40px;
-    height: 40px;
-}
 
+/* ===== INPUTS ===== */
+.btnColor,
+.btnTextColor,
 .image-wrapper input {
     position: absolute;
-    width: 100%;
-    height: 100%;
+    inset: 0;
     opacity: 0;
     cursor: pointer;
 }
 
-.icono-img {
-    width: 100%;
-    height: 100%;
-    background: lightblue;
-    border-radius: 5px;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    pointer-events: none;
-}
 
-.remove-img {
-    position: absolute;
-    top: 10px;
-    left: 110px;
-    width: 40px;
-    height: 40px;
-    background: #ff4d4d;
-    border-radius: 5px;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    cursor: pointer;
-}
-
-.text-color-wrapper {
-    position: absolute;
-    top: 10px;
-    left: 160px;
-    width: 40px;
-    height: 40px;
-}
-
-.btnTextColor {
-    position: absolute;
-    width: 100%;
-    height: 100%;
-    opacity: 0;
-    cursor: pointer;
-}
-
+/* ===== ICONOS ===== */
+.icono,
+.icono-img,
 .icono-texto {
     width: 100%;
     height: 100%;
-    background: lightblue;
-    border-radius: 5px;
+
     display: flex;
     align-items: center;
     justify-content: center;
-    pointer-events: none;
-    font-weight: bold;
+
+    border-radius: 50%;
+    background: transparent;
+    color: #475569;
+    font-size: 15px;
+}
+
+
+/* ===== HOVER ===== */
+.icono:hover,
+.icono-img:hover,
+.icono-texto:hover {
+    background: rgba(0, 0, 0, 0.06);
+}
+
+
+/* ===== BOTÓN X ===== */
+.remove-img {
+    color: #ef4444;
+    font-size: 16px;
+    cursor: pointer;
+}
+
+
+/* ===== DIVISORES (como en tu imagen) ===== */
+.image-wrapper {
+    margin-left: 4px;
+}
+
+.text-color-wrapper {
+    margin-left: 4px;
+}
+
+.image-wrapper::before,
+.text-color-wrapper::before {
+    content: "";
+    position: absolute;
+    left: -4px;
+    top: 7px;
+
+    width: 1px;
+    height: 20px;
+    background: #d1d5db;
+}
+
+.icono,
+.icono-img,
+.icono-texto {
+    background: transparent !important;
 }

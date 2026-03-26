@@ -13,6 +13,7 @@
     grid-template-rows: 90px 1fr; /* header fijo + resto flexible */
     width: 100%;
     height: 100%;
+    gap: 20px;  
 }
 
 /* HEADER (TITULO) */

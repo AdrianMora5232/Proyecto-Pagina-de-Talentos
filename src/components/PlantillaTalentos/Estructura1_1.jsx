@@ -1,14 +1,9 @@
 import "../../styles/PlantillaTalentos/Estructura1_1.css"
-import { useState } from "react";
-//import { useImage } from "./HookImagenCloudinary";
-import UploadImage from "./SubirImagen";
+import EditorContenedores from "./EditorContenedores";
+import { useEstilos } from "./useEstilos";
 
 function Estructura1_1() {
-    const [colorFondo, setColorFondo] = useState("white");
-    const [colorTexto, setColorTexto] = useState("black");
-
-    //const { imageUrl, setImageUrl } = useImage();
-    const [imageUrl, setImageUrl] = useState("");
+    const { colorFondo, setColorFondo, colorTexto, setColorTexto, imageUrl, setImageUrl } = useEstilos();
 
     return (
         <>
@@ -20,40 +15,12 @@ function Estructura1_1() {
                     backgroundSize: "cover",
                     backgroundPosition: "center",
                 }}>
-                <span className="color-wrapper">
-                    <input
-                        className="btnColor"
-                        type="color"
-                        onChange={(e) => setColorFondo(e.target.value)}
-                    />
-                    <span className="icono">
-                        <i className="fa-solid fa-palette"></i>
-                    </span>
-                </span>
-
-
-                <span className="image-wrapper">
-                    <UploadImage setImageUrl={setImageUrl} />
-                    <span className="icono-img"><i className="fa-regular fa-file-image"></i></span>
-                </span>
-
-                {imageUrl && (
-                    <span
-                        className="remove-img"
-                        onClick={() => setImageUrl("")}
-                    >
-                        ❌
-                    </span>
-                )}
-
-                <span className="text-color-wrapper">
-                    <input
-                        type="color"
-                        className="btnTextColor"
-                        onChange={(e) => setColorTexto(e.target.value)}
-                    />
-                    <span className="icono-texto"><i className="fa-solid fa-brush"></i>  <i className="fa-solid fa-font"></i></span>
-                </span>
+                <EditorContenedores
+                    setColorFondo={setColorFondo}
+                    setImageUrl={setImageUrl}
+                    imageUrl={imageUrl}
+                    setColorTexto={setColorTexto}
+                />
 
                 <div className="est1_1__content">
                     <input

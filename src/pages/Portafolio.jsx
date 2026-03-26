@@ -14,6 +14,7 @@ import SidebarTalentos from "../components/PlantillaTalentos/SidebarTalentos";
 import "../styles/PlantillaTalentos/Portafolio.css";
 
 import { useState, useEffect, useRef } from "react";
+
 import { ImageProvider } from "../components/PlantillaTalentos/HookImagenCloudinary";
 import Fetch from "../services/Fetch";
 
@@ -25,6 +26,22 @@ const Portafolio = () => {
     const [componentes, setComponentes] = useState([]);
     const [tituloProyecto, setTituloProyecto] = useState("");
     const [descripcionProyecto, setDescripcionProyecto] = useState("");
+
+    const [activeElement, setActiveElement] = useState(null);
+    const [toolbarPosition, setToolbarPosition] = useState({ x: 0, y: 0 });
+
+    const activarEditor = (e, data) => {
+        e.stopPropagation();
+
+        const rect = e.currentTarget.getBoundingClientRect();
+
+        setActiveElement(data);
+
+        setToolbarPosition({
+            x: rect.left + rect.width / 2,
+            y: rect.top
+        });
+    };
 
     const lienzoRef = useRef();
 

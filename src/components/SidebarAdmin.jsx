@@ -5,7 +5,7 @@ function SidebarAdmin({mostrandoDashboard,mostrandoUsuarios,mostrandoPortafolio}
     <aside className='sidebar'>
      <h2>Krea</h2>
      <ul>
-      <li className='active' onClick={mostrandoDashboard}>Dasboar</li>
+      <li className='active' onClick={mostrandoDashboard}>Dashboard</li>
       <li onClick={mostrandoUsuarios}>Gestión de usuarios</li>
       <li onClick={mostrandoPortafolio}>Gestion de Portafolios</li>
      </ul>

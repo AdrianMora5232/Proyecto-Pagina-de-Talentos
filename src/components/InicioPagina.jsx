@@ -87,11 +87,8 @@ function InicioPagina() {
         </div>
       </div>
 
-
-
-
     </div>
   )
 }
 
-export default InicioPagina
+export default InicioPagina

@@ -207,8 +207,6 @@ function CompPrincipal() {
                 </div>
             </div>
 
-
-
         </div >
     )
 }

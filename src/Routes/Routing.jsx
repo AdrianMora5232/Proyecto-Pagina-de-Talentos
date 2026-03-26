@@ -17,7 +17,6 @@ function Routing() {
         <Router>
             <Routes>
                 <Route path="/" element={<Inicio />} />
-                 <Route path = "/Admin" element = {<Admin/>} />
                  <Route path="/Iniciar" element={<PaguinaIniciar/>}/>
                  <Route path="/Registro" element={<PaginaRegistro/>}/>
                  <Route path="/AgregarUsuario" element={<AgregarUsuario/>}/>

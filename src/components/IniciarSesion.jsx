@@ -28,7 +28,11 @@ function IniciarSesion() {
             alert("Ingreso Exitoso")
             localStorage.setItem("UsuarioActivo", JSON.stringify(usuarioValido));
             localStorage.setItem("idUsuario", usuarioValido.id);
-            navigate("/principal")
+            if (usuarioValido.Roles === "Admin") {
+                navigate("/Admin")
+            } else {
+                navigate("/principal")
+            }
         } else {
             alert("El usuario no existe")
         }

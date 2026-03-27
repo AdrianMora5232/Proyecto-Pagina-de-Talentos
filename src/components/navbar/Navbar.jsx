@@ -1,88 +1,56 @@
-import React from 'react'
+import React, { useState } from 'react'
+import { Link, useLocation } from 'react-router-dom'
 import '../../styles/NavBar.css'
-import 'bootstrap/dist/css/bootstrap.min.css';
-import 'bootstrap/dist/js/bootstrap.bundle.min.js';
 
 function Navbar() {
+  const [menuOpen, setMenuOpen] = useState(false)
+  const location = useLocation()
 
+  const navLinks = [
+    { to: '/principal', label: 'Inicio', icon: '🏠' },
+    { to: '/portafolio', label: 'Proyectos', icon: '📁' },
+    { to: '/pagina-contacto', label: 'Contactos', icon: '✉️' },
+    { to: '/sobre-nosotros', label: 'Sobre Nosotros', icon: '👥' },
+    { to: '/Funcionalidad', label: 'Cómo Funciona', icon: '⚙️' },
+  ]
 
+  return (
+    <nav className="navbar">
+      <div className="navbar-container">
+        <Link to="/principal" className="navbar-logo">
+          <span className="logo-icon">✦</span>
+          <span className="logo-text">Talentos</span>
+        </Link>
 
-    return (
-        <div>
+        <button
+          className={`navbar-toggle ${menuOpen ? 'active' : ''}`}
+          onClick={() => setMenuOpen(!menuOpen)}
+          aria-label="Abrir menú"
+        >
+          <span className="toggle-bar"></span>
+          <span className="toggle-bar"></span>
+          <span className="toggle-bar"></span>
+        </button>
 
-            {/* Navbar de las paginas y apartado para bsuquedas */}
-            <nav className="navbar navbar-expand-lg bg-body-tertiary">
-                <div className="container-fluid">
-                    <a className="navbar-brand" href="#">
-                        Krea
-                    </a>
-
-                   
-                        
-                    <button
-                        className="navbar-toggler"
-                        type="button"
-                        data-bs-toggle="collapse"
-                        data-bs-target="#navbarSupportedContent"
-                        aria-controls="navbarSupportedContent"
-                        aria-expanded="false"
-                        aria-label="Toggle navigation"
-                    >
-                        <span className="navbar-toggler-icon" />
-                    </button>
-                    <div className="collapse navbar-collapse" id="navbarSupportedContent">
-                        <ul className="navbar-nav me-auto mb-2 mb-lg-0">
-                            <li className="nav-item">
-                                <a className="nav-link active" aria-current="page" href="/principal">
-                                    Inicio
-                                </a>
-                            </li>
-                            <li className="nav-item">
-                                <a className="nav-link" href="#">
-                                    Proyectos
-                                </a>
-                            </li>
-                            <li className="nav-item">
-                                <a className="nav-link" href="/pagina-contacto">
-                                    Contacto
-                                </a>
-                            </li>
-                            <li className="nav-item">
-                                <a className="nav-link" href="/sobre-nosotros">
-                                    Sobre Nosotros
-                                </a>
-                            </li>
-                            <li className="nav-item">
-                                <a className="nav-link" href="/Funcionalidad">
-                                    ¿Como Funciona?
-                                </a>
-                            </li>
-
-                            <li className="nav-item">
-                                <a className="nav-link disabled" aria-disabled="true">
-                                    {/* Espacio de busqueda por ahora vacio */}
-                                </a>
-                            </li>
-                        </ul>
-                        <form className="d-flex" role="search">
-                            <input
-                                className="form-control me-2"
-                                type="search"
-                                placeholder="Buscar proyectos..."
-                                aria-label="Search"
-                            />
-                            <button className="btn btn-outline-success" type="submit">
-                                Search
-                            </button>
-                        </form>
-                    </div>
-                </div>
-            </nav>
-
-
-        </div>
-
-    )
+        <ul className={`navbar-links ${menuOpen ? 'open' : ''}`}>
+          {navLinks.map((link) => (
+            <li key={link.to} className="navbar-item">
+              <Link
+                to={link.to}
+                className={`navbar-link ${location.pathname === link.to ? 'active' : ''}`}
+                onClick={() => setMenuOpen(false)}
+                title={`Ir a ${link.label}`}
+                aria-label={link.label}
+              >
+                <span className="link-icon">{link.icon}</span>
+                <span className="link-text">{link.label}</span>
+              </Link>
+            </li>
+          ))}
+        </ul>
+      </div>
+    </nav>
+  )
 }
 
 export default Navbar

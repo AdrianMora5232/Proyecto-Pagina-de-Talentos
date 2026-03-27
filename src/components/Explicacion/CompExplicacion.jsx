@@ -1,4 +1,5 @@
 import React from 'react'
+import { Link } from 'react-router-dom'
 import '../../styles/Explicacion/Explicacion.css'
 
 function CompExplicacion() {
@@ -23,7 +24,7 @@ function CompExplicacion() {
           <section className="section-card portafolios-destacados">
             <h2>Portafolios Destacados</h2>
             <div className="portafolios-grid-placeholder">
-              Grilla de Portafolios Destacados
+              <img src="" alt="" />
             </div>
             <button className="btn-outline">Ver más &rsaquo;</button>
           </section>
@@ -50,8 +51,11 @@ function CompExplicacion() {
               <div className="section-info">
                 <h2>Blog & Recursos</h2>
                 <ul className="link-list">
-                  <li>&rsaquo; Consejos para tu portafolio</li>
-                  <li>&rsaquo; Tendencias del mercado</li>
+                  <li>
+                    <Link to="/Consejos" style={{ textDecoration: 'none', color: 'inherit' }}>
+                      &rsaquo; Consejos para tu portafolio
+                    </Link>
+                  </li>
                   <li>&rsaquo; Historias de éxito</li>
                 </ul>
                 <button className="btn-outline">Leer más &rsaquo;</button>

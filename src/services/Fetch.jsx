@@ -44,11 +44,11 @@ async function deleteData(endpoint, id) {
         const peticion = await fetch(`http://localhost:3001/${endpoint}/${id}`, {
             method: "DELETE",
         });
-        
+
         if (!peticion.ok) {
             throw new Error(`Error al eliminar: ${peticion.statusText}`);
         }
-        
+
         return true;
     } catch (error) {
         console.error("Error al eliminar:", error);
@@ -56,4 +56,4 @@ async function deleteData(endpoint, id) {
     }
 }
 
-export default{ postData, getData, patchData, deleteData }
+export default { postData, getData, patchData, deleteData }

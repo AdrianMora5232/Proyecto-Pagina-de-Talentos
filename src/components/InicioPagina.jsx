@@ -33,7 +33,7 @@ function InicioPagina() {
         </button>
         <br />
         <br />
-        
+
         {/* Div de presentacion de la pagina */}
         <div className='DivPresentacion'>
           <div className='Descripcion'>
@@ -62,7 +62,7 @@ function InicioPagina() {
           Nuestra plataforma está diseñada para ayudarte a crecer, ganar visibilidad y convertir tu talento en nuevas oportunidades profesionales desde el primer día.</h4>
       </div>
 
-       {/* Div de cartas */}
+      {/* Div de cartas */}
       <div className='FeaturesContainer'>
         <div className='FeatureCard'>
           <div className='FeatureIcon'>

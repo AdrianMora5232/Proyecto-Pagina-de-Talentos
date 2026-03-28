@@ -1,43 +1,59 @@
-import "../../styles/PlantillaTalentos/Estructura1_1.css"
-import EditorContenedores from "./EditorContenedores";
-import { useEstilos } from "./useEstilos";
+import "../../styles/PlantillaTalentos/Estructura1_1.css";
+import EditableBlock from "./EditableBlock";
+import { useEditable } from "./useEditable";
 
-function Estructura1_1() {
-    const { colorFondo, setColorFondo, colorTexto, setColorTexto, imageUrl, setImageUrl } = useEstilos();
+function Estructura1_1({ onActivate, activeElement }) {
 
-    return (
-        <>
-            <div
-                className="est1_1"
-                style={{
-                    backgroundColor: colorFondo,
-                    backgroundImage: imageUrl ? `url(${imageUrl})` : "none",
-                    backgroundSize: "cover",
-                    backgroundPosition: "center",
-                }}>
-                <EditorContenedores
-                    setColorFondo={setColorFondo}
-                    setImageUrl={setImageUrl}
-                    imageUrl={imageUrl}
-                    setColorTexto={setColorTexto}
-                />
+  const fondo = useEditable();
+  const bloque = useEditable();
 
-                <div className="est1_1__content">
-                    <input
-                        className="est1_1__title input-titulo"
-                        placeholder="Escribe un titulo"
-                        style={{ color: colorTexto }}
-                    />
+  return (
+    <div
+      className="est1_1"
+      style={{
+        backgroundColor: fondo.state.colorFondo,
+        backgroundImage: fondo.state.imageUrl
+          ? `url(${fondo.state.imageUrl})`
+          : "none",
 
-                    <textarea
-                        className="est1_1__description input-textbox"
-                        placeholder="Escribe un texto"
-                        style={{ color: colorTexto }}
-                    />
-                </div>
-            </div>
+        outline: activeElement?.id === fondo.state.id
+          ? "2px solid #3b82f6"
+          : "none"
+      }}
+      onClick={(e) => {
+        e.stopPropagation();
 
-        </>
-    )
+        onActivate(e, {
+          id: fondo.state.id,
+          tipo: "fondo",
+          setColorFondo: (c) => fondo.update({ colorFondo: c }),
+          setImageUrl: (u) => fondo.update({ imageUrl: u }),
+          imageUrl: fondo.state.imageUrl
+        });
+      }}
+    >
+
+      <div className="est1_1__content">
+
+        <EditableBlock
+          className="est1_1__title"
+          data={bloque.state}
+          update={bloque.update}
+          onActivate={onActivate}
+          activeElement={activeElement}
+        />
+
+        <EditableBlock
+          className="est1_1__description"
+          data={bloque.state}
+          update={bloque.update}
+          onActivate={onActivate}
+          activeElement={activeElement}
+        />
+
+      </div>
+    </div>
+  );
 }
+
 export default Estructura1_1;

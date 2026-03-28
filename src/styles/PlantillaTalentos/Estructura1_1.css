@@ -1,71 +1,24 @@
-/* CONTENEDOR PRINCIPAL */
 .est1_1 {
     height: 400px;
-    position: relative;
     display: flex;
     align-items: center;
     justify-content: center;
 }
 
-/* GRID DEL CONTENIDO */
+/* GRID */
 .est1_1__content {
     display: grid;
-    grid-template-rows: 90px 1fr; /* header fijo + resto flexible */
+    grid-template-rows: 90px 1fr;
     width: 100%;
     height: 100%;
-    gap: 20px;  
+    gap: 20px;
 }
 
-/* HEADER (TITULO) */
+/* BLOQUES */
 .est1_1__title {
-    width: 100%;
-    height: 100%;
-    border: none;
-    background: transparent;
     font-size: 28px;
-    text-align: center;
-    outline: none;
-
-    display: flex;
-    align-items: center;
-    justify-content: center;
 }
 
-/* TEXTBOX (DESCRIPCIÓN) */
 .est1_1__description {
-    width: 100%;
-    height: 100%;
-    border: none;
-    background: transparent;
     font-size: 16px;
-    text-align: center;
-    outline: none;
-    resize: none;
-
-    display: flex;
-    align-items: center;
-    justify-content: center;
-}
-
-
-
-/* INPUTS GENERALES */
-.input-titulo,
-.input-textbox {
-    border: 1px dashed rgba(0, 0, 0, 0.2);
-    background: transparent;
-    outline: none;
-    transition: border 0.2s ease;
-}
-
-/* Cuando el usuario escribe */
-.input-titulo:not(:placeholder-shown),
-.input-textbox:not(:placeholder-shown) {
-    border: none;
-}
-
-/* Al enfocar */
-.input-titulo:focus,
-.input-textbox:focus {
-    border: 1px dashed rgba(0, 0, 0, 0.4);
 }

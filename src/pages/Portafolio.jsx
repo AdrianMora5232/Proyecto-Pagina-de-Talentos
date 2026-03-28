@@ -1,5 +1,6 @@
 import NavBarEditor from "../components/PlantillaTalentos/NavBarEditor";
 import Lienzo from "../components/PlantillaTalentos/Lienzo";
+import EditorContenedores from "../components/PlantillaTalentos/EditorContenedores";
 import Estructura1 from "../components/PlantillaTalentos/Estructura1";
 import Estructura1_1 from "../components/PlantillaTalentos/Estructura1_1";
 import Estructura1_2 from "../components/PlantillaTalentos/Estructura1_2";
@@ -14,13 +15,11 @@ import SidebarTalentos from "../components/PlantillaTalentos/SidebarTalentos";
 import "../styles/PlantillaTalentos/Portafolio.css";
 
 import { useState, useEffect, useRef } from "react";
-
 import { ImageProvider } from "../components/PlantillaTalentos/HookImagenCloudinary";
 import Fetch from "../services/Fetch";
-
 import { generarPDFBlob } from "../extras/pdfPortafolio";
-
 import Swal from "sweetalert2";
+
 
 const Portafolio = () => {
     const [componentes, setComponentes] = useState([]);
@@ -35,11 +34,14 @@ const Portafolio = () => {
 
         const rect = e.currentTarget.getBoundingClientRect();
 
-        setActiveElement(data);
+        setActiveElement({
+            ...data,
+            id: data.id
+        });
 
         setToolbarPosition({
             x: rect.left + rect.width / 2,
-            y: rect.top
+            y: rect.top - 10 // 👈 arriba del elemento
         });
     };
 
@@ -76,23 +78,23 @@ const Portafolio = () => {
     const renderComponent = (comp, index) => {
         switch (comp) {
             case "Estructura1":
-                return <Estructura1 key={comp + index} />;
+                return <Estructura1 key={comp + index} onActivate={activarEditor} activeElement={activeElement}/>;
             case "Estructura1_1":
-                return <Estructura1_1 key={comp + index} />;
+                return <Estructura1_1 key={comp + index} onActivate={activarEditor} activeElement={activeElement}/>;
             case "Estructura1_2":
-                return <Estructura1_2 key={comp + index} />;
+                return <Estructura1_2 key={comp + index} onActivate={activarEditor} activeElement={activeElement}/>;
             case "Estructura1_3":
-                return <Estructura1_3 key={comp + index} />;
+                return <Estructura1_3 key={comp + index} onActivate={activarEditor} activeElement={activeElement}/>;
             case "Estructura1_4":
-                return <Estructura1_4 key={comp + index} />;
+                return <Estructura1_4 key={comp + index} onActivate={activarEditor} activeElement={activeElement}/>;
             case "GrillaDoble":
-                return <GrillaDoble key={comp + index} />;
+                return <GrillaDoble key={comp + index} onActivate={activarEditor} activeElement={activeElement}/>;
             case "GrillaTriple":
-                return <GrillaTriple key={comp + index} />;
+                return <GrillaTriple key={comp + index} onActivate={activarEditor} activeElement={activeElement}/>;
             case "Grilla1_2_Izda":
-                return <Grilla1_2_Izda key={comp + index} />;
+                return <Grilla1_2_Izda key={comp + index} onActivate={activarEditor} activeElement={activeElement}/>;
             case "Grilla1_2_Derecha":
-                return <Grilla1_2_Derecha key={comp + index} />;
+                return <Grilla1_2_Derecha key={comp + index} onActivate={activarEditor} activeElement={activeElement}/>;
             default:
                 return null;
         }
@@ -178,8 +180,9 @@ const Portafolio = () => {
                 <div className="portafolio-container">
                     <div className="layout">
 
-                        <div className="lienzo-container" ref={lienzoRef}>
+                        <div className="lienzo-container" ref={lienzoRef} onClick={() => setActiveElement(null)}>
                             <Lienzo
+                                onActivate={activarEditor}
                                 tituloProyecto={tituloProyecto}
                                 descripcionProyecto={descripcionProyecto}
                                 onTituloChange={(e) => setTituloProyecto(e.target.value)}
@@ -211,6 +214,16 @@ const Portafolio = () => {
                     </div>
                 </div>
             </ImageProvider>
+            {activeElement && (
+                <EditorContenedores
+                    tipo={activeElement.tipo}
+                    position={toolbarPosition}
+                    setColorFondo={activeElement.setColorFondo}
+                    setImageUrl={activeElement.setImageUrl}
+                    setColorTexto={activeElement.setColorTexto}
+                    imageUrl={activeElement.imageUrl}
+                />
+            )}
         </>
     );
 };

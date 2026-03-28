@@ -1,27 +1,35 @@
 .est1 {
-    height: 400px;
-    position: relative; 
-    display: flex;
-    align-items: center;
-    justify-content: center;
+    width: 100%;
+    min-height: 250px;
+    padding: 20px;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    border: none;
+    box-shadow: 0 0 10 rgba(0, 0, 0, 0.08);
 }
 
+/* Hover suave */
+.est1:hover {
+    border-color: #888;
+}
+
+/* Input del título */
 .est1__title {
-    background-color: transparent;
+    background: transparent;
     border: none;
-    text-align: center;
-    font-size: 24px;
     outline: none;
+    font-size: 28px;
+    font-weight: bold;
+    text-align: center;
+    width: 100%;
 }
 
+/* Placeholder */
+.est1__title::placeholder {
+    color: #999;
+}
 
+/* Clase reutilizable que ya usas */
 .input-titulo {
-    background-color: transparent;
-    border: none;
-    text-align: center;
-    font-size: 24px;
-    outline: none;
+    font-family: inherit;
 }
-
-
-

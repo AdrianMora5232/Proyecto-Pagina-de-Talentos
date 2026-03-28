@@ -1,108 +1,45 @@
-/* ===== TOOLBAR ===== */
 .editor-toolbar {
-    position: absolute;
-    top: 10px;
-    left: 10px;
-    z-index: 1000;
-    width: 210px;
-    height: 55px;
+    background: white;
+    border-radius: 12px;
+    padding: 8px 12px;
 
     display: flex;
     align-items: center;
-    gap: 4px;
+    gap: 10px;
 
-    background: #eef2f6;
-    padding: 6px 8px;
-    border-radius: 999px;
-
-    box-shadow: 0 2px 6px rgba(0, 0, 0, 0.08);
+    box-shadow: 0 10px 25px rgba(0,0,0,0.2);
 }
 
-
-/* ===== ITEMS ===== */
+/* wrappers */
 .color-wrapper,
 .image-wrapper,
-.text-color-wrapper,
-.remove-img {
-    width: 34px;
-    height: 34px;
-
+.text-color-wrapper {
+    position: relative;
     display: flex;
     align-items: center;
     justify-content: center;
-
-    position: relative;
 }
 
-
-/* ===== INPUTS ===== */
+/* inputs ocultos */
 .btnColor,
-.btnTextColor,
-.image-wrapper input {
+.btnTextColor {
     position: absolute;
     inset: 0;
     opacity: 0;
     cursor: pointer;
 }
 
-
-/* ===== ICONOS ===== */
-.icono,
-.icono-img,
-.icono-texto {
-    width: 100%;
-    height: 100%;
-
-    display: flex;
-    align-items: center;
-    justify-content: center;
-
-    border-radius: 50%;
-    background: transparent;
-    color: #475569;
-    font-size: 15px;
-}
-
-
-/* ===== HOVER ===== */
-.icono:hover,
-.icono-img:hover,
-.icono-texto:hover {
-    background: rgba(0, 0, 0, 0.06);
-}
-
-
-/* ===== BOTÓN X ===== */
-.remove-img {
-    color: #ef4444;
-    font-size: 16px;
+/* iconos */
+.icono-texto i,
+.color-wrapper i,
+.image-wrapper span {
+    font-size: 18px;
     cursor: pointer;
 }
 
-
-/* ===== DIVISORES (como en tu imagen) ===== */
-.image-wrapper {
-    margin-left: 4px;
-}
-
-.text-color-wrapper {
-    margin-left: 4px;
-}
-
-.image-wrapper::before,
-.text-color-wrapper::before {
-    content: "";
-    position: absolute;
-    left: -4px;
-    top: 7px;
-
-    width: 1px;
-    height: 20px;
-    background: #d1d5db;
-}
-
-.icono,
-.icono-img,
-.icono-texto {
-    background: transparent !important;
+.remove-img {
+    cursor: pointer;
+    margin-left: 8px;
+    color: red;
+    font-size: 18px;
 }

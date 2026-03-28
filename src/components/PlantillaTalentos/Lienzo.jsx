@@ -5,7 +5,8 @@ function Lienzo({
     tituloProyecto,
     descripcionProyecto,
     onTituloChange,
-    onDescripcionChange
+    onDescripcionChange,
+    onActivate
 }) {
     return (
         <div className="contenedor_lienzo">

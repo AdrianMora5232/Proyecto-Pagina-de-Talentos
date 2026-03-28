@@ -2,39 +2,75 @@ import React from 'react';
 import "../../styles/PlantillaTalentos/EditorContenedores.css"
 import UploadImage from "./SubirImagen";
 
-function EditorContenedores({ setColorFondo, setImageUrl, imageUrl, setColorTexto, visible }) {
+function EditorContenedores({ tipo, setColorFondo, setImageUrl, imageUrl, setColorTexto, position }) {
     return (
         <>
-            {visible && (
-                <div className="editor-toolbar"
-                onClick={(e) => e.stopPropagation()}>
-                    
-                    <span className="color-wrapper">
-                        <input
-                            className="btnColor"
-                            type="color"
-                            onChange={(e) => setColorFondo(e.target.value)}
-                        />
-                        <span className="icono">
+
+            <div className="editor-toolbar"
+                onClick={(e) => e.stopPropagation()}
+                style={{
+                    position: "fixed",
+                    top: position.y,
+                    left: position.x,
+                    transform: "translate(-50%, -100%)",
+                    zIndex: 9999
+                }}
+            >
+
+                {tipo === "fondo" && (
+                    <>
+                        <span className="color-wrapper">
+                            <input
+                                className="btnColor"
+                                type="color"
+                                onChange={(e) => setColorFondo(e.target.value)}
+                            />
                             <i className="fa-solid fa-palette"></i>
                         </span>
-                    </span>
 
-                    <span className="image-wrapper">
-                        <UploadImage setImageUrl={setImageUrl} />
-                        <span className="icono-img">
-                            <i className="fa-regular fa-file-image"></i>
+                        <span className="image-wrapper">
+                            <UploadImage setImageUrl={setImageUrl} />
                         </span>
-                    </span>
 
-                    {imageUrl && (
-                        <span
-                            className="remove-img"
-                            onClick={() => setImageUrl("")}
-                        >
-                            <i className="fa-solid fa-xmark"></i>
+                        {imageUrl && (
+                            <span
+                                className="remove-img"
+                                onClick={() => setImageUrl("")}
+                            >
+                                <i className="fa-solid fa-xmark"></i>
+                            </span>
+                        )}
+                    </>
+                )}
+
+                {tipo === "bloque" && (
+
+                    <>
+                        <span className="color-wrapper">
+                            <input
+                                className="btnColor"
+                                type="color"
+                                onChange={(e) => setColorFondo(e.target.value)}
+                            />
+                            <i className="fa-solid fa-palette"></i>
                         </span>
-                    )}
+
+                        <span className="image-wrapper">
+                            <UploadImage setImageUrl={setImageUrl} />
+                        </span>
+
+                        {imageUrl && (
+                            <span
+                                className="remove-img"
+                                onClick={() => setImageUrl("")}
+                            >
+                                <i className="fa-solid fa-xmark"></i>
+                            </span>
+                        )}
+                    </>
+                )}
+
+                {tipo === "texto" && (
 
                     <span className="text-color-wrapper">
                         <input
@@ -47,9 +83,12 @@ function EditorContenedores({ setColorFondo, setImageUrl, imageUrl, setColorText
                             <i className="fa-solid fa-font"></i>
                         </span>
                     </span>
-                </div>
-            )}
+
+                )}
+            </div>
+
         </>
+
     )
 }
 

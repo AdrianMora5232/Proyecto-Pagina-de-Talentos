@@ -1,73 +1,87 @@
-/* CONTENEDOR PRINCIPAL */
+/* 🔥 CONTENEDOR PRINCIPAL */
 .est1_4 {
-    height: 400px;
-    position: relative;
+    width: 100%;
+    max-width: 100%;
+    min-height: 420px;
     display: flex;
     align-items: center;
     justify-content: center;
+    padding: 0;
+    box-sizing: border-box;
+    position: relative;
 }
 
-/* GRID DEL CONTENIDO */
+/* 🔥 GRID DEL CONTENIDO */
 .est1_4__content {
     display: grid;
-    grid-template-rows: 90px 1fr;
-    grid-template-columns: 1fr 1fr 1fr 1fr; /* 👈 columnas iguales */
+    grid-template-rows: 80px minmax(180px, 1fr);
+    grid-template-columns: 1fr 1fr 1fr 1fr;
     width: 100%;
     height: 100%;
-    gap: 20px;
+    gap: 14px;
 }
 
+/* 🔥 BLOQUES EDITABLES */
+.est1_4__content > .editable-block {
+    width: 100%;
+    height: 100%;
+    min-height: 0;
+    position: relative;
+    border-radius: 8px;
+    overflow: hidden;
+    box-shadow: inset 0 0 0 1px rgba(0,0,0,0.12);
+    transition: transform 0.2s ease, box-shadow 0.2s ease;
+}
+
+.est1_4__content > .editable-block:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 4px 12px rgba(0,0,0,0.08);
+}
+
+/* 🔥 ESTILOS ESPECÍFICOS POR BLOQUE */
 .est1_4__title {
-    grid-column: 1 / 5; /* 🔥 ocupa las 4 columnas */
-
+    grid-column: 1 / 7; /* ocupa las 6 columnas */
     width: 100%;
     height: 100%;
-    border: none;
-    background: transparent;
-    font-size: 28px;
-    text-align: center;
-    outline: none;
-
     display: flex;
-    align-items: center;
-    justify-content: center;
+    flex-direction: column;
+    font-size: 20px;
 }
 
-/* TEXTBOX (DESCRIPCIÓN) */
 .est1_4__description {
     width: 100%;
     height: 100%;
-    border: none;
-    background: transparent;
+    display: flex;
+    flex-direction: column;
     font-size: 16px;
-    text-align: center;
-    outline: none;
-    resize: none;
+}
 
+/* 🔥 LOADING OVERLAY PARA FONDO */
+.loading-overlay-fondo {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(255, 255, 255, 0.8);
     display: flex;
     align-items: center;
     justify-content: center;
+    z-index: 10;
+    border-radius: 8px;
 }
 
-
-
-/* INPUTS GENERALES */
-.input-titulo,
-.input-textbox {
-    border: 1px dashed rgba(0, 0, 0, 0.2);
-    background: transparent;
-    outline: none;
-    transition: border 0.2s ease;
+/* 🔥 SPINNER */
+.spinner {
+    width: 40px;
+    height: 40px;
+    border: 4px solid #f3f3f3;
+    border-top: 4px solid #3b82f6;
+    border-radius: 50%;
+    animation: spin 1s linear infinite;
 }
 
-/* Cuando el usuario escribe */
-.input-titulo:not(:placeholder-shown),
-.input-textbox:not(:placeholder-shown) {
-    border: none;
-}
-
-/* Al enfocar */
-.input-titulo:focus,
-.input-textbox:focus {
-    border: 1px dashed rgba(0, 0, 0, 0.4);
+@keyframes spin {
+    0% { transform: rotate(0deg); }
+    100% { transform: rotate(360deg); }
 }

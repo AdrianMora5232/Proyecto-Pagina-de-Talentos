@@ -1,25 +1,24 @@
-import { useState } from "react";
+import { useState, useRef } from "react";
 
-export const useEditable = () => {
-    const [state, setState] = useState({
-        id: crypto.randomUUID(),
-        colorFondo: "",
-        colorTexto: "#000",
-        imageUrl: "",
-        texto: "",
-        fontSize: 16,
-        bold: false,
-        italic: false,
-        align: "left"
-    });
+let globalId = 0;
 
-    const update = (changes) => {
-        setState((prev) => ({ ...prev, ...changes }));
-    };
+export function useEditable() {
+  const idRef = useRef(`editable-${globalId++}`);
 
-    return {
-        state,
-        update
-    };
-};
+  const [state, setState] = useState({
+    id: idRef.current,
+    texto: "",
+    colorTexto: "#000",
+    colorFondo: "#ffffff",
+    imageUrl: ""
+  });
 
+  const update = (newData) => {
+    setState((prev) => ({
+      ...prev,
+      ...newData
+    }));
+  };
+
+  return { state, update };
+}

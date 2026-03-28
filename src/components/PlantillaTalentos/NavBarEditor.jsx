@@ -1,7 +1,7 @@
 import React from 'react'
 import "../../styles/PlantillaTalentos/NavBarEditor.css"
 
-function NavBarEditor({guardar}) {
+function NavBarEditor({guardar, onPreview}) {
     return (
         <nav className="navbar-editor">
 
@@ -21,7 +21,7 @@ function NavBarEditor({guardar}) {
             </div>
 
             <div className="navbar-editor__right">
-                <button className="btn-preview">
+                <button className="btn-preview" onClick={onPreview}>
                     <i className="fa-solid fa-eye"></i> Vista previa
                 </button>
 

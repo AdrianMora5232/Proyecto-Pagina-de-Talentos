@@ -37,7 +37,7 @@ function GrillaDoble({ onActivate }) {
                     setImageUrl: (url) =>
                         fondo.update({ imageUrl: url }),
 
-                    imageUrl: fondo.state.imageUrl   // 🔥 AÑADE ESTO
+                    imageUrl: fondo.state.imageUrl   
                 });
             }}
         >

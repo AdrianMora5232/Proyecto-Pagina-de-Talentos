@@ -1,17 +1,34 @@
-import { useState } from "react";
+import { useState, useEffect } from "react";
 
 function EditableBlock({ data, update, onActivate, className = "" }) {
 
     const [editandoTexto, setEditandoTexto] = useState(false);
+    const [loadingImage, setLoadingImage] = useState(false);
+
+    useEffect(() => {
+        if (data.imageUrl) {
+            setLoadingImage(true);
+            const img = new Image();
+            img.onload = () => setLoadingImage(false);
+            img.onerror = () => setLoadingImage(false);
+            img.src = data.imageUrl;
+        } else {
+            setLoadingImage(false);
+        }
+    }, [data.imageUrl]);
 
     return (
         <div
             className={`editable-block ${className}`}
             style={{
                 backgroundColor: data.colorFondo,
-                backgroundImage: data.imageUrl ? `url(${data.imageUrl})` : "none",
+                backgroundImage: data.imageUrl && !loadingImage
+                    ? `url(${data.imageUrl})`
+                    : "none",
                 backgroundSize: "cover",
-                backgroundPosition: "center"
+                backgroundPosition: "center",
+                position: "relative",
+                zIndex: 10
             }}
             onClick={(e) => {
                 e.stopPropagation();
@@ -30,6 +47,12 @@ function EditableBlock({ data, update, onActivate, className = "" }) {
                 });
             }}
         >
+
+            {loadingImage && (
+                <div className="loading-overlay">
+                    <div className="spinner"></div>
+                </div>
+            )}
 
             <textarea
                 className="bloque-texto"

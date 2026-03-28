@@ -1,109 +1,85 @@
 import "../../styles/PlantillaTalentos/GrillaTriple.css";
-import EditorContenedores from "./EditorContenedores";
-import { useEstilos } from "./useEstilos";
-import { useState } from "react";
-function GrillaTriple() {
-    const [bloque1, setBloque1] = useState({
-        colorFondo: "",
-        colorTexto: "",
-        imageUrl: ""
-    });
+import EditableBlock from "./EditableBlock";
+import { useEditable } from "./useEditable";
+import { useState, useEffect } from "react";
 
-    const [bloque2, setBloque2] = useState({
-        colorFondo: "",
-        colorTexto: "",
-        imageUrl: ""
-    });
+function GrillaTriple({ onActivate, activeElement }) {
 
-    const [bloque3, setBloque3] = useState({
-        colorFondo: "",
-        colorTexto: "",
-        imageUrl: ""
-    });
+  const fondo = useEditable();
+  const bloque1 = useEditable();
+  const bloque2 = useEditable();
+  const bloque3 = useEditable();
 
-    const [active, setActive] = useState(null);
+  const [loadingFondo, setLoadingFondo] = useState(false);
 
-    return (
-        <>
-            <div className="grillaTriple__grid">
+  useEffect(() => {
+    if (fondo.state.imageUrl) {
+      setLoadingFondo(true);
+      const img = new Image();
+      img.onload = () => setLoadingFondo(false);
+      img.onerror = () => setLoadingFondo(false);
+      img.src = fondo.state.imageUrl;
+    } else {
+      setLoadingFondo(false);
+    }
+  }, [fondo.state.imageUrl]);
 
-                <div className="grillaTriple__image"
-                    onClick={() => setActive(1)}
-                    style={{
-                        backgroundColor: bloque1.colorFondo,
-                        backgroundImage: bloque1.imageUrl ? `url(${bloque1.imageUrl})` : "none",
-                        backgroundSize: "cover",
-                        backgroundPosition: "center",
-                        color: bloque1.colorTexto
-                    }}
-                >
-                    <EditorContenedores
-                        visible={active === 1}
-                        setColorFondo={(color) =>
-                            setBloque1({ ...bloque1, colorFondo: color })
-                        }
-                        setImageUrl={(url) =>
-                            setBloque1({ ...bloque1, imageUrl: url })
-                        }
-                        setColorTexto={(color) =>
-                            setBloque1({ ...bloque1, colorTexto: color })
-                        }
-                        imageUrl={bloque1.imageUrl}
-                    />
-                </div>
+  return (
+    <>
+      <div
+        className="grillaTriple__grid"
+        style={{
+          backgroundColor: fondo.state.colorFondo,
+          backgroundImage: fondo.state.imageUrl && !loadingFondo
+            ? `url(${fondo.state.imageUrl})`
+            : "none",
+          backgroundSize: "cover",
+          backgroundPosition: "center",
+          outline: activeElement?.id === fondo.state.id ? "2px solid #3b82f6" : "none"
+        }}
+        onClick={(e) => {
+          e.stopPropagation();
+          onActivate(e, {
+            id: fondo.state.id,
+            tipo: "fondo",
+            setColorFondo: (c) => fondo.update({ colorFondo: c }),
+            setImageUrl: (u) => fondo.update({ imageUrl: u }),
+            imageUrl: fondo.state.imageUrl
+          });
+        }}
+      >
+        {loadingFondo && (
+          <div className="loading-overlay-fondo">
+            <div className="spinner"></div>
+          </div>
+        )}
 
-                <div className="grillaTriple__image"
-                    onClick={() => setActive(2)}
-                    style={{
-                        backgroundColor: bloque2.colorFondo,
-                        backgroundImage: bloque2.imageUrl ? `url(${bloque2.imageUrl})` : "none",
-                        backgroundSize: "cover",
-                        backgroundPosition: "center",
-                        color: bloque2.colorTexto
-                    }}
-                >
-                    <EditorContenedores
-                        visible={active === 2}
-                        setColorFondo={(color) =>
-                            setBloque2({ ...bloque2, colorFondo: color })
-                        }
-                        setImageUrl={(url) =>
-                            setBloque2({ ...bloque2, imageUrl: url })
-                        }
-                        setColorTexto={(color) =>
-                            setBloque2({ ...bloque2, colorTexto: color })
-                        }
-                        imageUrl={bloque2.imageUrl}
-                    />
-                </div>
+        <EditableBlock
+          className="grillaTriple__image"
+          data={bloque1.state}
+          update={bloque1.update}
+          onActivate={onActivate}
+          activeElement={activeElement}
+        />
 
-                <div className="grillaTriple__image"
-                    onClick={() => setActive(3)}
-                    style={{
-                        backgroundColor: bloque3.colorFondo,
-                        backgroundImage: bloque3.imageUrl ? `url(${bloque3.imageUrl})` : "none",
-                        backgroundSize: "cover",
-                        backgroundPosition: "center",
-                        color: bloque3.colorTexto
-                    }}
-                >
-                    <EditorContenedores
-                        visible={active === 3}
-                        setColorFondo={(color) =>
-                            setBloque3({ ...bloque3, colorFondo: color })
-                        }
-                        setImageUrl={(url) =>
-                            setBloque2({ ...bloque2, imageUrl: url })
-                        }
-                        setColorTexto={(color) =>
-                            setBloque2({ ...bloque2, colorTexto: color })
-                        }
-                        imageUrl={bloque2.imageUrl}
-                    />
-                </div>
-            </div>
+        <EditableBlock
+          className="grillaTriple__image"
+          data={bloque2.state}
+          update={bloque2.update}
+          onActivate={onActivate}
+          activeElement={activeElement}
+        />
 
-        </>
-    )
+        <EditableBlock
+          className="grillaTriple__image"
+          data={bloque3.state}
+          update={bloque3.update}
+          onActivate={onActivate}
+          activeElement={activeElement}
+        />
+
+      </div>
+    </>
+  );
 }
 export default GrillaTriple;

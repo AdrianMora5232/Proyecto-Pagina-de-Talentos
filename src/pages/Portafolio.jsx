@@ -19,6 +19,7 @@ import { ImageProvider } from "../components/PlantillaTalentos/HookImagenCloudin
 import Fetch from "../services/Fetch";
 import { generarPDFBlob } from "../extras/pdfPortafolio";
 import Swal from "sweetalert2";
+import html2canvas from "html2canvas";
 
 
 const Portafolio = () => {
@@ -28,6 +29,8 @@ const Portafolio = () => {
 
     const [activeElement, setActiveElement] = useState(null);
     const [toolbarPosition, setToolbarPosition] = useState({ x: 0, y: 0 });
+    const [showPreviewModal, setShowPreviewModal] = useState(false);
+    const [previewImage, setPreviewImage] = useState(null);
 
     const activarEditor = (e, data) => {
         e.stopPropagation();
@@ -46,6 +49,18 @@ const Portafolio = () => {
     };
 
     const lienzoRef = useRef();
+
+    const handlePreview = () => {
+        html2canvas(lienzoRef.current, { useCORS: true, allowTaint: true }).then(canvas => {
+            setPreviewImage(canvas.toDataURL());
+            setShowPreviewModal(true);
+        });
+    };
+
+    const closePreview = () => {
+        setShowPreviewModal(false);
+        setPreviewImage(null);
+    };
 
     const toggleComponente = (nombre) => {
         setComponentes((prev) => {
@@ -174,7 +189,7 @@ const Portafolio = () => {
 
     return (
         <>
-            <NavBarEditor guardar={guardarPortafolio} />
+            <NavBarEditor guardar={guardarPortafolio} onPreview={handlePreview} />
 
             <ImageProvider>
                 <div className="portafolio-container">
@@ -224,6 +239,15 @@ const Portafolio = () => {
                     imageUrl={activeElement.imageUrl}
                 />
             )}
+
+            <div className="preview-modal" style={{display: showPreviewModal ? 'flex' : 'none'}} onClick={closePreview}>
+                <div className="preview-modal__content" onClick={(e) => e.stopPropagation()}>
+                    <button className="preview-modal__close" onClick={closePreview}>×</button>
+                    <div className="preview-modal__body">
+                        {previewImage && <img src={previewImage} alt="Vista previa" style={{maxWidth: '100%', maxHeight: '100%', objectFit: 'contain'}} />}
+                    </div>
+                </div>
+            </div>
         </>
     );
 };

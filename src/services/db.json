@@ -1,31 +1,45 @@
 {
   "usuarios": [
     {
-      "id": "1",
-      "nombre": "Adrian",
-      "apellido": "Mora",
-      "email": "adrianmora@gmail.com",
-      "password": "123456",
-      "rol": "admin"
-    },
-    {
-      "id": "eeda",
-      "Nombre": "Mantequilla",
-      "Correo": "numar@gmail.cr",
+      "id": "c098",
+      "Nombre": "Adrian Mora Castillo",
+      "Correo": "miniaseapa@gmail.com",
       "Provincias": "Limón",
-      "Canton": "Matina",
-      "Distrito": "Batan",
-      "Roles": "Usuario"
+      "Canton": "Pococi",
+      "Distrito": "si",
+      "Roles": "Admin",
+      "Contrasena": "Admc5232"
     },
     {
-      "id": "c6b0",
-      "Nombre": "Alejandro",
-      "Correo": "alejandronicmen@gmail.com",
+      "id": "c073",
+      "Nombre": "jheycob",
+      "Correo": "jheycob@gmail.com",
       "Provincias": "San José",
-      "Canton": "Alajuelita",
-      "Distrito": "ianiw",
+      "Canton": "alajuelita",
+      "Distrito": "alajuelita",
+      "Roles": "Admin",
+      "Contrasena": "jheycob12"
+    },
+    {
+      "id": "55e4",
+      "Nombre": "Marìa Jesùs Chaverri",
+      "Correo": "maria@gmail.com",
+      "Provincias": "San José",
+      "Canton": "Desamparados",
+      "Distrito": "San Rafael Abajo",
       "Roles": "Usuario",
-      "Contrasena": "1234"
+      "Contrasena": "12345678"
+    },
+    {
+      "id": "d24c",
+      "Nombre": "Pepe Viyuela Gomez",
+      "Correo": "pepe@gmail.com",
+      "Provincias": "Limón",
+      "Canton": "Batán",
+      "Distrito": "Lima",
+      "Roles": "Usuario",
+      "Contrasena": "12345678",
+      "img": "https://res.cloudinary.com/dyy1yqvbv/image/upload/v1774761044/iargr9gued6xgwq4jytb.png"
     }
   ],
   "portafolios": [
@@ -49,6 +63,24 @@
       "titulo": "grgs",
       "descripcion": "sgsg",
       "pdf": "https://res.cloudinary.com/dyy1yqvbv/raw/upload/v1774508475/v1xcx5qk7gksc4o06e2c"
+    },
+    {
+      "id": "cbf3",
+      "usuarioId": "d24c",
+      "componentes": [
+        "Estructura1"
+      ],
+      "titulo": "llll",
+      "descripcion": "lllll",
+      "pdf": "https://res.cloudinary.com/dyy1yqvbv/raw/upload/v1774761765/jqf7hdn43t0fq2v165wn"
+    },
+    {
+      "id": "28db",
+      "usuarioId": "55e4",
+      "componentes": [],
+      "titulo": "Portafolio María",
+      "descripcion": "este es el portafolio de maría",
+      "pdf": "https://res.cloudinary.com/dyy1yqvbv/raw/upload/v1774762355/lb7kk34unosxtt1bogvx"
     }
   ],
   "$schema": "./node_modules/json-server/schema.json"

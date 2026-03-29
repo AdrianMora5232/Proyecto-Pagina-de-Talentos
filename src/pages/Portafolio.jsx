@@ -157,7 +157,7 @@ const Portafolio = () => {
             }
 
             const data = {
-                usuarioId: "1",
+                usuarioId: localStorage.getItem("idUsuario") || "desconocido",
                 componentes: componentes,
                 titulo: tituloProyecto,
                 descripcion: descripcionProyecto,

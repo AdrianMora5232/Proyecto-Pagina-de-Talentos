@@ -1,17 +1,18 @@
 import React from 'react'
+import CompExplicacion from '../components/Explicacion/CompExplicacion'
 import Navbar from '../components/Navbar/Navbar'
-import FormularioQuejas from '../components/Contactos/CompContactos'
 import Footer from '../components/Footer/Footer'
 
-
-function PaginaContacto() {
+const Funcionalidad = () => {
   return (
     <div>
       <Navbar/>
-      <FormularioQuejas/>
+      <CompExplicacion/>
       <Footer/>
+
+
     </div>
   )
 }
 
-export default PaginaContacto
+export default Funcionalidad

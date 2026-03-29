@@ -1,14 +1,13 @@
 
-import IniciarSesion from "../components/IniciarSesion"
-import Prueba from "../components/prueba"
-import Registro from "../components/Registro"
+import InicioPagina from "../components/InicioPagina"
+import Footer from "../components/Footer/Footer"
 
 function Inicio() {
     return(
         <>
         
-   <IniciarSesion/>
- 
+<InicioPagina/>
+ <Footer/>
 
 
         </>

@@ -1,6 +1,8 @@
 import { StrictMode } from 'react'
 import { createRoot } from 'react-dom/client'
+import './index.css'
 
+import "../src/Styles/Global.css"
 import Routing from './Routes/Routing'
 
 createRoot(document.getElementById('root')).render(

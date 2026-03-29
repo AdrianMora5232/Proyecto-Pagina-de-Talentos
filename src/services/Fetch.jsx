@@ -41,11 +41,15 @@ async function deleteData(endpoint, id) {
         const peticion = await fetch(`http://localhost:3001/${endpoint}/${id}`, {
             method: "DELETE",
         });
-        const respuesta = await peticion.json()
-        console.log(respuesta);
-
+        
+        if (!peticion.ok) {
+            throw new Error(`Error al eliminar: ${peticion.statusText}`);
+        }
+        
+        return true;
     } catch (error) {
-        console.error("Error al eliminar el proyecto:", error);
+        console.error("Error al eliminar:", error);
+        return false;
     }
 }
 

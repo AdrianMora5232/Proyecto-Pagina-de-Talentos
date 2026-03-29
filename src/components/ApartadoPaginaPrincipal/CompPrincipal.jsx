@@ -3,9 +3,10 @@ import React, { useRef } from 'react'
 import 'bootstrap/dist/js/bootstrap.bundle.min';
 import "../../styles/Principal.css"
 import { Link } from 'react-router-dom';
-
+import { useNavigate } from 'react-router-dom';
 function CompPrincipal() {
     const carouselRef = useRef(null);
+    const navigate = useNavigate();
 
     const scrollLeft = () => {
         if (carouselRef.current) {
@@ -29,67 +30,6 @@ function CompPrincipal() {
                 <h1>KREA</h1>
                 <h3>Pagina para mostrar tu talento a todos</h3>
 
-                {/* Navbar de las paginas y apartado para bsuquedas */}
-                <nav className="navbar navbar-expand-lg bg-body-tertiary">
-                    <div className="container-fluid">
-                        <a className="navbar-brand" href="#">
-                            Navbar
-                        </a>
-                        <button
-                            className="navbar-toggler"
-                            type="button"
-                            data-bs-toggle="collapse"
-                            data-bs-target="#navbarSupportedContent"
-                            aria-controls="navbarSupportedContent"
-                            aria-expanded="false"
-                            aria-label="Toggle navigation"
-                        >
-                            <span className="navbar-toggler-icon" />
-                        </button>
-                        <div className="collapse navbar-collapse" id="navbarSupportedContent">
-                            <ul className="navbar-nav me-auto mb-2 mb-lg-0">
-                                <li className="nav-item">
-                                    <a className="nav-link active" aria-current="page" href="/principal">
-                                        Inicio
-                                    </a>
-                                </li>
-                                <li className="nav-item">
-                                    <a className="nav-link" href="#">
-                                        Proyectos
-                                    </a>
-                                </li>
-                                <li className="nav-item">
-                                    <a className="nav-link" href="/pagina-contacto">
-                                        Contacto
-                                    </a>
-                                </li>
-                                <li className="nav-item">
-                                    <a className="nav-link" href="#">
-                                       Sobre Nosotros
-                                    </a>
-                                </li>
-                                
-                                <li className="nav-item">
-                                    <a className="nav-link disabled" aria-disabled="true">
-                                        {/* Espacio de busqueda por ahora vacio */}
-                                    </a>
-                                </li>
-                            </ul>
-                            <form className="d-flex" role="search">
-                                <input
-                                    className="form-control me-2"
-                                    type="search"
-                                    placeholder="Search"
-                                    aria-label="Search"
-                                />
-                                <button className="btn btn-outline-success" type="submit">
-                                    Search
-                                </button>
-                            </form>
-                        </div>
-                    </div>
-                </nav>
-                <hr />
             </div>
             {/* Div para contener la imagen central de la pagina, incluye el boton y una descripcion */}
             <div className='DivImagenFondo'>
@@ -97,7 +37,12 @@ function CompPrincipal() {
                     <h2 className='SubTituloImagen'>Bienvenidos a KREA</h2>
                     <p className='ParrafoImagen'>KREA es una plataforma digital que permite a profesionales y creativos crear portafolios modernos, claros y estratégicos.
                         Ayudamos a que el talento no solo se vea bien, sino que comunique valor y abra oportunidades reales.</p>
-                    <button className='ButtonCrearCuenta'>Crear Portafolio</button>
+                    <button
+                        onClick={()=>{
+                            navigate("/portafolio")
+                        }}
+                    
+                    className='ButtonCrearCuenta'>Crear Portafolio</button>
                     <br />
                 </div>
 
@@ -107,34 +52,6 @@ function CompPrincipal() {
             <br />
             {/*div que contiene el apartado de divisiones de tipos de talentos y las cartas */}
             <div>
-                {/* Navegacion de talentos  */}
-                <nav className='NavTalentos' aria-label="...">
-                    <ul className="pagination">
-                        <li className="page-item disabled">
-                            <a className="page-link">TALENTOS</a>
-                        </li>
-                        <li className="page-item">
-                            <a className="page-link" href="#">
-                                Tecnologias
-                            </a>
-                        </li>
-                        <li className="page-item active">
-                            <a className="page-link" href="#" aria-current="page">
-                                Bailes o Canto
-                            </a>
-                        </li>
-                        <li className="page-item">
-                            <a className="page-link" href="#">
-                                Arte
-                            </a>
-                        </li>
-                        <li className="page-item">
-                            <a className="page-link" href="#">
-                                Entretenimiento o educacion
-                            </a>
-                        </li>
-                    </ul>
-                </nav>
                 <div className="carousel-wrapper" style={{ position: 'relative', width: '90%', maxWidth: '1200px', margin: '0 auto' }}>
                     <button onClick={scrollLeft} className="btn-carousel left">
                         &#10094;
@@ -240,7 +157,7 @@ function CompPrincipal() {
                     </button>
                 </div>
             </div>
-
+            <h4 className='TituloTalentDestacado'>Talento Destacado del mes</h4>
             {/* div que va a contener El talento destacado  */}
             <div className='DivTalentoDestacado'>
 
@@ -248,29 +165,24 @@ function CompPrincipal() {
                     <img className='ImagenTalentoDestacado' src="https://www.arteescuela.com/wp-content/uploads/2022/05/cuadros-famosos-de-paisajes-1200x720.jpg" alt="" height={200} width={600} />
                 </div>
                 <div className='DivInfoPintura'>
-                <h2>“Paisaje con figuras bajo un árbol”</h2>
-                <h4>Autor:Thomas Gainsborough</h4>
-                <h6>Técnica: Óleo sobre lienzo
-                    Dimensiones: 22,2 × 17,1 cm
-                    Ubicación actual: National Gallery, Londres
-                </h6>
-                <h6>Elementos visuales:</h6>
-                <ul>
-                    <li> Árbol central dominante: Sus ramas frondosas crean un espacio de sombra que acoge a las figuras.</li>
+                    <h2>“Paisaje con figuras bajo un árbol”</h2>
+                    <h4>Autor:Thomas Gainsborough</h4>
+                    <h6>Técnica: Óleo sobre lienzo
+                        Dimensiones: 22,2 × 17,1 cm
+                        Ubicación actual: National Gallery, Londres
+                    </h6>
+                    <h6>Elementos visuales:</h6>
+                    <ul>
+                        <li> Árbol central dominante: Sus ramas frondosas crean un espacio de sombra que acoge a las figuras.</li>
 
-                    <li> Tres figuras humanas: Dos sentadas o arrodilladas y una de pie, en actitud tranquila, posiblemente conversando o descansando.</li>
+                        <li> Tres figuras humanas: Dos sentadas o arrodilladas y una de pie, en actitud tranquila, posiblemente conversando o descansando.</li>
 
-                    <li>  Atmósfera: Fondo brumoso con tonos suaves de azul y gris, que aporta calma y profundidad.</li>
+                        <li>  Atmósfera: Fondo brumoso con tonos suaves de azul y gris, que aporta calma y profundidad.</li>
 
-                    <li> Composición: Equilibrio entre la monumentalidad del árbol y la pequeñez de las figuras, resaltando la relación íntima entre el ser humano y la naturaleza.</li>
-                </ul>
-                <button className='BotonVerPerfil'>Ver perfil</button>
+                        <li> Composición: Equilibrio entre la monumentalidad del árbol y la pequeñez de las figuras, resaltando la relación íntima entre el ser humano y la naturaleza.</li>
+                    </ul>
+                    <button className='BotonVerPerfil'>Ver perfil</button>
                 </div>
-            </div>
-
-            {/* Div para el pie de pagina */}
-            <div className='DivPiePagina'>
-             
             </div>
 
         </div >

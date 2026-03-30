@@ -122,7 +122,9 @@ function CompExplicacion() {
           <section className="sidebar-section join-platform">
             <h3>Únete a la Plataforma</h3>
             <div className="join-buttons">
-              <button className="btn-blue-dark">Registro Talentos &rsaquo;</button>
+              <Link to="/perfil-usuario">
+                <button className="btn-blue-dark">Registro Talentos &rsaquo;</button>
+              </Link>
             </div>
           </section>
 
@@ -130,7 +132,6 @@ function CompExplicacion() {
           <section className="sidebar-section contact-support">
             <h3>Contacto & Soporte</h3>
             <div className="contact-links">
-              <p><span className="icon">💬</span> Preguntas Frecuentes</p>
               <Link to="/pagina-contacto" style={{ textDecoration: 'none', color: 'inherit', display: 'block' }}>
                 <p style={{ margin: 0 }}><span className="icon">✉️</span> Escríbenos</p>
               </Link>

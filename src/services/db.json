@@ -41,6 +41,19 @@
       "Roles": "Usuario",
       "Contrasena": "12345678",
       "img": "https://res.cloudinary.com/dyy1yqvbv/image/upload/v1774761044/iargr9gued6xgwq4jytb.png"
+    },
+    {
+      "id": "f898",
+      "Nombre": "Alejandro",
+      "Correo": "alejandronicmen@gmail.com",
+      "email": "alejandronicmen@gmail.com",
+      "telefono": "7211 4083",
+      "Provincias": "Limón",
+      "Canton": "Pakaton",
+      "Distrito": "Palito",
+      "Roles": "Usuario",
+      "Contrasena": "12345678",
+      "img": "https://res.cloudinary.com/dyy1yqvbv/image/upload/v1774884897/xlc288o26ghhf47gghpb.jpg"
     }
   ],
   "portafolios": [

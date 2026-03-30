@@ -342,16 +342,16 @@ div > div > img[alt="Logo de la pagina"] {
     z-index: 10006 !important;
     background-color: var(--primary-color) !important;
     color: var(--white) !important;
-    padding: 10px 20px !important;
+    padding: 7px 15px !important;
     border-radius: 50px !important;
-    font-weight: 700 !important;
-    font-size: 0.9rem !important;
+    font-weight: 600 !important;
+    font-size: 0.8rem !important;
     border: none !important;
     cursor: pointer !important;
     display: flex !important;
     align-items: center !important;
-    gap: 8px !important;
-    box-shadow: 0 4px 12px rgba(37, 99, 235, 0.3) !important;
+    gap: 6px !important;
+    box-shadow: 0 4px 10px rgba(37, 99, 235, 0.25) !important;
     transition: all 0.3s ease !important;
     font-family: 'Inter', sans-serif !important;
     pointer-events: auto !important;
@@ -359,21 +359,21 @@ div > div > img[alt="Logo de la pagina"] {
 
 .ButtonBuzonTop:hover {
     background-color: var(--primary-hover) !important;
-    transform: translateY(-2px) !important;
-    box-shadow: 0 6px 15px rgba(37, 99, 235, 0.4) !important;
+    transform: translateY(-1px) !important;
+    box-shadow: 0 6px 12px rgba(37, 99, 235, 0.35) !important;
 }
 
 .buzon-badge-top {
     background: #ef4444 !important;
     color: white !important;
-    font-size: 0.7rem !important;
-    min-width: 18px !important;
-    height: 18px !important;
+    font-size: 0.6rem !important;
+    min-width: 15px !important;
+    height: 15px !important;
     display: flex !important;
     align-items: center !important;
     justify-content: center !important;
     border-radius: 50% !important;
-    border: 2px solid white !important;
+    border: 1.5px solid white !important;
     font-weight: 800 !important;
 }
 

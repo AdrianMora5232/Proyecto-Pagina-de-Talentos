@@ -20,9 +20,8 @@ function CompPrincipal() {
         }
     };
 
-
     return (
-        <div>
+        <div className="Principal-Content-Wrapper">
             {/* div para contener el header de la pagina, osea nombre de la pagina,navbar y apartado de busqueda */}
             <div>
 
@@ -184,7 +183,6 @@ function CompPrincipal() {
                     <button className='BotonVerPerfil'>Ver perfil</button>
                 </div>
             </div>
-
         </div >
     )
 }

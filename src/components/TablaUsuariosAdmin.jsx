@@ -34,6 +34,10 @@ const TablaUsuariosAdmin = () => {
     navigate("/AgregarUsuario")
   }
 
+  const irAConvocatoria = () => {
+    navigate("/FormularioConvo")
+  }
+
   const eliminarUsuario = async (id) => {
     if (window.confirm("¿Estás seguro de que deseas eliminar este usuario?")) {
       const exito = await Fetch.deleteData("usuarios", id)
@@ -89,13 +93,22 @@ const TablaUsuariosAdmin = () => {
           <h2 className="text-3xl font-extrabold text-slate-900 dark:text-white tracking-tight">Gestión de Usuarios</h2>
           <p className="text-slate-500 dark:text-slate-400 mt-1">Administra los accesos y perfiles de tu plataforma.</p>
         </div>
-        <button 
-          onClick={AgregarUsuario}
-          className="bg-primary hover:bg-primary/90 text-white px-6 py-3 rounded-lg font-bold flex items-center gap-2 transition-all shadow-sm active:scale-95"
-        >
-          <span className="material-symbols-outlined">person_add</span>
-          Agregar Usuario
-        </button>
+        <div className="flex gap-3">
+          <button 
+            onClick={irAConvocatoria}
+            className="bg-primary hover:bg-primary/90 text-white px-6 py-3 rounded-lg font-bold flex items-center gap-2 transition-all shadow-sm active:scale-95"
+          >
+            <span className="material-symbols-outlined">campaign</span>
+            Convocatoria
+          </button>
+          <button 
+            onClick={AgregarUsuario}
+            className="bg-primary hover:bg-primary/90 text-white px-6 py-3 rounded-lg font-bold flex items-center gap-2 transition-all shadow-sm active:scale-95"
+          >
+            <span className="material-symbols-outlined">person_add</span>
+            Agregar Usuario
+          </button>
+        </div>
       </div>
 
       {/* Filters and Search */}

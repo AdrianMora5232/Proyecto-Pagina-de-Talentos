@@ -1,3 +1,4 @@
+
 import React from 'react'
 import '../styles/InicioPagina.css'
 
@@ -91,4 +92,5 @@ function InicioPagina() {
   )
 }
 
-export default InicioPagina
+export default InicioPagina
+

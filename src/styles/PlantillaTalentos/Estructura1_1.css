@@ -1,8 +1,11 @@
 /* 🔥 CONTENEDOR PRINCIPAL */
 .est1_1 {
+    
+    height: 600px;
+    min-height: 600px;
     width: 100%;
     max-width: 100%;
-    min-height: 420px;
+
     display: flex;
     align-items: center;
     justify-content: center;

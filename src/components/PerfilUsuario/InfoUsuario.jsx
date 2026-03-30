@@ -4,7 +4,9 @@ import "../../styles/EstilosPerfilUsuario/InfoUsuarios.css";
 function InfoUsuario({
     nombre = 'Juan Pérez',
     img = 'https://lh3.googleusercontent.com/aida-public/AB6AXuDIoNUw4ias8XuatsiHUkkmAm3KrKmd2EKwm-D97DfZY5IackyAiQfdqFUROeoe9w7tr9hOapan2mDSn00AkVS30Lm3BKQZgj2rXj3ZET-LcUvYlyr1LTiJi37uYSOel4sWh15KhWh4KJvrACaFfHkl8LJPrqNw48tnrKisjhwGsPotAA7PsKZR_2qRExSDymiHf1O005cQrV8ka3-z4yrTGbp6BCvl0zSenuVy_ARjaa8JB457Z_xkHv8Hal0BwKxh9N_q6Y3UbSYv',
-    ubicacion = 'Madrid, España'
+    ubicacion = 'Madrid, España',
+    email = 'Información no disponible',
+    telefono = 'Información no disponible'
 }) {
     return (
         <div className="perfil-container">
@@ -33,6 +35,11 @@ function InfoUsuario({
                 </div>
 
                 <h2>Diseñador Creativo y Artista Digital</h2>
+
+                <div className="perfil-contacto-basic" style={{ margin: '10px 0', color:'#333' }}>
+                    <p><strong>Correo:</strong> {email || 'Información no disponible'}</p>
+                    <p><strong>Teléfono:</strong> {telefono || 'Información no disponible'}</p>
+                </div>
 
                 <div className="perfil-botones">
                     <button className="btn-contact">

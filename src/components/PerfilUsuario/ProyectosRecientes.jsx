@@ -1,5 +1,5 @@
 import "../../styles/EstilosPerfilUsuario/ProyectosRecientes.css"
-import { useState, useEffect } from 'react'
+import { useState, useEffect, useMemo } from 'react'
 import CardProyecto from './CardProyecto';
 import ModalProyecto from './ModalProyecto';
 import Fetch from '../../services/Fetch';
@@ -11,8 +11,11 @@ function ProyectosRecientes() {
     const [todasResenas, setTodasResenas] = useState([])
     const [proyectoSeleccionado, setProyectoSeleccionado] = useState(null)
     const navigate = useNavigate()
+    const [loading, setLoading] = useState(true)
+    const [visibleCount, setVisibleCount] = useState(3) // Paginación inicial
 
     const cargarDatos = async () => {
+        setLoading(true)
         try {
             // Fetch Portafolios
             const peticionJson = await Fetch.getData("portafolios")
@@ -24,6 +27,8 @@ function ProyectosRecientes() {
             setTodasResenas(resenasJson)
         } catch (error) {
             console.error(error)
+        } finally {
+            setTimeout(() => setLoading(false), 800) // Simular carga suave
         }
     }
 
@@ -39,30 +44,58 @@ function ProyectosRecientes() {
             </div>
 
             <div className="proyectos-grid">
-                {proyectos.length === 0 && <div>
-                    No hay proyectos recientes
-                    <button
-                        onClick={() => {
-                            navigate("/portafolio")
-                        }}
-                    >Agrega uno acá</button>
-                </div>}
+                {loading ? (
+                    // Skeleton State
+                    Array(3).fill(0).map((_, i) => (
+                        <div key={i} className="proyecto-card-skeleton">
+                            <div className="skeleton-image"></div>
+                            <div className="skeleton-text title"></div>
+                            <div className="skeleton-text body"></div>
+                        </div>
+                    ))
+                ) : proyectos.length === 0 ? (
+                    // Empty State
+                    <div className="empty-state-container">
+                        <div className="empty-state-icon">📁</div>
+                        <h4>Este usuario aún no tiene proyectos</h4>
+                        <p>Los proyectos que crees aparecerán en esta sección automáticamente.</p>
+                        <button
+                            className="btn-create-empty"
+                            onClick={() => navigate("/portafolio")}
+                        >
+                            + Crear mi primer proyecto
+                        </button>
+                    </div>
+                ) : (
+                    <>
+                    <>
+                        {useMemo(() => proyectos.slice(0, visibleCount).map((proyecto) => {
+                            const resenasProyecto = todasResenas.filter(r => r.portafolioId === proyecto.id)
+                            const promedio = calcularPromedio(resenasProyecto)
 
-                {proyectos.map((proyecto) => {
-                    const resenasProyecto = todasResenas.filter(r => r.portafolioId === proyecto.id)
-                    const promedio = calcularPromedio(resenasProyecto)
-
-                    return (
-                        <CardProyecto
-                            key={proyecto.id}
-                            nombreProyecto={proyecto.titulo}
-                            descripcionProyecto={proyecto.descripcion}
-                            estructura={proyecto.componentes?.[0]}
-                            promedio={promedio}
-                            onVerProyecto={() => setProyectoSeleccionado(proyecto)}
-                        />
-                    )
-                })}
+                            return (
+                                <CardProyecto
+                                    key={proyecto.id}
+                                    idProyecto={proyecto.id}
+                                    nombreProyecto={proyecto.titulo}
+                                    descripcionProyecto={proyecto.descripcion}
+                                    estructura={proyecto.componentes?.[0]}
+                                    promedio={promedio}
+                                    imgPortada={proyecto.imgPortada}
+                                    onVerProyecto={() => setProyectoSeleccionado(proyecto)}
+                                />
+                            )
+                        }), [proyectos, todasResenas, visibleCount])}
+                    </>
+                        {proyectos.length > visibleCount && (
+                            <div className="paginacion-container" style={{ gridColumn: '1 / -1', textAlign: 'center', marginTop: '20px' }}>
+                                <button className="btn-create-empty" onClick={() => setVisibleCount(prev => prev + 3)}>
+                                    Cargar más proyectos
+                                </button>
+                            </div>
+                        )}
+                    </>
+                )}
             </div>
 
             {/* Modal de visualización */}

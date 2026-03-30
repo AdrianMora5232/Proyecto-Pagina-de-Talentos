@@ -4,35 +4,63 @@
     left: 0;
     width: 100vw;
     height: 100vh;
-    background: rgba(0, 0, 0, 0.6);
+    background: rgba(0, 0, 0, 0.4);
+    backdrop-filter: blur(10px); /* Glassmorphism */
     display: flex;
     justify-content: center;
     align-items: center;
     z-index: 9999;
+    animation: fadeInModalOverlay 0.3s ease-out;
 }
 
 .modal-content {
     background: white;
     width: 90vw;
     height: 85vh;
-    border-radius: 12px;
+    border-radius: 24px; /* Más moderno */
     position: relative;
     display: flex;
     flex-direction: column;
     overflow: hidden;
-    box-shadow: 0 10px 40px rgba(0, 0, 0, 0.2);
+    box-shadow: 0 25px 50px -12px rgba(0, 0, 0, 0.25);
+    animation: slideUpModalContent 0.5s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+@keyframes fadeInModalOverlay {
+    from { opacity: 0; }
+    to { opacity: 1; }
+}
+
+@keyframes slideUpModalContent {
+    from { transform: translateY(40px) scale(0.98); opacity: 0; }
+    to { transform: translateY(0) scale(1); opacity: 1; }
 }
 
 .modal-close {
     position: absolute;
-    top: 15px;
-    right: 20px;
-    background: transparent;
-    border: none;
-    font-size: 28px;
+    top: 24px;
+    right: 24px;
+    background: rgba(255, 255, 255, 0.9);
+    border: 1px solid #e2e8f0;
+    width: 44px;
+    height: 44px;
+    border-radius: 50%;
+    font-size: 24px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
     cursor: pointer;
-    z-index: 10;
-    color: #333;
+    z-index: 100;
+    color: #4a5568;
+    transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+    box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1);
+}
+
+.modal-close:hover {
+    background: #fff;
+    transform: rotate(90deg) scale(1.1);
+    color: #1a202c;
+    border-color: #cbd5e0;
 }
 
 .modal-split {
@@ -43,22 +71,21 @@
 
 .modal-left {
     flex: 1.5;
-    background: #f8f9fa;
-    border-right: 1px solid #eee;
+    background: #f7fafc;
+    border-right: 1px solid #edf2f7;
     overflow-y: auto;
     overflow-x: hidden;
     position: relative;
-    padding: 20px;
+    padding: 40px;
 }
 
 .lienzo-modal-container {
     width: 100%;
-    position: relative;
 }
 
 .modal-right {
     flex: 1;
-    padding: 30px;
+    padding: 40px;
     display: flex;
     flex-direction: column;
     overflow-y: auto;
@@ -66,68 +93,100 @@
 }
 
 .modal-right h3 {
-    margin-bottom: 20px;
-    font-size: 22px;
-    font-weight: 600;
+    margin-bottom: 24px;
+    font-size: 24px;
+    font-weight: 800;
+    color: #1a202c;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
 }
 
 .resenas-lista {
     flex: 1;
     overflow-y: auto;
-    margin-bottom: 20px;
+    margin-bottom: 24px;
+    padding-right: 8px;
 }
 
+/* Custom Scrollbar for Reviews */
+.resenas-lista::-webkit-scrollbar { width: 6px; }
+.resenas-lista::-webkit-scrollbar-track { background: #f7fafc; }
+.resenas-lista::-webkit-scrollbar-thumb { background: #e2e8f0; border-radius: 10px; }
+
 .resena-item {
-    padding: 15px;
-    background: #fdfdfd;
-    border: 1px solid #f0f0f0;
-    border-radius: 8px;
-    margin-bottom: 12px;
+    padding: 20px;
+    background: #fff;
+    border: 1px solid #edf2f7;
+    border-radius: 16px;
+    margin-bottom: 16px;
+    transition: all 0.2s;
+}
+
+.resena-item:hover {
+    border-color: #cbd5e0;
+    box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.05);
 }
 
 .resena-stars {
-    color: #f39c12;
+    color: #f6e05e;
     font-size: 18px;
-    margin-bottom: 5px;
+    margin-bottom: 8px;
 }
 
 .resena-form {
-    border-top: 1px solid #eee;
-    padding-top: 20px;
+    border-top: 1px solid #edf2f7;
+    padding-top: 24px;
     display: flex;
     flex-direction: column;
-    gap: 10px;
-}
-
-.resena-form h4 {
-    font-size: 18px;
-    margin-bottom: 10px;
+    gap: 16px;
 }
 
 .resena-form select,
 .resena-form textarea {
-    padding: 12px;
-    border: 1px solid #ddd;
-    border-radius: 6px;
-    font-family: inherit;
+    padding: 14px;
+    border: 1px solid #e2e8f0;
+    border-radius: 12px;
+    background: #f8fafc;
+    font-size: 15px;
+    transition: all 0.2s;
 }
 
-.resena-form textarea {
-    min-height: 80px;
-    resize: none;
+.resena-form select:focus,
+.resena-form textarea:focus {
+    outline: none;
+    border-color: #0db9f2;
+    background: #fff;
+    box-shadow: 0 0 0 3px rgba(13, 185, 242, 0.1);
 }
 
 .resena-form button {
-    background: #2396c0;
+    background: #0db9f2;
     color: white;
     border: none;
-    padding: 12px;
-    border-radius: 6px;
-    font-weight: 600;
+    padding: 16px;
+    border-radius: 12px;
+    font-weight: 700;
     cursor: pointer;
-    transition: background 0.2s;
+    transition: all 0.3s;
 }
 
-.resena-form button:hover {
-    background: #1a7a9e;
+.resena-form button:hover:not(:disabled) {
+    background: #09a1d3;
+    transform: translateY(-2px);
+    box-shadow: 0 10px 15px -3px rgba(13, 185, 242, 0.3);
+}
+
+.resena-form button:disabled {
+    opacity: 0.6;
+    cursor: not-allowed;
+}
+
+/* Contacto Section UX */
+.contacto-modal {
+    margin-top: 16px;
+}
+
+.contacto-info-panel {
+    animation: fadeInModalOverlay 0.3s ease-out;
 }

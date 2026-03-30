@@ -1,9 +1,11 @@
 /* 🔥 GRID PRINCIPAL */
 .grillaDoble__grid {
+    
+    height: 600px;
+    min-height: 600px;
     display: grid;
     grid-template-columns: repeat(2, 1fr);
     gap: 20px;
-    height: 400px;
     width: 100%;
     padding: 20px;
 }

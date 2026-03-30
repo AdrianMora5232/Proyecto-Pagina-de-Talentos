@@ -32,6 +32,8 @@ function PerfilUsuario() {
                     nombre={usuarios.length > 0 ? usuarios[0].Nombre : "Cargando..."}
                     img={usuarios.length > 0 ? usuarios[0].img : "https://via.placeholder.com/150"}
                     ubicacion={usuarios.length > 0 ? usuarios[0].Provincias  : "Cargando..."}
+                    email={usuarios.length > 0 ? usuarios[0].email || usuarios[0].Correo : "Información no disponible"}
+                    telefono={usuarios.length > 0 ? usuarios[0].telefono || usuarios[0].Telefono : "Información no disponible"}
                 />
             </div>
 

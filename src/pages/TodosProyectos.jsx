@@ -19,6 +19,8 @@ function TodosProyectos() {
     const [filtroCanton, setFiltroCanton] = useState("");
     const [filtroDistrito, setFiltroDistrito] = useState("");
     const [filtroRating, setFiltroRating] = useState(0);
+    const [ordenarPor, setOrdenarPor] = useState("recientes"); // recientes, populares, valorados
+    const [visibleCount, setVisibleCount] = useState(6); // Paginación inicial explorador
 
     const cargarDatos = async () => {
         try {
@@ -55,7 +57,7 @@ function TodosProyectos() {
 
     // Array combinado y filtrado usando useMemo para evitar recalcular en cada render
     const proyectosFiltrados = useMemo(() => {
-        return portafolios.reduce((acc, proyecto) => {
+        let resultado = portafolios.reduce((acc, proyecto) => {
             const usuario = usuarios.find(u => String(u.id) === String(proyecto.usuarioId)) || {};
             
             // Filtros de Ubicacion
@@ -69,10 +71,21 @@ function TodosProyectos() {
             // Filtro de Rating
             if (filtroRating > 0 && promedio < filtroRating) return acc;
 
-            acc.push({ ...proyecto, usuario, promedio });
+            acc.push({ ...proyecto, usuario, promedio, cantidadResenas: resenasP.length });
             return acc;
         }, []);
-    }, [portafolios, usuarios, todasResenas, filtroProvincia, filtroCanton, filtroDistrito, filtroRating]);
+
+        // Aplicar Ordenamiento
+        if (ordenarPor === "recientes") {
+            resultado.sort((a, b) => (b.id > a.id ? 1 : -1)); // Simulación por ID si no hay fecha
+        } else if (ordenarPor === "valorados") {
+            resultado.sort((a, b) => b.promedio - a.promedio);
+        } else if (ordenarPor === "populares") {
+            resultado.sort((a, b) => b.cantidadResenas - a.cantidadResenas);
+        }
+
+        return resultado;
+    }, [portafolios, usuarios, todasResenas, filtroProvincia, filtroCanton, filtroDistrito, filtroRating, ordenarPor]);
 
     return (
         <div>
@@ -115,12 +128,21 @@ function TodosProyectos() {
                             <option value={1}>1+ Estrellas</option>
                         </select>
                     </div>
+                    <div className="filtro-grupo">
+                        <label>Ordenar por</label>
+                        <select value={ordenarPor} onChange={e => setOrdenarPor(e.target.value)}>
+                            <option value="recientes">Más recientes</option>
+                            <option value="populares">Más populares (Reseñas)</option>
+                            <option value="valorados">Mejor valorados (Estrellas)</option>
+                        </select>
+                    </div>
                     
                     <button className="limpiar-filtros" onClick={() => {
                         setFiltroProvincia("");
                         setFiltroCanton("");
                         setFiltroDistrito("");
                         setFiltroRating(0);
+                        setOrdenarPor("recientes");
                     }}>Limpiar Filtros</button>
                     
                 </div>
@@ -136,17 +158,30 @@ function TodosProyectos() {
                             <div className="sin-resultados">No se encontraron proyectos con esos filtros.</div>
                         )}
 
-                        {proyectosFiltrados.map(proyecto => (
+                        {proyectosFiltrados.slice(0, visibleCount).map(proyecto => (
                             <CardProyecto
                                 key={proyecto.id}
+                                idProyecto={proyecto.id}
                                 nombreProyecto={proyecto.titulo}
                                 descripcionProyecto={proyecto.descripcion}
                                 estructura={proyecto.componentes?.[0]}
                                 promedio={proyecto.promedio}
+                                imgPortada={proyecto.imgPortada}
                                 onVerProyecto={() => setProyectoSeleccionado(proyecto)}
                             />
                         ))}
                     </div>
+                    {proyectosFiltrados.length > visibleCount && (
+                        <div className="cargar-mas-wrapper" style={{ display: 'flex', justifyContent: 'center', marginTop: '40px' }}>
+                            <button 
+                                className="btn-create-empty" 
+                                style={{ padding: '14px 40px', fontSize: '16px' }} 
+                                onClick={() => setVisibleCount(prev => prev + 6)}
+                            >
+                                Cargar más talentos
+                            </button>
+                        </div>
+                    )}
                 </div>
             </div>
             <Footer />

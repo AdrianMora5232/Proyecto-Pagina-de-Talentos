@@ -1,179 +1,290 @@
-@import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap');
+* {
+  font-family: 'Inter', system-ui, -apple-system, sans-serif;
+  box-sizing: border-box;
+}
 
-/* ===== Navbar ===== */
 .navbar {
   position: sticky;
   top: 0;
+  left: 0;
+  width: 100vw;
+  max-width: 100vw;
+  margin-left: calc(50% - 50vw);
+  margin-right: calc(50% - 50vw);
+  height: 64px;
+  background-color: rgba(245, 248, 248, 0.65);
+  /* Más transparente */
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
+  border-bottom: 1px solid rgba(0, 0, 0, 0.03);
+  /* Borde más sutil */
+  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.04);
+  /* Sombra suave */
   z-index: 1000;
-  /* Fondo blanco puro para que las letras celestes resalten */
-  background: #ffffff;
-  /* Sombra suave con tinte celeste para separarlo del contenido de la página */
-  box-shadow: 0 4px 15px rgba(0, 180, 216, 0.15);
-  font-family: 'Inter', sans-serif;
-  border-bottom: 2px solid #e1f5fe;
+  display: flex;
+  align-items: center;
+  justify-content: center;
 }
 
 .navbar-container {
-  max-width: 1200px;
-  margin: 0 auto;
   display: flex;
   align-items: center;
   justify-content: space-between;
-  padding: 0 24px;
-  height: 60px; /* Un poco más alto para verse moderno */
+  width: 100%;
+  max-width: 100%;
+  /* Ocupa el 100% de la pantalla */
+  padding: 0 32px;
+  /* Padding para que no pegue en el borde */
+  height: 100%;
+  margin: 0 auto;
 }
 
-/* ===== Logo ===== */
+/* Izquierda: Logo */
+.navbar-left {
+  display: flex;
+  align-items: center;
+}
+
 .navbar-logo {
   display: flex;
   align-items: center;
   gap: 8px;
   text-decoration: none;
-  /* Color celeste fuerte para el logo */
-  color: #0096c7;
-  font-weight: 800;
-  font-size: 1.4rem;
-  letter-spacing: 0.5px;
-  transition: transform 0.2s ease;
+  color: #101e22;
 }
 
-.navbar-logo:hover {
-  transform: scale(1.04);
-}
-
-.logo-icon {
-  font-size: 1.5rem;
-  animation: pulse-icon 2.5s ease-in-out infinite;
-}
-
-@keyframes pulse-icon {
-  0%, 100% { transform: scale(1); }
-  50% { transform: scale(1.15); }
-}
-
-/* ===== Nav Links ===== */
-.navbar-links {
-  list-style: none;
+.logo-icon-wrapper {
+  background-color: #0db9f2;
+  color: white;
+  width: 32px;
+  height: 32px;
+  border-radius: 8px;
   display: flex;
   align-items: center;
-  gap: 8px;
+  justify-content: center;
+  font-size: 18px;
+}
+
+.logo-text {
+  font-size: 20px;
+  font-weight: 700;
+  letter-spacing: -0.5px;
+}
+
+/* Centro: Links */
+.navbar-center {
+  display: flex;
+  align-items: center;
+  height: 100%;
+  /* Alineación vertical perfecta */
+}
+
+.navbar-links {
+  display: flex;
+  align-items: center;
+  list-style: none;
+  gap: 24px;
+  /* Gap reducido */
   margin: 0;
   padding: 0;
+  height: 100%;
 }
 
 .navbar-item {
+  margin: 0;
   display: flex;
+  align-items: center;
 }
 
 .navbar-link {
+  text-decoration: none;
+  color: #101e22;
+  font-size: 14px;
+  /* Un poco más refinado */
+  font-weight: 600;
+  letter-spacing: -0.01em;
+  /* Mejor spacing */
+  transition: color 0.2s ease;
+}
+
+.navbar-link:hover,
+.navbar-link.active {
+  color: #0db9f2;
+}
+
+
+/* Derecha: Buscar y Perfil */
+.navbar-right {
   display: flex;
   align-items: center;
-  gap: 6px;
-  text-decoration: none;
-  /* Aquí el color celeste para que las letras destaquen sobre el fondo blanco */
-  color: #0096c7;
-  font-weight: 600; 
-  font-size: 0.95rem; 
-  padding: 8px 16px;
+  gap: 16px;
+  /* Ajuste entre input y avatar */
+}
+
+.search-container {
+  position: relative;
+  display: flex;
+  align-items: center;
+}
+
+.search-icon {
+  position: absolute;
+  left: 10px;
+  top: 50%;
+  transform: translateY(-50%);
+  font-size: 13px;
+  /* Icono más contenido */
+  color: #94a3b8;
+  /* Gris tailwind slate-400 */
+  pointer-events: none;
+}
+
+.search-input {
+  /* Fondo más claro y bordes de 8px */
+  background-color: #f1f5f9;
+  border: 1px solid transparent;
   border-radius: 8px;
-  transition: all 0.25s ease;
-  white-space: nowrap;
+  /* Altura más compacta */
+  padding: 6px 12px 6px 32px;
+  font-size: 14px;
+  color: #1e293b;
+  width: 220px;
+  transition: all 0.2s ease;
+  outline: none;
 }
 
-.navbar-link:hover {
-  /* Fondo celeste muy sutil al pasar el mouse */
-  background: #e1f5fe;
-  color: #0077b6; /* Un tono un poco más oscuro de celeste para mayor contraste */
-  transform: translateY(-2px);
+.search-input:focus {
+  background-color: #ffffff;
+  border-color: #0db9f2;
+  box-shadow: 0 0 0 3px rgba(13, 185, 242, 0.15);
 }
 
-.navbar-link.active {
-  /* Si el enlace está activo, se vuelve un botón celeste con letra blanca */
-  background: #00b4d8;
-  color: #ffffff; 
-  box-shadow: 0 4px 12px rgba(0, 180, 216, 0.3);
-  font-weight: 700;
+.search-input::placeholder {
+  color: #94a3b8;
 }
 
-.link-icon {
-  font-size: 1.1rem;
-  line-height: 1;
+.profile-btn {
+  text-decoration: none;
+  display: flex;
+  align-items: center;
 }
 
-/* ===== Hamburger Toggle ===== */
+.avatar-circle {
+  width: 36px;
+  /* Ligeramente más compacto */
+  height: 36px;
+  border-radius: 50%;
+  background-color: #f1f5f9;
+  border: 1px solid #e2e8f0;
+  /* Borde gris claro */
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: #475569;
+  overflow: hidden;
+  /* Muy importante para imágenes */
+  transition: transform 0.2s ease, box-shadow 0.2s ease;
+}
+
+.avatar-circle img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.avatar-circle:hover {
+  transform: scale(1.05);
+  /* Escala leve */
+  box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1);
+  /* Sombra al hacer hover */
+}
+
+
+/* Responsivo / Mobile */
 .navbar-toggle {
   display: none;
   flex-direction: column;
-  gap: 5px;
-  background: none;
+  justify-content: space-between;
+  width: 24px;
+  height: 18px;
+  background: transparent;
   border: none;
   cursor: pointer;
-  padding: 6px;
-  border-radius: 6px;
-  transition: background 0.2s;
-}
-
-.navbar-toggle:hover {
-  background: #e1f5fe;
+  padding: 0;
+  z-index: 1010;
 }
 
 .toggle-bar {
-  display: block;
-  width: 24px;
-  height: 3px;
-  /* Color celeste para el ícono de menú en móviles */
-  background: #0096c7;
-  border-radius: 3px;
-  transition: transform 0.3s ease, opacity 0.3s ease;
+  width: 100%;
+  height: 2px;
+  background-color: #101e22;
+  border-radius: 2px;
+  transition: all 0.3s ease;
 }
 
-.navbar-toggle.active .toggle-bar:nth-child(1) {
-  transform: translateY(8px) rotate(45deg);
-}
+@media (max-width: 900px) {
+  .navbar-container {
+    padding: 0 20px;
+    /* Padding responsivo reducido */
+  }
 
-.navbar-toggle.active .toggle-bar:nth-child(2) {
-  opacity: 0;
-}
+  .navbar-center,
+  .navbar-right {
+    display: none;
+    flex-direction: column;
+    position: absolute;
+    top: 64px;
+    left: 0;
+    width: 100%;
+    background-color: #ffffff;
+    /* Sólido en movil para legibilidad */
+    padding: 24px 32px;
+    border-bottom: 1px solid rgba(0, 0, 0, 0.05);
+    box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.1);
+  }
 
-.navbar-toggle.active .toggle-bar:nth-child(3) {
-  transform: translateY(-8px) rotate(-45deg);
-}
+  .navbar-center.open,
+  .navbar-right.open {
+    display: flex;
+  }
 
-/* ===== Responsive ===== */
-@media (max-width: 860px) {
+  .navbar-right.open {
+    top: calc(64px + 230px);
+    padding-top: 0;
+    border-bottom: none;
+    box-shadow: none;
+    padding-bottom: 24px;
+    align-items: flex-start;
+  }
+
+  .navbar-links {
+    flex-direction: column;
+    gap: 16px;
+    width: 100%;
+    align-items: flex-start;
+  }
+
+  .search-container {
+    width: 100%;
+  }
+
+  .search-input {
+    width: 100%;
+  }
+
   .navbar-toggle {
     display: flex;
   }
 
-  .navbar-links {
-    position: absolute;
-    top: 60px;
-    left: 0;
-    right: 0;
-    flex-direction: column;
-    /* Fondo responsivo blanco */
-    background: #ffffff;
-    padding: 10px 20px 20px;
-    gap: 4px;
-    box-shadow: 0 10px 25px rgba(0, 150, 199, 0.15);
-    border-top: 1px solid #e1f5fe;
-    transform: translateY(-10px);
+  .navbar-toggle.active .toggle-bar:nth-child(1) {
+    transform: translateY(8px) rotate(45deg);
+  }
+
+  .navbar-toggle.active .toggle-bar:nth-child(2) {
     opacity: 0;
-    pointer-events: none;
-    transition: transform 0.3s ease, opacity 0.3s ease;
   }
 
-  .navbar-links.open {
-    transform: translateY(0);
-    opacity: 1;
-    pointer-events: auto;
-  }
-
-  .navbar-link {
-    width: 100%;
-    padding: 12px 16px;
-    font-size: 1.05rem;
-    border-radius: 8px;
-    justify-content: flex-start;
+  .navbar-toggle.active .toggle-bar:nth-child(3) {
+    transform: translateY(-8px) rotate(-45deg);
   }
 }

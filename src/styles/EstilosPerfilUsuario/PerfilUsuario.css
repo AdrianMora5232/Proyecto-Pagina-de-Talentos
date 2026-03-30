@@ -2,61 +2,40 @@
 .perfil-page {
   width: 100%;
   min-height: 100vh;
-  background: #f5f8f8;
-  padding-bottom: 50px;
+  background: #f8fafc; /* Fondo más claro y moderno (Slate 50) */
+  padding-bottom: 80px;
 }
 
 /* Contenedor principal centrado */
 .perfil-content {
   max-width: 1100px;
   margin: 0 auto;
-  padding: 32px 20px;
+  padding: 40px 20px;
+  animation: fadeIn 0.8s ease-out;
 }
 
-/* Sección de Tabs */
+/* Sección de Tabs wrapper */
 .secciones-perfil {
-  max-width: 1100px;
-  margin: 0 auto;
-}
-
-.tabs-wrapper {
   width: 100%;
-  border-bottom: 1px solid #e0e6ed;
-  background: #fff;
+  background: white;
+  border-bottom: 1px solid #edf2f7;
+  position: sticky;
+  top: 72px; /* Pegado justo debajo del navbar glass */
+  z-index: 100;
 }
 
-.tabs {
+.perfil-resenas {
   max-width: 1100px;
   margin: 0 auto;
-  padding: 0 20px;
-  display: flex;
-  gap: 40px;
 }
 
-.tab {
-  padding: 16px 0;
-  display: flex;
-  align-items: center;
-  gap: 8px;
-  color: #6b7a8c;
-  cursor: pointer;
-  font-weight: 500;
-  transition: all 0.3s ease;
-  border-bottom: 2px solid transparent;
-}
-
-.tab.active {
-  color: #0db9f2;
-  border-bottom: 2px solid #0db9f2;
-}
-
-.tab:hover:not(.active) {
-  color: #333;
+@keyframes fadeIn {
+  from { opacity: 0; transform: translateY(10px); }
+  to { opacity: 1; transform: translateY(0); }
 }
 
 @media (max-width: 768px) {
   .perfil-content {
-    padding: 20px;
+    padding: 24px 16px;
   }
 }
-

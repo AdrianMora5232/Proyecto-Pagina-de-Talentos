@@ -10,15 +10,26 @@ function ResenasUsuario() {
     async function fetchResenas() {
       try {
         const usuario = JSON.parse(localStorage.getItem("UsuarioActivo"));
-        const data = await Fetch.getData("resenas");
+        if (!usuario?.id) return;
 
-        const filtradas = data.filter(
-          (r) => String(r.usuarioId) === String(usuario.id)
+        const [dataResenas, dataPortafolios] = await Promise.all([
+          Fetch.getData("resenas"),
+          Fetch.getData("portafolios")
+        ]);
+
+        // 1. Obtener IDs de mis portafolios
+        const misPortafoliosIds = (dataPortafolios || [])
+          .filter(p => String(p.usuarioId) === String(usuario.id))
+          .map(p => String(p.id));
+
+        // 2. Filtrar reseñas recibidas en esos portafolios
+        const filtradas = (dataResenas || []).filter(
+          (r) => misPortafoliosIds.includes(String(r.portafolioId))
         );
 
         setResenas(filtradas);
       } catch (error) {
-        console.error(error);
+        console.error("Error cargando reseñas:", error);
       }
     }
 

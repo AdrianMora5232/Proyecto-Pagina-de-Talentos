@@ -53,16 +53,16 @@ function PerfilUsuario() {
                 <SeccionesPerfil />
             </div>
 
-            {/* RESEÑAS NUEVAS */}
-            <div className="perfil-resenas">
-                <ResenasUsuario />
-            </div>
 
             {/* PROYECTOS */}
             <div>
                 <ProyectosRecientes />
             </div>
 
+            {/* RESEÑAS NUEVAS */}
+            <div className="perfil-resenas">
+                <ResenasUsuario />
+            </div>
         </div>
     );
 }

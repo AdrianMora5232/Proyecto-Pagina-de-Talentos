@@ -102,10 +102,23 @@ function ModalProyecto({ proyecto, resenas = [], onClose, onReviewAdded }) {
     });
   };
 
-  const promedio = calcularPromedio(resenas);
-
   // Verificamos si el usuario actual es el dueño del proyecto
   const isOwner = String(usuarioActivo.id) === String(proyecto.usuarioId);
+
+  // 🛠 DEPURACIÓN TEMPORAL (Solicitada por el usuario)
+  console.log("ID Proyecto actual:", proyecto?.id);
+  console.log("Reseñas recibidas:", resenas);
+  if (resenas && resenas.length > 0) {
+    console.log("IDs de portafolios en esas reseñas:", resenas.map(r => r.portafolioId));
+  }
+
+  // 🔥 SOLUCIÓN DEFINITIVA Y OBLIGATORIA: Filtrado directo en ModalProyecto
+  // Validamos que proyecto.id exista antes de filtrar
+  const resenasFiltradas = (proyecto?.id && resenas) 
+    ? resenas.filter(r => String(r.portafolioId) === String(proyecto.id))
+    : [];
+
+  const promedio = calcularPromedio(resenasFiltradas);
 
   return (
     <div className="modal-overlay" onClick={onClose}>
@@ -142,12 +155,12 @@ function ModalProyecto({ proyecto, resenas = [], onClose, onReviewAdded }) {
           <div className="modal-right">
             <h3>Reseñas evaluativas <span style={{fontSize:'16px', color:'#f39c12'}}>★ {promedio}</span></h3>
             <div className="resenas-lista">
-              {resenas.length === 0 ? (
+              {resenasFiltradas.length === 0 ? (
                 <p style={{ color: '#777', fontStyle: 'italic' }}>
                   Este proyecto aún no tiene reseñas. ¡Sé el primero en comentar!
                 </p>
               ) : (
-                resenas.map((r, i) => (
+                resenasFiltradas.map((r, i) => (
                   <div key={i} className="resena-item">
                     <div className="resena-stars">
                       {"★".repeat(r.rating)}{"☆".repeat(5 - r.rating)}

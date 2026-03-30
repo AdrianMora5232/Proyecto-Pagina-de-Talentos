@@ -36,7 +36,7 @@ function CompExplicacion() {
                 <h2>Para Empresas & Reclutadores</h2>
                 <ul className="info-list">
                   <li><span className="icon">🔍</span> Encuentra el talento ideal</li>
-                  <li><span className="icon">📞</span> Contacta con nosotros</li>
+                  <li><span className="icon">📞</span> Contacta con los talentos de inmediato</li>
                 </ul>
               </div>
               <div className="section-img-placeholder">
@@ -131,19 +131,20 @@ function CompExplicacion() {
             <h3>Contacto & Soporte</h3>
             <div className="contact-links">
               <p><span className="icon">💬</span> Preguntas Frecuentes</p>
-              <p><span className="icon">✉️</span> Escríbenos</p>
+              <Link to="/pagina-contacto" style={{ textDecoration: 'none', color: 'inherit', display: 'block' }}>
+                <p style={{ margin: 0 }}><span className="icon">✉️</span> Escríbenos</p>
+              </Link>
             </div>
             <div className="social-row">
               <div className="social-icons-left">
-                <span className="soc-icon">f</span>
-                <span className="soc-icon">t</span>
-                <span className="soc-icon">i</span>
-                <span className="soc-icon">l</span>
-              </div>
-              <div className="social-icons-right">
-                <span className="soc-icon">f</span>
-                <span className="soc-icon">t</span>
-                <span className="soc-icon">in</span>
+                <span className="soc-icon">T</span>
+                <span className="soc-icon">A</span>
+                <span className="soc-icon">L</span>
+                <span className="soc-icon">E</span>
+                <span className="soc-icon">N</span>
+                <span className="soc-icon">T</span>
+                <span className="soc-icon">O</span>
+                <span className="soc-icon">S</span>
               </div>
             </div>
           </section>

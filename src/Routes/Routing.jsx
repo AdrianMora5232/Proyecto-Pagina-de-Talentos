@@ -13,6 +13,8 @@ import Funcionalidad from "../pages/Funcionalidad"
 import RutaPrivada from "./RutaPrivada"
 import PaginaConsejos from "../pages/PaginaConsejos"
 import RutaPrivadaAdmin from "./RutaPrivadaAdmin"
+import TodosProyectos from "../pages/TodosProyectos"
+import PaginaComoFunciona from "../pages/PaginaComoFunciona"
 
 function Routing() {
     return (
@@ -32,6 +34,8 @@ function Routing() {
                 <Route path="/Admin" element={<RutaPrivadaAdmin children={<Admin />} />} />
                 <Route path="/Funcionalidad" element={<RutaPrivada children={<Funcionalidad />} />} />
                 <Route path="/Consejos" element={<RutaPrivada children={<PaginaConsejos />} />} />
+                <Route path="/todos-proyectos" element={<TodosProyectos />} />
+                <Route path="/ComoFunciona" element={<RutaPrivada children={<PaginaComoFunciona />} />} />
             </Routes>
         </Router>
     )

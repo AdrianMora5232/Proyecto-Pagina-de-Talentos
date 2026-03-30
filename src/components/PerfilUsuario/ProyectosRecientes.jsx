@@ -1,45 +1,77 @@
-import React from 'react'
 import "../../styles/EstilosPerfilUsuario/ProyectosRecientes.css"
+import { useState, useEffect } from 'react'
+import CardProyecto from './CardProyecto';
+import ModalProyecto from './ModalProyecto';
+import Fetch from '../../services/Fetch';
+import { calcularPromedio } from '../../utils/calcularPromedio';
+import { useNavigate } from "react-router-dom";
 
 function ProyectosRecientes() {
+    const [proyectos, setProyectos] = useState([])
+    const [todasResenas, setTodasResenas] = useState([])
+    const [proyectoSeleccionado, setProyectoSeleccionado] = useState(null)
+    const navigate = useNavigate()
+
+    const cargarDatos = async () => {
+        try {
+            // Fetch Portafolios
+            const peticionJson = await Fetch.getData("portafolios")
+            const filtroProyectos = peticionJson.filter((proyecto) => proyecto.usuarioId == JSON.parse(localStorage.getItem("UsuarioActivo")).id)
+            setProyectos(filtroProyectos)
+
+            // Fetch Todas Las Reseñas
+            const resenasJson = await Fetch.getData("resenas") || []
+            setTodasResenas(resenasJson)
+        } catch (error) {
+            console.error(error)
+        }
+    }
+
+    useEffect(() => {
+        cargarDatos()
+    }, [])
+
     return (
         <div className='proyectos-container'>
-
             <div className="proyectos-header">
                 <h4>Proyectos Recientes</h4>
                 <p>Ver todos</p>
             </div>
 
             <div className="proyectos-grid">
-                <div className="proyecto-card">
-                    <img src="https://images.squarespace-cdn.com/content/v1/5eb395e1fd1b486592f0948c/1750174947481-5208D20SEQ7LULNHGTIN/image-asset.jpeg?format=750w" alt="" />
-                    <h4>Nombre del proyecto</h4>
-                    <p>Descripción del proyecto</p>
-                    <button>
-                        Ver proyecto <span className="fa-solid fa-arrow-right"></span>
-                    </button>
-                </div>
+                {proyectos.length === 0 && <div>
+                    No hay proyectos recientes
+                    <button
+                        onClick={() => {
+                            navigate("/portafolio")
+                        }}
+                    >Agrega uno acá</button>
+                </div>}
 
-                <div className="proyecto-card">
-                    <img src="https://images.squarespace-cdn.com/content/v1/5eb395e1fd1b486592f0948c/1750174947481-5208D20SEQ7LULNHGTIN/image-asset.jpeg?format=750w" alt="" />
-                    <h4>Nombre del proyecto</h4>
-                    <p>Descripción del proyecto</p>
-                    <button>
-                        Ver proyecto <span className="fa-solid fa-arrow-right"></span>
-                    </button>
-                </div>
-                
-                <div className="proyecto-card">
-                    <img src="https://images.squarespace-cdn.com/content/v1/5eb395e1fd1b486592f0948c/1750174947481-5208D20SEQ7LULNHGTIN/image-asset.jpeg?format=750w" alt="" />
-                    <h4>Nombre del proyecto</h4>
-                    <p>Descripción del proyecto</p>
-                    <button>
-                        Ver proyecto <span className="fa-solid fa-arrow-right"></span>
-                    </button>
-                </div>
+                {proyectos.map((proyecto) => {
+                    const resenasProyecto = todasResenas.filter(r => r.portafolioId === proyecto.id)
+                    const promedio = calcularPromedio(resenasProyecto)
 
+                    return (
+                        <CardProyecto
+                            key={proyecto.id}
+                            nombreProyecto={proyecto.titulo}
+                            descripcionProyecto={proyecto.descripcion}
+                            estructura={proyecto.componentes?.[0]}
+                            promedio={promedio}
+                            onVerProyecto={() => setProyectoSeleccionado(proyecto)}
+                        />
+                    )
+                })}
             </div>
 
+            {/* Modal de visualización */}
+            <ModalProyecto 
+                proyecto={proyectoSeleccionado} 
+                resenas={proyectoSeleccionado ? todasResenas.filter(r => r.portafolioId === proyectoSeleccionado.id) : []}
+                onClose={() => setProyectoSeleccionado(null)}
+                onReviewAdded={cargarDatos}
+            />
         </div>
     )
 }

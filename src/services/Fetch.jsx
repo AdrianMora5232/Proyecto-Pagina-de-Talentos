@@ -1,16 +1,13 @@
 async function postData(obj, endpoint) {
-    try {
-        const peticion = await fetch(`http://localhost:3001/${endpoint}`, {
-            method: "POST",
-            headers: {
-                "Content-Type": "application/json"
-            },
-            body: JSON.stringify(obj)
-        })
-        return peticion.json()
-    } catch (error) {
-        console.error(error);
-    }
+    const res = await fetch(`http://localhost:3001/${endpoint}`, {
+        method: "POST",
+        headers: {
+            "Content-Type": "application/json"
+        },
+        body: JSON.stringify(obj)
+    });
+
+    return await res.json();
 }
 
 async function getData(endpoint) {

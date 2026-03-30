@@ -1,102 +1,116 @@
 .perfil-container {
-  max-width: 1000px;
-  margin: 40px auto;
-  /* centra y separa */
+  max-width: 900px;
+  margin: 30px auto;
 
   display: flex;
   align-items: center;
-  gap: 40px;
+  gap: 25px;
 
-  padding: 40px;
-
-  background: #f7f9fb;
-  /* ahora el fondo está aquí */
+  padding: 25px 30px;
+  background: #f3f6f8;
   border-radius: 12px;
-  /* opcional pero se ve mejor */
 }
 
 /* imagen */
-.perfil-img img {
-  width: 140px;
-  height: 140px;
-
-  border-radius: 50%;
-  /* mejor práctica */
-  object-fit: cover;
-
-  border: 6px solid white;
+.perfil-img {
+  position: relative;
 }
 
-.perfil-img {
+.perfil-img img {
+  width: 110px;
+  height: 110px;
+  border-radius: 50%;
+  object-fit: cover;
+  border: 4px solid white;
+}
+
+/* verificado */
+.perfil-verificado {
+  position: absolute;
+  bottom: 0;
+  right: 0;
+
+  width: 22px;
+  height: 22px;
+
+  background: #2ca6d3;
+  color: white;
+
+  border-radius: 50%;
+  font-size: 11px;
+
   display: flex;
   align-items: center;
   justify-content: center;
-}
 
+  border: 2px solid white;
+}
 
 /* info */
-.perfil-info{
-  display:flex;
-  flex-direction:column;
-  justify-content:center;
-  gap:10px; /* 🔥 separaciones limpias */
+.perfil-info {
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
 }
 
-/* nombre */
-.perfil-nombre {
-  font-size: 36px;
+/* nombre + badge */
+.perfil-top {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+.perfil-top h1 {
+  font-size: 20px;
   font-weight: 700;
   margin: 0;
-  color: #1e2a38;
+}
+
+.perfil-badge {
+  background: rgba(44, 166, 211, 0.2);
+  color: #2ca6d3;
+
+  padding: 3px 8px;
+  border-radius: 12px;
+
+  font-size: 11px;
+  font-weight: 600;
 }
 
 /* ubicación */
 .perfil-ubicacion {
   display: flex;
   align-items: center;
-  gap: 6px;
+  gap: 5px;
 
-  font-size: 13px;
-  color: #7b8a9a;
+  font-size: 12px;
+  color: #6b7a8c;
 }
 
 .perfil-ubicacion p {
   margin: 0;
 }
 
-.perfil-ubicacion span {
-  font-size: 12px;
-  display: flex;
-  /* 🔥 mejora alineación */
-  align-items: center;
-}
-
 /* profesión */
-.perfil-profesion {
-  margin-top: 12px;
-
-  font-size: 22px;
+.perfil-info h2 {
+  font-size: 14px;
   font-weight: 600;
-
-  color: #1e2a38;
+  margin: 4px 0;
+  color: #2b2b2b;
 }
 
 /* descripción */
-.perfil-descripcion {
-  margin-top: 10px;
-
-  font-size: 17px;
-  line-height: 1.7;
-
-  max-width: 650px;
-  color: #5b6b7c;
+.perfil-info p {
+  font-size: 13px;
+  color: #6b7a8c;
+  max-width: 500px;
 }
 
 /* botones */
 .perfil-botones {
   display: flex;
-  gap: 15px;
-  margin-top: 20px;
+  gap: 10px;
+  margin-top: 10px;
 }
 
 /* botón principal */
@@ -105,41 +119,42 @@
   color: white;
 
   border: none;
-  border-radius: 10px;
+  border-radius: 8px;
 
-  padding: 12px 22px;
+  padding: 8px 14px;
 
   display: flex;
   align-items: center;
-  gap: 10px;
+  gap: 6px;
 
-  font-weight: 600;
-  font-size: 16px;
-
+  font-size: 13px;
   cursor: pointer;
-  transition: 0.2s ease;
 }
 
-.btn-contact:hover {
-  background: #2396c0;
-}
-
-/* botón secundario */
+/* botón seguir */
 .btn-follow {
   background: #e3e7ec;
-
   border: none;
-  border-radius: 10px;
 
-  padding: 12px 22px;
+  border-radius: 8px;
+  padding: 8px 14px;
 
-  font-weight: 600;
-  font-size: 16px;
-
+  font-size: 13px;
   cursor: pointer;
-  transition: 0.2s ease;
 }
 
-.btn-follow:hover {
-  background: #d6dbe1;
+/* botón compartir */
+.btn-share {
+  background: #e3e7ec;
+  border: none;
+
+  width: 34px;
+  height: 34px;
+
+  border-radius: 8px;
+  cursor: pointer;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
 }

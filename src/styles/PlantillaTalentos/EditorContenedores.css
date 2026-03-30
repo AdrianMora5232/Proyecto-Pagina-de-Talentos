@@ -1,0 +1,45 @@
+.editor-toolbar {
+    background: white;
+    border-radius: 12px;
+    padding: 8px 12px;
+
+    display: flex;
+    align-items: center;
+    gap: 10px;
+
+    box-shadow: 0 10px 25px rgba(0,0,0,0.2);
+}
+
+/* wrappers */
+.color-wrapper,
+.image-wrapper,
+.text-color-wrapper {
+    position: relative;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+/* inputs ocultos */
+.btnColor,
+.btnTextColor {
+    position: absolute;
+    inset: 0;
+    opacity: 0;
+    cursor: pointer;
+}
+
+/* iconos */
+.icono-texto i,
+.color-wrapper i,
+.image-wrapper span {
+    font-size: 18px;
+    cursor: pointer;
+}
+
+.remove-img {
+    cursor: pointer;
+    margin-left: 8px;
+    color: red;
+    font-size: 18px;
+}

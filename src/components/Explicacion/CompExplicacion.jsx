@@ -115,7 +115,9 @@ function CompExplicacion() {
                 <p>Conecta con oportunidades!</p>
               </div>
             </div>
-            <button className="btn-green">Leer más &rsaquo;</button>
+            <Link to="/ComoFunciona">
+              <button className="btn-green">Leer más &rsaquo;</button>
+            </Link>
           </section>
 
           {/* Únete a la Plataforma */}

@@ -2,6 +2,7 @@ import React from 'react'
 import { useState } from 'react'
 import Fetch from '../services/Fetch'
 import { useNavigate } from 'react-router-dom'
+import UploadImage from '../components/PlantillaTalentos/SubirImagen'
 import '../styles/EstilosRegistros/Registro.css'
 
 function Registro() {
@@ -16,6 +17,7 @@ function Registro() {
     const [Distrito, setDistrito] = useState("")
     const [Roles, setRol] = useState("")
     const [Contrasena, setContraseña] = useState("")
+    const [img, setImg] = useState("")
     const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
     async function RegistroUsuarios() {
         if (Nombre === "" || Correo === "" || Provincias === "" || Canton === "" || Distrito === "" || Roles == "" || Contrasena === "") {
@@ -29,7 +31,8 @@ function Registro() {
             Canton: Canton,
             Distrito: Distrito,
             Roles: Roles,
-            Contrasena: Contrasena
+            Contrasena: Contrasena,
+            img: img || 'https://via.placeholder.com/150'
         }
         if (Contrasena.length < 8) {
             alert("La contraseña debe tener al menos 8 caracteres")
@@ -43,7 +46,9 @@ function Registro() {
         alert("Registro exitoso")
 
         console.log(UsuarioAlmacenado)
-
+        if (UsuarioAlmacenado?.id) {
+            localStorage.setItem('idUsuario', UsuarioAlmacenado.id)
+        }
     }
     const validacionContraseña = () => {
 
@@ -61,6 +66,14 @@ function Registro() {
             <div className='CardRegistro'>
                 <h2 className='TituloRegistro'>Crear cuenta</h2>
                 <div className='FormRegistro'>
+                    <div className='InputGroup'>
+                        <label>Foto de perfil</label>
+                        <div className='FotoPerfilUpload'>
+                            <UploadImage setImageUrl={setImg} />
+                            {img && <img src={img} alt="Previsualización" className='PreviewFoto' />}
+                        </div>
+                    </div>
+
                     <div className='InputGroup'>
                         <label>Nombre Completo</label>
                         <input type="text" value={Nombre} onChange={(evento) => setNombre(evento.target.value)} placeholder="Ej. Juan Pérez" />

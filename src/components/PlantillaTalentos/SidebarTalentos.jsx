@@ -1,43 +1,124 @@
 import "../../styles/PlantillaTalentos/SidebarTalentos.css";
 
-function SidebarTalentos({actEst1, actEst1_1, actGrilla1_2_Izda}) {
-    return (
-    <div className="sidebar p-3">
-      {/* Header */}
-      <div className="d-flex justify-content-between align-items-center mb-3">
-        <h6 className="m-0 fw-bold">Plantillas</h6>
+function SidebarTalentos({ actEst1, actEst1_1, actEst1_2, actEst1_3, actEst1_4, actGrillaDoble, actGrillaTriple, actGrilla1_2_Izda, actGrilla1_2_Derecha }) {
+  return (
+    <div className="sidebartalentos">
+
+      {/* HEADER */}
+      <div className="sidebartalentos__header">
+        <div className="sidebartalentos__title">
+          <span className="sidebartalentos__icon">▦</span>
+          <h6>Plantillas</h6>
+        </div>
+        <span className="sidebartalentos__badge">EDITOR</span>
       </div>
 
-      {/* Search */}
+      {/* SEARCH */}
       <input
         type="text"
-        className="form-control mb-3"
+        className="sidebartalentos__search"
         placeholder="Buscar componentes..."
       />
 
-      {/* Sección */}
-      <p className="section-title">ESTRUCTURAS Y GRILLAS</p>
-      <div className="d-flex gap-2 mb-3">
-        <div className="box small  cajita" onClick={actEst1}>est1</div>
-        <div className="box small cajita" onClick={actEst1_1}>est1_1</div>
-        <div className="box small cajita" onClick={actGrilla1_2_Izda}>grilla1_2_izda</div>
+      {/* ESTRUCTURAS */}
+      <p className="sidebartalentos__section-title">ESTRUCTURAS Y GRILLAS</p>
+
+      <div className="sidebartalentos__grid">
+        <div className="sidebartalentos__layout" onClick={actEst1}>
+          <div className="sidebartalentos__layout-preview layout-centered">
+
+            <div className="layout-centered__box"></div>
+
+          </div>
+          <span>Layout Centrado</span>
+        </div>
+
+        <div className="sidebartalentos__layout" onClick={actEst1_1}>
+          <div className="sidebartalentos__layout-preview layout-header-column">
+
+            <div className="layout-header-column__top"></div>
+
+            <div className="layout-header-column__bottom"></div>
+
+          </div>
+          <span>Layout 1:1</span>
+        </div>
+
+        <div className="sidebartalentos__layout" onClick={actEst1_2}>
+          <div className="sidebartalentos__layout-preview layout-1-2">
+            <div className="layout-1-2__top"></div>
+            <div className="layout-1-2__bottom">
+              <div></div>
+              <div></div>
+            </div>
+          </div>
+          <span>Layout 1:2</span>
+        </div>
+
+        <div className="sidebartalentos__layout" onClick={actEst1_3}>
+          <div className="sidebartalentos__layout-preview layout-1-3">
+
+            <div className="layout-1-3__top"></div>
+
+            <div className="layout-1-3__bottom">
+              <div></div>
+              <div></div>
+              <div></div>
+            </div>
+
+          </div>
+          <span>1:3</span>
+        </div>
+
+        <div className="sidebartalentos__layout" onClick={actEst1_4}>
+          <div className="sidebartalentos__layout-preview layout-1-4">
+
+            <div className="layout-1-4__top"></div>
+
+            <div className="layout-1-4__bottom">
+              <div></div>
+              <div></div>
+              <div></div>
+              <div></div>
+            </div>
+
+          </div>
+          <span>1:4</span>
+        </div>
+
+        <div className="sidebartalentos__layout" onClick={actGrillaDoble}>
+          <div className="sidebartalentos__layout-preview layout-2-cols">
+
+            <div></div>
+            <div></div>
+
+          </div>
+          <span>Grilla Doble</span>
+        </div>
+
+        
+        <div className="sidebartalentos__layout" onClick={actGrillaTriple}>
+          <div className="sidebartalentos__layout-preview layout-3-cols">
+
+            <div></div>
+            <div></div>
+            <div></div>
+
+          </div>
+          <span>Grilla Triple</span>
+        </div>
+
+
+        <div className="sidebartalentos__layout" onClick={actGrilla1_2_Derecha}>
+          <div className="sidebartalentos__layout-preview layout-4"></div>
+          <span>Mosaico</span>
+        </div>
       </div>
 
-      {/* Imagen */}
-      <p className="section-title">COMPONENTES DE IMAGEN</p>
-      <div className="box long mb-2"></div>
-      <small className="text-muted d-block mb-3">Tarjeta de Galería</small>
-
-      <div className="box image mb-3"></div>
-
-      {/* Texto */}
-      <p className="section-title">BLOQUES DE TEXTO</p>
-      <div className="text-line mb-2"></div>
-      <div className="text-line short mb-3"></div>
-
-      <small className="text-muted d-block mb-2">Título + Párrafo</small>
-
-      <div className="btn-placeholder mb-4"></div>
+      {/* BOTÓN FINAL 
+      <button className="sidebartalentos__add-btn">
+        + Añadir elemento
+      </button>*/}
 
     </div>
   );

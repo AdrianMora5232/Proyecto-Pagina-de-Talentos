@@ -12,6 +12,7 @@ function Navbar() {
     { to: '/pagina-contacto', label: 'Contactos', icon: '✉️' },
     { to: '/sobre-nosotros', label: 'Sobre Nosotros', icon: '👥' },
     { to: '/Funcionalidad', label: 'Cómo Funciona', icon: '⚙️' },
+    { to: '/perfil-usuario', label: 'Perfil usuario', icon: '🤢' },
   ]
 
   return (

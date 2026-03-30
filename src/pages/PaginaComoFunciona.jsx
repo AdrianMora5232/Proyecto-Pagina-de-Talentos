@@ -1,7 +1,7 @@
 import React from 'react'
 import ComoFunciona from '../components/Explicacion/ComoFunciona'
 
-function ComoFunciona() {
+function PaginaComoFunciona() {
   return (
     <div>
 
@@ -12,4 +12,4 @@ function ComoFunciona() {
   )
 }
 
-export default ComoFunciona
+export default PaginaComoFunciona

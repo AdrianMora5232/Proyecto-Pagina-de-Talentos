@@ -1,61 +1,131 @@
-import React from 'react'
+import React, { useState, useEffect } from "react";
 import "../../styles/EstilosPerfilUsuario/InfoUsuarios.css";
+import UploadImage from "../PlantillaTalentos/SubirImagen";
+import Fetch from "../../services/Fetch";
 
-function InfoUsuario({
-    nombre = 'Juan Pérez',
-    img = 'https://lh3.googleusercontent.com/aida-public/AB6AXuDIoNUw4ias8XuatsiHUkkmAm3KrKmd2EKwm-D97DfZY5IackyAiQfdqFUROeoe9w7tr9hOapan2mDSn00AkVS30Lm3BKQZgj2rXj3ZET-LcUvYlyr1LTiJi37uYSOel4sWh15KhWh4KJvrACaFfHkl8LJPrqNw48tnrKisjhwGsPotAA7PsKZR_2qRExSDymiHf1O005cQrV8ka3-z4yrTGbp6BCvl0zSenuVy_ARjaa8JB457Z_xkHv8Hal0BwKxh9N_q6Y3UbSYv',
-    ubicacion = 'Madrid, España',
-    email = 'Información no disponible',
-    telefono = 'Información no disponible'
-}) {
-    return (
-        <div className="perfil-container">
+function InfoUsuario({ usuario, isOwner = false, onUpdate }) {
 
-            {/* Imagen */}
-            <div className="perfil-img">
-                <img 
-                    src={img}
-                    alt={nombre}
-                />
-                <div className="perfil-verificado">
-                    <span className="fa-solid fa-check"></span>
-                </div>
-            </div>
+  const [editando, setEditando] = useState(false);
 
-            {/* Info */}
-            <div className="perfil-info">
+  const [form, setForm] = useState({
+    Nombre: "",
+    Correo: "",
+    Provincias: "",
+    Canton: "",
+    Distrito: "",
+    img: ""
+  });
 
-                <div className="perfil-top">
-                    <h1>{nombre}</h1>
-                </div>
+  // 🔥 FIX PRINCIPAL (SIN LOOP)
+  useEffect(() => {
+    if (!usuario) return;
 
-                <div className="perfil-ubicacion">
-                    <span className="fa-solid fa-location-dot"></span>
-                    <p>{ubicacion}</p>
-                </div>
+    setForm({
+      Nombre: usuario.Nombre || "",
+      Correo: usuario.Correo || "",
+      Provincias: usuario.Provincias || "",
+      Canton: usuario.Canton || "",
+      Distrito: usuario.Distrito || "",
+      img: usuario.img || ""
+    });
 
-                <h2>Diseñador Creativo y Artista Digital</h2>
+  }, [usuario?.id]); // ✅ SOLO ID
 
-                <div className="perfil-contacto-basic" style={{ margin: '10px 0', color:'#333' }}>
-                    <p><strong>Correo:</strong> {email || 'Información no disponible'}</p>
-                    <p><strong>Teléfono:</strong> {telefono || 'Información no disponible'}</p>
-                </div>
+  const handleChange = (e) => {
+    setForm({
+      ...form,
+      [e.target.name]: e.target.value
+    });
+  };
 
-                <div className="perfil-botones">
-                    <button className="btn-contact">
-                        <span className="fa-solid fa-envelope"></span>
-                        Contactar
-                    </button>
+  const handleGuardar = async () => {
+    try {
+      await Fetch.patchData("usuarios",form,usuario.id);
+      setEditando(false);
+      if (onUpdate) onUpdate();
+    } catch (error) {
+      console.error("Error actualizando:", error);
+    }
+  };
 
-                    <button className="btn-follow">Seguir</button>
+  const ubicacion = `${form.Provincias}, ${form.Canton}, ${form.Distrito}`;
 
-                    <button className="btn-share">
-                        <span className="fa-solid fa-share-nodes"></span>
-                    </button>
-                </div>
-            </div>
+  // 🔥 SI NO HAY USUARIO
+  if (!usuario) {
+    return <p style={{ padding: "20px" }}>Cargando perfil...</p>;
+  }
+
+  return (
+    <div className="perfil-container">
+
+      {/* IMAGEN */}
+      <div className="perfil-img">
+        <img src={form.img || "https://via.placeholder.com/150"} alt={form.Nombre} />
+
+        {isOwner && editando && (
+          <UploadImage
+            setImageUrl={(url) =>
+              setForm({ ...form, img: url })
+            }
+          />
+        )}
+      </div>
+
+      {/* INFO */}
+      <div className="perfil-info">
+
+        {/* NOMBRE */}
+        {editando ? (
+          <input name="Nombre" value={form.Nombre} onChange={handleChange} />
+        ) : (
+          <h1>{form.Nombre}</h1>
+        )}
+
+        {/* UBICACION */}
+        {editando ? (
+          <>
+            <input name="Provincias" value={form.Provincias} onChange={handleChange} />
+            <input name="Canton" value={form.Canton} onChange={handleChange} />
+            <input name="Distrito" value={form.Distrito} onChange={handleChange} />
+          </>
+        ) : (
+          <div className="perfil-ubicacion">
+            <span className="fa-solid fa-location-dot"></span>
+            <p>{ubicacion}</p>
+          </div>
+        )}
+
+        <h2>Diseñador Creativo y Artista Digital</h2>
+
+        {/* CONTACTO */}
+        <div className="perfil-contacto-basic">
+          {editando ? (
+            <input name="Correo" value={form.Correo} onChange={handleChange} />
+          ) : (
+            <p><strong>Correo:</strong> {form.Correo}</p>
+          )}
         </div>
-    )
+
+        {/* BOTONES */}
+        <div className="perfil-botones">
+
+          {isOwner && !editando && (
+            <button onClick={() => setEditando(true)}>
+              ✎ Editar perfil
+            </button>
+          )}
+
+          {isOwner && editando && (
+            <>
+              <button onClick={handleGuardar}>💾 Guardar</button>
+              <button onClick={() => setEditando(false)}>❌ Cancelar</button>
+            </>
+          )}
+
+        </div>
+      </div>
+    </div>
+  );
 }
 
-export default InfoUsuario
+export default InfoUsuario;

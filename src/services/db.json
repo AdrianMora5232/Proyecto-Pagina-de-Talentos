@@ -22,13 +22,14 @@
     },
     {
       "id": "55e4",
-      "Nombre": "Marìa Jesùs Chaverri",
-      "Correo": "maria@gmail.com",
-      "Provincias": "San José",
-      "Canton": "Desamparados",
-      "Distrito": "San Rafael Abajo",
+      "Nombre": "María Jesús Chaverri",
+      "Correo": "mj@gmail.com",
+      "Provincias": "Heredia",
+      "Canton": "San Pablo",
+      "Distrito": "xd",
       "Roles": "Usuario",
-      "Contrasena": "12345678"
+      "Contrasena": "12345678",
+      "img": "https://res.cloudinary.com/dyy1yqvbv/image/upload/v1774841627/klcpwamjdqjrhcvagulb.png"
     },
     {
       "id": "d24c",
@@ -80,7 +81,8 @@
       "componentes": [],
       "titulo": "Portafolio María",
       "descripcion": "este es el portafolio de maría",
-      "pdf": "https://res.cloudinary.com/dyy1yqvbv/raw/upload/v1774762355/lb7kk34unosxtt1bogvx"
+      "pdf": "https://res.cloudinary.com/dyy1yqvbv/raw/upload/v1774762355/lb7kk34unosxtt1bogvx",
+      "nombreUsuario": "Marìa Jesùs Chaverri"
     }
   ],
   "resenas": [

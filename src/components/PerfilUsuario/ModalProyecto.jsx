@@ -153,7 +153,7 @@ function ModalProyecto({ proyecto, resenas = [], onClose, onReviewAdded }) {
                       {"★".repeat(r.rating)}{"☆".repeat(5 - r.rating)}
                     </div>
                     <p style={{fontSize: '12px', color: '#888', marginBottom: '5px'}}>
-                      Usuario: {r.usuarioId} - Fecha: {new Date(r.fecha).toLocaleDateString()}
+                      Usuario: {r.nombreUsuario} - Fecha: {new Date(r.fecha).toLocaleDateString()}
                     </p>
                     <p>{r.comentario}</p>
                   </div>

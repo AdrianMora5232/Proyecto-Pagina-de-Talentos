@@ -161,7 +161,8 @@ const Portafolio = () => {
                 componentes: componentes,
                 titulo: tituloProyecto,
                 descripcion: descripcionProyecto,
-                pdf: pdfUrl
+                pdf: pdfUrl,
+                nombreUsuario: JSON.parse(localStorage.getItem("UsuarioActivo").Nombre)
             };
 
             console.log("DATA:", data);

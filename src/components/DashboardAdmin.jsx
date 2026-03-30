@@ -3,12 +3,15 @@ import Fetch from '../services/Fetch'
 
 const DashboardAdmin = () => {
   const [usuarios, setUsuarios] = useState([])
+  const [portafolios,setPortafolios] = useState([])
 
   useEffect(() => {
     async function traerUsuarios() {
       try {
         const listaUsuarios = await Fetch.getData("usuarios")
+        const listaPortafolios = await Fetch.getData("portafolios")
         setUsuarios(listaUsuarios || [])
+        setPortafolios(listaPortafolios)
       } catch (error) {
         console.error("Error trayendo usuarios", error)
       }
@@ -44,7 +47,7 @@ const DashboardAdmin = () => {
             </div>
             <div>
               <p className="text-xs font-bold text-slate-500 uppercase tracking-wider">Portafolios</p>
-              <h3 className="text-4xl font-black text-slate-900 dark:text-white leading-tight">--</h3>
+              <h3 className="text-4xl font-black text-slate-900 dark:text-white leading-tight">{portafolios.length}</h3>
             </div>
           </div>
         </div>

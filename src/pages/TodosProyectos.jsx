@@ -1,14 +1,16 @@
 import React, { useState, useEffect, useMemo } from 'react';
+import { useNavigate } from 'react-router-dom';
 import Navbar from '../components/navbar/Navbar';
 import Footer from '../components/Footer/Footer';
 import Fetch from '../services/Fetch';
 import CardProyecto from '../components/PerfilUsuario/CardProyecto';
 import ModalProyecto from '../components/PerfilUsuario/ModalProyecto';
 import { calcularPromedio } from '../utils/calcularPromedio';
-import "../styles/EstilosPerfilUsuario/ProyectosRecientes.css"; // Usa los estilos base
-import "../styles/TodosProyectos.css"; // Estilos de filtros extra
+import "../styles/EstilosPerfilUsuario/ProyectosRecientes.css";
+import "../styles/TodosProyectos.css";
 
 function TodosProyectos() {
+    const navigate = useNavigate();
     const [portafolios, setPortafolios] = useState([]);
     const [usuarios, setUsuarios] = useState([]);
     const [todasResenas, setTodasResenas] = useState([]);
@@ -186,12 +188,47 @@ function TodosProyectos() {
             </div>
             <Footer />
 
+            {/* ModalProyecto existente — sin modificar */}
             <ModalProyecto 
                 proyecto={proyectoSeleccionado} 
                 resenas={proyectoSeleccionado ? todasResenas.filter(r => r.portafolioId === proyectoSeleccionado.id) : []}
                 onClose={() => setProyectoSeleccionado(null)}
                 onReviewAdded={cargarDatos}
             />
+
+            {/* Botón flotante — navega a /perfil/:usuarioId (nueva página) */}
+            {proyectoSeleccionado && (
+                <button
+                    onClick={() => navigate(`/perfil/${proyectoSeleccionado.usuarioId}`)}
+                    title="Ver perfil del creador"
+                    style={{
+                        position: 'fixed',
+                        bottom: '32px',
+                        left: '50%',
+                        transform: 'translateX(-50%)',
+                        zIndex: 10001,
+                        display: 'flex',
+                        alignItems: 'center',
+                        gap: '8px',
+                        background: '#0db9f2',
+                        color: '#fff',
+                        border: 'none',
+                        borderRadius: '999px',
+                        padding: '12px 24px',
+                        fontWeight: '700',
+                        fontSize: '14px',
+                        cursor: 'pointer',
+                        boxShadow: '0 8px 24px rgba(13,185,242,0.4)',
+                        transition: 'all .2s',
+                        letterSpacing: '0.01em',
+                    }}
+                    onMouseEnter={e => { e.currentTarget.style.background = '#09a1d3'; e.currentTarget.style.transform = 'translateX(-50%) translateY(-2px)'; }}
+                    onMouseLeave={e => { e.currentTarget.style.background = '#0db9f2'; e.currentTarget.style.transform = 'translateX(-50%) translateY(0)'; }}
+                >
+                    <span className="fa-solid fa-user" style={{ fontSize: '13px' }} />
+                    Ver perfil del creador
+                </button>
+            )}
         </div>
     );
 }

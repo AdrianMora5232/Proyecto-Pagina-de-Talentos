@@ -2,6 +2,7 @@ import { BrowserRouter as Router, Routes, Route } from "react-router-dom"
 import Inicio from "../pages/Inicio"
 import Principal from "../pages/Principal"
 import PerfilUsuario from "../pages/PerfilUsuario"
+import PerfilVisitante from "../pages/PerfilVisitante"
 import PaginaContacto from "../pages/PaginaContacto"
 import SobreNosotros from "../pages/SobreNosotros"
 import PaguinaIniciar from "../pages/PaguinaIniciar"
@@ -36,6 +37,7 @@ function Routing() {
                 <Route path="/Consejos" element={<RutaPrivada children={<PaginaConsejos />} />} />
                 <Route path="/todos-proyectos" element={<TodosProyectos />} />
                 <Route path="/ComoFunciona" element={<RutaPrivada children={<PaginaComoFunciona />} />} />
+                <Route path="/perfil/:usuarioId" element={<PerfilVisitante />} />
             </Routes>
         </Router>
     )

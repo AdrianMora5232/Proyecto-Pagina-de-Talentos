@@ -66,7 +66,15 @@ const CardProyecto = ({ nombreProyecto, descripcionProyecto, estructura, onVerPr
                 {imgPortada ? (
                     <img src={imgPortada} alt={nombreProyecto} loading="lazy" style={{ width: '100%', height: '100%', objectFit: 'cover' }} />
                 ) : (
-                    <div style={{ transform: 'scale(0.28)', transformOrigin: 'top left', width: '360%', height: '360%', pointerEvents: 'none' }}>
+                    <div style={{
+                        position: 'absolute',
+                        top: 0,
+                        left: '50%',
+                        transform: 'translateX(-50%) scale(0.28)',
+                        transformOrigin: 'top center',
+                        width: `${100 / 0.28}%`,
+                        pointerEvents: 'none'
+                    }}>
                         {ComponentePreview ? <ComponentePreview /> : <div className="sin-preview">Sin previsualización</div>}
                     </div>
                 )}

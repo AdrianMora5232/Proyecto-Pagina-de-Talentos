@@ -2,6 +2,7 @@ import React, { useState, useEffect } from "react";
 import "../../styles/EstilosPerfilUsuario/InfoUsuarios.css";
 import UploadImage from "../PlantillaTalentos/SubirImagen";
 import Fetch from "../../services/Fetch";
+import { useNavigate } from "react-router-dom";
 
 function InfoUsuario({ usuario, isOwner = false, onUpdate }) {
 
@@ -15,6 +16,12 @@ function InfoUsuario({ usuario, isOwner = false, onUpdate }) {
     Distrito: "",
     img: ""
   });
+
+  const navigate = useNavigate();
+
+  // 🔐 Usuario desde localStorage
+  const usuarioStorage = JSON.parse(localStorage.getItem("UsuarioActivo") || "{}");
+  const esAdmin = usuarioStorage?.Roles === "Admin";
 
   // 🔥 FIX PRINCIPAL (SIN LOOP)
   useEffect(() => {
@@ -40,7 +47,7 @@ function InfoUsuario({ usuario, isOwner = false, onUpdate }) {
 
   const handleGuardar = async () => {
     try {
-      await Fetch.patchData("usuarios",form,usuario.id);
+      await Fetch.patchData("usuarios", form, usuario.id);
       setEditando(false);
       if (onUpdate) onUpdate();
     } catch (error) {
@@ -120,6 +127,13 @@ function InfoUsuario({ usuario, isOwner = false, onUpdate }) {
               <button onClick={handleGuardar}>💾 Guardar</button>
               <button onClick={() => setEditando(false)}>❌ Cancelar</button>
             </>
+          )}
+
+          {/* 🔥 BOTÓN ADMIN */}
+          {esAdmin && (
+            <button onClick={() => navigate("/admin")}>
+              🛠 Panel Admin
+            </button>
           )}
 
         </div>

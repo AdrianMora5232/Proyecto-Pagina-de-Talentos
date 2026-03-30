@@ -6,13 +6,15 @@ import Fetch from '../services/Fetch'
 function AgregarUsuario() {
 const [Nombre , setNombre] = useState("")
 const [ Correo , setCorreo] = useState("")
+const [Email, setEmail] = useState("")
+const [Telefono, setTelefono] = useState("")
 const [Provincias , setProvincia] =useState("")
 const [Canton,setCanton] = useState("")
 const [Distrito,setDistrito] = useState("")
 const [Roles , setRol] = useState("")
 const [Contrasena , setContraseña] = useState("")
 async function RegistroUsuarios () { 
-    if ( Nombre === "" || Correo === "" || Provincias === "" || Canton === "" || Distrito === "" || Roles =="" || Contrasena ==="" ){
+    if ( Nombre === "" || Correo === "" || Email === "" || Telefono === "" || Provincias === "" || Canton === "" || Distrito === "" || Roles =="" || Contrasena ==="" ){
 
 
      alert("Debe de llenar todo los campos");
@@ -26,6 +28,8 @@ async function RegistroUsuarios () {
   const objUsuarios = {
     Nombre : Nombre,
     Correo : Correo,
+    email: Email,
+    telefono: Telefono,
     Provincias : Provincias,
     Canton : Canton,
     Distrito : Distrito,

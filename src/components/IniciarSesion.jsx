@@ -30,6 +30,7 @@ function IniciarSesion() {
             localStorage.setItem("idUsuario", usuarioValido.id);
             if (usuarioValido.Roles === "Admin") {
                 navigate("/Admin")
+                localStorage.setItem("rol", usuarioValido.Roles);
             } else {
                 navigate("/principal")
             }

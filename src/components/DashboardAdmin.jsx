@@ -3,16 +3,19 @@ import Fetch from '../services/Fetch'
 
 const DashboardAdmin = () => {
   const [usuarios, setUsuarios] = useState([])
+  const [portafolios,setPortafolios] = useState([])
   const [respuestas, setRespuestas] = useState([])
 
   useEffect(() => {
     async function traerDatos() {
       try {
-        const [listaUsuarios, listaRespuestas] = await Promise.all([
+        const [listaUsuarios, listaPortafolios, listaRespuestas] = await Promise.all([
           Fetch.getData("usuarios"),
+          Fetch.getData("portafolios"),
           Fetch.getData("respuestas_convocatorias")
         ]);
         setUsuarios(listaUsuarios || [])
+        setPortafolios(listaPortafolios || [])
         setRespuestas(listaRespuestas || [])
       } catch (error) {
         console.error("Error trayendo datos del dashboard", error)
@@ -62,8 +65,8 @@ const DashboardAdmin = () => {
               <span className="material-symbols-outlined text-3xl">cancel</span>
             </div>
             <div>
-              <p className="text-xs font-bold text-slate-500 uppercase tracking-wider">No Participan</p>
-              <h3 className="text-4xl font-black text-slate-900 dark:text-white leading-tight">{noParticipanTab.length}</h3>
+              <p className="text-xs font-bold text-slate-500 uppercase tracking-wider">Portafolios</p>
+              <h3 className="text-4xl font-black text-slate-900 dark:text-white leading-tight">{portafolios.length}</h3>
             </div>
           </div>
         </div>

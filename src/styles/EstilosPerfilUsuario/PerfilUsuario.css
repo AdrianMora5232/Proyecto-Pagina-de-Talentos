@@ -1,64 +1,41 @@
-/* Fondo ocupa TODO el ancho */
-.perfil-bg{
-  width:100%;
-
-  background: linear-gradient(
-    to bottom,
-    #e9edf2 0%,
-    #eef2f5 40%,
-    #ffffff 100%
-  );
-
-  padding:50px 0;
+/* Estilos generales de la página de perfil */
+.perfil-page {
+  width: 100%;
+  min-height: 100vh;
+  background: #f8fafc; /* Fondo más claro y moderno (Slate 50) */
+  padding-bottom: 80px;
 }
 
-/* Contenido centrado */
-.perfil-container{
-  max-width:1100px;
-  margin:0 auto;
-
-  display:flex;
-  align-items:center; /* 🔥 centra verticalmente */
-  gap:40px;
-
-  padding:40px 20px;
+/* Contenedor principal centrado */
+.perfil-content {
+  max-width: 1100px;
+  margin: 0 auto;
+  padding: 40px 20px;
+  animation: fadeIn 0.8s ease-out;
 }
 
-/* página */
-.perfil-page{
-  width:100%;
-  min-height:100vh;
-  background:#f7f9fb;
+/* Sección de Tabs wrapper */
+.secciones-perfil {
+  width: 100%;
+  background: white;
+  border-bottom: 1px solid #edf2f7;
+  position: sticky;
+  top: 72px; /* Pegado justo debajo del navbar glass */
+  z-index: 100;
 }
 
-/* contenedor de InfoUsuario */
-.perfil-content{
-  width:100%;
+.perfil-resenas {
+  max-width: 1100px;
+  margin: 0 auto;
 }
 
-/* contenedor de tabs */
-.secciones-perfil{
-  width:100%;
+@keyframes fadeIn {
+  from { opacity: 0; transform: translateY(10px); }
+  to { opacity: 1; transform: translateY(0); }
 }
 
-.perfil-container{
-  max-width:1100px;
-  margin:0 auto;
+@media (max-width: 768px) {
+  .perfil-content {
+    padding: 24px 16px;
+  }
 }
-
-/* línea completa */
-.tabs-wrapper{
-  width:100%;
-  border-bottom:1px solid #e0e6ed;
-}
-
-/* 🔥 MISMO ancho que perfil */
-.tabs{
-  max-width:1100px;
-  margin:0 auto;
-  padding:0 20px;
-
-  display:flex;
-  gap:30px;
-}
-

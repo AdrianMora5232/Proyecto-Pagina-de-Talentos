@@ -1,0 +1,127 @@
+.resenas-container {
+  display: grid;
+  grid-template-columns: 320px 1fr;
+  gap: 40px;
+  margin-top: 48px;
+  max-width: 1100px;
+  margin: 48px auto;
+  padding: 0 40px;
+}
+
+/* SCORE / IZQUIERDA */
+.resenas-score {
+  background: #fff;
+  border-radius: 16px;
+  padding: 32px;
+  box-shadow: 0 4px 20px rgba(0,0,0,0.03);
+  height: fit-content;
+  border: 1px solid #f1f5f9;
+}
+
+.resenas-score h2 {
+  font-size: 56px; /* Grande como en la imagen */
+  font-weight: 800;
+  margin-bottom: 4px;
+  color: #1a202c;
+  letter-spacing: -0.04em;
+}
+
+.resenas-score p {
+  color: #718096;
+  font-size: 14px;
+  margin-bottom: 24px;
+}
+
+/* Estrellas en el score */
+.resenas-score .fa-star, .resena-stars {
+  color: #0db9f2; /* Color principal */
+  margin-bottom: 12px;
+  display: block;
+}
+
+/* Barras de distribución */
+.barra {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  margin: 10px 0;
+}
+
+.barra span {
+  font-size: 13px;
+  font-weight: 700;
+  color: #4a5568;
+  width: 12px;
+}
+
+.barra-bg {
+  flex: 1;
+  height: 8px; /* Barras más gruesas y suaves */
+  background: #edf2f7;
+  border-radius: 99px;
+  overflow: hidden;
+}
+
+.barra-fill {
+  height: 100%;
+  background: #0db9f2; /* Color principal */
+  border-radius: 99px;
+  transition: width 1s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+/* LISTA / DERECHA */
+.resenas-list h4 {
+  font-size: 20px;
+  font-weight: 800;
+  color: #1a202c;
+  margin-bottom: 24px;
+  letter-spacing: -0.01em;
+}
+
+.resena-card {
+  background: #fff;
+  padding: 24px;
+  border-radius: 12px;
+  margin-bottom: 16px;
+  box-shadow: 0 4px 12px rgba(0,0,0,0.02);
+  border: 1px solid #f1f5f9;
+  transition: all 0.2s;
+}
+
+.resena-card:hover {
+  transform: translateY(-2px);
+  border-color: #e2e8f0;
+  box-shadow: 0 8px 16px rgba(0,0,0,0.04);
+}
+
+.resena-stars {
+  color: #0db9f2;
+  margin-bottom: 12px;
+  display: flex;
+  gap: 2px;
+}
+
+.resena-text {
+  font-size: 15px;
+  color: #4a5568;
+  line-height: 1.6;
+  margin-bottom: 16px;
+}
+
+.resena-user {
+  font-size: 13px;
+  font-weight: 700;
+  color: #1a202c;
+}
+
+@media (max-width: 900px) {
+  .resenas-container {
+    grid-template-columns: 1fr;
+    gap: 32px;
+    padding: 0 20px;
+  }
+  
+  .resenas-score {
+    max-width: 100%;
+  }
+}

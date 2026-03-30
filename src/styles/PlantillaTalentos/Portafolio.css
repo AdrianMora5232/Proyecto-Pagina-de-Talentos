@@ -1,15 +1,91 @@
+/* NAVBAR */
+.navbar-editor {
+  width: 100%;
+  height: 60px;
+  position: fixed;
+  top: 0;
+  left: 0;
+  background: white;
+  z-index: 1000;
+}
+
+/* CONTENEDOR GENERAL */
+.portafolio-container {
+  margin-top: 60px;
+  /* espacio para navbar */
+}
+
+/* LAYOUT */
+.layout {
+  display: flex;
+}
+
+/* LIENZO */
+.lienzo-container {
+  flex: 1;
+  padding: 20px;
+}
+
+/* SIDEBAR */
 .sidebar-container {
   width: 260px;
+  height: calc(100vh - 60px);
+  position: sticky;
+  top: 60px;
+  padding: 10px;
+  background: #f8f8f8;
+}
+
+/* BOTÓN */
+.btn-pdf {
+  width: 100%;
+  margin-bottom: 10px;
+  border: none;
+  padding: 8px;
+  background-color: #007bff;
+  color: white;
+  border-radius: 5px;
+  cursor: pointer;
+}
+
+/* MODAL DE VISTA PREVIA */
+.preview-modal {
   position: fixed;
-  right: 0;
   top: 0;
-  height: 100vh;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(0, 0, 0, 0.8);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  z-index: 2000;
 }
 
-.lienzo-container {
-  margin-right: 260px;
+.preview-modal__content {
+  background: white;
+  width: 90%;
+  max-width: 1200px;
+  height: 80%;
+  border-radius: 8px;
+  position: relative;
+  overflow: hidden;
 }
 
-.box-small{
-    cursor: pointer;
+.preview-modal__close {
+  position: absolute;
+  top: 10px;
+  right: 10px;
+  background: none;
+  border: none;
+  font-size: 24px;
+  cursor: pointer;
+  z-index: 10;
+}
+
+.preview-modal__body {
+  width: 100%;
+  height: 100%;
+  overflow-y: auto;
+  padding: 20px;
 }

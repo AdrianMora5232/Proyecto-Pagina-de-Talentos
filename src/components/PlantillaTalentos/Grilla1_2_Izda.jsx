@@ -1,20 +1,15 @@
 import "../../styles/PlantillaTalentos/Grilla1_2_Izda.css";
-import { useState } from "react";
-//import { useImage } from "./HookImagenCloudinary";
-import UploadImage from "./SubirImagen";
+import EditorContenedores from "./EditorContenedores";
+import { useEstilos } from "./useEstilos";
 
 function Grilla1_2_Izda() {
-    const [colorFondo, setColorFondo] = useState("white");
-    const [colorTexto, setColorTexto] = useState("black");
-
-    //const { imageUrl, setImageUrl } = useImage();
-    const [imageUrl, setImageUrl] = useState("");
+    const { colorFondo, setColorFondo, colorTexto, setColorTexto, imageUrl, setImageUrl } = useEstilos();
 
     return (
         <>
-            <div class="grid">
-                <div class="left"
-                    className="ImageBlock-grilla1_2_izda"
+            <div className="grilla1_2_izda__grid">
+                <div
+                    className="grilla1_2_izda__image"
                     style={{
                         backgroundColor: colorFondo,
                         backgroundImage: imageUrl ? `url(${imageUrl})` : "none",
@@ -22,41 +17,22 @@ function Grilla1_2_Izda() {
                         backgroundPosition: "center",
                     }}
                 >
-                    <span className="color-wrapper">
-                        <input
-                            className="btnColor"
-                            type="color"
-                            onChange={(e) => setColorFondo(e.target.value)}
-                        />
-                        <span className="icono">
-                            <i className="fa-solid fa-palette"></i>
-                        </span>
-                    </span>
-
-
-                    <span className="image-wrapper">
-                        <UploadImage setImageUrl={setImageUrl} />
-                        <span className="icono-img"><i className="fa-regular fa-file-image"></i></span>
-                    </span>
-
-                    {imageUrl && (
-                        <span
-                            className="remove-img"
-                            onClick={() => setImageUrl("")}
-                        >
-                            ❌
-                        </span>
-                    )}
+                    <EditorContenedores
+                        setColorFondo={setColorFondo}
+                        setImageUrl={setImageUrl}
+                        imageUrl={imageUrl}
+                        setColorTexto={setColorTexto}
+                    />
                 </div>
-                <div className="contenedor-titulo-textbox-grilla1_2_izda">
+                <div className="grilla1_2_izda__content">
                     <input
-                        className="header-grilla1_2_izda input-titulo"
+                        className="grilla1_2_izda__title input-titulo"
                         placeholder="Escribe un titulo"
                         style={{ color: colorTexto }}
                     />
 
                     <textarea
-                        className="textbox-grilla1_2_izda input-textbox"
+                        className="grilla1_2_izda__description input-textbox"
                         placeholder="Escribe un texto"
                         style={{ color: colorTexto }}
                     />

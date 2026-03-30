@@ -21,58 +21,120 @@
       "Contrasena": "jheycob12"
     },
     {
-      "id": "2b55",
-      "Nombre": "Ale",
-      "Correo": "alejandronicmen@gmail.com",
-      "Provincias": "San José",
-      "Canton": "Sanjosecito",
-      "Distrito": "Alajuelita",
+      "id": "55e4",
+      "Nombre": "María Jesús Chaverri",
+      "Correo": "mj@gmail.com",
+      "Provincias": "Heredia",
+      "Canton": "San Pablo",
+      "Distrito": "xd",
       "Roles": "Usuario",
-      "Contrasena": "Ale14p12"
+      "Contrasena": "12345678",
+      "img": "https://res.cloudinary.com/dyy1yqvbv/image/upload/v1774841627/klcpwamjdqjrhcvagulb.png"
     },
     {
-      "id": "18f5",
-      "Nombre": "Pan",
-      "Correo": "alejandronicmen@gmail.com",
-      "Provincias": "San José",
-      "Canton": "dD",
-      "Distrito": "adasd",
+      "id": "d24c",
+      "Nombre": "Pepe Viyuela Gomez",
+      "Correo": "pepe@gmail.com",
+      "Provincias": "Limón",
+      "Canton": "Batán",
+      "Distrito": "Lima",
       "Roles": "Usuario",
-      "Contrasena": "12345678"
+      "Contrasena": "12345678",
+      "img": "https://res.cloudinary.com/dyy1yqvbv/image/upload/v1774761044/iargr9gued6xgwq4jytb.png"
+    }
+  ],
+  "portafolios": [
+    {
+      "id": "649b",
+      "usuarioId": "1",
+      "componentes": [
+        "Estructura1",
+        "Estructura1_1"
+      ],
+      "titulo": "hhrh",
+      "descripcion": "fghnfg"
+    },
+    {
+      "id": "336e",
+      "usuarioId": "1",
+      "componentes": [
+        "Estructura1",
+        "Estructura1_1"
+      ],
+      "titulo": "grgs",
+      "descripcion": "sgsg",
+      "pdf": "https://res.cloudinary.com/dyy1yqvbv/raw/upload/v1774508475/v1xcx5qk7gksc4o06e2c"
+    },
+    {
+      "id": "cbf3",
+      "usuarioId": "d24c",
+      "componentes": [
+        "Estructura1"
+      ],
+      "titulo": "llll",
+      "descripcion": "lllll",
+      "pdf": "https://res.cloudinary.com/dyy1yqvbv/raw/upload/v1774761765/jqf7hdn43t0fq2v165wn"
+    },
+    {
+      "id": "28db",
+      "usuarioId": "55e4",
+      "componentes": [],
+      "titulo": "Portafolio María",
+      "descripcion": "este es el portafolio de maría",
+      "pdf": "https://res.cloudinary.com/dyy1yqvbv/raw/upload/v1774762355/lb7kk34unosxtt1bogvx",
+      "nombreUsuario": "Marìa Jesùs Chaverri"
+    }
+  ],
+  "resenas": [
+    {
+      "id": "6ac6",
+      "usuarioId": "55e4",
+      "portafolioId": "28db",
+      "comentario": "muy wow",
+      "rating": 5,
+      "fecha": "2026-03-30T00:28:06.587Z"
+    },
+    {
+      "id": "c80c",
+      "usuarioId": "55e4",
+      "portafolioId": "cbf3",
+      "comentario": "Bien!",
+      "rating": 4,
+      "fecha": "2026-03-30T06:07:50.297Z"
     }
   ],
   "convocatorias": [
     {
-      "id": "be16",
-      "nombre": "Arte",
-      "descripcion": "anndD",
-      "tipo_talento": "arte-entretenimiento",
-      "fecha": "2026-03-30T05:17:47.789Z"
+      "id": "9678",
+      "nombre": "Ale",
+      "descripcion": "papaya",
+      "tipo_talento": "educacion",
+      "fecha": "2026-03-30T15:22:45.325Z"
+    },
+    {
+      "id": "c963",
+      "nombre": "Ale",
+      "descripcion": "mango",
+      "tipo_talento": "educacion",
+      "fecha": "2026-03-30T15:28:33.416Z"
     }
   ],
   "respuestas_convocatorias": [
     {
-      "id": "a916",
-      "usuarioNombre": "Ale",
-      "convocatoriaNombre": "  ñkmk  kn",
+      "id": "d27d",
+      "idConvocatoria": "9678",
+      "usuarioNombre": "Adrian Mora Castillo",
+      "convocatoriaNombre": "Ale",
       "respuesta": "Participar",
-      "fecha": "29/3/2026, 23:00:43"
+      "fecha": "30/3/2026, 9:23:03"
     },
     {
-      "id": "26b0",
-      "idConvocatoria": "be16",
-      "usuarioNombre": "Ale",
-      "convocatoriaNombre": "Arte",
+      "id": "472b",
+      "idConvocatoria": "c963",
+      "usuarioNombre": "Adrian Mora Castillo",
+      "convocatoriaNombre": "Ale",
       "respuesta": "Participar",
-      "fecha": "29/3/2026, 23:17:57"
-    },
-    {
-      "id": "21c3",
-      "idConvocatoria": "be16",
-      "usuarioNombre": "Pan",
-      "convocatoriaNombre": "Arte",
-      "respuesta": "Participar",
-      "fecha": "29/3/2026, 23:19:22"
+      "fecha": "30/3/2026, 9:28:48"
     }
   ],
   "$schema": "./node_modules/json-server/schema.json"

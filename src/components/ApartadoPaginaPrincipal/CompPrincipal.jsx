@@ -3,9 +3,10 @@ import React, { useRef } from 'react'
 import 'bootstrap/dist/js/bootstrap.bundle.min';
 import "../../styles/Principal.css"
 import { Link } from 'react-router-dom';
-
+import { useNavigate } from 'react-router-dom';
 function CompPrincipal() {
     const carouselRef = useRef(null);
+    const navigate = useNavigate();
 
     const scrollLeft = () => {
         if (carouselRef.current) {
@@ -35,7 +36,12 @@ function CompPrincipal() {
                     <h2 className='SubTituloImagen'>Bienvenidos a KREA</h2>
                     <p className='ParrafoImagen'>KREA es una plataforma digital que permite a profesionales y creativos crear portafolios modernos, claros y estratégicos.
                         Ayudamos a que el talento no solo se vea bien, sino que comunique valor y abra oportunidades reales.</p>
-                    <button className='ButtonCrearCuenta'>Crear Portafolio</button>
+                    <button
+                        onClick={()=>{
+                            navigate("/portafolio")
+                        }}
+                    
+                    className='ButtonCrearCuenta'>Crear Portafolio</button>
                     <br />
                 </div>
 

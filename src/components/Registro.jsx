@@ -2,6 +2,7 @@ import React from 'react'
 import { useState } from 'react'
 import Fetch from '../services/Fetch'
 import { useNavigate } from 'react-router-dom'
+import UploadImage from '../components/PlantillaTalentos/SubirImagen'
 import '../styles/EstilosRegistros/Registro.css'
 
 function Registro() {
@@ -11,25 +12,31 @@ function Registro() {
     }
     const [Nombre, setNombre] = useState("")
     const [Correo, setCorreo] = useState("")
+    const [Email, setEmail] = useState("")
+    const [Telefono, setTelefono] = useState("")
     const [Provincias, setProvincia] = useState("")
     const [Canton, setCanton] = useState("")
     const [Distrito, setDistrito] = useState("")
     const [Roles, setRol] = useState("")
     const [Contrasena, setContraseña] = useState("")
+    const [img, setImg] = useState("")
     const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
     async function RegistroUsuarios() {
-        if (Nombre === "" || Correo === "" || Provincias === "" || Canton === "" || Distrito === "" || Roles == "" || Contrasena === "") {
+        if (Nombre === "" || Correo === "" || Email === "" || Telefono === "" || Provincias === "" || Canton === "" || Distrito === "" || Roles == "" || Contrasena === "") {
             alert("Debe de llenar todo los campos");
             return;
         }
         const objUsuarios = {
             Nombre: Nombre,
             Correo: Correo,
+            email: Email,
+            telefono: Telefono,
             Provincias: Provincias,
             Canton: Canton,
             Distrito: Distrito,
             Roles: Roles,
-            Contrasena: Contrasena
+            Contrasena: Contrasena,
+            img: img || 'https://via.placeholder.com/150'
         }
         if (Contrasena.length < 8) {
             alert("La contraseña debe tener al menos 8 caracteres")
@@ -43,7 +50,9 @@ function Registro() {
         alert("Registro exitoso")
 
         console.log(UsuarioAlmacenado)
-
+        if (UsuarioAlmacenado?.id) {
+            localStorage.setItem('idUsuario', UsuarioAlmacenado.id)
+        }
     }
     const validacionContraseña = () => {
 
@@ -62,6 +71,14 @@ function Registro() {
                 <h2 className='TituloRegistro'>Crear cuenta</h2>
                 <div className='FormRegistro'>
                     <div className='InputGroup'>
+                        <label>Foto de perfil</label>
+                        <div className='FotoPerfilUpload'>
+                            <UploadImage setImageUrl={setImg} />
+                            {img && <img src={img} alt="Previsualización" className='PreviewFoto' />}
+                        </div>
+                    </div>
+
+                    <div className='InputGroup'>
                         <label>Nombre Completo</label>
                         <input type="text" value={Nombre} onChange={(evento) => setNombre(evento.target.value)} placeholder="Ej. Juan Pérez" />
                     </div>
@@ -69,6 +86,16 @@ function Registro() {
                     <div className='InputGroup'>
                         <label>Correo electrónico</label>
                         <input type="email" value={Correo} onChange={(evento) => setCorreo(evento.target.value)} placeholder="usuario@ejemplo.com" />
+                    </div>
+
+                    <div className='InputGroup'>
+                        <label>Email</label>
+                        <input type="email" name="email" value={Email} onChange={(evento) => setEmail(evento.target.value)} placeholder="email@ejemplo.com" />
+                    </div>
+
+                    <div className='InputGroup'>
+                        <label>Teléfono</label>
+                        <input type="text" name="telefono" value={Telefono} onChange={(evento) => setTelefono(evento.target.value)} placeholder="9999-9999" />
                     </div>
 
                     <div className='InputRow'>

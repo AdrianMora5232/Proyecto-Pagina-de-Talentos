@@ -1,76 +1,80 @@
-import "../../styles/PlantillaTalentos/Estructura1_1.css"
-import { useState } from "react";
-//import { useImage } from "./HookImagenCloudinary";
-import UploadImage from "./SubirImagen";
+import "../../styles/PlantillaTalentos/Estructura1_1.css";
+import EditableBlock from "./EditableBlock";
+import { useEditable } from "./useEditable";
+import { useState, useEffect } from "react";
 
-function Estructura1_1() {
-    const [colorFondo, setColorFondo] = useState("white");
-    const [colorTexto, setColorTexto] = useState("black");
+function Estructura1_1({ onActivate, activeElement }) {
 
-    //const { imageUrl, setImageUrl } = useImage();
-    const [imageUrl, setImageUrl] = useState("");
+  const fondo = useEditable();
+  const bloqueTop = useEditable();
+  const bloqueBottom = useEditable();
 
-    return (
-        <>
-            <div
-                className="contenedor-estructura-1-1"
-                style={{
-                    backgroundColor: colorFondo,
-                    backgroundImage: imageUrl ? `url(${imageUrl})` : "none",
-                    backgroundSize: "cover",
-                    backgroundPosition: "center",
-                }}>
-                <span className="color-wrapper">
-                    <input
-                        className="btnColor"
-                        type="color"
-                        onChange={(e) => setColorFondo(e.target.value)}
-                    />
-                    <span className="icono">
-                        <i className="fa-solid fa-palette"></i>
-                    </span>
-                </span>
+  const [loadingFondo, setLoadingFondo] = useState(false);
 
+  useEffect(() => {
+    if (fondo.state.imageUrl) {
+      setLoadingFondo(true);
+      const img = new Image();
+      img.onload = () => setLoadingFondo(false);
+      img.onerror = () => setLoadingFondo(false);
+      img.src = fondo.state.imageUrl;
+    } else {
+      setLoadingFondo(false);
+    }
+  }, [fondo.state.imageUrl]);
 
-                <span className="image-wrapper">
-                    <UploadImage setImageUrl={setImageUrl} />
-                    <span className="icono-img"><i className="fa-regular fa-file-image"></i></span>
-                </span>
+  return (
+    <div
+      className="est1_1"
+      style={{
+        backgroundColor: fondo.state.colorFondo,
+        backgroundImage: fondo.state.imageUrl && !loadingFondo
+          ? `url(${fondo.state.imageUrl})`
+          : "none",
+        outline:
+          activeElement?.id === fondo.state.id ? "2px solid #3b82f6" : "none",
+        position: "relative"
+      }}
+      onClick={(e) => {
+        e.stopPropagation();
 
-                {imageUrl && (
-                    <span
-                        className="remove-img"
-                        onClick={() => setImageUrl("")}
-                    >
-                        ❌
-                    </span>
-                )}
+        onActivate(e, {
+          id: fondo.state.id,
+          tipo: "fondo",
+          setColorFondo: (c) => fondo.update({ colorFondo: c }),
+          setImageUrl: (u) => fondo.update({ imageUrl: u }),
+          imageUrl: fondo.state.imageUrl
+        });
+      }}
+    >
 
-                <span className="text-color-wrapper">
-                    <input
-                        type="color"
-                        className="btnTextColor"
-                        onChange={(e) => setColorTexto(e.target.value)}
-                    />
-                    <span className="icono-texto"><i className="fa-solid fa-brush"></i>  <i className="fa-solid fa-font"></i></span>
-                </span>
+      {loadingFondo && (
+        <div className="loading-overlay-fondo">
+          <div className="spinner"></div>
+        </div>
+      )}
 
-                <div className="contenedor-titulo-textbox-1-1">
-                    <input
-                        className="header-estructura-1-1 input-titulo"
-                        placeholder="Escribe un titulo"
-                        style={{ color: colorTexto }}
-                    />
+      <div className="est1_1__content">
 
-                    <textarea
-                        className="textbox-estructura-1-1 input-textbox"
-                        placeholder="Escribe un texto"
-                        style={{ color: colorTexto }}
-                    />
-                </div>
-            </div>
+        <EditableBlock
+          className="est1_1__title"
+          data={bloqueTop.state}
+          update={bloqueTop.update}
+          onActivate={onActivate}
+          activeElement={activeElement}
+        />
 
-        </>
-    )
+        <EditableBlock
+          className="est1_1__description"
+          data={bloqueBottom.state}
+          update={bloqueBottom.update}
+          onActivate={onActivate}
+          activeElement={activeElement}
+        />
+
+      </div>
+    </div>
+  );
 }
+
 export default Estructura1_1;

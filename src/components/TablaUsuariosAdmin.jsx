@@ -14,6 +14,8 @@ const TablaUsuariosAdmin = () => {
     id: "",
     Nombre: "",
     Correo: "",
+    email: "",
+    telefono: "",
     Provincias: "",
     Canton: "",
     Distrito: "",
@@ -57,6 +59,8 @@ const TablaUsuariosAdmin = () => {
       await Fetch.patchData("usuarios", {
         Nombre: datosEditar.Nombre,
         Correo: datosEditar.Correo,
+        email: datosEditar.email,
+        telefono: datosEditar.telefono,
         Provincias: datosEditar.Provincias,
         Canton: datosEditar.Canton,
         Distrito: datosEditar.Distrito,
@@ -264,6 +268,28 @@ const TablaUsuariosAdmin = () => {
                     onChange={(e) => setDatosEditar({ ...datosEditar, Correo: e.target.value })}
                     className="w-full p-3 rounded-xl border border-slate-200 dark:border-slate-700 dark:bg-slate-800 dark:text-white focus:ring-2 focus:ring-primary/20 focus:border-primary outline-none transition-all"
                     placeholder="correo@ejemplo.com"
+                  />
+                </div>
+                <div className="space-y-1">
+                  <label className="text-xs font-bold text-slate-500 uppercase ml-1">Email</label>
+                  <input 
+                    type="email"
+                    name="email"
+                    value={datosEditar.email}
+                    onChange={(e) => setDatosEditar({ ...datosEditar, email: e.target.value })}
+                    className="w-full p-3 rounded-xl border border-slate-200 dark:border-slate-700 dark:bg-slate-800 dark:text-white focus:ring-2 focus:ring-primary/20 focus:border-primary outline-none transition-all"
+                    placeholder="email@ejemplo.com"
+                  />
+                </div>
+                <div className="space-y-1">
+                  <label className="text-xs font-bold text-slate-500 uppercase ml-1">Teléfono</label>
+                  <input 
+                    type="text"
+                    name="telefono"
+                    value={datosEditar.telefono}
+                    onChange={(e) => setDatosEditar({ ...datosEditar, telefono: e.target.value })}
+                    className="w-full p-3 rounded-xl border border-slate-200 dark:border-slate-700 dark:bg-slate-800 dark:text-white focus:ring-2 focus:ring-primary/20 focus:border-primary outline-none transition-all"
+                    placeholder="9999-9999"
                   />
                 </div>
                 <div className="space-y-1 md:col-span-2">

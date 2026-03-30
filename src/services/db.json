@@ -83,5 +83,15 @@
       "pdf": "https://res.cloudinary.com/dyy1yqvbv/raw/upload/v1774762355/lb7kk34unosxtt1bogvx"
     }
   ],
+  "resenas": [
+    {
+      "id": "6ac6",
+      "usuarioId": "55e4",
+      "portafolioId": "28db",
+      "comentario": "muy wow",
+      "rating": 5,
+      "fecha": "2026-03-30T00:28:06.587Z"
+    }
+  ],
   "$schema": "./node_modules/json-server/schema.json"
 }

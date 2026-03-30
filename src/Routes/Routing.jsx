@@ -12,6 +12,7 @@ import Admin from "../pages/Admin"
 import Funcionalidad from "../pages/Funcionalidad"
 import RutaPrivada from "./RutaPrivada"
 import PaginaConsejos from "../pages/PaginaConsejos"
+import TodosProyectos from "../pages/TodosProyectos"
 
 function Routing() {
     return (
@@ -31,6 +32,7 @@ function Routing() {
                 <Route path="/Admin" element={<RutaPrivada children={<Admin />} />} />
                 <Route path="/Funcionalidad" element={<RutaPrivada children={<Funcionalidad />} />} />
                 <Route path="/Consejos" element={<RutaPrivada children={<PaginaConsejos />} />} />
+                <Route path="/todos-proyectos" element={<TodosProyectos />} />
             </Routes>
         </Router>
     )

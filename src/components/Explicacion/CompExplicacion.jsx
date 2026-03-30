@@ -24,7 +24,7 @@ function CompExplicacion() {
           <section className="section-card portafolios-destacados">
             <h2>Portafolios Destacados</h2>
             <div className="portafolios-grid-placeholder">
-              <img src="" alt="" />
+              <img src="https://www.arteescuela.com/wp-content/uploads/2022/05/cuadros-famosos-de-paisajes-1200x720.jpg" alt="" width={400} />
             </div>
             <button className="btn-outline">Ver más &rsaquo;</button>
           </section>
@@ -49,16 +49,14 @@ function CompExplicacion() {
           <section className="section-card blog-recursos">
             <div className="section-flex">
               <div className="section-info">
-                <h2>Blog & Recursos</h2>
+                <h2>¿Vas a crear tu portafolio?</h2>
                 <ul className="link-list">
                   <li>
                     <Link to="/Consejos" style={{ textDecoration: 'none', color: 'inherit' }}>
                       &rsaquo; Consejos para tu portafolio
                     </Link>
                   </li>
-                  <li>&rsaquo; Historias de éxito</li>
                 </ul>
-                <button className="btn-outline">Leer más &rsaquo;</button>
               </div>
               <div className="section-img-placeholder">
                 Imagen Blog

@@ -12,6 +12,8 @@ function Registro() {
     }
     const [Nombre, setNombre] = useState("")
     const [Correo, setCorreo] = useState("")
+    const [Email, setEmail] = useState("")
+    const [Telefono, setTelefono] = useState("")
     const [Provincias, setProvincia] = useState("")
     const [Canton, setCanton] = useState("")
     const [Distrito, setDistrito] = useState("")
@@ -20,13 +22,15 @@ function Registro() {
     const [img, setImg] = useState("")
     const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
     async function RegistroUsuarios() {
-        if (Nombre === "" || Correo === "" || Provincias === "" || Canton === "" || Distrito === "" || Roles == "" || Contrasena === "") {
+        if (Nombre === "" || Correo === "" || Email === "" || Telefono === "" || Provincias === "" || Canton === "" || Distrito === "" || Roles == "" || Contrasena === "") {
             alert("Debe de llenar todo los campos");
             return;
         }
         const objUsuarios = {
             Nombre: Nombre,
             Correo: Correo,
+            email: Email,
+            telefono: Telefono,
             Provincias: Provincias,
             Canton: Canton,
             Distrito: Distrito,
@@ -82,6 +86,16 @@ function Registro() {
                     <div className='InputGroup'>
                         <label>Correo electrónico</label>
                         <input type="email" value={Correo} onChange={(evento) => setCorreo(evento.target.value)} placeholder="usuario@ejemplo.com" />
+                    </div>
+
+                    <div className='InputGroup'>
+                        <label>Email</label>
+                        <input type="email" name="email" value={Email} onChange={(evento) => setEmail(evento.target.value)} placeholder="email@ejemplo.com" />
+                    </div>
+
+                    <div className='InputGroup'>
+                        <label>Teléfono</label>
+                        <input type="text" name="telefono" value={Telefono} onChange={(evento) => setTelefono(evento.target.value)} placeholder="9999-9999" />
                     </div>
 
                     <div className='InputRow'>

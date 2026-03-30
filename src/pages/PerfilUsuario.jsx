@@ -1,51 +1,70 @@
-import React from 'react'
-import NavBarUsuario from '../components/PerfilUsuario/NavBarUsuario'
-import InfoUsuario from '../components/PerfilUsuario/InfoUsuario'
-import SeccionesPerfil from '../components/PerfilUsuario/SeccionesPerfil'
-import ProyectosRecientes from '../components/PerfilUsuario/ProyectosRecientes'
-import Calificacion from '../components/CalificacionEstrellas/Calificacion'
-import "../styles/EstilosPerfilUsuario/PerfilUsuario.css"
-import { useState, useEffect } from 'react'
-import Fetch from '../services/Fetch'
+import React, { useState, useEffect } from 'react';
+import NavBarUsuario from '../components/PerfilUsuario/NavBarUsuario';
+import InfoUsuario from '../components/PerfilUsuario/InfoUsuario';
+import SeccionesPerfil from '../components/PerfilUsuario/SeccionesPerfil';
+import ProyectosRecientes from '../components/PerfilUsuario/ProyectosRecientes';
+import "../styles/EstilosPerfilUsuario/PerfilUsuario.css";
+import Fetch from '../services/Fetch';
+import ResenasUsuario from '../components/PerfilUsuario/ReseñasUsuario';
+
 function PerfilUsuario() {
-    const [usuarios, setUsuarios] = useState([]);
+    const [usuarioPerfil, setUsuarioPerfil] = useState(null);
+
+    const cargarUsuario = async () => {
+        try {
+            const data = await Fetch.getData("usuarios");
+
+            const usuarioActivo = JSON.parse(localStorage.getItem("UsuarioActivo"));
+
+            const user = data.find(
+                (u) => String(u.id) === String(usuarioActivo?.id)
+            );
+
+            setUsuarioPerfil(user || null);
+
+        } catch (error) {
+            console.error("Error cargando usuario:", error);
+        }
+    };
 
     useEffect(() => {
-        async function fetchUsuarios() {
-            const data = await Fetch.getData("usuarios");
-            console.log(data);
-            const usuarioLogeado = data.filter((usuario) => usuario.id == JSON.parse(localStorage.getItem("UsuarioActivo")).id);
-            console.log(usuarioLogeado);
+        cargarUsuario();
+    }, []);
 
-            setUsuarios(usuarioLogeado);
-        }
-        fetchUsuarios();
-    }, [])
+    const usuarioActivo = JSON.parse(localStorage.getItem("UsuarioActivo"));
 
     return (
         <div className="perfil-page">
 
+            {/* NAVBAR */}
             <NavBarUsuario />
 
+            {/* PERFIL */}
             <div className="perfil-content">
                 <InfoUsuario
-                    nombre={usuarios.length > 0 ? usuarios[0].Nombre : "Cargando..."}
-                    img={usuarios.length > 0 ? usuarios[0].img : "https://via.placeholder.com/150"}
-                    ubicacion={usuarios.length > 0 ? usuarios[0].Provincias  : "Cargando..."}
+                    usuario={usuarioPerfil}
+                    isOwner={String(usuarioActivo?.id) === String(usuarioPerfil?.id)}
+                    onUpdate={cargarUsuario} // 🔥 mejor que reload
                 />
             </div>
 
+            {/* SECCIONES */}
             <div className="secciones-perfil">
                 <SeccionesPerfil />
             </div>
 
-            <Calificacion />
+            {/* RESEÑAS NUEVAS */}
+            <div className="perfil-resenas">
+                <ResenasUsuario />
+            </div>
+
+            {/* PROYECTOS */}
             <div>
                 <ProyectosRecientes />
             </div>
 
         </div>
-    )
+    );
 }
 
-export default PerfilUsuario
+export default PerfilUsuario;

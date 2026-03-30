@@ -1,5 +1,6 @@
 import "../../styles/EstilosPerfilUsuario/ModalProyecto.css";
 import React, { useState, useEffect } from "react";
+import { useNavigate } from "react-router-dom";
 import Lienzo from "../PlantillaTalentos/Lienzo";
 import Estructura1 from "../PlantillaTalentos/Estructura1";
 import Estructura1_1 from "../PlantillaTalentos/Estructura1_1";
@@ -28,6 +29,16 @@ const CONTENEDORES = {
 function ModalProyecto({ proyecto, resenas = [], onClose, onReviewAdded }) {
   const [nuevaResena, setNuevaResena] = useState({ comentario: "", rating: 5 });
   const [loading, setLoading] = useState(false);
+  const [usuarioContacto, setUsuarioContacto] = useState(null);
+  const [contactarVisible, setContactarVisible] = useState(false);
+  const navigate = useNavigate();
+
+  let usuarioActivo = {};
+  try {
+    usuarioActivo = JSON.parse(localStorage.getItem("UsuarioActivo")) || {};
+  } catch (e) {
+    console.error(e);
+  }
 
   // Cerrar presionando Escape
   useEffect(() => {
@@ -38,20 +49,28 @@ function ModalProyecto({ proyecto, resenas = [], onClose, onReviewAdded }) {
     return () => window.removeEventListener("keydown", handleEsc);
   }, [onClose]);
 
+  // Cargar usuario propietario del proyecto para mostrar datos de contacto
+  useEffect(() => {
+    async function fetchUsuarioContacto() {
+      if (!proyecto?.usuarioId) return;
+      try {
+        const usuarios = await Fetch.getData("usuarios");
+        const usuario = (usuarios || []).find((u) => String(u.id) === String(proyecto.usuarioId));
+        setUsuarioContacto(usuario || null);
+      } catch (error) {
+        console.error("Error al obtener usuario de contacto:", error);
+      }
+    }
+    fetchUsuarioContacto();
+  }, [proyecto?.usuarioId]);
+
   if (!proyecto) return null;
 
   const handleEnviarResena = async () => {
     if (!nuevaResena.comentario.trim()) return;
 
-    let usuario = {};
-    try {
-      usuario = JSON.parse(localStorage.getItem("UsuarioActivo")) || {};
-    } catch (e) {
-      console.error(e);
-    }
-
     const dataPost = {
-      usuarioId: usuario.id || "desconocido",
+      usuarioId: usuarioActivo.id || "desconocido",
       portafolioId: proyecto.id,
       comentario: nuevaResena.comentario,
       rating: nuevaResena.rating,
@@ -69,6 +88,11 @@ function ModalProyecto({ proyecto, resenas = [], onClose, onReviewAdded }) {
     setLoading(false);
   };
 
+  const handleEditarProyecto = () => {
+    onClose();
+    navigate("/portafolio", { state: { proyectoEditando: proyecto } });
+  };
+
   // Renderizar todos los componentes del portafolio alineados
   const renderComponentesTooltip = () => {
     if (!proyecto.componentes) return null;
@@ -80,6 +104,9 @@ function ModalProyecto({ proyecto, resenas = [], onClose, onReviewAdded }) {
 
   const promedio = calcularPromedio(resenas);
 
+  // Verificamos si el usuario actual es el dueño del proyecto
+  const isOwner = String(usuarioActivo.id) === String(proyecto.usuarioId);
+
   return (
     <div className="modal-overlay" onClick={onClose}>
       <div className="modal-content" onClick={(e) => e.stopPropagation()}>
@@ -88,6 +115,17 @@ function ModalProyecto({ proyecto, resenas = [], onClose, onReviewAdded }) {
         <div className="modal-split">
           {/* IZQUIERDA: Render Completo */}
           <div className="modal-left">
+            <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center', marginBottom: '15px', position: 'relative', zIndex: 10 }}>
+              <div /> {/* Espaciador */}
+              {isOwner && (
+                <button 
+                  onClick={handleEditarProyecto}
+                  style={{ background: '#0db9f2', color: '#fff', border: 'none', padding: '8px 16px', borderRadius: '4px', cursor: 'pointer', fontWeight: 'bold' }}
+                >
+                  ✎ Editar proyecto
+                </button>
+              )}
+            </div>
             <div className="lienzo-modal-container">
               {/* Le damos una escala reducida para que encaje el equivalente a la vista Desktop dentro de esta columna */}
               <div style={{ transform: 'scale(0.8)', transformOrigin: 'top center', width: '125%', pointerEvents: 'none' }}>
@@ -115,7 +153,7 @@ function ModalProyecto({ proyecto, resenas = [], onClose, onReviewAdded }) {
                       {"★".repeat(r.rating)}{"☆".repeat(5 - r.rating)}
                     </div>
                     <p style={{fontSize: '12px', color: '#888', marginBottom: '5px'}}>
-                      Usuario: {r.usuarioId} - Fecha: {new Date(r.fecha).toLocaleDateString()}
+                      Usuario: {r.nombreUsuario} - Fecha: {new Date(r.fecha).toLocaleDateString()}
                     </p>
                     <p>{r.comentario}</p>
                   </div>
@@ -146,6 +184,22 @@ function ModalProyecto({ proyecto, resenas = [], onClose, onReviewAdded }) {
               <button disabled={loading || !nuevaResena.comentario.trim()} onClick={handleEnviarResena}>
                 {loading ? "Enviando..." : "Enviar Reseña"}
               </button>
+            </div>
+
+            {/* Contactar al propietario del proyecto */}
+            <div className="contacto-modal">
+              <button 
+                onClick={() => setContactarVisible(!contactarVisible)}
+                style={{ marginTop: '14px', background: '#28a745', color: '#fff', border: 'none', padding: '8px 12px', borderRadius: '4px', cursor: 'pointer' }}
+              >
+                Contactar
+              </button>
+              {contactarVisible && (
+                <div style={{ marginTop: '12px', border: '1px solid #ddd', borderRadius: '8px', padding: '10px', background: '#fafafa' }}>
+                  <p><strong>Correo:</strong> {usuarioContacto?.email || usuarioContacto?.Correo || "Información no disponible"}</p>
+                  <p><strong>Teléfono:</strong> {usuarioContacto?.telefono || usuarioContacto?.Telefono || "Información no disponible"}</p>
+                </div>
+              )}
             </div>
           </div>
         </div>

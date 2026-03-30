@@ -1,0 +1,66 @@
+.resenas-container {
+  display: grid;
+  grid-template-columns: 300px 1fr;
+  gap: 30px;
+  margin-top: 40px;
+}
+
+/* SCORE */
+.resenas-score {
+  background: #fff;
+  border-radius: 12px;
+  padding: 20px;
+}
+
+.resenas-score h2 {
+  font-size: 40px;
+  margin-bottom: 5px;
+}
+
+.barra {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  margin: 6px 0;
+}
+
+.barra-bg {
+  flex: 1;
+  height: 6px;
+  background: #eee;
+  border-radius: 5px;
+}
+
+.barra-fill {
+  height: 100%;
+  background: #00bcd4;
+  border-radius: 5px;
+}
+
+/* LISTA */
+.resenas-list h4 {
+  margin-bottom: 15px;
+}
+
+.resena-card {
+  background: #fff;
+  padding: 15px;
+  border-radius: 10px;
+  margin-bottom: 12px;
+  box-shadow: 0 2px 6px rgba(0,0,0,0.05);
+}
+
+.resena-stars {
+  color: #00bcd4;
+  margin-bottom: 5px;
+}
+
+.resena-text {
+  font-size: 14px;
+  color: #555;
+}
+
+.resena-user {
+  font-size: 12px;
+  color: #888;
+}

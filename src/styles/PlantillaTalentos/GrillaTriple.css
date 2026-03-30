@@ -1,9 +1,11 @@
 /* 🔥 GRID PRINCIPAL */
 .grillaTriple__grid {
+    
+    height: 600px;
+    min-height: 600px;
     display: grid;
     grid-template-columns: repeat(3, 1fr); /* 👈 2 columnas iguales */
     gap: 20px;
-    height: 400px;
     width: 100%;
 }
 

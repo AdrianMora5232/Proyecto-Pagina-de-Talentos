@@ -5,13 +5,15 @@ import Fetch from '../services/Fetch'
 function AgregarUsuario() {
 const [Nombre , setNombre] = useState("")
 const [ Correo , setCorreo] = useState("")
+const [Email, setEmail] = useState("")
+const [Telefono, setTelefono] = useState("")
 const [Provincias , setProvincia] =useState("")
 const [Canton,setCanton] = useState("")
 const [Distrito,setDistrito] = useState("")
 const [Roles , setRol] = useState("")
 const [Contrasena , setContraseña] = useState("")
 async function RegistroUsuarios () { 
-    if ( Nombre === "" || Correo === "" || Provincias === "" || Canton === "" || Distrito === "" || Roles =="" || Contrasena ==="" ){
+    if ( Nombre === "" || Correo === "" || Email === "" || Telefono === "" || Provincias === "" || Canton === "" || Distrito === "" || Roles =="" || Contrasena ==="" ){
 
 
      alert("Debe de llenar todo los campos");
@@ -25,6 +27,8 @@ async function RegistroUsuarios () {
   const objUsuarios = {
     Nombre : Nombre,
     Correo : Correo,
+    email: Email,
+    telefono: Telefono,
     Provincias : Provincias,
     Canton : Canton,
     Distrito : Distrito,
@@ -48,7 +52,11 @@ async function RegistroUsuarios () {
         <h4>Nombre</h4>
         <input type="text" value={Nombre} onChange={(e) => setNombre(e.target.value)} />
         <h4>Correo</h4> 
-        <input type="email" value={Correo} onChange={(e) => setCorreo(e.target.value)} />
+        <input type="email" name="Correo" value={Correo} onChange={(e) => setCorreo(e.target.value)} />
+        <h4>Email</h4>
+        <input type="email" name="email" value={Email} onChange={(e) => setEmail(e.target.value)} />
+        <h4>Teléfono</h4>
+        <input type="text" name="telefono" value={Telefono} onChange={(e) => setTelefono(e.target.value)} />
         <h4>Provincia</h4>
         <select value={Provincias} onChange={(e) => setProvincia(e.target.value)}>
             <option value=" ">Seleccionar</option>

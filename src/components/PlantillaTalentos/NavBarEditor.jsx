@@ -10,7 +10,7 @@ function NavBarEditor({guardar, onPreview}) {
 
                 <div className="navbar-editor__title">
                     <h1>Creador de Portafolios</h1>
-                    <p>Editando: Mi Portafolio 2024</p>
+                    <p>Editando: Mi Portafolio 2026</p>
                 </div>
             </div>
 

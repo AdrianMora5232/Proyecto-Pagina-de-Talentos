@@ -1,9 +1,19 @@
 import React from 'react';
+import { useNavigate } from 'react-router-dom';
 import '../../styles/Explicacion/ComoFunciona.css';
 
 function ComoFunciona() {
+  const navigate = useNavigate();
+
   return (
-    <div className="como-funciona-container">
+    <div className="como-funciona-container" style={{ position: 'relative' }}>
+      <button 
+        onClick={() => navigate(-1)} 
+        style={{ position: 'absolute', top: '25px', left: '25px', padding: '10px 20px', backgroundColor: '#007bff', color: 'white', border: 'none', borderRadius: '8px', cursor: 'pointer', fontWeight: 'bold', fontSize: '1rem', boxShadow: '0 4px 6px rgba(0, 123, 255, 0.2)', zIndex: 10 }}
+      >
+        &lsaquo; Volver
+      </button>
+      
       <h2 className="como-funciona-title">🚀 ¿Cómo crear tu perfil y portafolio?</h2>
 
       <div className="como-funciona-steps">

@@ -24,7 +24,7 @@ function CompExplicacion() {
           <section className="section-card portafolios-destacados">
             <h2>Portafolios Destacados</h2>
             <div className="portafolios-grid-placeholder">
-              <img src="" alt="" />
+              <div className="img-placeholder" style={{ width: '100%', height: '200px', background: '#f0f0f0', borderRadius: '12px' }}></div>
             </div>
             <button className="btn-outline">Ver más &rsaquo;</button>
           </section>

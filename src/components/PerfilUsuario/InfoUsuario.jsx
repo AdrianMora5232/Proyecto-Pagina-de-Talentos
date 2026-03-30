@@ -55,6 +55,12 @@ function InfoUsuario({ usuario, isOwner = false, onUpdate }) {
     }
   };
 
+  const handleLogout = () => {
+    localStorage.removeItem("UsuarioActivo");
+    navigate("/");
+    window.location.reload(); // Asegurar que el estado global se refresque
+  };
+
   const ubicacion = `${form.Provincias}, ${form.Canton}, ${form.Distrito}`;
 
   // 🔥 SI NO HAY USUARIO
@@ -117,9 +123,17 @@ function InfoUsuario({ usuario, isOwner = false, onUpdate }) {
         <div className="perfil-botones">
 
           {isOwner && !editando && (
-            <button onClick={() => setEditando(true)}>
-              ✎ Editar perfil
-            </button>
+            <>
+              <button onClick={() => setEditando(true)}>
+                ✎ Editar perfil
+              </button>
+              <button 
+                onClick={handleLogout} 
+                style={{ background: '#f8d7da', color: '#721c24', border: '1px solid #f5c6cb' }}
+              >
+                Cerrar sesión
+              </button>
+            </>
           )}
 
           {isOwner && editando && (

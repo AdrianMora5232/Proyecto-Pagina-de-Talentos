@@ -68,11 +68,25 @@ function ProyectosRecientes() {
         })
     }, [proyectos, todasResenas, visibleCount])
 
+    const usuarioActivo = JSON.parse(localStorage.getItem("UsuarioActivo") || "{}");
+    const isOwner = !!usuarioActivo.id;
+
     return (
         <div className='proyectos-container'>
             <div className="proyectos-header">
                 <h4>Proyectos Recientes</h4>
-                <p>Ver todos</p>
+                <div style={{ display: 'flex', alignItems: 'center', gap: '20px' }}>
+                    {isOwner && (
+                        <button 
+                            className="btn-create-empty"
+                            onClick={() => navigate("/portafolio")}
+                            style={{ padding: '8px 16px', fontSize: '13px' }}
+                        >
+                            + Agregar Portafolio
+                        </button>
+                    )}
+                    <p onClick={() => navigate("/todos-proyectos")}>Ver todos</p>
+                </div>
             </div>
 
             <div className="proyectos-grid">

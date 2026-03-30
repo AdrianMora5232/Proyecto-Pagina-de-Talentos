@@ -156,13 +156,15 @@ const Portafolio = () => {
                 throw new Error("No se pudo subir el PDF");
             }
 
+            const usuarioActivo = JSON.parse(localStorage.getItem("UsuarioActivo") || "{}");
+            
             const data = {
-                usuarioId: localStorage.getItem("idUsuario") || "desconocido",
+                usuarioId: localStorage.getItem("idUsuario") || usuarioActivo.id || "desconocido",
                 componentes: componentes,
                 titulo: tituloProyecto,
                 descripcion: descripcionProyecto,
                 pdf: pdfUrl,
-                nombreUsuario: JSON.parse(localStorage.getItem("UsuarioActivo").Nombre)
+                nombreUsuario: usuarioActivo.Nombre || "Usuario"
             };
 
             console.log("DATA:", data);

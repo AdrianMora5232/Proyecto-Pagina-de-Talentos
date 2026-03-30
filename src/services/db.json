@@ -29,7 +29,7 @@
       "Distrito": "xd",
       "Roles": "Usuario",
       "Contrasena": "12345678",
-      "img": "https://res.cloudinary.com/dyy1yqvbv/image/upload/v1774841627/klcpwamjdqjrhcvagulb.png"
+      "img": "https://res.cloudinary.com/dyy1yqvbv/image/upload/v1774879683/lbijaajidiutdnriwtdv.webp"
     },
     {
       "id": "d24c",
@@ -83,6 +83,30 @@
       "descripcion": "este es el portafolio de maría",
       "pdf": "https://res.cloudinary.com/dyy1yqvbv/raw/upload/v1774762355/lb7kk34unosxtt1bogvx",
       "nombreUsuario": "Marìa Jesùs Chaverri"
+    },
+    {
+      "id": "3b0e",
+      "usuarioId": "55e4",
+      "componentes": [
+        "Estructura1",
+        "GrillaDoble",
+        "Estructura1_4"
+      ],
+      "titulo": "RAV KAFE",
+      "descripcion": "Identidad visual para cafetería urbana moderna.",
+      "pdf": "https://res.cloudinary.com/dyy1yqvbv/raw/upload/v1774882681/wzqyovj7ny30fjlrzae5",
+      "nombreUsuario": "María Jesús Chaverri"
+    },
+    {
+      "id": "abe7",
+      "usuarioId": "55e4",
+      "componentes": [
+        "Estructura1_1"
+      ],
+      "titulo": "aaaa",
+      "descripcion": "bbbbb",
+      "pdf": "https://res.cloudinary.com/dyy1yqvbv/raw/upload/v1774882879/zhvosyjlmgwyxglnq2mz",
+      "nombreUsuario": "María Jesús Chaverri"
     }
   ],
   "resenas": [

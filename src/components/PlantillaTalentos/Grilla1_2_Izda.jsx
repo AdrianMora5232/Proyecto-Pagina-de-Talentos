@@ -1,45 +1,50 @@
 import "../../styles/PlantillaTalentos/Grilla1_2_Izda.css";
-import EditorContenedores from "./EditorContenedores";
-import { useEstilos } from "./useEstilos";
+import EditableBlock from "./EditableBlock";
+import { useEditable } from "./useEditable";
 
-function Grilla1_2_Izda() {
-    const { colorFondo, setColorFondo, colorTexto, setColorTexto, imageUrl, setImageUrl } = useEstilos();
+function Grilla1_2_Izda({ onActivate, initialData, onUpdate }) {
+    
+    const handleUpdate = (key, newData) => {
+        if (onUpdate) {
+            onUpdate({ ...initialData, [key]: newData });
+        }
+    };
+
+    const fondo = useEditable(initialData?.fondo, (d) => handleUpdate('fondo', d));
+    const content = useEditable(initialData?.content, (d) => handleUpdate('content', d));
 
     return (
-        <>
-            <div className="grilla1_2_izda__grid">
-                <div
-                    className="grilla1_2_izda__image"
-                    style={{
-                        backgroundColor: colorFondo,
-                        backgroundImage: imageUrl ? `url(${imageUrl})` : "none",
-                        backgroundSize: "cover",
-                        backgroundPosition: "center",
-                    }}
-                >
-                    <EditorContenedores
-                        setColorFondo={setColorFondo}
-                        setImageUrl={setImageUrl}
-                        imageUrl={imageUrl}
-                        setColorTexto={setColorTexto}
-                    />
-                </div>
-                <div className="grilla1_2_izda__content">
-                    <input
-                        className="grilla1_2_izda__title input-titulo"
-                        placeholder="Escribe un titulo"
-                        style={{ color: colorTexto }}
-                    />
-
-                    <textarea
-                        className="grilla1_2_izda__description input-textbox"
-                        placeholder="Escribe un texto"
-                        style={{ color: colorTexto }}
-                    />
-                </div>
+        <div className="grilla1_2_izda__grid">
+            <div
+                className="grilla1_2_izda__image"
+                style={{
+                    backgroundColor: fondo.state.colorFondo,
+                    backgroundImage: fondo.state.imageUrl ? `url(${fondo.state.imageUrl})` : "none",
+                    backgroundSize: "cover",
+                    backgroundPosition: "center",
+                    position: "relative"
+                }}
+                onClick={(e) => {
+                    e.stopPropagation();
+                    onActivate(e, {
+                        id: fondo.state.id,
+                        tipo: "fondo",
+                        setColorFondo: (c) => fondo.update({ colorFondo: c }),
+                        setImageUrl: (u) => fondo.update({ imageUrl: u }),
+                        imageUrl: fondo.state.imageUrl
+                    });
+                }}
+            >
             </div>
-
-        </>
+            <div className="grilla1_2_izda__content" style={{ position: "relative" }}>
+                <EditableBlock
+                    className="grilla1_2_izda__title"
+                    data={content.state}
+                    update={content.update}
+                    onActivate={onActivate}
+                />
+            </div>
+        </div>
     )
 }
 export default Grilla1_2_Izda;

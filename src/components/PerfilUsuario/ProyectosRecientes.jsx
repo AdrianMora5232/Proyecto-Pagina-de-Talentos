@@ -20,7 +20,6 @@ function ProyectosRecientes() {
         try {
             const usuario = JSON.parse(localStorage.getItem("UsuarioActivo"))
 
-            // Fetch Portafolios
             const peticionJson = await Fetch.getData("portafolios")
 
             const filtroProyectos = peticionJson.filter(
@@ -29,7 +28,6 @@ function ProyectosRecientes() {
 
             setProyectos(filtroProyectos)
 
-            // Fetch Reseñas
             const resenasJson = await Fetch.getData("resenas") || []
             setTodasResenas(resenasJson)
 
@@ -39,6 +37,19 @@ function ProyectosRecientes() {
             setTimeout(() => setLoading(false), 800)
         }
     }
+
+    const handleDeletePortfolio = async (id) => {
+        const confirmar = window.confirm("¿Estás seguro de que quieres eliminar este portafolio? Esta acción no se puede deshacer.");
+        if (!confirmar) return;
+
+        try {
+            await Fetch.deleteData("portafolios", id);
+            setProyectos((prev) => prev.filter((p) => p.id !== id));
+        } catch (error) {
+            console.error("Error al eliminar portafolio:", error);
+            alert("No se pudo eliminar el portafolio. Intenta de nuevo.");
+        }
+    };
 
     useEffect(() => {
         cargarDatos()
@@ -63,6 +74,7 @@ function ProyectosRecientes() {
                     promedio={promedio}
                     imgPortada={proyecto.imgPortada}
                     onVerProyecto={() => setProyectoSeleccionado(proyecto)}
+                    onDelete={() => handleDeletePortfolio(proyecto.id)}
                 />
             )
         })

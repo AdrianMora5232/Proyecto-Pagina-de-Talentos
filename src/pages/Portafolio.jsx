@@ -64,12 +64,34 @@ const Portafolio = () => {
 
     const toggleComponente = (nombre) => {
         setComponentes((prev) => {
-            if (prev.includes(nombre)) {
-                return prev.filter((c) => c !== nombre);
+            if (prev.find(c => c.type === nombre)) {
+                return prev.filter((c) => c.type !== nombre);
             } else {
-                return [...prev, nombre];
+                const nuevoComp = {
+                    id: crypto.randomUUID(),
+                    type: nombre,
+                    data: {
+                        texto: "",
+                        colorTexto: "#1a202c",
+                        colorFondo: "",
+                        imageUrl: "",
+                        fontSize: "16px",
+                        bold: false,
+                        italic: false,
+                        align: "left",
+                        childColorFondo: "",
+                        childImageUrl: ""
+                    }
+                };
+                return [...prev, nuevoComp];
             }
         });
+    };
+
+    const updateComponentData = (id, newData) => {
+        setComponentes(prev => prev.map(c => 
+            c.id === id ? { ...c, data: { ...c.data, ...newData } } : c
+        ));
     };
 
     useEffect(() => {
@@ -91,49 +113,46 @@ const Portafolio = () => {
     }, []);
 
     const renderComponent = (comp, index) => {
-        switch (comp) {
-            case "Estructura1":
-                return <Estructura1 key={comp + index} onActivate={activarEditor} activeElement={activeElement}/>;
-            case "Estructura1_1":
-                return <Estructura1_1 key={comp + index} onActivate={activarEditor} activeElement={activeElement}/>;
-            case "Estructura1_2":
-                return <Estructura1_2 key={comp + index} onActivate={activarEditor} activeElement={activeElement}/>;
-            case "Estructura1_3":
-                return <Estructura1_3 key={comp + index} onActivate={activarEditor} activeElement={activeElement}/>;
-            case "Estructura1_4":
-                return <Estructura1_4 key={comp + index} onActivate={activarEditor} activeElement={activeElement}/>;
-            case "GrillaDoble":
-                return <GrillaDoble key={comp + index} onActivate={activarEditor} activeElement={activeElement}/>;
-            case "GrillaTriple":
-                return <GrillaTriple key={comp + index} onActivate={activarEditor} activeElement={activeElement}/>;
-            case "Grilla1_2_Izda":
-                return <Grilla1_2_Izda key={comp + index} onActivate={activarEditor} activeElement={activeElement}/>;
-            case "Grilla1_2_Derecha":
-                return <Grilla1_2_Derecha key={comp + index} onActivate={activarEditor} activeElement={activeElement}/>;
-            default:
-                return null;
+        const props = {
+            key: comp.id || index,
+            onActivate: (e, data) => activarEditor(e, { ...data, id: comp.id }),
+            activeElement: activeElement,
+            initialData: comp.data,
+            onUpdate: (newData) => updateComponentData(comp.id, newData)
+        };
+
+        const type = typeof comp === 'string' ? comp : comp.type;
+
+        switch (type) {
+            case "Estructura1": return <Estructura1 {...props} />;
+            case "Estructura1_1": return <Estructura1_1 {...props} />;
+            case "Estructura1_2": return <Estructura1_2 {...props} />;
+            case "Estructura1_3": return <Estructura1_3 {...props} />;
+            case "Estructura1_4": return <Estructura1_4 {...props} />;
+            case "GrillaDoble": return <GrillaDoble {...props} />;
+            case "GrillaTriple": return <GrillaTriple {...props} />;
+            case "Grilla1_2_Izda": return <Grilla1_2_Izda {...props} />;
+            case "Grilla1_2_Derecha": return <Grilla1_2_Derecha {...props} />;
+            default: return null;
         }
     };
 
-    const subirPDFCloudinary = async (pdfBlob) => {
+    const subirArchivoCloudinary = async (archivo, type = "raw") => {
         const formData = new FormData();
-
-        formData.append("file", pdfBlob);
+        formData.append("file", archivo);
         formData.append("upload_preset", "portfolios");
-        formData.append("resource_type", "raw");
+        formData.append("resource_type", type);
 
         const res = await fetch(
-            "https://api.cloudinary.com/v1_1/dyy1yqvbv/raw/upload",
+            `https://api.cloudinary.com/v1_1/dyy1yqvbv/${type}/upload`,
             {
                 method: "POST",
                 body: formData
             }
         );
 
+        if (!res.ok) return null;
         const data = await res.json();
-
-        console.log("Cloudinary:", data);
-
         return data.secure_url;
     };
 
@@ -141,19 +160,24 @@ const Portafolio = () => {
         try {
             Swal.fire({
                 title: "Guardando portafolio...",
-                text: "Generando y subiendo PDF",
+                text: "Capturando vista previa y subiendo archivos",
                 allowOutsideClick: false,
                 didOpen: () => {
                     Swal.showLoading();
                 }
             });
 
-            const pdfBlob = await generarPDFBlob(lienzoRef);
+            // 1. Capturar imagen de portada (Thumbnail)
+            const canvas = await html2canvas(lienzoRef.current, { useCORS: true, allowTaint: true });
+            const imagenBlob = await new Promise(resolve => canvas.toBlob(resolve, 'image/jpeg', 0.8));
+            const imgPortadaUrl = await subirArchivoCloudinary(imagenBlob, "image");
 
-            const pdfUrl = await subirPDFCloudinary(pdfBlob);
+            // 2. Generar y subir PDF
+            const pdfBlob = await generarPDFBlob(lienzoRef);
+            const pdfUrl = await subirArchivoCloudinary(pdfBlob, "raw");
 
             if (!pdfUrl) {
-                throw new Error("No se pudo subir el PDF");
+                throw new Error("No se pudo subir el archivo");
             }
 
             const usuarioActivo = JSON.parse(localStorage.getItem("UsuarioActivo") || "{}");
@@ -164,29 +188,21 @@ const Portafolio = () => {
                 titulo: tituloProyecto,
                 descripcion: descripcionProyecto,
                 pdf: pdfUrl,
+                imgPortada: imgPortadaUrl, // ✅ Guardar la imagen real
                 nombreUsuario: usuarioActivo.Nombre || "Usuario"
             };
 
-            console.log("DATA:", data);
-
-            const peticion = await Fetch.postData(data, "portafolios");
-
-            console.log("Guardado:", peticion);
+            await Fetch.postData(data, "portafolios");
 
             Swal.fire({
                 icon: "success",
                 title: "Portafolio guardado",
-                text: "PDF subido correctamente"
+                text: "Portafolio y vista previa guardados correctamente"
             });
 
         } catch (error) {
             console.error(error);
-
-            Swal.fire({
-                icon: "error",
-                title: "Error",
-                text: "No se pudo guardar el portafolio"
-            });
+            Swal.fire({ icon: "error", title: "Error", text: "No se pudo guardar el portafolio" });
         }
     }
 

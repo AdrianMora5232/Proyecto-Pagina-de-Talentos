@@ -87,8 +87,24 @@ function CompPrincipal() {
     };
 
     const renderPreview = (port, height = '180px', scale = 0.28) => {
-        const estructura = port.estructura || port.componentes?.[0];
+        // Si ya tenemos una imagen de portada real, la usamos (Prioridad 1)
+        if (port.imgPortada) {
+            return (
+                <div className="proyecto-card-media" style={{ height, overflow: 'hidden', background: '#f0f4f8' }}>
+                    <img 
+                        src={port.imgPortada} 
+                        alt={port.titulo} 
+                        style={{ width: '100%', height: '100%', objectFit: 'cover' }} 
+                    />
+                </div>
+            );
+        }
+
+        // Si no hay imagen, intentamos renderizar la estructura dinámica (Fallback)
+        const firstComp = port.componentes?.[0];
+        const estructura = typeof firstComp === 'string' ? firstComp : firstComp?.type;
         const ComponentePreview = CONTENEDORES[estructura];
+        const initialData = typeof firstComp === 'object' ? firstComp?.data : null;
         
         return (
             <div className="proyecto-card-media" style={{ height, overflow: 'hidden', position: 'relative', background: '#f0f4f8' }}>
@@ -101,7 +117,7 @@ function CompPrincipal() {
                     width: `${100 / scale}%`,
                     pointerEvents: 'none'
                 }}>
-                    {ComponentePreview ? <ComponentePreview /> : <div className="sin-preview d-flex align-items-center justify-content-center h-100">Sin previsualización</div>}
+                    {ComponentePreview ? <ComponentePreview initialData={initialData} /> : <div className="sin-preview d-flex align-items-center justify-content-center h-100">Sin previsualización</div>}
                 </div>
             </div>
         );

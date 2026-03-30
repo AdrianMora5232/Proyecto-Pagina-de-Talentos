@@ -2,9 +2,9 @@ import "../../styles/PlantillaTalentos/Estructura1.css";
 import { useEditable } from "./useEditable";
 import { useState, useEffect } from "react";
 
-function Estructura1({ onActivate, activeElement }) {
+function Estructura1({ onActivate, activeElement, initialData, onUpdate }) {
 
-  const fondo = useEditable();
+  const fondo = useEditable(initialData, onUpdate);
 
   const [loadingFondo, setLoadingFondo] = useState(false);
   const [loadingChild, setLoadingChild] = useState(false);

@@ -5,12 +5,17 @@ import { useEditable } from "./useEditable";
 import { useEstilos } from "./useEstilos";
 import { useState } from "react";
 
-function GrillaDoble({ onActivate }) {
+function GrillaDoble({ onActivate, initialData, onUpdate }) {
 
-    const fondo = useEditable();
+    const handleUpdate = (key, newData) => {
+        if (onUpdate) {
+            onUpdate({ ...initialData, [key]: newData });
+        }
+    };
 
-    const bloque1 = useEditable();
-    const bloque2 = useEditable();
+    const fondo = useEditable(initialData?.fondo, (d) => handleUpdate('fondo', d));
+    const bloque1 = useEditable(initialData?.bloque1, (d) => handleUpdate('bloque1', d));
+    const bloque2 = useEditable(initialData?.bloque2, (d) => handleUpdate('bloque2', d));
 
     return (
         <div className="grillaDoble__grid"

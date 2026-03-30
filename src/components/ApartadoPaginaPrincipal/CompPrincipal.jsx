@@ -19,9 +19,8 @@ function CompPrincipal() {
         }
     };
 
-
     return (
-        <div>
+        <div className="Principal-Content-Wrapper">
             {/* div para contener el header de la pagina, osea nombre de la pagina,navbar y apartado de busqueda */}
             <div>
 
@@ -46,34 +45,6 @@ function CompPrincipal() {
             <br />
             {/*div que contiene el apartado de divisiones de tipos de talentos y las cartas */}
             <div>
-                {/* Navegacion de talentos  */}
-                <nav className='NavTalentos' aria-label="...">
-                    <ul className="pagination">
-                        <li className="page-item disabled">
-                            <a className="page-link">TALENTOS</a>
-                        </li>
-                        <li className="page-item">
-                            <a className="page-link" href="#">
-                                Tecnologias
-                            </a>
-                        </li>
-                        <li className="page-item active">
-                            <a className="page-link" href="#" aria-current="page">
-                                Bailes o Canto
-                            </a>
-                        </li>
-                        <li className="page-item">
-                            <a className="page-link" href="#">
-                                Arte
-                            </a>
-                        </li>
-                        <li className="page-item">
-                            <a className="page-link" href="#">
-                                Entretenimiento o educacion
-                            </a>
-                        </li>
-                    </ul>
-                </nav>
                 <div className="carousel-wrapper" style={{ position: 'relative', width: '90%', maxWidth: '1200px', margin: '0 auto' }}>
                     <button onClick={scrollLeft} className="btn-carousel left">
                         &#10094;
@@ -206,9 +177,6 @@ function CompPrincipal() {
                     <button className='BotonVerPerfil'>Ver perfil</button>
                 </div>
             </div>
-
-
-
         </div >
     )
 }

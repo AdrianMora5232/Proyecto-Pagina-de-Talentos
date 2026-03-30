@@ -11,6 +11,7 @@ import Portafolio from "../pages/Portafolio"
 import Admin from "../pages/Admin"
 import Funcionalidad from "../pages/Funcionalidad"
 import RutaPrivada from "./RutaPrivada"
+import FormularioConvo from "../pages/FormularioConvo"
 
 function Routing() {
     return (
@@ -29,6 +30,7 @@ function Routing() {
                 <Route path="/portafolio" element={<RutaPrivada children={<Portafolio />} />} />
                 <Route path="/Admin" element={<RutaPrivada children={<Admin />} />} />
                 <Route path="/Funcionalidad" element={<RutaPrivada children={<Funcionalidad />} />} />
+                <Route path="/FormularioConvo" element={<FormularioConvo />} />
             </Routes>
         </Router>
     )

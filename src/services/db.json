@@ -17,18 +17,62 @@
       "Provincias": "San José",
       "Canton": "alajuelita",
       "Distrito": "alajuelita",
-      "Roles": "Usuario",
+      "Roles": "Admin",
       "Contrasena": "jheycob12"
     },
     {
-      "id": "026f",
-      "Nombre": "bgvgyvb",
+      "id": "2b55",
+      "Nombre": "Ale",
       "Correo": "alejandronicmen@gmail.com",
       "Provincias": "San José",
-      "Canton": "nbihbgyguyv",
-      "Distrito": "bgg y",
+      "Canton": "Sanjosecito",
+      "Distrito": "Alajuelita",
       "Roles": "Usuario",
-      "Contrasena": "tyvrvyvt"
+      "Contrasena": "Ale14p12"
+    },
+    {
+      "id": "18f5",
+      "Nombre": "Pan",
+      "Correo": "alejandronicmen@gmail.com",
+      "Provincias": "San José",
+      "Canton": "dD",
+      "Distrito": "adasd",
+      "Roles": "Usuario",
+      "Contrasena": "12345678"
+    }
+  ],
+  "convocatorias": [
+    {
+      "id": "be16",
+      "nombre": "Arte",
+      "descripcion": "anndD",
+      "tipo_talento": "arte-entretenimiento",
+      "fecha": "2026-03-30T05:17:47.789Z"
+    }
+  ],
+  "respuestas_convocatorias": [
+    {
+      "id": "a916",
+      "usuarioNombre": "Ale",
+      "convocatoriaNombre": "  ñkmk  kn",
+      "respuesta": "Participar",
+      "fecha": "29/3/2026, 23:00:43"
+    },
+    {
+      "id": "26b0",
+      "idConvocatoria": "be16",
+      "usuarioNombre": "Ale",
+      "convocatoriaNombre": "Arte",
+      "respuesta": "Participar",
+      "fecha": "29/3/2026, 23:17:57"
+    },
+    {
+      "id": "21c3",
+      "idConvocatoria": "be16",
+      "usuarioNombre": "Pan",
+      "convocatoriaNombre": "Arte",
+      "respuesta": "Participar",
+      "fecha": "29/3/2026, 23:19:22"
     }
   ],
   "$schema": "./node_modules/json-server/schema.json"

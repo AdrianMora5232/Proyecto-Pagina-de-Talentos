@@ -5,7 +5,6 @@ function NavBarUsuario() {
     return (
         <div className="navbar">
             <div className="logo">
-                <img src="#" alt="logo" />
                 <h1>Krea</h1>
             </div>
             <div className="icon-buttons">

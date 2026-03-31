@@ -1,0 +1,463 @@
+* {
+  font-family: 'Inter', system-ui, -apple-system, sans-serif;
+  box-sizing: border-box;
+}
+
+.navbar {
+  position: sticky;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 72px;
+  background: rgba(255, 255, 255, 0.7); /* Glassmorphism */
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
+  border-bottom: 1px solid rgba(226, 232, 240, 0.5);
+  box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.02), 0 2px 4px -1px rgba(0, 0, 0, 0.01);
+  z-index: 1000;
+  background: #ffffff;
+  box-shadow: 0 4px 15px rgba(0, 150, 216, 0.15);
+  font-family: 'Inter', sans-serif;
+  border-bottom: 2px solid #e1f5fe;
+}
+
+.navbar-container {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 0 24px;
+  height: 60px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.nav-wrapper {
+  display: flex;
+  align-items: center;
+  gap: 20px;
+}
+
+.navbar-logo {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  text-decoration: none;
+  color: #0096c7;
+  font-weight: 800;
+  font-size: 1.4rem;
+  letter-spacing: 0.5px;
+  transition: transform 0.2s ease;
+}
+
+.logo-icon-wrapper {
+  background-color: #0db9f2;
+  color: white;
+  width: 32px;
+  height: 32px;
+  border-radius: 8px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 18px;
+}
+
+.logo-text {
+  font-size: 20px;
+  font-weight: 700;
+  letter-spacing: -0.5px;
+}
+
+/* Centro: Links */
+.navbar-center {
+  display: flex;
+  align-items: center;
+  height: 100%;
+  /* Alineación vertical perfecta */
+}
+
+.navbar-links {
+  display: flex;
+  align-items: center;
+  list-style: none;
+  gap: 24px;
+  /* Gap reducido */
+  margin: 0;
+  padding: 0;
+  height: 100%;
+}
+
+.navbar-link {
+  text-decoration: none;
+  color: #101e22;
+  font-size: 14px;
+  /* Un poco más refinado */
+  font-weight: 600;
+  letter-spacing: -0.01em;
+  /* Mejor spacing */
+  transition: color 0.2s ease;
+}
+
+.navbar-link:hover,
+.navbar-link.active {
+  color: #0db9f2;
+}
+
+
+/* Derecha: Buscar y Perfil */
+.navbar-right {
+  display: flex;
+  align-items: center;
+  gap: 16px;
+  /* Ajuste entre input y avatar */
+}
+
+.search-container {
+  position: relative;
+  display: flex;
+  align-items: center;
+  flex: 1;
+  max-width: 400px; /* Búsqueda más ancha como en la imagen */
+  margin: 0 24px;
+}
+
+.search-icon {
+  position: absolute;
+  left: 14px;
+  top: 50%;
+  transform: translateY(-50%);
+  font-size: 14px;
+  color: #64748b;
+  pointer-events: none;
+}
+
+.search-input {
+  background-color: #f1f5f9;
+  border: 1.5px solid transparent;
+  border-radius: 999px; /* Totalmente redondeado */
+  padding: 10px 16px 10px 42px;
+  font-size: 14px;
+  color: #1e293b;
+  width: 100%;
+  transition: all 0.2s ease-out;
+  outline: none;
+}
+
+.search-input:focus {
+  background-color: #fff;
+  border-color: #0db9f2;
+  box-shadow: 0 0 0 3px rgba(13, 185, 242, 0.15);
+}
+
+.profile-btn {
+  text-decoration: none;
+  color: #0096c7;
+  font-weight: 600; 
+  font-size: 0.95rem; 
+  padding: 8px 16px;
+  border-radius: 8px;
+  transition: all 0.25s ease;
+  white-space: nowrap;
+}
+
+.navbar-link:hover {
+  background: #e1f5fe;
+  color: #0077b6;
+  transform: translateY(-2px);
+}
+
+.navbar-link.active {
+  background: #00b4d8;
+  color: #ffffff; 
+  box-shadow: 0 4px 12px rgba(0, 180, 216, 0.3);
+  font-weight: 700;
+}
+
+/* ===== Buzon Button in Navbar ===== */
+.navbar-buzon-btn {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  background: linear-gradient(135deg, #00b4d8, #0096c7);
+  color: white;
+  border: none;
+  padding: 10px 20px;
+  border-radius: 50px;
+  font-weight: 700;
+  font-size: 0.9rem;
+  cursor: pointer;
+  transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+  position: relative;
+  box-shadow: 0 4px 15px rgba(0, 180, 216, 0.3);
+}
+
+.navbar-buzon-btn:hover {
+  transform: translateY(-2px) scale(1.05);
+  box-shadow: 0 6px 20px rgba(0, 180, 216, 0.4);
+}
+
+.buzon-badge {
+  position: absolute;
+  top: -6px;
+  right: -6px;
+  background: #ff4757;
+  color: white;
+  font-size: 0.75rem;
+  min-width: 20px;
+  height: 20px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 50%;
+  border: 2px solid white;
+  font-weight: 800;
+  animation: badge-pulse 2s infinite;
+}
+
+@keyframes badge-pulse {
+  0% { transform: scale(1); box-shadow: 0 0 0 0 rgba(255, 71, 87, 0.7); }
+  70% { transform: scale(1.1); box-shadow: 0 0 0 10px rgba(255, 71, 87, 0); }
+  100% { transform: scale(1); box-shadow: 0 0 0 0 rgba(255, 71, 87, 0); }
+}
+
+
+/* Responsivo / Mobile */
+.navbar-toggle {
+  display: none;
+  flex-direction: column;
+  justify-content: space-between;
+  width: 24px;
+  height: 18px;
+  background: transparent;
+  border: none;
+  cursor: pointer;
+  padding: 8px;
+}
+
+.toggle-bar {
+  display: block;
+  width: 24px;
+  height: 3px;
+  background: #0096c7;
+  border-radius: 3px;
+  transition: all 0.3s ease;
+}
+
+.navbar-toggle.active .toggle-bar:nth-child(1) { transform: translateY(8px) rotate(45deg); }
+.navbar-toggle.active .toggle-bar:nth-child(2) { opacity: 0; }
+.navbar-toggle.active .toggle-bar:nth-child(3) { transform: translateY(-8px) rotate(-45deg); }
+
+/* ===== Buzon Modal ===== */
+.buzon-modal-overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: rgba(15, 23, 42, 0.6);
+  backdrop-filter: blur(8px);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  z-index: 9999;
+  padding: 20px;
+}
+
+.buzon-modal-content {
+  background: #ffffff;
+  width: 100%;
+  max-width: 550px;
+  max-height: 85vh;
+  border-radius: 24px;
+  box-shadow: 0 25px 50px -12px rgba(0, 0, 0, 0.25);
+  display: flex;
+  flex-direction: column;
+  overflow: hidden;
+  animation: modalIn 0.4s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+@keyframes modalIn {
+  from { transform: translateY(20px) scale(0.96); opacity: 0; }
+  to { transform: translateY(0) scale(1); opacity: 1; }
+}
+
+.buzon-modal-header {
+  padding: 24px 32px;
+  border-bottom: 1px solid #f1f5f9;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  background: #ffffff;
+}
+
+.buzon-modal-header h2 {
+  margin: 0;
+  font-size: 1.5rem;
+  color: #0f172a;
+  font-weight: 800;
+  letter-spacing: -0.025em;
+}
+
+.close-modal {
+  background: #f1f5f9;
+  border: none;
+  width: 36px;
+  height: 36px;
+  border-radius: 50%;
+  font-size: 1.25rem;
+  color: #64748b;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: all 0.2s;
+}
+
+.close-modal:hover {
+  background: #fee2e2;
+  color: #ef4444;
+  transform: rotate(90deg);
+}
+
+.convocatorias-list {
+  padding: 32px;
+  overflow-y: auto;
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+}
+
+.convocatoria-item {
+  border: 1px solid #e2e8f0;
+  border-radius: 20px;
+  padding: 24px;
+  background: #ffffff;
+  transition: all 0.3s ease;
+  position: relative;
+}
+
+.convocatoria-item:hover {
+  border-color: #38bdf8;
+  box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.05);
+}
+
+.convocatoria-item h4 {
+  margin: 0 0 10px 0;
+  color: #1e293b;
+  font-size: 1.25rem;
+  font-weight: 700;
+}
+
+.convocatoria-item p {
+  margin: 0 0 20px 0;
+  color: #475569;
+  font-size: 0.95rem;
+  line-height: 1.6;
+}
+
+.convocatoria-footer {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: 16px;
+}
+
+.tipo-talento-tag {
+  background: #f0f9ff;
+  color: #0369a1;
+  padding: 6px 14px;
+  border-radius: 100px;
+  font-size: 0.8rem;
+  font-weight: 700;
+  border: 1px solid #bae6fd;
+}
+
+.action-buttons {
+  display: flex;
+  gap: 12px;
+}
+
+.btn-participar, .btn-no-participar {
+  padding: 10px 18px;
+  border-radius: 12px;
+  font-weight: 700;
+  font-size: 0.85rem;
+  cursor: pointer;
+  border: none;
+  transition: all 0.2s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.btn-participar {
+  background: #0ea5e9;
+  color: white;
+  box-shadow: 0 4px 6px -1px rgba(14, 165, 233, 0.3);
+}
+
+.btn-participar:hover {
+  background: #0284c7;
+  transform: scale(1.05);
+  box-shadow: 0 10px 15px -3px rgba(14, 165, 233, 0.4);
+}
+
+.btn-no-participar {
+  background: #f1f5f9;
+  color: #64748b;
+}
+
+.btn-no-participar:hover {
+  background: #fee2e2;
+  color: #b91c1c;
+}
+
+.no-convocatorias {
+  padding: 60px 20px;
+  text-align: center;
+  color: #94a3b8;
+  font-size: 1.1rem;
+}
+
+/* ===== Responsive ===== */
+@media (max-width: 860px) {
+  .navbar-toggle { display: flex; }
+
+  .nav-wrapper {
+    position: absolute;
+    top: 60px;
+    left: 0;
+    right: 0;
+    flex-direction: column;
+    background: #ffffff;
+    padding: 24px;
+    gap: 20px;
+    box-shadow: 0 20px 25px -5px rgba(0, 0, 0, 0.1);
+    border-top: 1px solid #e1f5fe;
+    transform: translateY(-20px);
+    opacity: 0;
+    pointer-events: none;
+    transition: all 0.4s cubic-bezier(0.16, 1, 0.3, 1);
+  }
+
+  .nav-wrapper.open {
+    transform: translateY(0);
+    opacity: 1;
+    pointer-events: auto;
+  }
+
+  .navbar-links {
+    width: 100%;
+    flex-direction: column;
+    gap: 8px;
+  }
+
+  .navbar-link {
+    width: 100%;
+    padding: 14px 20px;
+    background: #f8fafc;
+  }
+
+  .navbar-buzon-btn {
+    width: 100%;
+    justify-content: center;
+    padding: 14px;
+  }
+}

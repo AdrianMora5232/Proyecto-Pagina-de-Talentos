@@ -1,0 +1,226 @@
+{
+  "usuarios": [
+    {
+      "id": "c098",
+      "Nombre": "Adrian Mora Castillo",
+      "Correo": "miniaseapa@gmail.com",
+      "Provincias": "Limón",
+      "Canton": "Pococi",
+      "Distrito": "si",
+      "Roles": "Admin",
+      "Contrasena": "Admc5232"
+    },
+    {
+      "id": "c073",
+      "Nombre": "jheycob",
+      "Correo": "jheycob@gmail.com",
+      "Provincias": "San José",
+      "Canton": "alajuelita",
+      "Distrito": "alajuelita",
+      "Roles": "Admin",
+      "Contrasena": "jheycob12"
+    },
+    {
+      "id": "55e4",
+      "Nombre": "María Jesús Chaverri",
+      "Correo": "mj@gmail.com",
+      "Provincias": "Heredia",
+      "Canton": "San Pablo",
+      "Distrito": "xd",
+      "Roles": "Usuario",
+      "Contrasena": "12345678",
+      "img": "https://res.cloudinary.com/dyy1yqvbv/image/upload/v1774879683/lbijaajidiutdnriwtdv.webp"
+    },
+    {
+      "id": "d24c",
+      "Nombre": "Pepe Viyuela Gomez",
+      "Correo": "pepe@gmail.com",
+      "Provincias": "Limón",
+      "Canton": "Batán",
+      "Distrito": "Lima",
+      "Roles": "Usuario",
+      "Contrasena": "12345678",
+      "img": "https://res.cloudinary.com/dyy1yqvbv/image/upload/v1774761044/iargr9gued6xgwq4jytb.png"
+    }
+  ],
+  "portafolios": [
+    {
+      "id": "649b",
+      "usuarioId": "1",
+      "componentes": [
+        "Estructura1",
+        "Estructura1_1"
+      ],
+      "titulo": "hhrh",
+      "descripcion": "fghnfg"
+    },
+    {
+      "id": "336e",
+      "usuarioId": "1",
+      "componentes": [
+        "Estructura1",
+        "Estructura1_1"
+      ],
+      "titulo": "grgs",
+      "descripcion": "sgsg",
+      "pdf": "https://res.cloudinary.com/dyy1yqvbv/raw/upload/v1774508475/v1xcx5qk7gksc4o06e2c"
+    },
+    {
+      "id": "5cc9",
+      "usuarioId": "55e4",
+      "componentes": [
+        {
+          "id": "d2e4bddb-6eaa-4a19-97aa-6f277dcca715",
+          "type": "Estructura1",
+          "data": {
+            "texto": " ",
+            "colorTexto": "#1a202c",
+            "colorFondo": "",
+            "imageUrl": "https://res.cloudinary.com/dyy1yqvbv/image/upload/v1774884178/huggel2bxxhzgi0gxets.jpg",
+            "fontSize": "16px",
+            "bold": false,
+            "italic": false,
+            "align": "left",
+            "childColorFondo": "",
+            "childImageUrl": ""
+          }
+        },
+        {
+          "id": "bfd86219-7a27-4246-8888-c0c650f6a1b9",
+          "type": "GrillaDoble",
+          "data": {
+            "texto": "",
+            "colorTexto": "#1a202c",
+            "colorFondo": "",
+            "imageUrl": "",
+            "fontSize": "16px",
+            "bold": false,
+            "italic": false,
+            "align": "left",
+            "childColorFondo": "",
+            "childImageUrl": "",
+            "fondo": {
+              "id": "editable-20",
+              "texto": "",
+              "colorTexto": "#1a202c",
+              "colorFondo": "#1a1a1a",
+              "imageUrl": ""
+            },
+            "bloque1": {
+              "id": "editable-21",
+              "texto": " ",
+              "colorTexto": "#1a202c",
+              "colorFondo": "",
+              "imageUrl": "https://res.cloudinary.com/dyy1yqvbv/image/upload/v1774884206/rn7u7p7i21pfoy6kqwb1.jpg"
+            },
+            "bloque2": {
+              "id": "editable-22",
+              "texto": " ",
+              "colorTexto": "#1a202c",
+              "colorFondo": "",
+              "imageUrl": "https://res.cloudinary.com/dyy1yqvbv/image/upload/v1774884223/qiffzkpslo51bdydluqy.jpg"
+            }
+          }
+        },
+        {
+          "id": "5bc5832c-ffc5-4900-b9f1-7b0992f24cf2",
+          "type": "Estructura1_4",
+          "data": {
+            "texto": "",
+            "colorTexto": "#1a202c",
+            "colorFondo": "",
+            "imageUrl": "",
+            "fontSize": "16px",
+            "bold": false,
+            "italic": false,
+            "align": "left",
+            "childColorFondo": "",
+            "childImageUrl": "",
+            "fondo": {
+              "id": "editable-984",
+              "texto": "",
+              "colorTexto": "#1a202c",
+              "colorFondo": "#2e2e2e",
+              "imageUrl": ""
+            },
+            "bloqueTop": {
+              "id": "editable-985",
+              "texto": "Implementación del logo en branding",
+              "colorTexto": "#ffffff",
+              "colorFondo": "#1a1a1a",
+              "imageUrl": ""
+            },
+            "bloqueMid1": {
+              "id": "editable-986",
+              "texto": " ",
+              "colorTexto": "#1a202c",
+              "colorFondo": "",
+              "imageUrl": "https://res.cloudinary.com/dyy1yqvbv/image/upload/v1774884246/fwnlkow2wmreyhxfykzq.jpg"
+            },
+            "bloqueMid2": {
+              "id": "editable-987",
+              "texto": " ",
+              "colorTexto": "#1a202c",
+              "colorFondo": "",
+              "imageUrl": "https://res.cloudinary.com/dyy1yqvbv/image/upload/v1774884263/byrg6qwg0j78lb48qnok.jpg"
+            },
+            "bloqueBottom1": {
+              "id": "editable-988",
+              "texto": " ",
+              "colorTexto": "#1a202c",
+              "colorFondo": "",
+              "imageUrl": "https://res.cloudinary.com/dyy1yqvbv/image/upload/v1774884276/nfseqwyjvgo7b2owb0zk.jpg"
+            },
+            "bloqueBottom2": {
+              "id": "editable-989",
+              "texto": " ",
+              "colorTexto": "#1a202c",
+              "colorFondo": "",
+              "imageUrl": "https://res.cloudinary.com/dyy1yqvbv/image/upload/v1774884286/dhqd2gpoc7vfbaytws2t.jpg"
+            }
+          }
+        }
+      ],
+      "titulo": "RAV KAFE",
+      "descripcion": "Identidad visual para cafetería urbana moderna.",
+      "pdf": "https://res.cloudinary.com/dyy1yqvbv/raw/upload/v1774884474/pgliqjnnohshpakujtkf",
+      "imgPortada": "https://res.cloudinary.com/dyy1yqvbv/image/upload/v1774884473/bxl7xxxxljhz8pz1yhlz.jpg",
+      "nombreUsuario": "María Jesús Chaverri"
+    }
+  ],
+  "resenas": [
+    {
+      "id": "6ac6",
+      "usuarioId": "55e4",
+      "portafolioId": null,
+      "comentario": "muy wow",
+      "rating": 5,
+      "fecha": "2026-03-30T00:28:06.587Z"
+    },
+    {
+      "id": "c80c",
+      "usuarioId": "55e4",
+      "portafolioId": null,
+      "comentario": "Bien!",
+      "rating": 4,
+      "fecha": "2026-03-30T06:07:50.297Z"
+    },
+    {
+      "id": "7627",
+      "usuarioId": "55e4",
+      "portafolioId": null,
+      "comentario": "muy wow",
+      "rating": 5,
+      "fecha": "2026-03-30T15:21:37.562Z"
+    },
+    {
+      "id": "6dc1",
+      "usuarioId": "55e4",
+      "portafolioId": "5cc9",
+      "comentario": "muy wow",
+      "rating": 5,
+      "fecha": "2026-03-30T15:29:12.119Z"
+    }
+  ],
+  "$schema": "./node_modules/json-server/schema.json"
+}

@@ -1,0 +1,40 @@
+.contenedor_titulos{
+    display: flex;
+    gap: 50px;
+    flex-direction: column;
+}
+
+.contenedor_lienzo{
+    display: flex;
+    gap: 50px;
+    flex-direction: column;
+    margin-left: 20px;
+    margin-top: 20px;
+}
+
+.titulos_subs{
+    border: none;
+    background-color: transparent;
+    font-size: 1.5em;
+}
+
+.titulos_subs:first-child{
+    font-weight: bold;
+}
+
+
+
+
+.titulos_subs:focus{
+    outline: none;
+    border: none;
+}
+
+.titulos_subs:hover{
+    cursor: pointer;
+}
+
+.titulos_subs:active{
+    border: none;
+}
+

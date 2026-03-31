@@ -1,0 +1,591 @@
+/* Variables de color y fuentes */
+:root {
+    --primary-color: #2563eb;
+    --primary-hover: #1d4ed8;
+    --secondary-color: #64748b;
+    --bg-light: #f8fafc;
+    --text-dark: #1e293b;
+    --text-muted: #64748b;
+    --white: #ffffff;
+    --shadow-sm: 0 1px 2px 0 rgb(0 0 0 / 0.05);
+    --shadow-md: 0 4px 6px -1px rgb(0 0 0 / 0.1), 0 2px 4px -2px rgb(0 0 0 / 0.1);
+    --shadow-lg: 0 10px 15px -3px rgb(0 0 0 / 0.1), 0 4px 6px -4px rgb(0 0 0 / 0.1);
+    --transition-fast: 0.2s ease;
+    --transition-normal: 0.3s ease;
+}
+
+/* Estilos para el Header (KREA) */
+div > div > h1 {
+    font-size: 3.5rem;
+    font-weight: 800;
+    color: var(--primary-color);
+    margin-top: 2rem;
+    margin-bottom: 0.5rem;
+    text-align: center;
+    letter-spacing: -0.025em;
+    font-family: 'Inter', sans-serif;
+}
+
+div > div > h3 {
+    font-size: 1.25rem;
+    color: var(--text-muted);
+    text-align: center;
+    margin-bottom: 3rem;
+    font-weight: 400;
+}
+
+div > div > img[alt="Logo de la pagina"] {
+    display: none;
+}
+
+/* Hero Section */
+.DivImagenFondo {
+    margin: 0 auto;
+    height: 550px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-image: linear-gradient(rgba(0, 0, 0, 0.4), rgba(0, 0, 0, 0.4)), url(https://cdn.al-ain.com/lg/images/2021/7/08/78-101837-palestinian-artist-turns-letters-murals-2.jpeg);
+    background-repeat: no-repeat;
+    background-position: center;
+    background-size: cover;
+    width: 95%;
+    border-radius: 24px;
+    overflow: hidden;
+    box-shadow: var(--shadow-lg);
+    transition: var(--transition-normal);
+    position: relative;
+}
+
+.cont-textos {
+    position: relative;
+    color: var(--white);
+    width: 70%;
+    max-width: 800px;
+    text-align: center;
+    padding: 3rem;
+    background: rgba(0, 0, 0, 0.2);
+    backdrop-filter: blur(8px);
+    border-radius: 24px;
+    border: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+.SubTituloImagen {
+    font-size: 3rem;
+    font-weight: 700;
+    margin-bottom: 1.5rem;
+    color: var(--white);
+    text-shadow: 0 2px 4px rgba(0, 0, 0, 0.3);
+}
+
+.ParrafoImagen {
+    font-size: 1.2rem;
+    line-height: 1.6;
+    margin-bottom: 2.5rem;
+    color: rgba(255, 255, 255, 0.9);
+}
+
+.ButtonCrearCuenta {
+    background-color: var(--primary-color);
+    color: var(--white);
+    padding: 1rem 2.5rem;
+    border-radius: 12px;
+    font-weight: 600;
+    font-size: 1.1rem;
+    border: none;
+    cursor: pointer;
+    transition: var(--transition-fast);
+    box-shadow: 0 4px 6px rgba(37, 99, 235, 0.4);
+}
+
+.ButtonCrearCuenta:hover {
+    background-color: var(--primary-hover);
+    transform: translateY(-2px);
+    box-shadow: 0 6px 12px rgba(37, 99, 235, 0.6);
+}
+
+/* Navegación de Talentos */
+.NavTalentos {
+    margin: 4rem 0 2rem;
+    display: flex;
+    justify-content: center;
+}
+
+.NavTalentos .pagination {
+    border: none;
+    gap: 0.5rem;
+}
+
+.NavTalentos .page-link {
+    border-radius: 50px !important;
+    padding: 0.6rem 1.5rem;
+    border: none;
+    background-color: #f1f5f9;
+    color: var(--text-dark);
+    font-weight: 500;
+    transition: var(--transition-fast);
+}
+
+.NavTalentos .page-item.active .page-link {
+    background-color: var(--primary-color);
+    color: var(--white);
+    box-shadow: 0 4px 10px rgba(37, 99, 235, 0.3);
+}
+
+.NavTalentos .page-item:not(.active):not(.disabled) .page-link:hover {
+    background-color: #e2e8f0;
+    color: var(--primary-color);
+}
+
+/* Carousel de Cartas */
+.ApartadoCartas {
+    display: flex;
+    gap: 2rem;
+    overflow-x: auto;
+    scroll-behavior: smooth;
+    padding: 2rem 1rem;
+    scrollbar-width: none;
+}
+
+.ApartadoCartas::-webkit-scrollbar {
+    display: none;
+}
+
+.ApartadoCartas .card {
+    flex: 0 0 auto;
+    border: none;
+    border-radius: 20px;
+    overflow: hidden;
+    box-shadow: var(--shadow-md);
+    transition: var(--transition-normal);
+}
+
+.ApartadoCartas .card:hover {
+    transform: translateY(-8px);
+    box-shadow: var(--shadow-lg);
+}
+
+.ApartadoCartas .card-img-top {
+    height: 220px;
+    object-fit: cover;
+}
+
+.ApartadoCartas .card-body {
+    padding: 1.5rem;
+}
+
+.ApartadoCartas .card-title {
+    font-weight: 700;
+    color: var(--text-dark);
+}
+
+.ApartadoCartas .card-text {
+    color: var(--text-muted);
+    font-size: 0.95rem;
+    line-height: 1.5;
+}
+
+.btn-carousel {
+    background-color: var(--white);
+    color: var(--text-dark);
+    border: 1px solid #e2e8f0;
+    border-radius: 50%;
+    width: 48px;
+    height: 48px;
+    font-size: 24px;
+    cursor: pointer;
+    z-index: 10;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    box-shadow: var(--shadow-md);
+    transition: var(--transition-fast);
+}
+
+.btn-carousel:hover {
+    background-color: var(--primary-color);
+    color: var(--white);
+    border-color: var(--primary-color);
+    transform: translateY(-50%) scale(1.1);
+}
+
+.btn-carousel.left { left: -24px; }
+.btn-carousel.right { right: -24px; }
+
+/* Talento Destacado */
+.DivTalentoDestacado {
+    display: grid;
+    grid-template-columns: 1.2fr 0.8fr;
+    gap: 3rem;
+    background-color: #f0f7ff;
+    padding: 2rem 4rem;
+    border-radius: 40px;
+    margin: 4% auto;
+    width: 90%;
+    max-width: 1200px;
+    position: relative;
+    box-shadow: var(--shadow-lg);
+    align-items: center;
+}
+
+.imgCont {
+    width: 100%;
+    display: flex;
+    justify-content: center;
+}
+
+.ImagenTalentoDestacado {
+    width: 100%;
+    max-height: 450px;
+    height: auto;
+    object-fit: contain;
+    border-radius: 16px;
+    background-color: rgba(255, 255, 255, 0.5);
+    box-shadow: var(--shadow-md);
+    transition: all 0.3s ease;
+}
+
+.ImagenTalentoDestacado:hover {
+    transform: scale(1.05);
+}
+
+.DivInfoPintura h2 {
+    font-size: 2.2rem;
+    font-weight: 700;
+    color: var(--text-dark);
+    margin-bottom: 0.5rem;
+}
+
+.DivInfoPintura h4 {
+    color: var(--primary-color);
+    margin-bottom: 1.5rem;
+    font-weight: 600;
+}
+
+.DivInfoPintura h6 {
+    color: var(--text-muted);
+    line-height: 1.6;
+    margin-bottom: 1rem;
+}
+
+.DivInfoPintura ul {
+    padding-left: 1.2rem;
+    margin-bottom: 2rem;
+}
+
+.DivInfoPintura li {
+    color: var(--text-muted);
+    margin-bottom: 0.8rem;
+    line-height: 1.4;
+}
+
+.BotonVerPerfil {
+    background-color: var(--primary-color);
+    color: var(--white);
+    padding: 0.8rem 2rem;
+    border-radius: 10px;
+    border: none;
+    font-weight: 600;
+    cursor: pointer;
+    transition: var(--transition-fast);
+    box-shadow: 0 4px 6px rgba(37, 99, 235, 0.2);
+}
+
+.BotonVerPerfil:hover {
+    background-color: var(--primary-hover);
+    transform: scale(1.05);
+}
+
+/* Pie de Página */
+.DivPiePagina {
+    background-color: #1e293b;
+    color: var(--white);
+    padding: 4rem 2rem;
+    text-align: center;
+}
+
+.TituloTalentDestacado {
+    font-size: 2.75rem;
+    font-weight: 800;
+    text-align: center;
+    margin: 4rem 0 2rem;
+    background: linear-gradient(135deg, #2563eb 0%, #38bdf8 100%);
+    -webkit-background-clip: text;
+    background-clip: text;
+    -webkit-text-fill-color: transparent;
+    font-family: 'Inter', system-ui, -apple-system, sans-serif;
+    letter-spacing: -0.025em;
+    position: relative;
+    padding-bottom: 15px;
+}
+
+.TituloTalentDestacado::after {
+    content: '';
+    position: absolute;
+    bottom: 0;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 60px;
+    height: 5px;
+    background: linear-gradient(90deg, #2563eb, #38bdf8);
+    border-radius: 10px;
+}
+
+/* ===== Botón Buzón Superior (Fixed) ===== */
+.ButtonBuzonTop {
+    position: fixed !important;
+    top: 15px !important;
+    right: 25px !important;
+    z-index: 10006 !important;
+    background-color: var(--primary-color) !important;
+    color: var(--white) !important;
+    padding: 10px 20px !important;
+    border-radius: 50px !important;
+    font-weight: 700 !important;
+    font-size: 0.9rem !important;
+    border: none !important;
+    cursor: pointer !important;
+    display: flex !important;
+    align-items: center !important;
+    gap: 8px !important;
+    box-shadow: 0 4px 12px rgba(37, 99, 235, 0.3) !important;
+    transition: all 0.3s ease !important;
+    font-family: 'Inter', sans-serif !important;
+    pointer-events: auto !important;
+}
+
+.ButtonBuzonTop:hover {
+    background-color: var(--primary-hover) !important;
+    transform: translateY(-2px) !important;
+    box-shadow: 0 6px 15px rgba(37, 99, 235, 0.4) !important;
+}
+
+.buzon-badge-top {
+    background: #ef4444 !important;
+    color: white !important;
+    font-size: 0.7rem !important;
+    min-width: 18px !important;
+    height: 18px !important;
+    display: flex !important;
+    align-items: center !important;
+    justify-content: center !important;
+    border-radius: 50% !important;
+    border: 2px solid white !important;
+    font-weight: 800 !important;
+}
+
+/* === Panel de Notificación Estilo Premium === */
+.notification-panel {
+    position: fixed !important;
+    top: 75px !important;
+    right: 25px !important;
+    width: 380px !important;
+    background: rgba(255, 255, 255, 0.95) !important;
+    backdrop-filter: blur(12px) !important;
+    -webkit-backdrop-filter: blur(12px) !important;
+    border-radius: 20px !important;
+    box-shadow: 0 20px 40px rgba(0, 0, 0, 0.12), 0 0 0 1px rgba(0, 0, 0, 0.05) !important;
+    z-index: 10005 !important;
+    overflow: hidden !important;
+    animation: slideInNotif 0.4s cubic-bezier(0.16, 1, 0.3, 1) !important;
+    border: none !important;
+    pointer-events: auto !important;
+}
+
+@keyframes slideInNotif {
+    from { transform: translateX(30px) translateY(-10px); opacity: 0; }
+    to { transform: translateX(0) translateY(0); opacity: 1; }
+}
+
+.notif-header {
+    padding: 18px 24px !important;
+    background: transparent !important;
+    border-bottom: 1px solid rgba(0, 0, 0, 0.05) !important;
+    display: flex !important;
+    justify-content: space-between !important;
+    align-items: center !important;
+}
+
+.notif-header h5 { 
+    margin: 0 !important; 
+    font-size: 1.1rem !important; 
+    font-weight: 800 !important; 
+    color: #0f172a !important;
+    letter-spacing: -0.02em !important;
+}
+
+.notif-close {
+    background: #f1f5f9 !important;
+    border: none !important;
+    width: 28px !important;
+    height: 28px !important;
+    border-radius: 50% !important;
+    display: flex !important;
+    align-items: center !important;
+    justify-content: center !important;
+    font-size: 1.2rem !important;
+    color: #64748b !important;
+    cursor: pointer !important;
+    transition: all 0.2s ease !important;
+}
+
+.notif-close:hover {
+    background: #e2e8f0 !important;
+    color: #0f172a !important;
+}
+
+.notif-body {
+    max-height: 450px !important;
+    overflow-y: auto !important;
+    padding: 12px !important;
+}
+
+/* Scrollbar personalizado para el panel */
+.notif-body::-webkit-scrollbar { width: 6px; }
+.notif-body::-webkit-scrollbar-track { background: transparent; }
+.notif-body::-webkit-scrollbar-thumb { background: #e2e8f0; border-radius: 10px; }
+
+.notif-empty {
+    padding: 40px 20px !important;
+    text-align: center !important;
+    color: #94a3b8 !important;
+    font-size: 0.95rem !important;
+}
+
+.notif-item {
+    padding: 20px !important;
+    border-radius: 16px !important;
+    background: #ffffff !important;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.04) !important;
+    margin-bottom: 12px !important;
+    transition: transform 0.2s ease, box-shadow 0.2s ease !important;
+    border: 1px solid rgba(0, 0, 0, 0.03) !important;
+}
+
+.notif-item:hover {
+    transform: translateY(-2px) !important;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.08) !important;
+}
+
+.notif-item strong { 
+    display: block !important; 
+    margin-bottom: 6px !important; 
+    color: #1e293b !important; 
+    font-size: 1rem !important;
+    font-weight: 700 !important;
+}
+
+.notif-item p { 
+    margin: 0 0 16px 0 !important; 
+    font-size: 0.9rem !important; 
+    color: #64748b !important; 
+    line-height: 1.5 !important;
+}
+
+.notif-actions {
+    display: flex !important;
+    gap: 10px !important;
+}
+
+.notif-btn-accept {
+    background: #10b981 !important; /* Verde Esmeralda más premium */
+    color: white !important;
+    border: none !important;
+    padding: 8px 16px !important;
+    border-radius: 10px !important;
+    font-size: 0.85rem !important;
+    font-weight: 700 !important;
+    cursor: pointer !important;
+    flex: 1 !important;
+    transition: all 0.2s ease !important;
+    box-shadow: 0 4px 10px rgba(16, 185, 129, 0.2) !important;
+}
+
+.notif-btn-accept:hover { 
+    background: #059669 !important; 
+    transform: translateY(-1px) !important;
+    box-shadow: 0 6px 15px rgba(16, 185, 129, 0.3) !important;
+}
+
+.notif-btn-decline {
+    background: #f8fafc !important;
+    color: #64748b !important;
+    border: 1px solid #e2e8f0 !important;
+    padding: 8px 16px !important;
+    border-radius: 10px !important;
+    font-size: 0.85rem !important;
+    font-weight: 700 !important;
+    cursor: pointer !important;
+    transition: all 0.2s ease !important;
+}
+
+.notif-btn-decline:hover { 
+    background: #fee2e2 !important; 
+    color: #ef4444 !important;
+    border-color: #fecaca !important;
+}
+
+.buzon-modal-header {
+    padding: 20px 24px;
+    border-bottom: 1px solid #f1f5f9;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    background: #f8fafc;
+}
+
+.buzon-modal-header h2 { margin: 0; font-size: 1.5rem; color: #1e293b; font-weight: 700; }
+
+.close-modal {
+    background: none; border: none; font-size: 2rem; color: #94a3b8; cursor: pointer; line-height: 1;
+}
+
+.close-modal:hover { color: #ef4444; }
+
+.convocatorias-list {
+    padding: 24px;
+    overflow-y: auto;
+    display: flex;
+    flex-direction: column;
+    gap: 16px;
+}
+
+.convocatoria-item {
+    border: 1px solid #e2e8f0;
+    border-radius: 12px;
+    padding: 20px;
+    background: #ffffff;
+}
+
+.convocatoria-item h4 { margin: 0 0 8px 0; color: #0f172a; font-size: 1.2rem; }
+.convocatoria-item p { margin: 0 0 16px 0; color: #64748b; font-size: 0.95rem; line-height: 1.5; }
+
+.convocatoria-footer { display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap; gap: 12px; }
+
+.tipo-talento-tag {
+    background: #e1f5fe; color: #0096c7; padding: 4px 12px; border-radius: 20px; font-size: 0.8rem; font-weight: 700;
+}
+
+.action-buttons { display: flex; gap: 8px; }
+
+.btn-participar, .btn-no-participar {
+    padding: 8px 16px; border-radius: 8px; font-weight: 600; font-size: 0.85rem; cursor: pointer; border: none; transition: all 0.2s;
+}
+
+.btn-participar { background: #00b4d8; color: white; }
+.btn-participar:hover { background: #0096c7; }
+
+.btn-no-participar { background: #f1f5f9; color: #64748b; }
+.btn-no-participar:hover { background: #fee2e2; color: #ef4444; }
+
+.no-convocatorias { padding: 40px; text-align: center; color: #94a3b8; font-style: italic; }
+
+@media (max-width: 768px) {
+    .TituloTalentDestacado {
+        font-size: 2rem;
+        margin: 3rem 0 1.5rem;
+    }
+}

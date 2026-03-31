@@ -186,6 +186,33 @@
       "pdf": "https://res.cloudinary.com/dyy1yqvbv/raw/upload/v1774884474/pgliqjnnohshpakujtkf",
       "imgPortada": "https://res.cloudinary.com/dyy1yqvbv/image/upload/v1774884473/bxl7xxxxljhz8pz1yhlz.jpg",
       "nombreUsuario": "María Jesús Chaverri"
+    },
+    {
+      "id": "193c",
+      "usuarioId": "c098",
+      "componentes": [
+        {
+          "id": "d8894ba8-42b5-449d-be38-8746b09c8deb",
+          "type": "Estructura1",
+          "data": {
+            "texto": "",
+            "colorTexto": "#1a202c",
+            "colorFondo": "",
+            "imageUrl": "",
+            "fontSize": "16px",
+            "bold": false,
+            "italic": false,
+            "align": "left",
+            "childColorFondo": "#ff0000",
+            "childImageUrl": ""
+          }
+        }
+      ],
+      "titulo": "Prueba",
+      "descripcion": "Prueba",
+      "pdf": "https://res.cloudinary.com/dyy1yqvbv/raw/upload/v1774923031/nzllipygslexshntcohp",
+      "imgPortada": "https://res.cloudinary.com/dyy1yqvbv/image/upload/v1774923029/qfw2z1mv5r87awtfkklv.jpg",
+      "nombreUsuario": "Adrian Mora Castillo"
     }
   ],
   "resenas": [

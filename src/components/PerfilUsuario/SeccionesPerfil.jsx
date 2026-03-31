@@ -7,17 +7,17 @@ function SeccionesPerfil() {
             <div className="tabs">
 
                 <div className="tab active">
-                    <span class="fa-solid fa-table-cells"></span>
+                    <span className="fa-solid fa-table-cells"></span>
                     <h6>Proyectos</h6>
                 </div>
 
                 <div className="tab">
-                    <span class="fa-solid fa-star"></span>
+                    <span className="fa-solid fa-star"></span>
                     <h6>Reseñas (42)</h6>
                 </div>
 
                 <div className="tab">
-                    <span class="fa-solid fa-circle-info"></span>
+                    <span className="fa-solid fa-circle-info"></span>
                     <h6>Sobre mí</h6>
                 </div>
 

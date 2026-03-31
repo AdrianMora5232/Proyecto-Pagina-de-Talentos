@@ -3,12 +3,18 @@ import EditableBlock from "./EditableBlock";
 import { useEditable } from "./useEditable";
 import { useState, useEffect } from "react";
 
-function GrillaTriple({ onActivate, activeElement }) {
+function GrillaTriple({ onActivate, activeElement, initialData, onUpdate }) {
 
-  const fondo = useEditable();
-  const bloque1 = useEditable();
-  const bloque2 = useEditable();
-  const bloque3 = useEditable();
+  const handleUpdate = (key, newData) => {
+    if (onUpdate) {
+      onUpdate({ ...initialData, [key]: newData });
+    }
+  };
+
+  const fondo = useEditable(initialData?.fondo, (d) => handleUpdate('fondo', d));
+  const bloque1 = useEditable(initialData?.bloque1, (d) => handleUpdate('bloque1', d));
+  const bloque2 = useEditable(initialData?.bloque2, (d) => handleUpdate('bloque2', d));
+  const bloque3 = useEditable(initialData?.bloque3, (d) => handleUpdate('bloque3', d));
 
   const [loadingFondo, setLoadingFondo] = useState(false);
 

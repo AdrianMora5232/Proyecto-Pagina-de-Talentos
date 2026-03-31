@@ -20,7 +20,6 @@ function ProyectosRecientes() {
         try {
             const usuario = JSON.parse(localStorage.getItem("UsuarioActivo"))
 
-            // Fetch Portafolios
             const peticionJson = await Fetch.getData("portafolios")
 
             const filtroProyectos = peticionJson.filter(
@@ -29,7 +28,6 @@ function ProyectosRecientes() {
 
             setProyectos(filtroProyectos)
 
-            // Fetch Reseñas
             const resenasJson = await Fetch.getData("resenas") || []
             setTodasResenas(resenasJson)
 
@@ -39,6 +37,19 @@ function ProyectosRecientes() {
             setTimeout(() => setLoading(false), 800)
         }
     }
+
+    const handleDeletePortfolio = async (id) => {
+        const confirmar = window.confirm("¿Estás seguro de que quieres eliminar este portafolio? Esta acción no se puede deshacer.");
+        if (!confirmar) return;
+
+        try {
+            await Fetch.deleteData("portafolios", id);
+            setProyectos((prev) => prev.filter((p) => p.id !== id));
+        } catch (error) {
+            console.error("Error al eliminar portafolio:", error);
+            alert("No se pudo eliminar el portafolio. Intenta de nuevo.");
+        }
+    };
 
     useEffect(() => {
         cargarDatos()
@@ -63,16 +74,31 @@ function ProyectosRecientes() {
                     promedio={promedio}
                     imgPortada={proyecto.imgPortada}
                     onVerProyecto={() => setProyectoSeleccionado(proyecto)}
+                    onDelete={() => handleDeletePortfolio(proyecto.id)}
                 />
             )
         })
     }, [proyectos, todasResenas, visibleCount])
 
+    const usuarioActivo = JSON.parse(localStorage.getItem("UsuarioActivo") || "{}");
+    const isOwner = !!usuarioActivo.id;
+
     return (
         <div className='proyectos-container'>
             <div className="proyectos-header">
                 <h4>Proyectos Recientes</h4>
-                <p>Ver todos</p>
+                <div style={{ display: 'flex', alignItems: 'center', gap: '20px' }}>
+                    {isOwner && (
+                        <button 
+                            className="btn-create-empty"
+                            onClick={() => navigate("/portafolio")}
+                            style={{ padding: '8px 16px', fontSize: '13px' }}
+                        >
+                            + Agregar Portafolio
+                        </button>
+                    )}
+                    <p onClick={() => navigate("/todos-proyectos")}>Ver todos</p>
+                </div>
             </div>
 
             <div className="proyectos-grid">

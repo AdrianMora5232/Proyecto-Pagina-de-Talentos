@@ -3,13 +3,19 @@ import EditableBlock from "./EditableBlock";
 import { useEditable } from "./useEditable";
 import { useState, useEffect } from "react";
 
-function Estructura1_3({ onActivate, activeElement }) {
+function Estructura1_3({ onActivate, activeElement, initialData, onUpdate }) {
 
-  const fondo = useEditable();
-  const bloqueTop = useEditable();
-  const bloqueMid = useEditable();
-  const bloqueBottom1 = useEditable();
-  const bloqueBottom2 = useEditable();
+  const handleUpdate = (key, newData) => {
+    if (onUpdate) {
+      onUpdate({ ...initialData, [key]: newData });
+    }
+  };
+
+  const fondo = useEditable(initialData?.fondo, (d) => handleUpdate('fondo', d));
+  const bloqueTop = useEditable(initialData?.bloqueTop, (d) => handleUpdate('bloqueTop', d));
+  const bloqueMid = useEditable(initialData?.bloqueMid, (d) => handleUpdate('bloqueMid', d));
+  const bloqueBottom1 = useEditable(initialData?.bloqueBottom1, (d) => handleUpdate('bloqueBottom1', d));
+  const bloqueBottom2 = useEditable(initialData?.bloqueBottom2, (d) => handleUpdate('bloqueBottom2', d));
 
   const [loadingFondo, setLoadingFondo] = useState(false);
 

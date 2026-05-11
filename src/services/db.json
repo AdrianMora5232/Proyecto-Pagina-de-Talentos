@@ -4,70 +4,43 @@
       "id": "c098",
       "Nombre": "Adrian Mora Castillo",
       "Correo": "miniaseapa@gmail.com",
-      "Provincias": "Limón",
-      "Canton": "Pococi",
-      "Distrito": "si",
+      "Provincias": "Cartago ",
+      "Canton": "La fortuna",
+      "Distrito": "calle blancos",
       "Roles": "Admin",
       "Contrasena": "Admc5232"
     },
     {
-      "id": "c073",
-      "Nombre": "jheycob",
-      "Correo": "jheycob@gmail.com",
+      "id": "f898",
+      "Nombre": "Alejandro",
+      "Correo": "alejandronicmen@gmail.com",
+      "email": "alejandronicmen@gmail.com",
+      "telefono": "7211 4083",
       "Provincias": "San José",
-      "Canton": "alajuelita",
-      "Distrito": "alajuelita",
+      "Canton": "Alajuelita",
+      "Distrito": "Llano",
       "Roles": "Admin",
-      "Contrasena": "jheycob12"
+      "Contrasena": "12345678",
+      "img": "https://res.cloudinary.com/dyy1yqvbv/image/upload/v1774884897/xlc288o26ghhf47gghpb.jpg"
     },
     {
-      "id": "55e4",
+      "id": "2fa4",
       "Nombre": "María Jesús Chaverri",
-      "Correo": "mj@gmail.com",
+      "Correo": "mariajesuschavariria@gmail.com",
+      "email": "mariajesuschavariria@gmail.com",
+      "telefono": "84165009",
       "Provincias": "Heredia",
-      "Canton": "San Pablo",
-      "Distrito": "xd",
+      "Canton": "San Paulo",
+      "Distrito": "calle blancos",
       "Roles": "Usuario",
       "Contrasena": "12345678",
-      "img": "https://res.cloudinary.com/dyy1yqvbv/image/upload/v1774879683/lbijaajidiutdnriwtdv.webp"
-    },
-    {
-      "id": "d24c",
-      "Nombre": "Pepe Viyuela Gomez",
-      "Correo": "pepe@gmail.com",
-      "Provincias": "Limón",
-      "Canton": "Batán",
-      "Distrito": "Lima",
-      "Roles": "Usuario",
-      "Contrasena": "12345678",
-      "img": "https://res.cloudinary.com/dyy1yqvbv/image/upload/v1774761044/iargr9gued6xgwq4jytb.png"
+      "img": "https://via.placeholder.com/150"
     }
   ],
   "portafolios": [
     {
-      "id": "649b",
-      "usuarioId": "1",
-      "componentes": [
-        "Estructura1",
-        "Estructura1_1"
-      ],
-      "titulo": "hhrh",
-      "descripcion": "fghnfg"
-    },
-    {
-      "id": "336e",
-      "usuarioId": "1",
-      "componentes": [
-        "Estructura1",
-        "Estructura1_1"
-      ],
-      "titulo": "grgs",
-      "descripcion": "sgsg",
-      "pdf": "https://res.cloudinary.com/dyy1yqvbv/raw/upload/v1774508475/v1xcx5qk7gksc4o06e2c"
-    },
-    {
       "id": "5cc9",
-      "usuarioId": "55e4",
+      "usuarioId": null,
       "componentes": [
         {
           "id": "d2e4bddb-6eaa-4a19-97aa-6f277dcca715",
@@ -186,12 +159,255 @@
       "pdf": "https://res.cloudinary.com/dyy1yqvbv/raw/upload/v1774884474/pgliqjnnohshpakujtkf",
       "imgPortada": "https://res.cloudinary.com/dyy1yqvbv/image/upload/v1774884473/bxl7xxxxljhz8pz1yhlz.jpg",
       "nombreUsuario": "María Jesús Chaverri"
+    },
+    {
+      "id": "d115",
+      "usuarioId": null,
+      "componentes": [
+        {
+          "id": "51c0db97-78e1-4037-bfff-8c8d78a97c7e",
+          "type": "Estructura1",
+          "data": {
+            "texto": "Fresh Market",
+            "colorTexto": "#ffffff",
+            "colorFondo": "",
+            "imageUrl": "https://res.cloudinary.com/dyy1yqvbv/image/upload/v1774888113/oi6et3rnrovwn74qhry2.jpg",
+            "fontSize": "16px",
+            "bold": false,
+            "italic": false,
+            "align": "left",
+            "childColorFondo": "",
+            "childImageUrl": ""
+          }
+        }
+      ],
+      "titulo": "FreshMarket",
+      "descripcion": "Pagina Web de supermercado",
+      "pdf": "https://res.cloudinary.com/dyy1yqvbv/raw/upload/v1774888161/wjts6lcuupdsvrxe4vvo",
+      "imgPortada": "https://res.cloudinary.com/dyy1yqvbv/image/upload/v1774888160/nzmvlllaotx5osh63a3t.jpg",
+      "nombreUsuario": "Pepe Viyuela Gomez"
+    },
+    {
+      "id": "5f6e",
+      "usuarioId": "2fa4",
+      "componentes": [
+        {
+          "id": "5af1d2dd-cc32-4720-b0aa-cca37f9d5502",
+          "type": "Estructura1",
+          "data": {
+            "texto": "Prototipo de Modelado 3D",
+            "colorTexto": "#000000",
+            "colorFondo": "#ababab",
+            "imageUrl": "",
+            "fontSize": "16px",
+            "bold": false,
+            "italic": false,
+            "align": "left",
+            "childColorFondo": "",
+            "childImageUrl": ""
+          }
+        },
+        {
+          "id": "6297e3a6-3dde-4b7d-b954-f0c8fca99bd7",
+          "type": "Estructura1_2",
+          "data": {
+            "texto": "",
+            "colorTexto": "#1a202c",
+            "colorFondo": "",
+            "imageUrl": "",
+            "fontSize": "16px",
+            "bold": false,
+            "italic": false,
+            "align": "left",
+            "childColorFondo": "",
+            "childImageUrl": "",
+            "bloqueTop": {
+              "id": "editable-1245",
+              "texto": "BOCETO DE PROTOTIPO",
+              "colorTexto": "#ffffff",
+              "colorFondo": "",
+              "imageUrl": ""
+            },
+            "bloqueMid": {
+              "id": "editable-1246",
+              "texto": " ",
+              "colorTexto": "#1a202c",
+              "colorFondo": "",
+              "imageUrl": "https://res.cloudinary.com/dyy1yqvbv/image/upload/v1774891568/ogtfnpqtpuphfrqbn0rr.jpg"
+            },
+            "bloqueBottom": {
+              "id": "editable-1247",
+              "texto": " ",
+              "colorTexto": "#1a202c",
+              "colorFondo": "",
+              "imageUrl": "https://res.cloudinary.com/dyy1yqvbv/image/upload/v1774891577/qhgq8oaaxnbifg4or8pj.jpg"
+            },
+            "fondo": {
+              "id": "editable-1244",
+              "texto": "",
+              "colorTexto": "#1a202c",
+              "colorFondo": "#ababab",
+              "imageUrl": ""
+            }
+          }
+        },
+        {
+          "id": "ff32514c-c1e3-48b5-ac31-e4d4009d3214",
+          "type": "GrillaDoble",
+          "data": {
+            "texto": "",
+            "colorTexto": "#1a202c",
+            "colorFondo": "",
+            "imageUrl": "",
+            "fontSize": "16px",
+            "bold": false,
+            "italic": false,
+            "align": "left",
+            "childColorFondo": "",
+            "childImageUrl": "",
+            "bloque1": {
+              "id": "editable-3035",
+              "texto": " ",
+              "colorTexto": "#1a202c",
+              "colorFondo": "",
+              "imageUrl": "https://res.cloudinary.com/dyy1yqvbv/image/upload/v1774891650/s93jhwyn80wwutaujuvf.jpg"
+            },
+            "bloque2": {
+              "id": "editable-3036",
+              "texto": " ",
+              "colorTexto": "#1a202c",
+              "colorFondo": "",
+              "imageUrl": "https://res.cloudinary.com/dyy1yqvbv/image/upload/v1774891658/zpcz0oybscofkqmaqpdg.jpg"
+            },
+            "fondo": {
+              "id": "editable-3034",
+              "texto": "",
+              "colorTexto": "#1a202c",
+              "colorFondo": "#ababab",
+              "imageUrl": ""
+            }
+          }
+        }
+      ],
+      "titulo": "Prototipo de Modelado 3D",
+      "descripcion": "Modelado de personaje para videojuego",
+      "pdf": "https://res.cloudinary.com/dyy1yqvbv/raw/upload/v1774891689/imotsgcmdou0k2uqftqv",
+      "imgPortada": "https://res.cloudinary.com/dyy1yqvbv/image/upload/v1774891688/fxjzhf9kisqkx9ewpppm.jpg",
+      "nombreUsuario": "Maria Jesus chavarria"
+    },
+    {
+      "id": "af4f",
+      "usuarioId": "f898",
+      "componentes": [
+        {
+          "id": "097df3c7-4410-4335-b441-ab7219da168c",
+          "type": "Estructura1",
+          "data": {
+            "texto": "Tattoo Portfolio",
+            "colorTexto": "#ffffff",
+            "colorFondo": "",
+            "imageUrl": "https://res.cloudinary.com/dyy1yqvbv/image/upload/v1778275166/orqvxcd1thjzeb7nsp6o.jpg",
+            "fontSize": "16px",
+            "bold": false,
+            "italic": false,
+            "align": "left",
+            "childColorFondo": "",
+            "childImageUrl": ""
+          }
+        },
+        {
+          "id": "b3c15cb7-525b-482c-87a6-886acd9cef5f",
+          "type": "GrillaDoble",
+          "data": {
+            "texto": "",
+            "colorTexto": "#1a202c",
+            "colorFondo": "",
+            "imageUrl": "",
+            "fontSize": "16px",
+            "bold": false,
+            "italic": false,
+            "align": "left",
+            "childColorFondo": "",
+            "childImageUrl": "",
+            "bloque1": {
+              "id": "editable-1629",
+              "texto": " ",
+              "colorTexto": "#1a202c",
+              "colorFondo": "",
+              "imageUrl": "https://res.cloudinary.com/dyy1yqvbv/image/upload/v1778275212/zdgieaimrvc571vwh9o4.jpg"
+            },
+            "bloque2": {
+              "id": "editable-1630",
+              "texto": "",
+              "colorTexto": "#1a202c",
+              "colorFondo": "",
+              "imageUrl": "https://res.cloudinary.com/dyy1yqvbv/image/upload/v1778275221/sjee8gwv7v0x8c5o7nd3.jpg"
+            },
+            "fondo": {
+              "id": "editable-1628",
+              "texto": "",
+              "colorTexto": "#1a202c",
+              "colorFondo": "#212121",
+              "imageUrl": ""
+            }
+          }
+        },
+        {
+          "id": "5f6897fd-195b-4b0f-876e-42d0c3a2596b",
+          "type": "GrillaTriple",
+          "data": {
+            "texto": "",
+            "colorTexto": "#1a202c",
+            "colorFondo": "",
+            "imageUrl": "",
+            "fontSize": "16px",
+            "bold": false,
+            "italic": false,
+            "align": "left",
+            "childColorFondo": "",
+            "childImageUrl": "",
+            "bloque1": {
+              "id": "editable-1643",
+              "texto": " ",
+              "colorTexto": "#1a202c",
+              "colorFondo": "",
+              "imageUrl": "https://res.cloudinary.com/dyy1yqvbv/image/upload/v1778275233/xugqwf2cnbhzjxbf9evd.jpg"
+            },
+            "bloque2": {
+              "id": "editable-1644",
+              "texto": " ",
+              "colorTexto": "#1a202c",
+              "colorFondo": "",
+              "imageUrl": "https://res.cloudinary.com/dyy1yqvbv/image/upload/v1778275349/ewtftukmg4w64gfarwbt.jpg"
+            },
+            "bloque3": {
+              "id": "editable-1645",
+              "texto": " ",
+              "colorTexto": "#1a202c",
+              "colorFondo": "",
+              "imageUrl": "https://res.cloudinary.com/dyy1yqvbv/image/upload/v1778275262/tvikp3vd15wpcbjerzob.jpg"
+            },
+            "fondo": {
+              "id": "editable-1642",
+              "texto": "",
+              "colorTexto": "#1a202c",
+              "colorFondo": "#212121",
+              "imageUrl": ""
+            }
+          }
+        }
+      ],
+      "titulo": "Tattoo Portfolio",
+      "descripcion": "Tattoo studio",
+      "pdf": "https://res.cloudinary.com/dyy1yqvbv/raw/upload/v1778275462/uzz9igpmrjagro6pihuk",
+      "imgPortada": "https://res.cloudinary.com/dyy1yqvbv/image/upload/v1778275460/upydycyhqbyybotsjzyt.jpg",
+      "nombreUsuario": "Alejandro"
     }
   ],
   "resenas": [
     {
       "id": "6ac6",
-      "usuarioId": "55e4",
+      "usuarioId": null,
       "portafolioId": null,
       "comentario": "muy wow",
       "rating": 5,
@@ -199,7 +415,7 @@
     },
     {
       "id": "c80c",
-      "usuarioId": "55e4",
+      "usuarioId": null,
       "portafolioId": null,
       "comentario": "Bien!",
       "rating": 4,
@@ -207,7 +423,7 @@
     },
     {
       "id": "7627",
-      "usuarioId": "55e4",
+      "usuarioId": null,
       "portafolioId": null,
       "comentario": "muy wow",
       "rating": 5,
@@ -215,11 +431,124 @@
     },
     {
       "id": "6dc1",
-      "usuarioId": "55e4",
+      "usuarioId": null,
       "portafolioId": "5cc9",
       "comentario": "muy wow",
       "rating": 5,
       "fecha": "2026-03-30T15:29:12.119Z"
+    },
+    {
+      "id": "64dd",
+      "usuarioId": null,
+      "portafolioId": "d115",
+      "comentario": "Muy completo, podrían agregar compra en linea",
+      "rating": 3,
+      "fecha": "2026-03-30T16:33:16.135Z"
+    },
+    {
+      "id": "952b",
+      "usuarioId": "2fa4",
+      "portafolioId": "5f6e",
+      "comentario": "Muy bien",
+      "rating": 4,
+      "fecha": "2026-03-30T17:28:50.821Z"
+    },
+    {
+      "id": "dd3f",
+      "usuarioId": "f898",
+      "portafolioId": "5f6e",
+      "comentario": "bien",
+      "rating": 3,
+      "fecha": "2026-05-08T21:01:11.388Z"
+    },
+    {
+      "id": "f673",
+      "usuarioId": "f898",
+      "portafolioId": "af4f",
+      "comentario": "Increíble",
+      "rating": 5,
+      "fecha": "2026-05-08T21:25:33.363Z"
+    }
+  ],
+  "convocatorias": [
+    {
+      "id": "9678",
+      "nombre": "Ale",
+      "descripcion": "papaya",
+      "tipo_talento": "educacion",
+      "fecha": "2026-03-30T15:22:45.325Z"
+    },
+    {
+      "id": "c963",
+      "nombre": "Ale",
+      "descripcion": "mango",
+      "tipo_talento": "educacion",
+      "fecha": "2026-03-30T15:28:33.416Z"
+    },
+    {
+      "id": "3bd7",
+      "nombre": "Programador",
+      "descripcion": "Desarrollo en wed",
+      "tipo_talento": "tecnologias",
+      "fecha": "2026-03-30T17:33:13.730Z"
+    }
+  ],
+  "respuestas_convocatorias": [
+    {
+      "id": "d27d",
+      "idConvocatoria": "9678",
+      "usuarioNombre": "Adrian Mora Castillo",
+      "convocatoriaNombre": "Ale",
+      "respuesta": "Participar",
+      "fecha": "30/3/2026, 9:23:03"
+    },
+    {
+      "id": "472b",
+      "idConvocatoria": "c963",
+      "usuarioNombre": "Adrian Mora Castillo",
+      "convocatoriaNombre": "Ale",
+      "respuesta": "Participar",
+      "fecha": "30/3/2026, 9:28:48"
+    },
+    {
+      "id": "e779",
+      "idConvocatoria": "9678",
+      "usuarioNombre": "Pepe Viyuela Gomez",
+      "convocatoriaNombre": "Ale",
+      "respuesta": "Participar",
+      "fecha": "3/30/2026, 10:23:57 AM"
+    },
+    {
+      "id": "5709",
+      "idConvocatoria": "c963",
+      "usuarioNombre": "Pepe Viyuela Gomez",
+      "convocatoriaNombre": "Ale",
+      "respuesta": "No participar",
+      "fecha": "3/30/2026, 10:24:03 AM"
+    },
+    {
+      "id": "8e0b",
+      "idConvocatoria": "9678",
+      "usuarioNombre": "Alejandro",
+      "convocatoriaNombre": "Ale",
+      "respuesta": "No participar",
+      "fecha": "5/8/2026, 3:05:26 PM"
+    },
+    {
+      "id": "9d58",
+      "idConvocatoria": "c963",
+      "usuarioNombre": "Alejandro",
+      "convocatoriaNombre": "Ale",
+      "respuesta": "Participar",
+      "fecha": "5/8/2026, 3:05:28 PM"
+    },
+    {
+      "id": "93de",
+      "idConvocatoria": "3bd7",
+      "usuarioNombre": "Alejandro",
+      "convocatoriaNombre": "Programador",
+      "respuesta": "No participar",
+      "fecha": "5/8/2026, 3:05:32 PM"
     }
   ],
   "$schema": "./node_modules/json-server/schema.json"

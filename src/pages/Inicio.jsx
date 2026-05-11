@@ -3,11 +3,11 @@ import InicioPagina from "../components/InicioPagina"
 import Footer from "../components/Footer/Footer"
 
 function Inicio() {
-    return(
+    return (
         <>
-        
-<InicioPagina/>
- <Footer/>
+
+            <InicioPagina />
+            <Footer />
 
 
         </>

@@ -1,5 +1,22 @@
-import React from 'react'
+import React, { useEffect, useState } from 'react'
+
 function SidebarAdmin({ mostrandoDashboard, mostrandoUsuarios, mostrandoPortafolio }) {
+  const [admin, setAdmin] = useState({ Nombre: 'Admin User', Correo: 'admin@proshowcase.com' });
+
+  useEffect(() => {
+    // Obtener datos del admin real desde el localStorage
+    const userString = localStorage.getItem("UsuarioActivo");
+    if (userString) {
+      setAdmin(JSON.parse(userString));
+    }
+  }, []);
+
+  const handleLogout = () => {
+    localStorage.removeItem("UsuarioActivo");
+    localStorage.removeItem("idUsuario");
+    window.location.href = "/";
+  };
+
   return (
     <aside className="w-72 bg-white dark:bg-slate-900 border-r border-slate-200 dark:border-slate-800 flex flex-col shrink-0 h-screen sticky top-0">
       <div className="p-6">
@@ -40,27 +57,28 @@ function SidebarAdmin({ mostrandoDashboard, mostrandoUsuarios, mostrandoPortafol
         </button>
       </nav>
 
-      <div className="px-4 mb-2">
-        <a className="flex items-center gap-3 px-4 py-3 text-slate-600 dark:text-slate-400 hover:bg-slate-50 dark:hover:bg-slate-800 rounded-lg transition-colors" href="#">
-          <span className="material-symbols-outlined">settings</span>
-          <span className="text-sm font-semibold">Configuración</span>
-        </a>
-      </div>
-
       <div className="p-4 border-t border-slate-200 dark:border-slate-800">
         <div className="flex items-center gap-3 p-2">
           <div className="size-10 rounded-full bg-slate-200 overflow-hidden shrink-0">
-            <img 
-              alt="Avatar del administrador" 
-              className="w-full h-full object-cover" 
-              src="https://lh3.googleusercontent.com/aida-public/AB6AXuCeybCgPhC1ocx-4PJRm0mZihLw2LDn2y9mAx5gwOJTP9nwzE4ozZmwmxYWYQSHiPAh9B4nHm0_DAjtP0gBWUXaf28FxvbJvMoJMzrd5paie9rktLifB50ifKfQ1UrNom3485NT4GfPJA-hv8M5ZezkR1alkA0MHKwnPrFBp5u2U8GoWMtX-JTGb2brANvYbsWC5BCFn5S2-w9XC85rlfzvQ3y6FidTnWqLrr1O7SB7LaSbtbpGsAkYDGQx1voh1O9BUekTlWn-eMF9"
-            />
+            {admin.Imagen ? (
+              <img src={admin.Imagen} alt={admin.Nombre} className="w-full h-full object-cover" />
+            ) : (
+              <div className="w-full h-full flex items-center justify-center bg-primary/20 text-primary font-bold">
+                {admin.Nombre?.charAt(0)}
+              </div>
+            )}
           </div>
           <div className="flex-1 min-w-0">
-            <p className="text-sm font-bold truncate">Admin User</p>
-            <p className="text-xs text-slate-500 truncate">admin@proshowcase.com</p>
+            <p className="text-sm font-bold truncate text-slate-900 dark:text-white">{admin.Nombre}</p>
+            <p className="text-xs text-slate-500 truncate">{admin.Correo}</p>
           </div>
-          <span className="material-symbols-outlined text-slate-400 cursor-pointer">logout</span>
+          <button 
+            onClick={handleLogout}
+            className="flex items-center justify-center text-slate-400 hover:text-red-500 transition-colors bg-none border-none cursor-pointer"
+            title="Cerrar sesión"
+          >
+            <span className="material-symbols-outlined">logout</span>
+          </button>
         </div>
       </div>
     </aside>

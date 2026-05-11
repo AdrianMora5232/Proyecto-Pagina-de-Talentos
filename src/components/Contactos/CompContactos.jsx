@@ -60,76 +60,110 @@ const FormularioQuejas = () => {
   };
 
   return (
-    <form onSubmit={handleSubmit} className="contactos-form">
-      <h2 className="contactos-title">Quejas y Sugerencias</h2>
+    <div className="contactos-page-wrapper">
+      <div className="contactos-container">
+        
+        {/* Panel lateral de información */}
+        <div className="contactos-info-panel">
+          <h2>Ponte en contacto</h2>
+          <p>¿Tienes alguna duda, sugerencia o consulta? Queremos escucharte. Completa el formulario y nuestro equipo te responderá lo más pronto posible.</p>
+          
+          <div className="contactos-info-items">
+            <div className="info-item">
+              <span className="info-icon">📍</span>
+              <span>SAN JOSE, COSTA RICA</span>
+            </div>
+            <div className="info-item">
+              <span className="info-icon">✉️</span>
+              <span>[ALGUN CORREO@gmail.com]</span>
+            </div>
+            <div className="info-item">
+              <span className="info-icon">📞</span>
+              <span>+506 8888 8888</span>
+            </div>
+          </div>
+        </div>
 
-      <input
-        type="text"
-        name="nombre"
-        placeholder="Nombre completo"
-        value={formData.nombre}
-        onChange={handleChange}
-        required
-        className="contactos-input"
-      />
+        {/* Columna del formulario */}
+        <div className="contactos-form-col">
+          <form onSubmit={handleSubmit} className="contactos-form">
+            <h2 className="contactos-title">Envíanos un mensaje</h2>
 
-      <input
-        type="email"
-        name="email"
-        placeholder="Correo electrónico"
-        value={formData.email}
-        onChange={handleChange}
-        required
-        className="contactos-input"
-      />
+            <div className="input-row">
+              <input
+                type="text"
+                name="nombre"
+                placeholder="Nombre completo"
+                value={formData.nombre}
+                onChange={handleChange}
+                required
+                className="contactos-input"
+              />
 
-      <input
-        type="tel"
-        name="telefono"
-        placeholder="Teléfono"
-        value={formData.telefono}
-        onChange={handleChange}
-        className="contactos-input"
-      />
+              <input
+                type="tel"
+                name="telefono"
+                placeholder="Teléfono"
+                value={formData.telefono}
+                onChange={handleChange}
+                className="contactos-input"
+              />
+            </div>
 
-      <input
-        type="text"
-        name="ubicacion"
-        placeholder="Ubicación"
-        value={formData.ubicacion}
-        onChange={handleChange}
-        className="contactos-input"
-      />
+            <input
+              type="email"
+              name="email"
+              placeholder="Correo electrónico"
+              value={formData.email}
+              onChange={handleChange}
+              required
+              className="contactos-input"
+            />
 
-      <select
-        name="tipo"
-        value={formData.tipo}
-        onChange={handleChange}
-        required
-        className="contactos-input"
-      >
-        <option value="">Tipo de mensaje</option>
-        <option value="Queja">Queja</option>
-        <option value="Sugerencia">Sugerencia</option>
-        <option value="Consulta">Consulta</option>
-      </select>
+            <div className="input-row">
+              <input
+                type="text"
+                name="ubicacion"
+                placeholder="Ubicación"
+                value={formData.ubicacion}
+                onChange={handleChange}
+                className="contactos-input"
+              />
 
-      <textarea
-        name="mensaje"
-        placeholder="Escribe tu mensaje..."
-        value={formData.mensaje}
-        onChange={handleChange}
-        required
-        rows={5}
-        className="contactos-textarea"
-      />
+              <select
+                name="tipo"
+                value={formData.tipo}
+                onChange={handleChange}
+                required
+                className="contactos-input"
+              >
+                <option value="">Tipo de mensaje</option>
+                <option value="Queja">Queja</option>
+                <option value="Sugerencia">Sugerencia</option>
+                <option value="Consulta">Consulta</option>
+              </select>
+            </div>
 
-      <button type="submit" disabled={loading} className="contactos-button">
-        {loading ? "Enviando..." : "Enviar mensaje"}
-      </button>
+            <textarea
+              name="mensaje"
+              placeholder="Escribe tu mensaje..."
+              value={formData.mensaje}
+              onChange={handleChange}
+              required
+              rows={5}
+              className="contactos-textarea"
+            />
 
-      {status && <p className="contactos-status">{status}</p>}
-    </form>
+            <button type="submit" disabled={loading} className="contactos-button">
+              {loading ? "Enviando..." : "Enviar mensaje"}
+            </button>
+
+            {status && <p className="contactos-status">{status}</p>}
+          </form>
+        </div>
+        
+      </div>
+    </div>
   );
 };
 

@@ -1,3 +1,4 @@
+
 import React from 'react'
 import '../styles/InicioPagina.css'
 
@@ -18,7 +19,7 @@ function InicioPagina() {
       <div className='DivNavbar'>
         <nav className='navbar'>
           <div className='Brand' onClick={() => navigate("/")}>
-            <h3 className='BrandName'>Krea</h3>
+            <h3 className='BrandName'>KREA</h3>
           </div>
           <div className='nav-session-btns'>
             <button className='BtnLogin' onClick={irsesion}>Iniciar Sesión</button>
@@ -91,4 +92,5 @@ function InicioPagina() {
   )
 }
 
-export default InicioPagina
+export default InicioPagina
+

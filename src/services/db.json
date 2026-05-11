@@ -1,26 +1,6 @@
 {
   "usuarios": [
     {
-      "id": "c098",
-      "Nombre": "Adrian Mora Castillo",
-      "Correo": "miniaseapa@gmail.com",
-      "Provincias": "Limón",
-      "Canton": "Pococi",
-      "Distrito": "si",
-      "Roles": "Admin",
-      "Contrasena": "Admc5232"
-    },
-    {
-      "id": "c073",
-      "Nombre": "jheycob",
-      "Correo": "jheycob@gmail.com",
-      "Provincias": "San José",
-      "Canton": "alajuelita",
-      "Distrito": "alajuelita",
-      "Roles": "Admin",
-      "Contrasena": "jheycob12"
-    },
-    {
       "id": "55e4",
       "Nombre": "María Jesús Chaverri",
       "Correo": "mj@gmail.com",
@@ -32,26 +12,15 @@
       "img": "https://res.cloudinary.com/dyy1yqvbv/image/upload/v1774841627/klcpwamjdqjrhcvagulb.png"
     },
     {
-      "id": "d24c",
-      "Nombre": "Pepe Viyuela Gomez",
-      "Correo": "pepe@gmail.com",
-      "Provincias": "Limón",
-      "Canton": "Batán",
-      "Distrito": "Lima",
-      "Roles": "Usuario",
-      "Contrasena": "12345678",
-      "img": "https://res.cloudinary.com/dyy1yqvbv/image/upload/v1774761044/iargr9gued6xgwq4jytb.png"
-    },
-    {
       "id": "f898",
       "Nombre": "Alejandro",
       "Correo": "alejandronicmen@gmail.com",
       "email": "alejandronicmen@gmail.com",
       "telefono": "7211 4083",
-      "Provincias": "Limón",
-      "Canton": "Pakaton",
-      "Distrito": "Palito",
-      "Roles": "Usuario",
+      "Provincias": "San José",
+      "Canton": "Alajuelita",
+      "Distrito": "Llano",
+      "Roles": "Admin",
       "Contrasena": "12345678",
       "img": "https://res.cloudinary.com/dyy1yqvbv/image/upload/v1774884897/xlc288o26ghhf47gghpb.jpg"
     }
@@ -80,7 +49,7 @@
     },
     {
       "id": "cbf3",
-      "usuarioId": "d24c",
+      "usuarioId": null,
       "componentes": [
         "Estructura1"
       ],

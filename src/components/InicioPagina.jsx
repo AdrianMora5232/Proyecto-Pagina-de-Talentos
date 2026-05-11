@@ -19,7 +19,11 @@ function InicioPagina() {
       <div className='DivNavbar'>
         <nav className='navbar'>
           <div className='Brand' onClick={() => navigate("/")}>
+<<<<<<< HEAD
             <h3 className='BrandName'>KREA</h3>
+=======
+            <h3 className='BrandName'>Krea</h3>
+>>>>>>> be5a6cb5f54d57296d9030e26ace95c42f8e9cb4
           </div>
           <div className='nav-session-btns'>
             <button className='BtnLogin' onClick={irsesion}>Iniciar Sesión</button>

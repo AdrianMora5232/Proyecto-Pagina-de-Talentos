@@ -1,6 +1,6 @@
 import React from 'react'
 import { useState, useEffect } from 'react'
-import Fetch from '../services/Fetch'
+import Fetch from '../../services/Fetch'
 import { useNavigate } from 'react-router-dom'
 
 const TablaUsuariosAdmin = () => {
@@ -94,14 +94,14 @@ const TablaUsuariosAdmin = () => {
           <p className="text-slate-500 dark:text-slate-400 mt-1">Administra los accesos y perfiles de tu plataforma.</p>
         </div>
         <div className="flex gap-3">
-          <button 
+          <button
             onClick={irAConvocatoria}
             className="bg-primary hover:bg-primary/90 text-white px-6 py-3 rounded-lg font-bold flex items-center gap-2 transition-all shadow-sm active:scale-95"
           >
             <span className="material-symbols-outlined">campaign</span>
             Convocatoria
           </button>
-          <button 
+          <button
             onClick={AgregarUsuario}
             className="bg-primary hover:bg-primary/90 text-white px-6 py-3 rounded-lg font-bold flex items-center gap-2 transition-all shadow-sm active:scale-95"
           >
@@ -115,29 +115,29 @@ const TablaUsuariosAdmin = () => {
       <div className="bg-white dark:bg-slate-900 p-4 rounded-xl border border-slate-200 dark:border-slate-800 shadow-sm flex flex-col lg:flex-row gap-4 items-center mb-6">
         <div className="relative w-full lg:flex-1">
           <span className="material-symbols-outlined absolute left-3 top-1/2 -translate-y-1/2 text-slate-400">search</span>
-          <input 
+          <input
             type="text"
             value={busqueda}
             onChange={(e) => setBusqueda(e.target.value)}
-            className="w-full pl-10 pr-4 py-2.5 rounded-lg border-slate-200 dark:border-slate-800 bg-slate-50 dark:bg-slate-800 focus:ring-primary focus:border-primary text-sm outline-none transition-all" 
-            placeholder="Buscar por nombre o correo electrónico..." 
+            className="w-full pl-10 pr-4 py-2.5 rounded-lg border-slate-200 dark:border-slate-800 bg-slate-50 dark:bg-slate-800 focus:ring-primary focus:border-primary text-sm outline-none transition-all"
+            placeholder="Buscar por nombre o correo electrónico..."
           />
         </div>
         <div className="flex flex-wrap items-center gap-3 w-full lg:w-auto">
           <div className="flex gap-2">
-            <button 
+            <button
               onClick={() => setFiltroRol("TODOS")}
               className={`px-4 py-2 text-xs font-bold uppercase rounded-lg transition-colors ${filtroRol === "TODOS" ? 'bg-primary/10 text-primary' : 'bg-slate-100 dark:bg-slate-800 text-slate-600 dark:text-slate-400 hover:bg-primary/5'}`}
             >
               Todos
             </button>
-            <button 
+            <button
               onClick={() => setFiltroRol("Admin")}
               className={`px-4 py-2 text-xs font-bold uppercase rounded-lg transition-colors ${filtroRol === "Admin" ? 'bg-primary/10 text-primary' : 'bg-slate-100 dark:bg-slate-800 text-slate-600 dark:text-slate-400 hover:bg-primary/5'}`}
             >
               Admin
             </button>
-            <button 
+            <button
               onClick={() => setFiltroRol("Cliente")}
               className={`px-4 py-2 text-xs font-bold uppercase rounded-lg transition-colors ${filtroRol === "Cliente" ? 'bg-primary/10 text-primary' : 'bg-slate-100 dark:bg-slate-800 text-slate-600 dark:text-slate-400 hover:bg-primary/5'}`}
             >
@@ -177,11 +177,10 @@ const TablaUsuariosAdmin = () => {
                   </td>
                   <td className="px-6 py-4 text-sm text-slate-600 dark:text-slate-400">{usuario.Correo}</td>
                   <td className="px-6 py-4">
-                    <span className={`inline-flex items-center px-2.5 py-0.5 rounded-full text-xs font-medium ${
-                      usuario.Roles === 'Admin' 
-                        ? 'bg-blue-100 text-blue-800 dark:bg-blue-900/30 dark:text-blue-300' 
+                    <span className={`inline-flex items-center px-2.5 py-0.5 rounded-full text-xs font-medium ${usuario.Roles === 'Admin'
+                        ? 'bg-blue-100 text-blue-800 dark:bg-blue-900/30 dark:text-blue-300'
                         : 'bg-amber-100 text-amber-800 dark:bg-amber-900/30 dark:text-amber-300'
-                    }`}>
+                      }`}>
                       {usuario.Roles}
                     </span>
                   </td>
@@ -190,13 +189,13 @@ const TablaUsuariosAdmin = () => {
                   </td>
                   <td className="px-6 py-4 text-right">
                     <div className="flex justify-end gap-2">
-                      <button 
+                      <button
                         onClick={() => iniciarEdicion(usuario)}
                         className="p-2 hover:bg-slate-100 dark:hover:bg-slate-800 rounded-lg text-slate-400 hover:text-primary transition-colors"
                       >
                         <span className="material-symbols-outlined text-xl">edit</span>
                       </button>
-                      <button 
+                      <button
                         onClick={() => eliminarUsuario(usuario.id)}
                         className="p-2 hover:bg-red-50 dark:hover:bg-red-900/20 rounded-lg text-slate-400 hover:text-red-500 transition-colors"
                       >
@@ -216,7 +215,7 @@ const TablaUsuariosAdmin = () => {
             </tbody>
           </table>
         </div>
-        
+
         {/* Pagination Info */}
         <div className="px-6 py-4 bg-slate-50 dark:bg-slate-800/50 border-t border-slate-200 dark:border-slate-800 flex items-center justify-between">
           <p className="text-sm text-slate-500">
@@ -227,7 +226,7 @@ const TablaUsuariosAdmin = () => {
             <button className="px-3 py-1 text-sm bg-white dark:bg-slate-900 border border-slate-200 dark:border-slate-800 rounded text-slate-600 dark:text-slate-300 hover:bg-slate-50 transition-colors">Siguiente</button>
           </div>
         </div>
-        </div>
+      </div>
 
       {/* Edit User Modal */}
       {isModalOpen && (
@@ -241,7 +240,7 @@ const TablaUsuariosAdmin = () => {
                 </div>
                 <h3 className="text-xl font-bold text-slate-900 dark:text-white">Editar Usuario</h3>
               </div>
-              <button 
+              <button
                 onClick={cancelarEdicion}
                 className="p-2 hover:bg-slate-200 dark:hover:bg-slate-700 rounded-full text-slate-400 transition-colors"
               >
@@ -254,8 +253,8 @@ const TablaUsuariosAdmin = () => {
               <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
                 <div className="space-y-1">
                   <label className="text-xs font-bold text-slate-500 uppercase ml-1">Nombre Completo</label>
-                  <input 
-                    value={datosEditar.Nombre} 
+                  <input
+                    value={datosEditar.Nombre}
                     onChange={(e) => setDatosEditar({ ...datosEditar, Nombre: e.target.value })}
                     className="w-full p-3 rounded-xl border border-slate-200 dark:border-slate-700 dark:bg-slate-800 dark:text-white focus:ring-2 focus:ring-primary/20 focus:border-primary outline-none transition-all"
                     placeholder="Ej. Juan Pérez"
@@ -263,8 +262,8 @@ const TablaUsuariosAdmin = () => {
                 </div>
                 <div className="space-y-1">
                   <label className="text-xs font-bold text-slate-500 uppercase ml-1">Correo Electrónico</label>
-                  <input 
-                    value={datosEditar.Correo} 
+                  <input
+                    value={datosEditar.Correo}
                     onChange={(e) => setDatosEditar({ ...datosEditar, Correo: e.target.value })}
                     className="w-full p-3 rounded-xl border border-slate-200 dark:border-slate-700 dark:bg-slate-800 dark:text-white focus:ring-2 focus:ring-primary/20 focus:border-primary outline-none transition-all"
                     placeholder="correo@ejemplo.com"
@@ -272,7 +271,7 @@ const TablaUsuariosAdmin = () => {
                 </div>
                 <div className="space-y-1">
                   <label className="text-xs font-bold text-slate-500 uppercase ml-1">Email</label>
-                  <input 
+                  <input
                     type="email"
                     name="email"
                     value={datosEditar.email}
@@ -283,7 +282,7 @@ const TablaUsuariosAdmin = () => {
                 </div>
                 <div className="space-y-1">
                   <label className="text-xs font-bold text-slate-500 uppercase ml-1">Teléfono</label>
-                  <input 
+                  <input
                     type="text"
                     name="telefono"
                     value={datosEditar.telefono}
@@ -294,8 +293,8 @@ const TablaUsuariosAdmin = () => {
                 </div>
                 <div className="space-y-1 md:col-span-2">
                   <label className="text-xs font-bold text-slate-500 uppercase ml-1">Rol de Usuario</label>
-                  <select 
-                    value={datosEditar.Roles} 
+                  <select
+                    value={datosEditar.Roles}
                     onChange={(e) => setDatosEditar({ ...datosEditar, Roles: e.target.value })}
                     className="w-full p-3 rounded-xl border border-slate-200 dark:border-slate-700 dark:bg-slate-800 dark:text-white focus:ring-2 focus:ring-primary/20 focus:border-primary outline-none transition-all appearance-none"
                   >
@@ -305,24 +304,24 @@ const TablaUsuariosAdmin = () => {
                 </div>
                 <div className="space-y-1">
                   <label className="text-xs font-bold text-slate-500 uppercase ml-1">Provincia</label>
-                  <input 
-                    value={datosEditar.Provincias} 
+                  <input
+                    value={datosEditar.Provincias}
                     onChange={(e) => setDatosEditar({ ...datosEditar, Provincias: e.target.value })}
                     className="w-full p-3 rounded-xl border border-slate-200 dark:border-slate-700 dark:bg-slate-800 dark:text-white focus:ring-2 focus:ring-primary/20 focus:border-primary outline-none transition-all"
                   />
                 </div>
                 <div className="space-y-1">
                   <label className="text-xs font-bold text-slate-500 uppercase ml-1">Cantón</label>
-                  <input 
-                    value={datosEditar.Canton} 
+                  <input
+                    value={datosEditar.Canton}
                     onChange={(e) => setDatosEditar({ ...datosEditar, Canton: e.target.value })}
                     className="w-full p-3 rounded-xl border border-slate-200 dark:border-slate-700 dark:bg-slate-800 dark:text-white focus:ring-2 focus:ring-primary/20 focus:border-primary outline-none transition-all"
                   />
                 </div>
                 <div className="space-y-1 md:col-span-2">
                   <label className="text-xs font-bold text-slate-500 uppercase ml-1">Distrito</label>
-                  <input 
-                    value={datosEditar.Distrito} 
+                  <input
+                    value={datosEditar.Distrito}
                     onChange={(e) => setDatosEditar({ ...datosEditar, Distrito: e.target.value })}
                     className="w-full p-3 rounded-xl border border-slate-200 dark:border-slate-700 dark:bg-slate-800 dark:text-white focus:ring-2 focus:ring-primary/20 focus:border-primary outline-none transition-all"
                   />
@@ -332,13 +331,13 @@ const TablaUsuariosAdmin = () => {
 
             {/* Modal Footer */}
             <div className="px-6 py-4 bg-slate-50 dark:bg-slate-800/50 border-t border-slate-100 dark:border-slate-800 flex justify-end gap-3">
-              <button 
+              <button
                 onClick={cancelarEdicion}
                 className="px-6 py-2.5 rounded-xl text-slate-600 dark:text-slate-300 font-bold hover:bg-slate-200 dark:hover:bg-slate-700 transition-all"
               >
                 Cancelar
               </button>
-              <button 
+              <button
                 onClick={() => guardarEdicion(datosEditar.id)}
                 className="px-8 py-2.5 bg-primary text-white font-bold rounded-xl hover:bg-primary/90 shadow-lg shadow-primary/20 active:scale-95 transition-all"
               >

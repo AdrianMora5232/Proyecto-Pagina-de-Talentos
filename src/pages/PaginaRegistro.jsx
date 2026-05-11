@@ -1,5 +1,5 @@
 import React from 'react'
-import Registro from '../components/Registro'
+import Registro from '../components/ApartadoPaginaPrincipal/Registro'
 
 function PaginaRegistro() {
   return (

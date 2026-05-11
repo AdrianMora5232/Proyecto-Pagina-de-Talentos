@@ -1,7 +1,7 @@
 import React from 'react'
 import { useState } from 'react'
-import '../Styles/AgregarUsuario.css' 
-import Fetch from '../services/Fetch'
+import '../../styles/EstilosAdmin/AgregarUsuario.css' 
+import Fetch from '../../services/Fetch'
 
 function AgregarUsuario() {
 const [Nombre , setNombre] = useState("")

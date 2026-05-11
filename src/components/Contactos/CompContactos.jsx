@@ -1,6 +1,6 @@
 import { useState } from "react";
 import emailjs from "@emailjs/browser";
-import '../../styles/Contactos.css'
+import '../../styles/Principales/Contactos.css'
 
 const FormularioQuejas = () => {
   const [formData, setFormData] = useState({

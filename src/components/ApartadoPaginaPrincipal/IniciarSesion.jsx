@@ -1,8 +1,8 @@
 import React, { useState } from 'react'
 import { useEffect } from 'react'
-import Fetch from '../services/Fetch'
+import Fetch from '../../services/Fetch'
 import { useNavigate } from "react-router-dom";
-import '../styles/InicioSesion.css'
+import '../../styles/Principales/InicioSesion.css'
 
 
 

@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from 'react'
 import { Link, useLocation } from 'react-router-dom'
-import '../../styles/NavBar.css'
+import '../../styles/Principales/NavBar.css'
 import Fetch from '../../services/Fetch'
 
 

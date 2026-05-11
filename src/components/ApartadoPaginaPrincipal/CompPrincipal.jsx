@@ -1,6 +1,6 @@
 import React, { useRef, useState, useEffect, useMemo } from 'react'
 import 'bootstrap/dist/js/bootstrap.bundle.min';
-import "../../styles/Principal.css"
+import "../../styles/Principales/Principal.css"
 import { Link } from 'react-router-dom';
 import { useNavigate } from 'react-router-dom';
 import Fetch from "../../services/Fetch";

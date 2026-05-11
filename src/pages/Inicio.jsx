@@ -1,5 +1,5 @@
 
-import InicioPagina from "../components/InicioPagina"
+import InicioPagina from "../components/ApartadoPaginaPrincipal/InicioPagina"
 import Footer from "../components/Footer/Footer"
 
 function Inicio() {

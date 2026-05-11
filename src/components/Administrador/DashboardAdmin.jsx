@@ -1,18 +1,14 @@
 import React, { useState, useEffect } from 'react'
-import Fetch from '../services/Fetch'
+import Fetch from '../../services/Fetch'
 
 const DashboardAdmin = () => {
   const [usuarios, setUsuarios] = useState([])
-<<<<<<< HEAD
-  const [portafolios,setPortafolios] = useState([])
-=======
->>>>>>> be5a6cb5f54d57296d9030e26ace95c42f8e9cb4
+  const [portafolios, setPortafolios] = useState([])
   const [respuestas, setRespuestas] = useState([])
 
   useEffect(() => {
     async function traerDatos() {
       try {
-<<<<<<< HEAD
         const [listaUsuarios, listaPortafolios, listaRespuestas] = await Promise.all([
           Fetch.getData("usuarios"),
           Fetch.getData("portafolios"),
@@ -20,13 +16,6 @@ const DashboardAdmin = () => {
         ]);
         setUsuarios(listaUsuarios || [])
         setPortafolios(listaPortafolios || [])
-=======
-        const [listaUsuarios, listaRespuestas] = await Promise.all([
-          Fetch.getData("usuarios"),
-          Fetch.getData("respuestas_convocatorias")
-        ]);
-        setUsuarios(listaUsuarios || [])
->>>>>>> be5a6cb5f54d57296d9030e26ace95c42f8e9cb4
         setRespuestas(listaRespuestas || [])
       } catch (error) {
         console.error("Error trayendo datos del dashboard", error)
@@ -57,12 +46,11 @@ const DashboardAdmin = () => {
             </div>
           </div>
         </div>
-        
+
         <div className="bg-white dark:bg-slate-900 p-6 rounded-xl border border-slate-200 dark:border-slate-800 shadow-sm flex flex-col justify-center transition-all hover:shadow-md border-l-4 border-l-blue-500">
           <div className="flex items-center gap-4">
             <div className="bg-blue-500/10 text-blue-500 p-3 rounded-lg">
               <span className="material-symbols-outlined text-3xl">check_circle</span>
-<<<<<<< HEAD
             </div>
             <div>
               <p className="text-xs font-bold text-slate-500 uppercase tracking-wider">Aceptaron Convocatoria</p>
@@ -75,8 +63,6 @@ const DashboardAdmin = () => {
           <div className="flex items-center gap-4">
             <div className="bg-slate-500/10 text-slate-500 p-3 rounded-lg">
               <span className="material-symbols-outlined text-3xl">cancel</span>
-=======
->>>>>>> be5a6cb5f54d57296d9030e26ace95c42f8e9cb4
             </div>
             <div>
               <p className="text-xs font-bold text-slate-500 uppercase tracking-wider">Aceptaron Convocatoria</p>
@@ -99,7 +85,7 @@ const DashboardAdmin = () => {
       </div>
 
       <div className="flex flex-col gap-8">
-        
+
         {/* Responses Table - Full width */}
         <div className="bg-white dark:bg-slate-900 rounded-xl border border-slate-200 dark:border-slate-800 shadow-sm overflow-hidden">
           <div className="p-6 border-b border-slate-200 dark:border-slate-800 flex justify-between items-center bg-blue-50/30">
@@ -125,11 +111,10 @@ const DashboardAdmin = () => {
                       {resp.convocatoriaNombre}
                     </td>
                     <td className="px-6 py-4">
-                      <span className={`px-2 py-0.5 rounded-full text-[10px] font-bold ${
-                        resp.respuesta === 'Participar' 
-                          ? 'bg-green-100 text-green-700' 
+                      <span className={`px-2 py-0.5 rounded-full text-[10px] font-bold ${resp.respuesta === 'Participar'
+                          ? 'bg-green-100 text-green-700'
                           : 'bg-red-100 text-red-700'
-                      }`}>
+                        }`}>
                         {resp.respuesta === 'Participar' ? 'SÍ' : 'NO'}
                       </span>
                     </td>
@@ -171,18 +156,17 @@ const DashboardAdmin = () => {
                     <td className="px-6 py-4">
                       <div className="flex items-center gap-3">
                         <div className="size-8 rounded-full bg-primary/20 flex items-center justify-center overflow-hidden">
-                           <span className="text-primary text-xs font-bold">{usuario.Nombre?.charAt(0)}</span>
+                          <span className="text-primary text-xs font-bold">{usuario.Nombre?.charAt(0)}</span>
                         </div>
                         <span className="text-sm font-semibold text-slate-900 dark:text-white">{usuario.Nombre}</span>
                       </div>
                     </td>
                     <td className="px-6 py-4 text-sm text-slate-600 dark:text-slate-400">{usuario.Correo}</td>
                     <td className="px-6 py-4">
-                      <span className={`inline-flex items-center px-2 py-0.5 rounded-full text-[10px] font-medium ${
-                        usuario.Roles === 'Admin' 
-                          ? 'bg-blue-100 text-blue-800 dark:bg-blue-900/30 dark:text-blue-300' 
+                      <span className={`inline-flex items-center px-2 py-0.5 rounded-full text-[10px] font-medium ${usuario.Roles === 'Admin'
+                          ? 'bg-blue-100 text-blue-800 dark:bg-blue-900/30 dark:text-blue-300'
                           : 'bg-amber-100 text-amber-800 dark:bg-amber-900/30 dark:text-amber-300'
-                      }`}>
+                        }`}>
                         {usuario.Roles}
                       </span>
                     </td>

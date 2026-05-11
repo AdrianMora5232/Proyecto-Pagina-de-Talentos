@@ -1,15 +1,15 @@
 import React, { useState, useEffect } from 'react'
-import Fetch from '../services/Fetch'
-import Lienzo from './PlantillaTalentos/Lienzo'
-import Estructura1 from './PlantillaTalentos/Estructura1'
-import Estructura1_1 from './PlantillaTalentos/Estructura1_1'
-import Estructura1_2 from './PlantillaTalentos/Estructura1_2'
-import Estructura1_3 from './PlantillaTalentos/Estructura1_3'
-import Estructura1_4 from './PlantillaTalentos/Estructura1_4'
-import GrillaDoble from './PlantillaTalentos/GrillaDoble'
-import GrillaTriple from './PlantillaTalentos/GrillaTriple'
-import Grilla1_2_Izda from './PlantillaTalentos/Grilla1_2_Izda'
-import Grilla1_2_Derecha from './PlantillaTalentos/Grilla1_2_Derecha'
+import Fetch from '../../services/Fetch'
+import Lienzo from './Lienzo'
+import Estructura1 from './Estructura1'
+import Estructura1_1 from './Estructura1_1'
+import Estructura1_2 from './Estructura1_2'
+import Estructura1_3 from './Estructura1_3'
+import Estructura1_4 from './Estructura1_4'
+import GrillaDoble from './GrillaDoble'
+import GrillaTriple from './GrillaTriple'
+import Grilla1_2_Izda from './Grilla1_2_Izda'
+import Grilla1_2_Derecha from './Grilla1_2_Derecha'
 
 // Mismo mapa de contenedores que usa ModalProyecto
 const CONTENEDORES = {
@@ -51,7 +51,7 @@ function ModalPreviewPortafolio({ portafolio, nombrePropietario, onClose }) {
       const isObject = typeof comp === 'object' && comp !== null
       const type = isObject ? comp.type : comp
       const initialData = isObject ? comp.data : null
-      
+
       const Comp = CONTENEDORES[type]
       return Comp ? <Comp key={index} initialData={initialData} /> : null
     })
@@ -326,11 +326,10 @@ const TabladePortafolios = () => {
               <button
                 key={estado}
                 onClick={() => setFiltroEstado(estado)}
-                className={`px-4 py-2 text-xs font-bold uppercase rounded-lg transition-colors ${
-                  filtroEstado === estado
+                className={`px-4 py-2 text-xs font-bold uppercase rounded-lg transition-colors ${filtroEstado === estado
                     ? 'bg-primary/10 text-primary'
                     : 'bg-slate-100 dark:bg-slate-800 text-slate-600 dark:text-slate-400 hover:bg-primary/5'
-                }`}
+                  }`}
               >
                 {estado}
               </button>
@@ -422,11 +421,10 @@ const TabladePortafolios = () => {
 
                     {/* Columna: Estado — badge con colores igual que el rol en TablaUsuariosAdmin */}
                     <td className="px-6 py-4">
-                      <span className={`inline-flex items-center gap-1.5 px-2.5 py-0.5 rounded-full text-xs font-medium ${
-                        estado === 'Publicado'
+                      <span className={`inline-flex items-center gap-1.5 px-2.5 py-0.5 rounded-full text-xs font-medium ${estado === 'Publicado'
                           ? 'bg-emerald-100 text-emerald-800 dark:bg-emerald-900/30 dark:text-emerald-300'
                           : 'bg-amber-100 text-amber-800 dark:bg-amber-900/30 dark:text-amber-300'
-                      }`}>
+                        }`}>
                         <span style={{
                           width: '6px', height: '6px', borderRadius: '50%',
                           background: estado === 'Publicado' ? '#10b981' : '#f59e0b',

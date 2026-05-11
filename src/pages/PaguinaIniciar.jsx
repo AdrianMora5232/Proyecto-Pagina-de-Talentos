@@ -1,12 +1,12 @@
 import React from 'react'
-import IniciarSesion from '../components/IniciarSesion'
+import IniciarSesion from '../components/ApartadoPaginaPrincipal/IniciarSesion'
 
 
 function PaguinaIniciar() {
   return (
     <div>
-   <IniciarSesion/>
-  
+      <IniciarSesion />
+
     </div>
   )
 }

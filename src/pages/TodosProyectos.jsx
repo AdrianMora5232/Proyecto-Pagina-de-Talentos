@@ -7,7 +7,7 @@ import CardProyecto from '../components/PerfilUsuario/CardProyecto';
 import ModalProyecto from '../components/PerfilUsuario/ModalProyecto';
 import { calcularPromedio } from '../utils/calcularPromedio';
 import "../styles/EstilosPerfilUsuario/ProyectosRecientes.css";
-import "../styles/TodosProyectos.css";
+import "../styles/PlantillaTalentos/TodosProyectos.css";
 
 function TodosProyectos() {
     const navigate = useNavigate();

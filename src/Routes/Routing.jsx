@@ -6,7 +6,7 @@ import PerfilVisitante from "../pages/PerfilVisitante"
 import PaginaContacto from "../pages/PaginaContacto"
 import SobreNosotros from "../pages/SobreNosotros"
 import PaguinaIniciar from "../pages/PaguinaIniciar"
-import AgregarUsuario from "../components/AgregarUsuario"
+import AgregarUsuario from '../pages/AgregarUsuarios'
 import PaginaRegistro from "../pages/PaginaRegistro"
 import Portafolio from "../pages/Portafolio"
 import Admin from "../pages/Admin"

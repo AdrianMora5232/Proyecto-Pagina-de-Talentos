@@ -1,6 +1,6 @@
 
 import React from 'react'
-import '../styles/InicioPagina.css'
+import '../../styles/Principales/InicioPagina.css'
 
 import { useNavigate } from 'react-router-dom'
 function InicioPagina() {

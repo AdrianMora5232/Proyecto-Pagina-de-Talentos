@@ -1,9 +1,9 @@
 import React from 'react'
 import { useState } from 'react'
-import Fetch from '../services/Fetch'
+import Fetch from '../../services/Fetch'
 import { useNavigate } from 'react-router-dom'
-import UploadImage from '../components/PlantillaTalentos/SubirImagen'
-import '../styles/EstilosRegistros/Registro.css'
+import UploadImage from '../PlantillaTalentos/SubirImagen'
+import '../../Styles/EstilosRegistros/Registro.css'
 
 function Registro() {
     const navigate = useNavigate()

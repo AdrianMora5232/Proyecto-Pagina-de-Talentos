@@ -1,6 +1,6 @@
 import React, { useState } from 'react'
-import '../Styles/Formularioconvo.css'
-import Fetch from '../services/Fetch'
+import '../../styles/EstilosAdmin/Formularioconvo.css'
+import Fetch from '../../services/Fetch'
 
 function FormConvocatoria() {
   const [nombre, setNombre] = useState('')

@@ -1,5 +1,5 @@
 import React from 'react'
-import FormConvocatoria from '../components/FormConvocatoria'
+import FormConvocatoria from '../components/Administrador/FormConvocatoria'
 
 function FormularioConvo() {
   return (

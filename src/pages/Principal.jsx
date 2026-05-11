@@ -3,7 +3,7 @@ import CompPrincipal from '../components/ApartadoPaginaPrincipal/CompPrincipal'
 import Navbar from '../components/navbar/Navbar'
 import Footer from '../components/Footer/Footer'
 import Fetch from '../services/Fetch'
-import '../styles/Principal.css'
+import '../styles/Principales/Principal.css'
 
 function Principal() {
   const [isBuzonOpen, setIsBuzonOpen] = useState(false);

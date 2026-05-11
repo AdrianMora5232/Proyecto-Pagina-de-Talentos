@@ -1,6 +1,6 @@
 import React from 'react'
 
-import AgregarUsuario from '../components/AgregarUsuario'
+import AgregarUsuario from '../components/Administrador/AgregarUsuario'
 function AgregarUsuarios() {
   return (
     <div>

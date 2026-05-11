@@ -22,43 +22,10 @@ const CONTENEDORES = {
     Grilla1_2_Derecha
 };
 
-const CardProyecto = ({ nombreProyecto, descripcionProyecto, estructura, onVerProyecto, promedio, imgPortada, idProyecto }) => {
-    const ComponentePreview = CONTENEDORES[estructura];
-    const [liked, setLiked] = React.useState(false);
-    const [contadorLikes, setContadorLikes] = React.useState(0);
-
-    // Cargar estado inicial
-    React.useEffect(() => {
-        const usuarioActivo = JSON.parse(localStorage.getItem("UsuarioActivo") || "{}");
-        setLiked(usuarioActivo.favoritos?.includes(idProyecto) || false);
-        
-        // Simular contador de likes (en un sistema real vendría del backend)
-        setContadorLikes(Math.floor(Math.random() * 10) + (liked ? 1 : 0));
-    }, [idProyecto]);
-
-    const handleLike = async (e) => {
-        e.stopPropagation();
-        const usuarioActivo = JSON.parse(localStorage.getItem("UsuarioActivo") || "{}");
-        if (!usuarioActivo.id) return alert("Inicia sesión para guardar favoritos");
-
-        let nuevosFavoritos = usuarioActivo.favoritos || [];
-        if (liked) {
-            nuevosFavoritos = nuevosFavoritos.filter(id => id !== idProyecto);
-        } else {
-            nuevosFavoritos = [...nuevosFavoritos, idProyecto];
-        }
-
-        const dataUpdate = { favoritos: nuevosFavoritos };
-        try {
-            await Fetch.patchData("usuarios", dataUpdate, usuarioActivo.id);
-            usuarioActivo.favoritos = nuevosFavoritos;
-            localStorage.setItem("UsuarioActivo", JSON.stringify(usuarioActivo));
-            setLiked(!liked);
-            setContadorLikes(prev => liked ? prev - 1 : prev + 1);
-        } catch (error) {
-            console.error("Error al actualizar favoritos:", error);
-        }
-    };
+const CardProyecto = ({ nombreProyecto, descripcionProyecto, estructura, onVerProyecto, promedio, imgPortada, idProyecto, onDelete }) => {
+    const firstComp = typeof estructura === 'string' ? { type: estructura } : estructura;
+    const ComponentePreview = CONTENEDORES[firstComp?.type];
+    const initialData = firstComp?.data;
 
     return (
         <div className="proyecto-card" onClick={onVerProyecto}>
@@ -75,14 +42,36 @@ const CardProyecto = ({ nombreProyecto, descripcionProyecto, estructura, onVerPr
                         width: `${100 / 0.28}%`,
                         pointerEvents: 'none'
                     }}>
-                        {ComponentePreview ? <ComponentePreview /> : <div className="sin-preview">Sin previsualización</div>}
+                        {ComponentePreview ? <ComponentePreview initialData={initialData} /> : <div className="sin-preview">Sin previsualización</div>}
                     </div>
                 )}
                 <div className="card-overlay-pro"></div>
-                <button className={`btn-like ${liked ? 'active' : ''}`} onClick={handleLike}>
-                    <i className={`${liked ? 'fa-solid' : 'fa-regular'} fa-heart`}></i>
-                    <span className="like-count" style={{ marginLeft: '4px', fontSize: '12px' }}>{contadorLikes}</span>
-                </button>
+                
+                <div className="card-actions-pro" style={{ position: 'absolute', top: '10px', right: '10px', display: 'flex', gap: '8px', zIndex: 20 }}>
+                    {onDelete && (
+                        <button 
+                            className="btn-delete-pro" 
+                            onClick={(e) => { e.stopPropagation(); onDelete(); }}
+                            style={{ 
+                                background: 'rgba(239, 68, 68, 0.9)', 
+                                color: 'white', 
+                                border: 'none', 
+                                borderRadius: '50%', 
+                                width: '32px', 
+                                height: '32px', 
+                                display: 'flex', 
+                                alignItems: 'center', 
+                                justifyContent: 'center',
+                                cursor: 'pointer',
+                                transition: 'transform 0.2s'
+                            }}
+                            onMouseOver={(e) => e.currentTarget.style.transform = 'scale(1.1)'}
+                            onMouseOut={(e) => e.currentTarget.style.transform = 'scale(1)'}
+                        >
+                            <i className="fa-solid fa-trash-can" style={{ fontSize: '14px' }}></i>
+                        </button>
+                    )}
+                </div>
             </div>
             <div className="proyecto-card-info" style={{ padding: '16px' }}>
                 <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center', marginBottom: '8px' }}>

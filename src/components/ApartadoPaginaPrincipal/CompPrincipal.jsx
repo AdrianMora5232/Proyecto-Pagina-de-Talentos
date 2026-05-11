@@ -1,12 +1,78 @@
-import 'bootstrap/dist/css/bootstrap.min.css';
-import React, { useRef } from 'react'
+import React, { useRef, useState, useEffect, useMemo } from 'react'
 import 'bootstrap/dist/js/bootstrap.bundle.min';
 import "../../styles/Principal.css"
 import { Link } from 'react-router-dom';
 import { useNavigate } from 'react-router-dom';
+import Fetch from "../../services/Fetch";
+import Estructura1 from "../PlantillaTalentos/Estructura1";
+import Estructura1_1 from "../PlantillaTalentos/Estructura1_1";
+import Estructura1_2 from "../PlantillaTalentos/Estructura1_2";
+import Estructura1_3 from "../PlantillaTalentos/Estructura1_3";
+import Estructura1_4 from "../PlantillaTalentos/Estructura1_4";
+import GrillaDoble from "../PlantillaTalentos/GrillaDoble";
+import GrillaTriple from "../PlantillaTalentos/GrillaTriple";
+import Grilla1_2_Izda from "../PlantillaTalentos/Grilla1_2_Izda";
+import Grilla1_2_Derecha from "../PlantillaTalentos/Grilla1_2_Derecha";
+
+const CONTENEDORES = {
+    Estructura1,
+    Estructura1_1,
+    Estructura1_2,
+    Estructura1_3,
+    Estructura1_4,
+    GrillaDoble,
+    GrillaTriple,
+    Grilla1_2_Izda,
+    Grilla1_2_Derecha
+};
 function CompPrincipal() {
     const carouselRef = useRef(null);
     const navigate = useNavigate();
+
+    const [datos, setDatos] = useState({ usuarios: [], portafolios: [], resenas: [] });
+
+    useEffect(() => {
+        const cargarDatos = async () => {
+            const [u, p, r] = await Promise.all([
+                Fetch.getData("usuarios"),
+                Fetch.getData("portafolios"),
+                Fetch.getData("resenas")
+            ]);
+            setDatos({ usuarios: u || [], portafolios: p || [], resenas: r || [] });
+        };
+        cargarDatos();
+    }, []);
+
+    const usuariosConMejorPortafolio = useMemo(() => {
+        return datos.usuarios.map(u => {
+            const userPorts = datos.portafolios.filter(p => String(p.usuarioId) === String(u.id));
+            if (userPorts.length === 0) return null;
+            
+            const portsWithRating = userPorts.map(p => {
+                const res = datos.resenas.filter(r => r.portafolioId === p.id);
+                const avgRating = res.length > 0 ? res.reduce((acc, curr) => acc + curr.rating, 0) / res.length : 0;
+                return { ...p, promedio: avgRating };
+            });
+
+            const bestPort = portsWithRating.reduce((prev, curr) => 
+                (curr.promedio >= prev.promedio) ? curr : prev
+            );
+
+            return { ...u, mejorPortafolio: bestPort };
+        }).filter(u => u !== null);
+    }, [datos]);
+
+    const talentoDestacado = useMemo(() => {
+        if (usuariosConMejorPortafolio.length === 0) return null;
+        return [...usuariosConMejorPortafolio].sort((a, b) => 
+            b.mejorPortafolio.promedio - a.mejorPortafolio.promedio
+        )[0];
+    }, [usuariosConMejorPortafolio]);
+
+    const obtenerUbicacion = (user) => {
+        const partes = [user.Provincias, user.Canton, user.Distrito].filter(v => v && v !== 'si' && v !== 'xd');
+        return partes.length > 0 ? partes.join(", ") : "Ubicación no disponible";
+    };
 
     const scrollLeft = () => {
         if (carouselRef.current) {
@@ -20,14 +86,54 @@ function CompPrincipal() {
         }
     };
 
+    const renderPreview = (port, height = '180px', scale = 0.28) => {
+        // Si ya tenemos una imagen de portada real, la usamos (Prioridad 1)
+        if (port.imgPortada) {
+            return (
+                <div className="proyecto-card-media" style={{ height, overflow: 'hidden', background: '#f0f4f8' }}>
+                    <img 
+                        src={port.imgPortada} 
+                        alt={port.titulo} 
+                        style={{ width: '100%', height: '100%', objectFit: 'cover' }} 
+                    />
+                </div>
+            );
+        }
+
+        // Si no hay imagen, intentamos renderizar la estructura dinámica (Fallback)
+        const firstComp = port.componentes?.[0];
+        const estructura = typeof firstComp === 'string' ? firstComp : firstComp?.type;
+        const ComponentePreview = CONTENEDORES[estructura];
+        const initialData = typeof firstComp === 'object' ? firstComp?.data : null;
+        
+        return (
+            <div className="proyecto-card-media" style={{ height, overflow: 'hidden', position: 'relative', background: '#f0f4f8' }}>
+                <div style={{
+                    position: 'absolute',
+                    top: 0,
+                    left: '50%',
+                    transform: `translateX(-50%) scale(${scale})`,
+                    transformOrigin: 'top center',
+                    width: `${100 / scale}%`,
+                    pointerEvents: 'none'
+                }}>
+                    {ComponentePreview ? <ComponentePreview initialData={initialData} /> : <div className="sin-preview d-flex align-items-center justify-content-center h-100">Sin previsualización</div>}
+                </div>
+            </div>
+        );
+    };
+
+
     return (
         <div className="Principal-Content-Wrapper">
             {/* div para contener el header de la pagina, osea nombre de la pagina,navbar y apartado de busqueda */}
             <div>
 
-                <img src="#" alt="Logo de la pagina" />
-                <h1>KREA</h1>
-                <h3>Pagina para mostrar tu talento a todos</h3>
+                {/* Logo placeholder o imagen removida si no hay src */}
+                <div className='headerLogo'>
+                    <div className="logo-icon" style={{ width: '40px', height: '40px', background: '#0db9f2', borderRadius: '8px', color: 'white', display: 'flex', alignItems: 'center', justifyContent: 'center', fontWeight: 'bold' }}>K</div>
+                    <h3 className='TituloLogo'>Krea</h3>
+                </div>
 
             </div>
             {/* Div para contener la imagen central de la pagina, incluye el boton y una descripcion */}
@@ -59,94 +165,35 @@ function CompPrincipal() {
                     <div className='ApartadoCartas' ref={carouselRef}>
                         {/* Este div es para el comienzo de el apartado de cartas */}
 
-                        <div className="card" style={{ width: "18rem" }}>
-                            <img src="https://png.pngtree.com/thumb_back/fw800/background/20220623/pngtree-violinist-art-musician-portrait-photo-image_151500.jpg" className="card-img-top" alt="..." />
-                            <div className="card-body">
-                                <h5 className="card-title">Violinista</h5>
-                                <p className="card-text">
-                                    Soy violinista profesional, apasionado por la música como medio de expresión y conexión humana. A través del violín busco transmitir emociones genuinas, cuidando cada detalle técnico sin perder la sensibilidad artística.
-                                    Mi estilo se caracteriza por una interpretación expresiva, precisa y con identidad propia.
-                                </p>
-                                <a href="#" className="btn btn-primary">
-                                    Go somewhere
-                                </a>
+                        {usuariosConMejorPortafolio.map((user) => (
+                            <div className="card" key={user.id} style={{ width: "18rem" }}>
+                                {renderPreview(user.mejorPortafolio)}
+                                <div className="card-body">
+                                    <h5 className="card-title text-truncate">{user.mejorPortafolio.titulo}</h5>
+                                    <p className="card-text text-truncate" style={{ display: '-webkit-box', WebkitLineClamp: '2', WebkitBoxOrient: 'vertical', overflow: 'hidden', whiteSpace: 'normal', height: '3rem' }}>
+                                        {user.mejorPortafolio.descripcion}
+                                    </p>
+                                    <hr />
+                                    <div className="d-flex align-items-center mt-2">
+                                        <img 
+                                            src={user.img || "https://via.placeholder.com/150"} 
+                                            style={{ width: '40px', height: '40px', borderRadius: '50%', objectFit: 'cover' }} 
+                                            alt={user.Nombre} 
+                                        />
+                                        <div className="ms-3 overflow-hidden">
+                                            <h6 className="mb-0 text-truncate" style={{ fontSize: '0.9rem', fontWeight: '700', color: '#1e293b' }}>{user.Nombre}</h6>
+                                            {user.Profesion && (
+                                                <p className="mb-0 text-muted text-truncate" style={{ fontSize: '0.8rem' }}>{user.Profesion}</p>
+                                            )}
+                                            <small className="text-muted text-truncate d-block" style={{ fontSize: '0.75rem' }}>
+                                                <i className="fa-solid fa-location-dot me-1"></i>
+                                                {obtenerUbicacion(user)}
+                                            </small>
+                                        </div>
+                                    </div>
+                                </div>
                             </div>
-                        </div>
-                        {/* Esta es la carta #2 */}
-
-                        <div className="card" style={{ width: "18rem" }}>
-                            <img src="https://media.istockphoto.com/id/1207576796/es/foto/joven-artista-creativo-pintando-en-casa.jpg?s=612x612&w=0&k=20&c=ckbc2YFkWlaFw40RyDysZcns4HB7mnbpomgOLgpbi0I=" className="card-img-top" alt="..." />
-                            <div className="card-body">
-                                <h5 className="card-title">Pintora de Retratos</h5>
-                                <p className="card-text">
-                                    Soy pintora especializada en retratos, enfocada en capturar la esencia, la emoción y la historia de cada persona más allá de su apariencia.
-                                    A través del color, la luz y los detalles, busco reflejar la personalidad y la profundidad de cada rostro, creando obras que transmitan una conexión auténtica y humana.
-                                </p>
-                                <a href="#" className="btn btn-primary">
-                                    Go somewhere
-                                </a>
-                            </div>
-                        </div>
-
-                        {/*Esta es la carta #3 */}
-                        <div className="card" style={{ width: "18rem" }}>
-                            <img src="https://blog.edutin.com/wp-content/uploads/2024/10/freepik__candid-image-photography-natural-textures-highly-r__90881-min.webp" className="card-img-top" alt="..." height={191} />
-                            <div className="card-body">
-                                <h5 className="card-title">Diseñador Grafico</h5>
-                                <p className="card-text">
-                                    Soy diseñador gráfico, apasionado por transformar ideas en soluciones visuales claras, creativas y funcionales.
-                                    Mi trabajo se centra en comunicar mensajes de forma efectiva, combinando estética, estrategia y coherencia visual para construir identidades que conecten con las personas.
-                                </p>
-                                <a href="#" className="btn btn-primary">
-                                    Go somewhere
-                                </a>
-                            </div>
-                        </div>
-
-                        {/*Esta es la carta #4 */}
-                        <div className="card" style={{ width: "18rem" }}>
-                            <img src="https://media.istockphoto.com/id/2160473960/es/foto/feliz-profesor-de-matem%C3%A1ticas-satisfecho-en-la-clase-de-primaria.webp?a=1&b=1&s=612x612&w=0&k=20&c=HjLkhRFUSmG_Its_4yn2O_uUA6VrbaGZyFuUgIEikH0=" className="card-img-top" alt="..." />
-                            <div className="card-body">
-                                <h5 className="card-title">Profesor de Matemáticas</h5>
-                                <p className="card-text">
-                                    Soy profesor de matemáticas, comprometido con enseñar de forma clara, cercana y significativa.
-                                    Creo que las matemáticas no solo son números y fórmulas, sino una herramienta para desarrollar el pensamiento lógico, la resolución de problemas y la curiosidad intelectual.
-                                </p>
-                                <a href="#" className="btn btn-primary">
-                                    Go somewhere
-                                </a>
-                            </div>
-                        </div>
-
-                        {/*Esta es la carta #5 */}
-                        <div className="card" style={{ width: "18rem" }}>
-                            <img src="https://cdn.colombia.com/sdi/2023/04/19/cursos-de-desarrollador-full-stack-de-goit-colombia-que-voy-a-estudiar-1139088.jpg" className="card-img-top" alt="..." height={192} />
-                            <div className="card-body">
-                                <h5 className="card-title">Programador Jr</h5>
-                                <p className="card-text">
-                                    Soy programador, apasionado por crear soluciones tecnológicas que resuelvan problemas reales y aporten valor.
-                                    Disfruto transformar ideas en código funcional, eficiente y escalable, cuidando tanto la lógica interna como la experiencia del usuario final.
-                                </p>
-                                <a href="#" className="btn btn-primary">
-                                    Go somewhere
-                                </a>
-                            </div>
-                        </div>
-
-                        {/*Esta es la carta #6 */}
-                        <div className="card" style={{ width: "18rem" }}>
-                            <img src="https://explorando.es/wp-content/uploads/2025/05/animador-de-fiestas-infantiles-todo-lo-que-necesitas-saber.jpg" className="card-img-top" alt="..." height={192} />
-                            <div className="card-body">
-                                <h5 className="card-title">Animador de Fiestas</h5>
-                                <p className="card-text">
-                                    Soy animador de fiestas, apasionado por crear momentos de alegría, diversión y experiencias inolvidables.
-                                    Mi objetivo es contagiar energía positiva, conectar con el público y transformar cada evento en una celebración única, llena de risas y participación.
-                                </p>
-                                <a href="#" className="btn btn-primary">
-                                    Go somewhere
-                                </a>
-                            </div>
-                        </div>
+                        ))}
 
                         {/*Este div es para finalizar las cartas  */}
                     </div>
@@ -158,31 +205,49 @@ function CompPrincipal() {
             </div>
             <h4 className='TituloTalentDestacado'>Talento Destacado del mes</h4>
             {/* div que va a contener El talento destacado  */}
-            <div className='DivTalentoDestacado'>
-
-                <div className='imgCont'>
-                    <img className='ImagenTalentoDestacado' src="https://www.arteescuela.com/wp-content/uploads/2022/05/cuadros-famosos-de-paisajes-1200x720.jpg" alt="" height={200} width={600} />
+            {talentoDestacado ? (
+                <div className='DivTalentoDestacado'>
+                    <div className='imgCont'>
+                        {renderPreview(talentoDestacado.mejorPortafolio, '100%', '450px', 0.45)}
+                    </div>
+                    <div className='DivInfoPintura'>
+                        <h2>{talentoDestacado.mejorPortafolio.titulo}</h2>
+                        <div className="d-flex align-items-center mb-3">
+                            <img 
+                                src={talentoDestacado.img || "https://via.placeholder.com/150"} 
+                                style={{ width: '50px', height: '50px', borderRadius: '50%', objectFit: 'cover', border: '2px solid #2563eb' }} 
+                                alt={talentoDestacado.Nombre} 
+                            />
+                            <div className="ms-3">
+                                <h4 className="mb-0">Autor: {talentoDestacado.Nombre}</h4>
+                                {talentoDestacado.Profesion && (
+                                    <small className="text-muted d-block">{talentoDestacado.Profesion}</small>
+                                )}
+                            </div>
+                        </div>
+                        <h6>
+                            Ubicación: {obtenerUbicacion(talentoDestacado)}
+                            <br />
+                            Calificación promedio: ★ {talentoDestacado.mejorPortafolio.promedio}
+                        </h6>
+                        <h6>Resumen del portafolio:</h6>
+                        <ul>
+                            <li>{talentoDestacado.mejorPortafolio.descripcion}</li>
+                        </ul>
+                        <button 
+                            className='BotonVerPerfil'
+                            onClick={() => navigate(`/perfil/${talentoDestacado.id}`)}
+                        >
+                            Ver perfil
+                        </button>
+                    </div>
                 </div>
-                <div className='DivInfoPintura'>
-                    <h2>“Paisaje con figuras bajo un árbol”</h2>
-                    <h4>Autor:Thomas Gainsborough</h4>
-                    <h6>Técnica: Óleo sobre lienzo
-                        Dimensiones: 22,2 × 17,1 cm
-                        Ubicación actual: National Gallery, Londres
-                    </h6>
-                    <h6>Elementos visuales:</h6>
-                    <ul>
-                        <li> Árbol central dominante: Sus ramas frondosas crean un espacio de sombra que acoge a las figuras.</li>
-
-                        <li> Tres figuras humanas: Dos sentadas o arrodilladas y una de pie, en actitud tranquila, posiblemente conversando o descansando.</li>
-
-                        <li>  Atmósfera: Fondo brumoso con tonos suaves de azul y gris, que aporta calma y profundidad.</li>
-
-                        <li> Composición: Equilibrio entre la monumentalidad del árbol y la pequeñez de las figuras, resaltando la relación íntima entre el ser humano y la naturaleza.</li>
-                    </ul>
-                    <button className='BotonVerPerfil'>Ver perfil</button>
+            ) : (
+                <div className="text-center p-5">
+                    <p>Cargando talento destacado...</p>
                 </div>
-            </div>
+            )}
+
         </div >
     )
 }

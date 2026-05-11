@@ -5,17 +5,16 @@ function NavBarUsuario() {
     return (
         <div className="navbar">
             <div className="logo">
-                <img src="#" alt="logo" />
-                <h1>Krea</h1>
+                <h1>KREA</h1>
             </div>
             <div className="icon-buttons">
 
-                <button class="icon-btn">
-                    <span class="fa-regular fa-bell"></span>
+                <button className="icon-btn">
+                    <span className="fa-regular fa-bell"></span>
                 </button>
 
-                <button class="icon-btn">
-                    <span class="fa-solid fa-gear"></span>
+                <button className="icon-btn">
+                    <span className="fa-solid fa-gear"></span>
                 </button>
 
             </div>

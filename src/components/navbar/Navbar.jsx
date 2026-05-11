@@ -1,6 +1,14 @@
+<<<<<<< HEAD
 import React, { useState } from 'react';
 import { Link, useLocation } from 'react-router-dom';
 import '../../styles/NavBar.css';
+=======
+import React, { useState, useEffect } from 'react'
+import { Link, useLocation } from 'react-router-dom'
+import '../../styles/NavBar.css'
+import Fetch from '../../services/Fetch'
+
+>>>>>>> f365a75534ba413b70acb2d3436f814cc5aa04b6
 
 function Navbar() {
   const [menuOpen, setMenuOpen] = useState(false);

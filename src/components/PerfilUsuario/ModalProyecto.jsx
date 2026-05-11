@@ -93,12 +93,14 @@ function ModalProyecto({ proyecto, resenas = [], onClose, onReviewAdded }) {
     navigate("/portafolio", { state: { proyectoEditando: proyecto } });
   };
 
-  // Renderizar todos los componentes del portafolio alineados
+  // Renderizar todos los componentes del portafolio alineados con su contenido real
   const renderComponentesTooltip = () => {
     if (!proyecto.componentes) return null;
-    return proyecto.componentes.map((compName, index) => {
-      const Comp = CONTENEDORES[compName];
-      return Comp ? <Comp key={index} /> : null;
+    return proyecto.componentes.map((comp, index) => {
+      const type = typeof comp === 'string' ? comp : comp.type;
+      const initialData = typeof comp === 'object' ? comp.data : null;
+      const Comp = CONTENEDORES[type];
+      return Comp ? <Comp key={index} initialData={initialData} /> : null;
     });
   };
 

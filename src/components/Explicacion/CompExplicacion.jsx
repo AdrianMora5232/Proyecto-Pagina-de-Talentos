@@ -24,11 +24,13 @@ function CompExplicacion() {
           <section className="section-card portafolios-destacados">
             <h2>Portafolios Destacados</h2>
             <div className="portafolios-grid-placeholder">
-              <img src="https://www.arteescuela.com/wp-content/uploads/2022/05/cuadros-famosos-de-paisajes-1200x720.jpg" alt="" width={400} />
-            </div>
-            <button className="btn-outline">Ver más &rsaquo;</button>
-          </section>
+  <img src="https://www.arteescuela.com/wp-content/uploads/2022/05/cuadros-famosos-de-paisajes-1200x720.jpg" alt="" width={400} />
+              <div className="img-placeholder" style={{ width: '100%', height: '200px', background: '#f0f0f0', borderRadius: '12px' }}></div>
+            </div >
+    <button className="btn-outline">Ver más &rsaquo;</button>
+          </section >
 
+<<<<<<< HEAD
           {/* Para Empresas & Reclutadores */}
           <section className="section-card empresas-reclutadores">
             <div className="section-flex">
@@ -63,12 +65,48 @@ function CompExplicacion() {
               </div>
             </div>
           </section>
+=======
+    {/* Para Empresas & Reclutadores */ }
+    < section className = "section-card empresas-reclutadores" >
+      <div className="section-flex">
+        <div className="section-info">
+          <h2>Para Empresas & Reclutadores</h2>
+          <ul className="info-list">
+            <li><span className="icon">🔍</span> Encuentra el talento ideal</li>
+            <li><span className="icon">📞</span> Contacta con los talentos de inmediato</li>
+          </ul>
+>>>>>>> be5a6cb5f54d57296d9030e26ace95c42f8e9cb4
         </div>
+        <div className="section-img-placeholder">
+          Imagen Empresas
+        </div>
+      </div>
+          </section >
 
-        {/* Right Column / Sidebar */}
-        <aside className="explicacion-sidebar">
-          {/* Categorías de Talento */}
-          <section className="sidebar-section categories">
+    {/* Blog & Recursos */ }
+    < section className = "section-card blog-recursos" >
+      <div className="section-flex">
+        <div className="section-info">
+          <h2>¿Vas a crear tu portafolio?</h2>
+          <ul className="link-list">
+            <li>
+              <Link to="/Consejos" style={{ textDecoration: 'none', color: 'inherit' }}>
+                &rsaquo; Consejos para tu portafolio
+              </Link>
+            </li>
+          </ul>
+        </div>
+        <div className="section-img-placeholder">
+          Imagen Blog
+        </div>
+      </div>
+          </section >
+        </div >
+
+    {/* Right Column / Sidebar */ }
+    < aside className = "explicacion-sidebar" >
+      {/* Categorías de Talento */ }
+      < section className = "sidebar-section categories" >
             <h3>Categorías de Talento</h3>
             <ul className="category-list">
               <li><span className="cat-icon tech">💻</span> Tecnologías</li>
@@ -76,10 +114,10 @@ function CompExplicacion() {
               <li><span className="cat-icon entertainment">🎭</span> Arte y entretenimiento</li>
               <li><span className="cat-icon education">📚</span> Educación</li>
             </ul>
-          </section>
+          </section >
 
-          {/* Reseñas & Valoraciones */}
-          <section className="sidebar-section reviews">
+    {/* Reseñas & Valoraciones */ }
+    < section className = "sidebar-section reviews" >
             <h3>Reseñas & Valoraciones</h3>
             <div className="review-card">
               <div className="review-header">
@@ -92,10 +130,10 @@ function CompExplicacion() {
               <p>Excelente profesional. Muy recomendable!</p>
               <div className="stars-mini">★★★★★</div>
             </div>
-          </section>
+          </section >
 
-          {/* Cómo Funciona */}
-          <section className="sidebar-section how-it-works">
+    {/* Cómo Funciona */ }
+    < section className = "sidebar-section how-it-works" >
             <h3>Cómo Funciona</h3>
             <div className="steps-container">
               <div className="step">
@@ -116,21 +154,30 @@ function CompExplicacion() {
             <Link to="/ComoFunciona">
               <button className="btn-green">Leer más &rsaquo;</button>
             </Link>
+<<<<<<< HEAD
           </section>
+=======
+          </section >
+>>>>>>> be5a6cb5f54d57296d9030e26ace95c42f8e9cb4
 
-          {/* Únete a la Plataforma */}
-          <section className="sidebar-section join-platform">
+    {/* Únete a la Plataforma */ }
+    < section className = "sidebar-section join-platform" >
             <h3>Únete a la Plataforma</h3>
             <div className="join-buttons">
-              <button className="btn-blue-dark">Registro Talentos &rsaquo;</button>
+              <Link to="/perfil-usuario">
+                <button className="btn-blue-dark">Registro Talentos &rsaquo;</button>
+              </Link>
             </div>
-          </section>
+          </section >
 
-          {/* Contacto & Soporte */}
-          <section className="sidebar-section contact-support">
+    {/* Contacto & Soporte */ }
+    < section className = "sidebar-section contact-support" >
             <h3>Contacto & Soporte</h3>
             <div className="contact-links">
+<<<<<<< HEAD
               <p><span className="icon">💬</span> Preguntas Frecuentes</p>
+=======
+>>>>>>> be5a6cb5f54d57296d9030e26ace95c42f8e9cb4
               <Link to="/pagina-contacto" style={{ textDecoration: 'none', color: 'inherit', display: 'block' }}>
                 <p style={{ margin: 0 }}><span className="icon">✉️</span> Escríbenos</p>
               </Link>
@@ -147,10 +194,10 @@ function CompExplicacion() {
                 <span className="soc-icon">S</span>
               </div>
             </div>
-          </section>
-        </aside>
-      </div>
-    </div>
+          </section >
+        </aside >
+      </div >
+    </div >
   )
 }
 

@@ -47,9 +47,13 @@ function ModalPreviewPortafolio({ portafolio, nombrePropietario, onClose }) {
         </div>
       )
     }
-    return portafolio.componentes.map((compName, index) => {
-      const Comp = CONTENEDORES[compName]
-      return Comp ? <Comp key={index} /> : null
+    return portafolio.componentes.map((comp, index) => {
+      const isObject = typeof comp === 'object' && comp !== null
+      const type = isObject ? comp.type : comp
+      const initialData = isObject ? comp.data : null
+      
+      const Comp = CONTENEDORES[type]
+      return Comp ? <Comp key={index} initialData={initialData} /> : null
     })
   }
 
@@ -158,13 +162,16 @@ function ModalPreviewPortafolio({ portafolio, nombrePropietario, onClose }) {
               <div style={{ display: 'flex', flexWrap: 'wrap', gap: '6px' }}>
                 {(portafolio.componentes || []).length === 0
                   ? <span style={{ fontSize: '13px', color: '#94a3b8' }}>Ninguna</span>
-                  : portafolio.componentes.map((c, i) => (
-                    <span key={i} style={{
-                      padding: '4px 10px', borderRadius: '9999px',
-                      background: 'rgba(16,185,129,0.1)', color: '#059669',
-                      fontSize: '12px', fontWeight: '600'
-                    }}>{c}</span>
-                  ))
+                  : portafolio.componentes.map((c, i) => {
+                    const name = typeof c === 'object' && c !== null ? c.type : c
+                    return (
+                      <span key={i} style={{
+                        padding: '4px 10px', borderRadius: '9999px',
+                        background: 'rgba(16,185,129,0.1)', color: '#059669',
+                        fontSize: '12px', fontWeight: '600'
+                      }}>{name}</span>
+                    )
+                  })
                 }
               </div>
             </div>
@@ -393,14 +400,17 @@ const TabladePortafolios = () => {
                         <span className="text-xs text-slate-400 italic">Sin estructuras</span>
                       ) : (
                         <div className="flex flex-wrap gap-1">
-                          {portafolio.componentes.slice(0, 2).map((c, i) => (
-                            <span
-                              key={i}
-                              className="inline-flex items-center px-2 py-0.5 rounded-full text-[10px] font-medium bg-slate-100 dark:bg-slate-800 text-slate-600 dark:text-slate-400"
-                            >
-                              {c}
-                            </span>
-                          ))}
+                          {portafolio.componentes.slice(0, 2).map((c, i) => {
+                            const name = typeof c === 'object' && c !== null ? c.type : c
+                            return (
+                              <span
+                                key={i}
+                                className="inline-flex items-center px-2 py-0.5 rounded-full text-[10px] font-medium bg-slate-100 dark:bg-slate-800 text-slate-600 dark:text-slate-400"
+                              >
+                                {name}
+                              </span>
+                            )
+                          })}
                           {portafolio.componentes.length > 2 && (
                             <span className="inline-flex items-center px-2 py-0.5 rounded-full text-[10px] font-medium bg-slate-100 dark:bg-slate-800 text-slate-500">
                               +{portafolio.componentes.length - 2} más

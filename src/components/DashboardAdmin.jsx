@@ -3,16 +3,30 @@ import Fetch from '../services/Fetch'
 
 const DashboardAdmin = () => {
   const [usuarios, setUsuarios] = useState([])
+<<<<<<< HEAD
+  const [portafolios,setPortafolios] = useState([])
+=======
+>>>>>>> be5a6cb5f54d57296d9030e26ace95c42f8e9cb4
   const [respuestas, setRespuestas] = useState([])
 
   useEffect(() => {
     async function traerDatos() {
       try {
+<<<<<<< HEAD
+        const [listaUsuarios, listaPortafolios, listaRespuestas] = await Promise.all([
+          Fetch.getData("usuarios"),
+          Fetch.getData("portafolios"),
+          Fetch.getData("respuestas_convocatorias")
+        ]);
+        setUsuarios(listaUsuarios || [])
+        setPortafolios(listaPortafolios || [])
+=======
         const [listaUsuarios, listaRespuestas] = await Promise.all([
           Fetch.getData("usuarios"),
           Fetch.getData("respuestas_convocatorias")
         ]);
         setUsuarios(listaUsuarios || [])
+>>>>>>> be5a6cb5f54d57296d9030e26ace95c42f8e9cb4
         setRespuestas(listaRespuestas || [])
       } catch (error) {
         console.error("Error trayendo datos del dashboard", error)
@@ -48,6 +62,21 @@ const DashboardAdmin = () => {
           <div className="flex items-center gap-4">
             <div className="bg-blue-500/10 text-blue-500 p-3 rounded-lg">
               <span className="material-symbols-outlined text-3xl">check_circle</span>
+<<<<<<< HEAD
+            </div>
+            <div>
+              <p className="text-xs font-bold text-slate-500 uppercase tracking-wider">Aceptaron Convocatoria</p>
+              <h3 className="text-4xl font-black text-slate-900 dark:text-white leading-tight">{participanTab.length}</h3>
+            </div>
+          </div>
+        </div>
+
+        <div className="bg-white dark:bg-slate-900 p-6 rounded-xl border border-slate-200 dark:border-slate-800 shadow-sm flex flex-col justify-center transition-all hover:shadow-md border-l-4 border-l-slate-400">
+          <div className="flex items-center gap-4">
+            <div className="bg-slate-500/10 text-slate-500 p-3 rounded-lg">
+              <span className="material-symbols-outlined text-3xl">cancel</span>
+=======
+>>>>>>> be5a6cb5f54d57296d9030e26ace95c42f8e9cb4
             </div>
             <div>
               <p className="text-xs font-bold text-slate-500 uppercase tracking-wider">Aceptaron Convocatoria</p>

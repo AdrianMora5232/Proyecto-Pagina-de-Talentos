@@ -30,6 +30,42 @@ function CompExplicacion() {
     <button className="btn-outline">Ver más &rsaquo;</button>
           </section >
 
+<<<<<<< HEAD
+          {/* Para Empresas & Reclutadores */}
+          <section className="section-card empresas-reclutadores">
+            <div className="section-flex">
+              <div className="section-info">
+                <h2>Para Empresas & Reclutadores</h2>
+                <ul className="info-list">
+                  <li><span className="icon">🔍</span> Encuentra el talento ideal</li>
+                  <li><span className="icon">📞</span> Contacta con los talentos de inmediato</li>
+                </ul>
+              </div>
+              <div className="section-img-placeholder">
+                Imagen Empresas
+              </div>
+            </div>
+          </section>
+
+          {/* Blog & Recursos */}
+          <section className="section-card blog-recursos">
+            <div className="section-flex">
+              <div className="section-info">
+                <h2>¿Vas a crear tu portafolio?</h2>
+                <ul className="link-list">
+                  <li>
+                    <Link to="/Consejos" style={{ textDecoration: 'none', color: 'inherit' }}>
+                      &rsaquo; Consejos para tu portafolio
+                    </Link>
+                  </li>
+                </ul>
+              </div>
+              <div className="section-img-placeholder">
+                Imagen Blog
+              </div>
+            </div>
+          </section>
+=======
     {/* Para Empresas & Reclutadores */ }
     < section className = "section-card empresas-reclutadores" >
       <div className="section-flex">
@@ -39,6 +75,7 @@ function CompExplicacion() {
             <li><span className="icon">🔍</span> Encuentra el talento ideal</li>
             <li><span className="icon">📞</span> Contacta con los talentos de inmediato</li>
           </ul>
+>>>>>>> be5a6cb5f54d57296d9030e26ace95c42f8e9cb4
         </div>
         <div className="section-img-placeholder">
           Imagen Empresas
@@ -117,7 +154,11 @@ function CompExplicacion() {
             <Link to="/ComoFunciona">
               <button className="btn-green">Leer más &rsaquo;</button>
             </Link>
+<<<<<<< HEAD
+          </section>
+=======
           </section >
+>>>>>>> be5a6cb5f54d57296d9030e26ace95c42f8e9cb4
 
     {/* Únete a la Plataforma */ }
     < section className = "sidebar-section join-platform" >
@@ -133,6 +174,10 @@ function CompExplicacion() {
     < section className = "sidebar-section contact-support" >
             <h3>Contacto & Soporte</h3>
             <div className="contact-links">
+<<<<<<< HEAD
+              <p><span className="icon">💬</span> Preguntas Frecuentes</p>
+=======
+>>>>>>> be5a6cb5f54d57296d9030e26ace95c42f8e9cb4
               <Link to="/pagina-contacto" style={{ textDecoration: 'none', color: 'inherit', display: 'block' }}>
                 <p style={{ margin: 0 }}><span className="icon">✉️</span> Escríbenos</p>
               </Link>

@@ -22,10 +22,7 @@ function MainSobreNosotros() {
                         dentro de su comunidad, utilizando herramientas tecnológicas modernas que faciliten la exposición de 
                         habilidades, portafolios y experiencia de manera accesible e intuitiva.
                     </p>
-                    <div className="hero-buttons">
-                        <button className="btn-primary">Ver portafolios</button>
-                        {/*<button className="btn-secondary">Ver portafolios</button>*/}
-                    </div>
+                
                 </div>
             </section>
 

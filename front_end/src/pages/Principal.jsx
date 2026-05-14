@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from 'react'
 import CompPrincipal from '../components/ApartadoPaginaPrincipal/CompPrincipal'
 import Navbar from '../components/navbar/Navbar'
-import Footer from '../components/Footer/Footer'
+import Footer from '../components/ApartadoPaginaPrincipal/Footer'
 import Fetch from '../services/Fetch'
 import '../styles/Principales/Principal.css'
 

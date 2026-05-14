@@ -154,10 +154,334 @@
         }
       ],
       "titulo": "Prototipo de Modelado 3D",
-      "descripcion": "Modelado de personaje para videojuego",
+      "descripcion": "Modelado de personaje para videojuego, implementando las técnicas de escultura digital más avanzadas, creando personajes detallados y realistas con texturas y materiales de alta calidad.",
       "pdf": "https://res.cloudinary.com/dyy1yqvbv/raw/upload/v1774891689/imotsgcmdou0k2uqftqv",
       "imgPortada": "https://res.cloudinary.com/dyy1yqvbv/image/upload/v1774891688/fxjzhf9kisqkx9ewpppm.jpg",
       "nombreUsuario": "Maria Jesus chavarria"
+    },
+    {
+      "id": "af4f",
+      "usuarioId": "f898",
+      "componentes": [
+        {
+          "id": "097df3c7-4410-4335-b441-ab7219da168c",
+          "type": "Estructura1",
+          "data": {
+            "texto": "Tattoo Portfolio",
+            "colorTexto": "#ffffff",
+            "colorFondo": "",
+            "imageUrl": "https://res.cloudinary.com/dyy1yqvbv/image/upload/v1778275166/orqvxcd1thjzeb7nsp6o.jpg",
+            "fontSize": "16px",
+            "bold": false,
+            "italic": false,
+            "align": "left",
+            "childColorFondo": "",
+            "childImageUrl": ""
+          }
+        },
+        {
+          "id": "b3c15cb7-525b-482c-87a6-886acd9cef5f",
+          "type": "GrillaDoble",
+          "data": {
+            "texto": "",
+            "colorTexto": "#1a202c",
+            "colorFondo": "",
+            "imageUrl": "",
+            "fontSize": "16px",
+            "bold": false,
+            "italic": false,
+            "align": "left",
+            "childColorFondo": "",
+            "childImageUrl": "",
+            "bloque1": {
+              "id": "editable-1629",
+              "texto": " ",
+              "colorTexto": "#1a202c",
+              "colorFondo": "",
+              "imageUrl": "https://res.cloudinary.com/dyy1yqvbv/image/upload/v1778275212/zdgieaimrvc571vwh9o4.jpg"
+            },
+            "bloque2": {
+              "id": "editable-1630",
+              "texto": "",
+              "colorTexto": "#1a202c",
+              "colorFondo": "",
+              "imageUrl": "https://res.cloudinary.com/dyy1yqvbv/image/upload/v1778275221/sjee8gwv7v0x8c5o7nd3.jpg"
+            },
+            "fondo": {
+              "id": "editable-1628",
+              "texto": "",
+              "colorTexto": "#1a202c",
+              "colorFondo": "#212121",
+              "imageUrl": ""
+            }
+          }
+        },
+        {
+          "id": "5f6897fd-195b-4b0f-876e-42d0c3a2596b",
+          "type": "GrillaTriple",
+          "data": {
+            "texto": "",
+            "colorTexto": "#1a202c",
+            "colorFondo": "",
+            "imageUrl": "",
+            "fontSize": "16px",
+            "bold": false,
+            "italic": false,
+            "align": "left",
+            "childColorFondo": "",
+            "childImageUrl": "",
+            "bloque1": {
+              "id": "editable-1643",
+              "texto": " ",
+              "colorTexto": "#1a202c",
+              "colorFondo": "",
+              "imageUrl": "https://res.cloudinary.com/dyy1yqvbv/image/upload/v1778275233/xugqwf2cnbhzjxbf9evd.jpg"
+            },
+            "bloque2": {
+              "id": "editable-1644",
+              "texto": " ",
+              "colorTexto": "#1a202c",
+              "colorFondo": "",
+              "imageUrl": "https://res.cloudinary.com/dyy1yqvbv/image/upload/v1778275349/ewtftukmg4w64gfarwbt.jpg"
+            },
+            "bloque3": {
+              "id": "editable-1645",
+              "texto": " ",
+              "colorTexto": "#1a202c",
+              "colorFondo": "",
+              "imageUrl": "https://res.cloudinary.com/dyy1yqvbv/image/upload/v1778275262/tvikp3vd15wpcbjerzob.jpg"
+            },
+            "fondo": {
+              "id": "editable-1642",
+              "texto": "",
+              "colorTexto": "#1a202c",
+              "colorFondo": "#212121",
+              "imageUrl": ""
+            }
+          }
+        }
+      ],
+      "titulo": "Tattoo Portfolio",
+      "descripcion": "Tattoo studio",
+      "pdf": "https://res.cloudinary.com/dyy1yqvbv/raw/upload/v1778275462/uzz9igpmrjagro6pihuk",
+      "imgPortada": "https://res.cloudinary.com/dyy1yqvbv/image/upload/v1778275460/upydycyhqbyybotsjzyt.jpg",
+      "nombreUsuario": "Alejandro"
+    },
+    {
+      "id": "af4f",
+      "usuarioId": "f898",
+      "componentes": [
+        {
+          "id": "097df3c7-4410-4335-b441-ab7219da168c",
+          "type": "Estructura1",
+          "data": {
+            "texto": "Tattoo Portfolio",
+            "colorTexto": "#ffffff",
+            "colorFondo": "",
+            "imageUrl": "https://res.cloudinary.com/dyy1yqvbv/image/upload/v1778275166/orqvxcd1thjzeb7nsp6o.jpg",
+            "fontSize": "16px",
+            "bold": false,
+            "italic": false,
+            "align": "left",
+            "childColorFondo": "",
+            "childImageUrl": ""
+          }
+        },
+        {
+          "id": "b3c15cb7-525b-482c-87a6-886acd9cef5f",
+          "type": "GrillaDoble",
+          "data": {
+            "texto": "",
+            "colorTexto": "#1a202c",
+            "colorFondo": "",
+            "imageUrl": "",
+            "fontSize": "16px",
+            "bold": false,
+            "italic": false,
+            "align": "left",
+            "childColorFondo": "",
+            "childImageUrl": "",
+            "bloque1": {
+              "id": "editable-1629",
+              "texto": " ",
+              "colorTexto": "#1a202c",
+              "colorFondo": "",
+              "imageUrl": "https://res.cloudinary.com/dyy1yqvbv/image/upload/v1778275212/zdgieaimrvc571vwh9o4.jpg"
+            },
+            "bloque2": {
+              "id": "editable-1630",
+              "texto": "",
+              "colorTexto": "#1a202c",
+              "colorFondo": "",
+              "imageUrl": "https://res.cloudinary.com/dyy1yqvbv/image/upload/v1778275221/sjee8gwv7v0x8c5o7nd3.jpg"
+            },
+            "fondo": {
+              "id": "editable-1628",
+              "texto": "",
+              "colorTexto": "#1a202c",
+              "colorFondo": "#212121",
+              "imageUrl": ""
+            }
+          }
+        },
+        {
+          "id": "5f6897fd-195b-4b0f-876e-42d0c3a2596b",
+          "type": "GrillaTriple",
+          "data": {
+            "texto": "",
+            "colorTexto": "#1a202c",
+            "colorFondo": "",
+            "imageUrl": "",
+            "fontSize": "16px",
+            "bold": false,
+            "italic": false,
+            "align": "left",
+            "childColorFondo": "",
+            "childImageUrl": "",
+            "bloque1": {
+              "id": "editable-1643",
+              "texto": " ",
+              "colorTexto": "#1a202c",
+              "colorFondo": "",
+              "imageUrl": "https://res.cloudinary.com/dyy1yqvbv/image/upload/v1778275233/xugqwf2cnbhzjxbf9evd.jpg"
+            },
+            "bloque2": {
+              "id": "editable-1644",
+              "texto": " ",
+              "colorTexto": "#1a202c",
+              "colorFondo": "",
+              "imageUrl": "https://res.cloudinary.com/dyy1yqvbv/image/upload/v1778275349/ewtftukmg4w64gfarwbt.jpg"
+            },
+            "bloque3": {
+              "id": "editable-1645",
+              "texto": " ",
+              "colorTexto": "#1a202c",
+              "colorFondo": "",
+              "imageUrl": "https://res.cloudinary.com/dyy1yqvbv/image/upload/v1778275262/tvikp3vd15wpcbjerzob.jpg"
+            },
+            "fondo": {
+              "id": "editable-1642",
+              "texto": "",
+              "colorTexto": "#1a202c",
+              "colorFondo": "#212121",
+              "imageUrl": ""
+            }
+          }
+        }
+      ],
+      "titulo": "Tattoo Portfolio",
+      "descripcion": "Tattoo studio",
+      "pdf": "https://res.cloudinary.com/dyy1yqvbv/raw/upload/v1778275462/uzz9igpmrjagro6pihuk",
+      "imgPortada": "https://res.cloudinary.com/dyy1yqvbv/image/upload/v1778275460/upydycyhqbyybotsjzyt.jpg",
+      "nombreUsuario": "Alejandro"
+    },
+    {
+      "id": "af4f",
+      "usuarioId": "f898",
+      "componentes": [
+        {
+          "id": "097df3c7-4410-4335-b441-ab7219da168c",
+          "type": "Estructura1",
+          "data": {
+            "texto": "Tattoo Portfolio",
+            "colorTexto": "#ffffff",
+            "colorFondo": "",
+            "imageUrl": "https://res.cloudinary.com/dyy1yqvbv/image/upload/v1778275166/orqvxcd1thjzeb7nsp6o.jpg",
+            "fontSize": "16px",
+            "bold": false,
+            "italic": false,
+            "align": "left",
+            "childColorFondo": "",
+            "childImageUrl": ""
+          }
+        },
+        {
+          "id": "b3c15cb7-525b-482c-87a6-886acd9cef5f",
+          "type": "GrillaDoble",
+          "data": {
+            "texto": "",
+            "colorTexto": "#1a202c",
+            "colorFondo": "",
+            "imageUrl": "",
+            "fontSize": "16px",
+            "bold": false,
+            "italic": false,
+            "align": "left",
+            "childColorFondo": "",
+            "childImageUrl": "",
+            "bloque1": {
+              "id": "editable-1629",
+              "texto": " ",
+              "colorTexto": "#1a202c",
+              "colorFondo": "",
+              "imageUrl": "https://res.cloudinary.com/dyy1yqvbv/image/upload/v1778275212/zdgieaimrvc571vwh9o4.jpg"
+            },
+            "bloque2": {
+              "id": "editable-1630",
+              "texto": "",
+              "colorTexto": "#1a202c",
+              "colorFondo": "",
+              "imageUrl": "https://res.cloudinary.com/dyy1yqvbv/image/upload/v1778275221/sjee8gwv7v0x8c5o7nd3.jpg"
+            },
+            "fondo": {
+              "id": "editable-1628",
+              "texto": "",
+              "colorTexto": "#1a202c",
+              "colorFondo": "#212121",
+              "imageUrl": ""
+            }
+          }
+        },
+        {
+          "id": "5f6897fd-195b-4b0f-876e-42d0c3a2596b",
+          "type": "GrillaTriple",
+          "data": {
+            "texto": "",
+            "colorTexto": "#1a202c",
+            "colorFondo": "",
+            "imageUrl": "",
+            "fontSize": "16px",
+            "bold": false,
+            "italic": false,
+            "align": "left",
+            "childColorFondo": "",
+            "childImageUrl": "",
+            "bloque1": {
+              "id": "editable-1643",
+              "texto": " ",
+              "colorTexto": "#1a202c",
+              "colorFondo": "",
+              "imageUrl": "https://res.cloudinary.com/dyy1yqvbv/image/upload/v1778275233/xugqwf2cnbhzjxbf9evd.jpg"
+            },
+            "bloque2": {
+              "id": "editable-1644",
+              "texto": " ",
+              "colorTexto": "#1a202c",
+              "colorFondo": "",
+              "imageUrl": "https://res.cloudinary.com/dyy1yqvbv/image/upload/v1778275349/ewtftukmg4w64gfarwbt.jpg"
+            },
+            "bloque3": {
+              "id": "editable-1645",
+              "texto": " ",
+              "colorTexto": "#1a202c",
+              "colorFondo": "",
+              "imageUrl": "https://res.cloudinary.com/dyy1yqvbv/image/upload/v1778275262/tvikp3vd15wpcbjerzob.jpg"
+            },
+            "fondo": {
+              "id": "editable-1642",
+              "texto": "",
+              "colorTexto": "#1a202c",
+              "colorFondo": "#212121",
+              "imageUrl": ""
+            }
+          }
+        }
+      ],
+      "titulo": "Tattoo Portfolio",
+      "descripcion": "Tattoo studio",
+      "pdf": "https://res.cloudinary.com/dyy1yqvbv/raw/upload/v1778275462/uzz9igpmrjagro6pihuk",
+      "imgPortada": "https://res.cloudinary.com/dyy1yqvbv/image/upload/v1778275460/upydycyhqbyybotsjzyt.jpg",
+      "nombreUsuario": "Alejandro"
     },
     {
       "id": "af4f",

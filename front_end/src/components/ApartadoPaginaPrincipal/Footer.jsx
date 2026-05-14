@@ -7,9 +7,7 @@ function Footer() {
     <footer className="footer-container">
       
       <div className="footer-content">
-        <div className="footer-brand">
-          Krea
-        </div>
+        
         
         <div className="footer-schedule">
           <div className="schedule-info">

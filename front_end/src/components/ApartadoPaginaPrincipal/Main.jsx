@@ -1,59 +1,55 @@
+import React, { useRef } from 'react';
+import { useNavigate } from 'react-router-dom';
+import '../../styles/Principales/InicioPagina.css';
+import foto1 from '../../imagenes/foto1.png';
+import ProjectShowcase from './ProjectShowcase';
 
-import React from 'react'
-import '../../styles/Principales/InicioPagina.css'
+function Main() {
+  const navigate = useNavigate();
+  const showcaseRef = useRef(null);
 
-import { useNavigate } from 'react-router-dom'
-function InicioPagina() {
-  const navigate = useNavigate()
-  const irsesion = () => {
-    navigate("/Iniciar")
-  }
   const ircuenta = () => {
-    navigate("Registro")
-  }
+    navigate("Registro");
+  };
 
+  const scrollToShowcase = () => {
+    showcaseRef.current?.scrollIntoView({ behavior: 'smooth' });
+  };
 
   return (
-    <div>
-      {/* Div de navegacion de la pagina principal */}
-      <div className='DivNavbar'>
-        <nav className='navbar'>
-          <div className='Brand' onClick={() => navigate("/")}>
-            <h3 className='BrandName'>Krea</h3>
-          </div>
-          <div className='nav-session-btns'>
-            <button className='BtnLogin' onClick={irsesion}>Iniciar Sesión</button>
-            <button className='BtnRegister' onClick={ircuenta}>Registrarse</button>
-          </div>
-        </nav>
-      </div>
-      <br />
+    <main>
       <div className='HeroWrapper'>
-        <button className='BotonPerfil' onClick={ircuenta}>
-          <strong>Crea tu perfil profesional</strong>
-        </button>
-        <br />
-        <br />
         
         {/* Div de presentacion de la pagina */}
         <div className='DivPresentacion'>
           <div className='Descripcion'>
-            <h2> <strong>Muestra tu Talento</strong> </h2>
-            <h3 className='Subtitulo'> <strong>A Todo el Mundo</strong></h3>
-            <div className='ParrafosContainer'>
-              <p>Nuestra página de talentos es una plataforma digital integral creada para centralizar, visibilizar y potenciar el talento profesional en un solo espacio.
-                Funciona como un punto de encuentro entre personas con habilidades, conocimientos y experiencia, y empresas o clientes que buscan perfiles confiables y especializados.</p>
-              <p>A través de la plataforma, cada talento puede crear un perfil profesional personalizado, mostrar su portafolio, destacar sus habilidades, experiencia y logros, y proyectar una imagen clara y competitiva en el entorno digital.
-                Al mismo tiempo, las empresas y reclutadores pueden explorar, filtrar y contactar talentos de forma rápida y eficiente según sus necesidades.</p>
+            <div className='EliteBadge'>ÚNETE A LA COMUNIDAD CREATIVA</div>
+            <h1 className='HeroTitle'>
+              Destaca tu talento <br />
+              <span className='HeroAccent'>ante el mundo</span>
+            </h1>
+            <p className='HeroDescription'>
+              Sube tus proyectos, conecta con clientes potenciales y construye un portafolio profesional en minutos. La plataforma definitiva para que los creativos sean descubiertos.
+            </p>
+            <div className='HeroButtons'>
+              <button className='BtnPrimary' onClick={ircuenta}>
+                Empieza ahora <span className='ArrowIcon'>→</span>
+              </button>
+              <button className='BtnSecondary' onClick={scrollToShowcase}>
+                Ver ejemplos
+              </button>
             </div>
           </div>
           <div className='DivImagen'>
-            <img className='ImagenPrincipal' src="https://png.pngtree.com/background/20241027/original/pngtree-relaxing-painting-on-canvas-man-person-abstract-photo-picture-image_11047608.jpg" alt="Talent showcase" />
+            <div className='ImageContainer'>
+              <img className='ImagenPrincipal' src={foto1} alt="Portfolio grid mockup" />
+            </div>
           </div>
         </div>
       </div>
-      <br />
-      <br />
+
+      {/* New Project Showcase Section */}
+      <ProjectShowcase showcaseRef={showcaseRef} />
 
       {/* Div para descripcion*/}
       <div className='DivDescrip'>
@@ -87,10 +83,8 @@ function InicioPagina() {
           <p className='FeatureText'>Crea una presencia online profesional de forma rápida con nuestro constructor intuitivo. Personalización total en clics.</p>
         </div>
       </div>
-
-    </div>
-  )
+    </main>
+  );
 }
 
-export default InicioPagina
-
+export default Main;

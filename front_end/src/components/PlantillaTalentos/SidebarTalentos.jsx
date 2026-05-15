@@ -96,7 +96,7 @@ function SidebarTalentos({ actEst1, actEst1_1, actEst1_2, actEst1_3, actEst1_4, 
           <span>Grilla Doble</span>
         </div>
 
-        
+
         <div className="sidebartalentos__layout" onClick={actGrillaTriple}>
           <div className="sidebartalentos__layout-preview layout-3-cols">
 

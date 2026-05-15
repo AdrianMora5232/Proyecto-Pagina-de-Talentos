@@ -1,46 +1,32 @@
 'use strict';
 
+/** @type {import('sequelize-cli').Migration} */
 module.exports = {
   async up(queryInterface, Sequelize) {
-    await queryInterface.createTable('usuarios', {
-      id_usuario: {
+    await queryInterface.createTable('miembros', {
+      id_miembro: {
         type: Sequelize.INTEGER,
         primaryKey: true,
         autoIncrement: true,
-        allowNull: false
       },
-
-      nombre_usuario: {
-        type: Sequelize.STRING(100),
-        allowNull: false
-      },
-
-      email_usuario: {
-        type: Sequelize.STRING(100),
-        allowNull: false,
-        unique: true
-      },
-
-      clave_usuario: {
-        type: Sequelize.STRING(100),
-        allowNull: false
-      },
-
-      createdAt: {
+      Fecha: {
         type: Sequelize.DATE,
+        allowNull: false
+      },
+      createdAt: {
         allowNull: false,
+        type: Sequelize.DATE,
         defaultValue: Sequelize.literal('CURRENT_TIMESTAMP')
       },
-
       updatedAt: {
-        type: Sequelize.DATE,
         allowNull: false,
+        type: Sequelize.DATE,
         defaultValue: Sequelize.literal('CURRENT_TIMESTAMP')
       }
     });
   },
 
   async down(queryInterface, Sequelize) {
-    await queryInterface.dropTable('usuarios');
+    await queryInterface.dropTable('miembros');
   }
 };

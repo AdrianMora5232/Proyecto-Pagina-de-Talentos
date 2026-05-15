@@ -63,7 +63,8 @@ module.exports = {
     Componentes_estilos,
     Participante_convo,
     Convocatorias, 
-    Reporte_convo
+    Reporte_convo,
+    Tipo_convo
 
 
 }

@@ -19,10 +19,22 @@ Usuario.init({
         allowNull: false,
         unique: true
     },
-    clave_usuario: {
-        type: DataTypes.STRING(100),
+    telefono_usuario:{
+        type: DataTypes.STRING(50),
+        allowNull: true
+    },
+ 
+    contrasena_usuario : {
+        type : DataTypes.STRING(35),
         allowNull: false
-    }
+    },
+    imagen_perfil_usuario : {
+        type : DataTypes.TEXT,
+        allowNull: true
+    },
+
+
+  
 }, {
     sequelize,
     modelName: "Usuario",
